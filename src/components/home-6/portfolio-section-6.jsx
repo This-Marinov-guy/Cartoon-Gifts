@@ -77,14 +77,10 @@ const PortfolioSectionSix = () => {
                     <div className="carousel_item">
                       <div className="portfolio_item layout_grid text-center">
                         <div className="item_image">
-                          <Link href={`/portfolio-details/${item.id}`}>
                             <Image src={item.image} style={{ width: "100%", height: "auto" }} alt="Paradox Portfolio Image" />
-                          </Link>
                         </div>
                         <div className="item_content">
-                          <ul className="category_list unordered_list_center">
-                            <li><Link href="/blog-classic">{item.catagory_list}</Link></li>
-                          </ul>
+                  
                           <h3 className="item_title mb-0">
                             <Link href={`/portfolio-details/${item.id}`}>
                               {item.title}

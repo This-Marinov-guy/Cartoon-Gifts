@@ -1,12 +1,14 @@
+import React, { useState } from 'react';
+import SuccessComp from '@components/common/success/SuccessComp';
 import NiceSelect from '@ui/niceSelect';
 import Link from 'next/link';
-import React from 'react';
 
 const ContactSection = () => {
+  const [isSuccess, setIsSuccess] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
   }
-  const selectHandler = e => {}
+  const selectHandler = e => { }
 
   return (
     <section className="contact_section section_space_lg">
@@ -24,7 +26,7 @@ const ContactSection = () => {
         <div className="row">
           <div className="col col-lg-6">
             <div className="contact_form">
-              <form onSubmit={handleSubmit} action="#">
+              {isSuccess ? <SuccessComp /> : <form onSubmit={handleSubmit} action="#">
                 <div className="row">
                   <div className="col col-md-6">
                     <div className="form-group m-0">
@@ -106,13 +108,13 @@ const ContactSection = () => {
                     </button>
                   </div>
                 </div>
-              </form>
+              </form>}
             </div>
           </div>
           <div className="col col-lg-6">
             <ul className="contact_info_list style_2 ps-lg-4 unordered_list_block">
               <li>
-                <strong>Loaction:</strong>
+                <strong>Location:</strong>
                 <span>1989 Timber Ridge Road Sacramento CA, California</span>
               </li>
               <li>
@@ -124,10 +126,6 @@ const ContactSection = () => {
                 <span>contact@paradox.com</span>
               </li>
               <li>
-                <strong>Opening:</strong>
-                <span>10am - 6pm, Friday Close</span>
-              </li>
-              <li>
                 <strong>Follow Us:</strong>
                 <ul className="social_icon unordered_list">
                   <li>
@@ -136,13 +134,8 @@ const ContactSection = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://twitter.com/" target="_blank">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                  </li>
-                  <li>
                     <Link href="https://www.youtube.com/" target="_blank">
-                      <i className="fab fa-youtube"></i>
+                      <i className="fab fa-instagram"></i>
                     </Link>
                   </li>
                 </ul>

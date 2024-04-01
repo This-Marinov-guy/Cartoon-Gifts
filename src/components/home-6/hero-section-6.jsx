@@ -17,8 +17,7 @@ const HeroSectionSix = () => {
           <div className="col col-lg-6 order-lg-last">
             <div className="banner_content_6 mb-5 mb-lg-0">
               <h1 className="hero_banner_heading">
-                <span className="small_title">Best IT Business In 2023</span>
-                <span className="d-block">Thinking For The Essentials For The <span className="focus_text">Next Level</span></span>
+                <span className="d-block">Get your<span className="focus_text">unique cartoon</span> with just a few clicks</span>
               </h1>
               <ul className="btns_group unordered_list">
                 <li>
@@ -29,15 +28,15 @@ const HeroSectionSix = () => {
                       </span>
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Start Cooperation</span>
-                          <span className="bd-button-text">Start Cooperation</span>
+                          <span className="bd-button-text">Make an order</span>
+                          <span className="bd-button-text">Order now</span>
                         </span>
                       </span>
                     </span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="bd-btn-link outline-dark">
+                  <Link href="/portfolio" className="bd-btn-link outline-dark">
                     <span className="bd-button-content-wrapper">
                       <span className="bd-button-icon">
                         <i className="fa-light fa-arrow-right-long"></i>
@@ -45,7 +44,7 @@ const HeroSectionSix = () => {
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
                           <span className="bd-button-text">Learn More</span>
-                          <span className="bd-button-text">Learn More</span>
+                          <span className="bd-button-text">About Us</span>
                         </span>
                       </span>
                     </span>

@@ -101,7 +101,7 @@ const settings = {
                           <Image src={item.quote_icon} style={{ width: "100%", height: "100%" }} alt="Paradox Icon Quote" />
                         </span>
                       </div>
-                      <div className="admin_item">
+                      {/* <div className="admin_item">
                         <div className="admin_thumbnail">
                           <Image src={item.thumbnail} style={{ width: "100%", height: "100%" }} alt="Admin Avatar" />
                         </div>
@@ -109,7 +109,7 @@ const settings = {
                           <h3 className="admin_name">{item.admin_name}</h3>
                           <span className="admin_designation">{item.designation}</span>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 ))

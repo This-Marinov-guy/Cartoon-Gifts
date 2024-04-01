@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const FooterSix = () => {
   return (
-    <footer className="site_footer style_5">
+    <footer className="site_footer style_5 mt-4">
       <div className="calltoaction_section style_5">
         <div className="container">
           <div className="content_box bg_primary decoration_wrap text-center">
@@ -14,18 +14,18 @@ const FooterSix = () => {
               <div className="col col-lg-7">
                 <div className="section_heading text-white">
                   <h2 className="heading_title mb-0">
-                    Let’s create something amazing together.
+                    Celebrate an occasion with us.
                   </h2>
                 </div>
-                <Link href="/contact" className="bd-btn-link btn_warning">
+                <Link href="/order" className="bd-btn-link btn_warning">
                   <span className="bd-button-content-wrapper">
                     <span className="bd-button-icon">
                       <i className="fa-light fa-arrow-right-long"></i>
                     </span>
                     <span className="pd-animation-flip">
                       <span className="bd-btn-anim-wrapp">
-                        <span className="bd-button-text">Get Started</span>
-                        <span className="bd-button-text">Get Started</span>
+                        <span className="bd-button-text">Make an order</span>
+                        <span className="bd-button-text">Order now</span>
                       </span>
                     </span>
                   </span>
@@ -49,16 +49,13 @@ const FooterSix = () => {
                   </Link>
                 </div>
                 <p>
-                  Our action plan is focused and planned. We are result oriented organization
+                  Our goal is to make people happy through art
                 </p>
                 <div className="social_wrap d-block">
-                  <h3 className="social_title">Follow Me on :</h3>
+                  <h3 className="social_title">Follow Us on :</h3>
                   <ul className="social_icon unordered_list">
                     <li><Link href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
-                    <li><Link href="https://twitter.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
-                    <li><Link href="https://www.youtube.com/" target="_blank"><i className="fab fa-youtube"></i></Link></li>
-                    <li><Link href="https://www.behance.net/" target="_blank"><i className="fab fa-behance"></i></Link></li>
-                    <li><Link href="https://dribbble.com/" target="_blank"><i className="fab fa-dribbble"></i></Link></li>
+                    <li><Link href="https://instagram.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
                   </ul>
                 </div>
               </div>
@@ -98,7 +95,7 @@ const FooterSix = () => {
           </div>
           
           <div className="copyright_widget copyright_space text-center">
-            Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> All Rights Reserved.
+            Copyright © 2024 by Cartoon Gifts. All Rights Reserved.
           </div>
         </div>
       </div>

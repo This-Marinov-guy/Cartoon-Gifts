@@ -21,8 +21,6 @@ const Index = () => {
             <ServiceSection />
             <PortfolioSection />
             <ReviewSection />
-            <BlogSection />
-            <CollectionSection />
             <Footer />
         </main>
     );

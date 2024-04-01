@@ -5,7 +5,7 @@ import HomeSixMain from "@components/home";
 export default function HomeSix(){
     return(
         <Wrapper>
-            <SEO pageTitle={'Home Six'}></SEO>
+            <SEO pageTitle={'Cartoon Gifts'}></SEO>
             <HomeSixMain/>
         </Wrapper>
     )

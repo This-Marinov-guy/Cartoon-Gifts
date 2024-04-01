@@ -89,8 +89,8 @@ const Header = () => {
                     <span className="bd-button-content-wrapper">
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Get a Quotes</span>
-                          <span className="bd-button-text">Get a Quotes</span>
+                          <span className="bd-button-text">Make an order</span>
+                          <span className="bd-button-text">Make an order</span>
                         </span>
                       </span>
                     </span>
