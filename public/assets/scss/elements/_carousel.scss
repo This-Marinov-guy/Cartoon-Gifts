@@ -1,0 +1,217 @@
+/* Carousel Style Reset - Start
+================================================== */
+.portfolio_carousel {
+	.slick-track {
+		display: flex;
+		gap: 30px;
+		@media #{$xs} {
+			gap: 15px;
+		}
+	}
+	.slick-list {
+		overflow: visible;
+	}
+}
+.portfolio_carousel-2 {
+	.slick-track {
+		display: flex;
+		gap: 30px;
+	}
+}
+.common_carousel_centered_2 {
+	.slick-list {
+		overflow: visible;
+	}
+	.slick-slide {
+		padding: 0 15px;
+	}
+}
+.portfolio_carousel_2 .slick-slide {
+	display: block;
+	padding: 0 15px;
+}
+
+// Carousel Slick Dots - Start
+ul.slick-dots {
+	margin: 0;
+	display: flex;
+	position: static;
+	padding-top: 50px;
+	align-items: center;
+	justify-content: center;
+	@media #{$xs,$sm} {
+		padding-top: 35px;
+	}
+	li {
+		width: auto;
+		height: auto;
+		margin: 0 2px;
+		display: inline-block;
+		&:not(:last-child) {
+		}
+		button {
+			margin: 0;
+			padding: 0;
+			width: 28px;
+			height: 28px;
+			display: block;
+			border-radius: 100%;
+			transition: $transition_fast;
+			border: 1px solid transparent;
+			&:before {
+				top: 50%;
+				left: 50%;
+				opacity: 1;
+				content: '';
+				width: 8px;
+				height: 8px;
+				color: transparent;
+				border-radius: 100%;
+				transform: scale(1.5);
+				background-color: $color_dark;
+				@include transform(translate(-50%, -50%));
+			}
+		}
+		&:hover,
+		&.slick-active {
+			button {
+				opacity: 1;
+				border-color: $color_dark;
+				&:before {
+					opacity: 1;
+					color: transparent;
+				}
+			}
+		}
+	}
+}
+
+ul.slick-dots li button::before {
+	content: '';
+	top: 50%;
+	left: 50%;
+	width: 8px;
+	height: 8px;
+	color: transparent;
+	border-radius: 100%;
+	transform: scale(1.5);
+	opacity: 1;
+	background-color: $color_dark;
+	line-height: inherit;
+	font-family: inherit;
+	@include transform(translate(-50%, -50%));
+}
+
+.text-white,
+.bg_primary {
+	.slick-dots {
+		li {
+			button {
+				&:before {
+					background-color: $color_white;
+				}
+			}
+			&:hover,
+			&.slick-active {
+				button {
+					border-color: $color_white;
+				}
+			}
+		}
+	}
+}
+
+.slick-dotted.slick-slider {
+	margin-bottom: 0;
+}
+// Carousel Slick Dots - End
+
+// Carousel Arrow - Start
+.carousel_arrow {
+	padding: 60px 0 0;
+	@media #{$xs,$sm} {
+		padding: 40px 0 0;
+	}
+	>li {
+		&:not(:last-child) {
+			margin-inline-end: 15px;
+		}
+	}
+	button {
+		width: 60px;
+		height: 60px;
+		display: flex;
+		overflow: hidden;
+		position: relative;
+		color: $color_dark;
+		border-radius: 100%;
+		align-items: center;
+		justify-content: center;
+		transition: $transition_fast;
+		background-color: rgba(15, 14, 14, 0.05);
+		@media #{$xs,$sm} {
+			width: 50px;
+			height: 50px;
+		}
+		&:hover {
+			color: $color_white;
+			background-color: $color_primary;
+			i {
+				animation: iconltr 0.5s forwards;
+			}
+		}
+	}
+	&.carousel_arrow_white {
+		button {
+			background-color: $color_white;
+			&:hover {
+				background-color: $color_primary;
+			}
+		}
+	}
+}
+
+.bg_primary {
+	.carousel_arrow {
+		button {
+			color: $color_white;
+			background-color: rgba(255, 255, 255, 0.12);
+			&:hover {
+				color: $color_primary;
+				background-color: $color_white;
+			}
+		}
+	}
+}
+.bg_light_2 {
+	.carousel_arrow {
+		button {
+			&:hover {
+				color: $color_white;
+				background-color: $color_danger;
+			}
+		}
+	}
+}
+
+.arrow_right_left {
+	position: relative;
+	.carousel_arrow {
+		padding: 0;
+		>li {
+			top: 50%;
+			position: absolute;
+			transform: translateY(-50%);
+			&:nth-child(1) {
+				inset-inline-start: -120px;
+			}
+			&:nth-child(2) {
+				inset-inline-end: -120px;
+			}
+		}
+	}
+}
+// Carousel Arrow - End
+
+/* Carousel Style Reset - End
+================================================== */

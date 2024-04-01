@@ -1,0 +1,77 @@
+/* CountDown Widget - Start
+================================================== */
+.countdown_timer {
+	margin: -30px;
+	>li {
+		padding: 30px;
+		position: relative;
+		&:not(:last-child) {
+			@media #{$xs} {
+				&:nth-child(2) {
+					&::after {
+						display: none;
+					}
+				}
+			}
+			@media #{$sm} {
+				&:nth-child(3) {
+					&::after {
+						display: none;
+					}
+				}
+			}
+			@media #{$xxs} {
+				&::after {
+					display: none;
+				}
+			}
+			&:after {
+				top: 50%;
+				inset-inline-end: -4px;
+				content: '';
+				width: 10px;
+				height: 26px;
+				position: absolute;
+				background-size: 100% 100%;
+				transform: translateY(-50%);
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-image: url('../../images/shapes/shape_symbol_colon.svg');
+			}
+			
+		}
+	}
+	div {
+		height: 134px;
+		display: flex;
+		min-width: 126px;
+		color: $color_white;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		border-radius: $radius_primary;
+		background-color: $color_primary;
+	}
+	strong {
+		line-height: 1;
+		font-size: 67px;
+		font-weight: 700;
+		margin: -5px 0 6px;
+		@media #{$md} {
+			font-size: 60px;
+		}
+		@media #{$xs,$sm} {
+			font-size: 50px;
+		}
+		@media #{$xxs} {
+			font-size: 45px;
+		}
+	}
+	span {
+		line-height: 1;
+		font-size: 16px;
+		text-transform: uppercase;
+	}
+}
+/* CountDown Widget - End
+================================================== */

@@ -1,0 +1,138 @@
+/* 1.2 - Template Global Reset - Start
+================================================== */
+body {
+	margin: 0px;
+	padding: 0px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.65;
+	font-style: normal;
+	color: $color_body;
+	font-family: $font_body;
+	text-rendering: optimizelegibility;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+.page_wrapper {
+	overflow: hidden;
+	position: relative;
+}
+
+iframe {
+	border: none;
+}
+
+a:focus,
+a:active,
+input,
+input:hover,
+input:focus,
+input:active,
+textarea,
+textarea:hover,
+textarea:focus,
+textarea:active {
+	outline: none;
+}
+
+embed,
+object,
+video {
+	height: auto;
+	max-width: 100%;
+}
+img {
+	border: none;
+	height: auto;
+	max-width: 100%;
+	user-select: none;
+	vertical-align: middle;
+}
+.image_wrap {
+	overflow: hidden;
+	border-radius: $radius_primary;
+	img {
+		border-radius: $radius_primary;
+	}
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	outline: 0;
+	display: inline-block;
+	text-decoration: none;
+	transition: $transition_fast;
+	&:active,
+	&:focus,
+	&:hover,
+	&:visited {
+		outline: 0;
+		text-decoration: none;
+	}
+}
+
+.fix {
+	overflow: hidden;
+}
+
+button {
+	padding: 0;
+	border: none;
+	outline: none;
+	background: none;
+	display: inline-block;
+	transition: $transition_fast;
+	&:focus {
+		outline: none;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+	color: $color_dark;
+	font-family: $font_heading;
+	line-height: 1.2;
+}
+
+hr {
+	opacity: 0.1;
+	margin: 30px 0;
+	background-color: $color_dark;
+}
+
+.fa {
+	font-family: 'Font Awesome 5 Brands';
+}
+
+.container {
+	max-width: 1320px;
+	padding-inline-start: 15px;
+	padding-inline-end: 15px;
+}
+.container-fluid {
+	padding-inline-start: 30px;
+	padding-inline-end: 30px;
+}
+.row {
+	margin: -15px;
+}
+.col {
+	flex: unset;
+	padding: 15px;
+}
+
+.layer {
+	position: relative !important;
+}
+[type="email"], [type="number"], [type="tel"], [type="url"] {
+	@include rtl {
+		direction: rtl;
+	}
+}
+/* 1.2 - Template Global Reset - End
+================================================== */

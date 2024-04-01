@@ -1,0 +1,34 @@
+/*
+:root,
+[data-bs-theme=light] {
+  --px-theme:	#0788FF;
+  --px-theme-2:	#9900FF;
+  --px-bg:	#fff;
+  --px-text:	#666666;
+  --px-heading:	#0A0911;
+  --px-white:	#fff;
+  --px-gray:	rgba(11, 11, 19, 0.1);
+  --px-gray-bg:	#f7f7ff;
+  --px-rounded: 16px;
+  --px-g:	linear-gradient(90deg, var(--px-theme) 0%, var(--px-theme-2) 100%), var(--px-white);
+}
+
+[data-bs-theme=dark] {
+  --px-bg:	#10101a;
+  --px-text:	#7F8287;
+  --px-heading:	#fff;
+  --px-gray:	rgba(255, 255, 255, 0.1);
+  --px-gray-bg:	#0b0b13;
+}
+
+[data-bs-theme=dark] .logo-light {
+  display: block;
+}
+
+.logo-dark {
+  display: block;
+}
+[data-bs-theme=dark] .logo-dark {
+  display: none;
+}
+*/

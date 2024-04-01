@@ -1,0 +1,171 @@
+/* Off Canvas - Start
+================================================== */
+// Offcanvas style
+.offcanvas{
+    &__close {
+	.menu-close-btn {
+			cursor: pointer;
+			fill: none;
+			stroke: currentColor;
+			stroke-width: 2;
+			stroke-linecap: round;
+			color: $color_white;
+			padding: 3px;
+			&:hover {
+				color: $color_primary;
+			}
+		}
+    }
+    &__info {
+		background: #292930 none repeat scroll 0 0;
+		position: fixed;
+		top: 0;
+		width: 420px;
+		height: 100%;
+		inset-inline-end: -490px;
+		transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		z-index: 999;
+		overflow-y: scroll;
+		overscroll-behavior-y: contain;
+		scrollbar-width: none;
+		backdrop-filter: blur(37px);
+		&::-webkit-scrollbar {
+			display: none;
+		}
+        @media #{$xxs}{
+            width: 100%;
+        }
+        &.info-open {
+			opacity: 1;
+			inset-inline-end: 0;
+        }
+    }
+    &__logo {
+		img {
+			width: 165px;
+		}
+    }
+    &__wrapper{
+        position: relative;
+        height: 100%;
+		position: relative;
+		height: 100%;
+		padding: 45px 45px;
+        @media #{$sm,$md}{
+			padding: 35px 35px;
+        }
+        @media #{$xs}{
+           padding: 25px 25px;
+        }
+    }
+    &__top{
+        padding-bottom: 15px;
+    }
+	&__title {
+		font-size: 24px;
+		margin-bottom: 20px;
+		text-transform: capitalize;
+		color: $color_white;
+	}
+	&__contact {
+		margin-bottom: 20px;
+		&-text {
+			p {
+				margin-bottom: 10px;
+				a {
+					color: $color_white;
+					&:hover {
+						color: $color_primary;
+					}
+				}
+			}
+			span {
+				a {
+					color: $color_white;
+					&:hover {
+						color: $color_primary;
+					}
+				}
+			}
+		}
+	}
+    &__social{
+        margin-bottom: 30px;
+        & ul{
+			@include flexbox();
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 10px 15px;
+            & li{
+				list-style: none;
+                & a{
+                    color: $color_white;
+					font-weight: 500;
+                    &:hover{
+                        color: $color_primary;
+                    }
+                }
+            }
+        }
+    }
+	&__devider {
+		border-bottom: 1px solid #4a4a4a;
+		margin-bottom: 20px;
+	}
+    &__overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background:$color_dark;
+        z-index: 900;
+        top: 0;
+        opacity: 0;
+        visibility: hidden;
+        inset-inline-end: 0;
+        @include transition(.3s);
+        &.overlay-open {
+            opacity: 0.8;
+            visibility: visible;
+        }
+    }
+	&__area {
+		&-2{
+            & .mean-container .mean-nav ul li a{
+				&:hover {
+					color: $color-danger;
+				}
+            }
+			.mean-container .mean-nav ul li.dropdown-opened > a.mean-expand.mean-clicked {
+				background: $color-danger;
+				color: $color_white;
+				border-color: transparent !important;
+				& i{
+					color: $color_white;
+				}
+			}
+			.mean-container .mean-nav ul li.dropdown-opened > a,
+			.mean-container .mean-nav ul li.dropdown-opened > span {
+				color: $color-danger;
+			}
+			.mean-container .mean-nav ul li a.mean-expand,
+			.mean-container .mean-nav ul li span.mean-expand {
+				&:hover{
+					background:  $color-danger;
+					border-color: $color-danger !important;
+				}
+			}
+			.mean-container .mean-nav ul li a.mean-expand.mean-clicked{
+				color: $color_white;
+				background: $color-danger;
+				border-color: $color-danger!important;
+				&:hover{
+					background: $color-danger;
+					border-color: $color-danger;
+				}
+			}
+        }
+	}
+}
+/* Off Canvas - End
+================================================== */

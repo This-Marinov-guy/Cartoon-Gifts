@@ -1,0 +1,424 @@
+/* Service Widget - Start
+================================================== */
+.service_section {
+	.shape_1 {
+		top: 100px;
+		inset-inline-end: -70px;
+		max-width: 96px;
+	}
+	.shape_2 {
+		inset-inline-start: -150px;
+		bottom: 16px;
+	}
+}
+
+// Service Item Default Settings - Start
+.service_item {
+	transition: $transition_fast;
+	.item_icon {
+		margin-bottom: 20px;
+		align-items: center;
+		display: inline-flex;
+		justify-content: center;
+	}
+	.item_title {
+		font-size: 24px;
+		line-height: 33px;
+		margin-bottom: 20px;
+		@media #{$lg,$sm} {
+			font-size: 20px;
+		}
+	}
+	.item_description {
+		font-size: 17px;
+		line-height: 27px;
+	}
+}
+// Service Item Default Settings - End
+
+// Service Item Style 1 - Start
+.service_item.style_1 {
+	padding: 40px;
+	text-align: center;
+	border-radius: 22px;
+	transition: $transition_fast;
+	background-color: $color_white;
+	border: 1px solid $color_border;
+	@media #{$xxs,$lg,$sm} {
+		padding: 40px 30px;
+	}
+	.item_icon {
+		height: 84px;
+	}
+	.item_title,
+	.item_description {
+		transition: $transition_fast;
+	}
+	.item_content {
+		margin-bottom: 30px;
+		padding-bottom: 30px;
+		transition: $transition_fast;
+		border-bottom: 1px dashed $color_border;
+	}
+	.item_details_btn {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 22px;
+		align-items: center;
+		display: inline-flex;
+		color: $color_primary;
+		.btn_icon {
+			margin-inline-start: 8px;
+			transition: $transition_fast;
+			img {
+				&:nth-child(2) {
+					display: none;
+				}
+			}
+		}
+		&:hover {
+			.btn_icon {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	&:hover {
+		border-color: $color_primary;
+		background-color: $color_primary;
+		.item_icon {
+			path {
+				stroke: $color_white;
+			}
+		}
+		.item_title,
+		.item_description,
+		.item_details_btn {
+			color: $color_white;
+		}
+		.item_content {
+			border-color: $color_white;
+		}
+		.item_details_btn {
+			.btn_icon {
+				img {
+					&:nth-child(1) {
+						display: none;
+					}
+					&:nth-child(2) {
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+}
+// Service Item Style 1 - End
+
+// Service Item Style 2 - Satrt
+.service_item.style_2 {
+	padding: 40px;
+	position: relative;
+	text-align: center;
+	background-color: $color_light;
+	border-radius: $radius_primary;
+	@media #{$xxs,$sm,$xl} {
+		padding: 30px;
+	}
+	@media #{$lg} {
+		padding: 28px;
+	}
+	.item_icon {
+		height: 100px;
+		margin-bottom: 30px;
+	}
+	.item_details_btn {
+		top: 20px;
+		inset-inline-start: 20px;
+		inset-inline-end: 20px;
+		bottom: 20px;
+		opacity: 0;
+		z-index: 1;
+		display: flex;
+		position: absolute;
+		align-items: center;
+		justify-content: center;
+		border-radius: $radius_primary;
+		background-color: rgba(83, 85, 223, 0.92);
+		backdrop-filter: blur(4px);
+		transition: opacity .3s ease-in-out;
+		img {
+			transition: $transition_fast;
+			&:hover {
+				transform: rotate(45deg);
+			}
+		}
+		.btn_icon {
+			margin-top: 30px;
+			@include transition(.3S);
+		}
+	}
+	&:hover {
+		.item_details_btn {
+			opacity: 1;
+			.btn_icon {
+				margin-top: 0px;
+			}
+		}
+	}
+}
+// Service Item Style 2 - End
+
+// Service Item Style 3 - Start
+.service_item.style_3 {
+	padding: 40px;
+	background-color: $color_light;
+	border-radius: $radius_primary;
+	@media #{$xs,$lg} {
+		padding: 30px;
+	}
+	&:hover {
+		.item_icon {
+			transform: scaleX(-1);
+		}
+	}
+	.item_icon {
+		width: 60px;
+		height: 60px;
+		font-size: 30px;
+		margin-bottom: 30px;
+		color: $color_primary;
+		transition: $transition_fast;
+		border-radius: $radius_primary;
+		background-color: rgba(83, 85, 223, 0.2);
+	}
+	&:hover {
+		.item_icon {
+			color: $color_white;
+			background-color: $color_primary;
+			svg {
+				path,
+				rect {
+					stroke: $color_white;
+				}
+			}
+		}
+	}
+	.item_title {
+		margin-bottom: 20px;
+	}
+	.item_description {
+		margin-bottom: 40px;
+	}
+	.btn-link {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 22px;
+		color: $color_dark;
+		&:hover {
+			color: $color_primary;
+		}
+	}
+}
+.service_item.style_3.text-white {
+	background-color: rgba(255, 255, 255, 0.08);
+	border: 1px dashed rgba(255, 255, 255, 0.06);
+	&:hover {
+		border-color: rgba(255, 255, 255, 0.2);
+	}
+	.item_title {
+		color: $color_white;
+	}
+	.item_description {
+		color: $color_body_2;
+	}
+	.btn-link {
+		color: $color_white;
+		.btn_text {
+			&:before {
+				background-color: $color_white;
+			}
+		}
+		&:hover {
+			color: $color_danger;
+		}
+	}
+}
+.service_item.style_3.color_danger {
+	.item_icon {
+		width: 70px;
+		height: 70px;
+		border-radius: 0;
+		background-color: transparent;
+	}
+	.btn-link {
+		color: $color_danger;
+		.btn_text {
+			&:before {
+				background-color: $color_danger;
+			}
+		}
+		&:hover {
+			color: $color_danger;
+		}
+	}
+}
+// Service Item Style 3 - End
+
+// Service Item Style 4 - Start
+.service_item.style_4 {
+	padding: 40px 30px;
+	text-align: center;
+	transition: $transition_fast;
+	border: 2px solid transparent;
+	border-radius: $radius_primary;
+	background-color: $color_light;
+	&:hover {
+		border-color: rgba(83, 85, 223, 0.3);
+		.item_details_btn {
+			.btn_icon {
+				transform: rotate(-45deg);
+			}
+		}
+		.item_icon {
+			transform: translateY(-3px) translate3d(0, -3px, 0);
+		}
+	}
+	.item_icon {
+		width: 60px;
+		height: 60px;
+		margin-bottom: 30px;
+		border-radius: 100%;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		transform: translate3d(0, 0, 0);
+		-webkit-transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+		-moz-transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+		-ms-transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+		-o-transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+		transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+	}
+	.item_title {
+		font-size: 21px;
+		line-height: 29px;
+		margin-bottom: 16px;
+	}
+	.item_description {
+		margin-bottom: 20px;
+	}
+	.item_details_btn {
+		.btn_icon {
+			display: inline-block;
+			transition: $transition_fast;
+		}
+		&:hover {
+			.btn_icon {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+
+.service_section_2 {
+	background-size: auto;
+	padding: 120px 0 220px;
+	@media #{$xs,$sm} {
+		padding: 80px 0 180px;
+	}
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-color: rgba(83, 85, 223, 0.08);
+	position: relative;
+	z-index: 5;
+	&::before {
+		position: absolute;
+		content: "";
+		height: 100%;
+		width: 100%;
+		top: 0px;
+		background: linear-gradient(90deg, #F1F1FC 0%, rgba(241, 241, 252, 0) 100%);
+		z-index: -1;
+	}
+	& + section,
+	& + div {
+		margin-top: -100px;
+		position: relative;
+		z-index: 5;
+	}
+}
+// Service Item Style 4 - End
+
+// My Service Section - Start
+.my_service_section {
+	.shape_1 {
+		inset-inline-start: -185px;
+		bottom: -36px;
+		max-width: 34px;
+	}
+	.shape_2 {
+		top: 40%;
+		inset-inline-end: -134px;
+		max-width: 22px;
+	}
+}
+// My Service Section - End
+
+// Service Items Grouped (Service Item Style 4) - Start
+.service_items_grouped {
+	margin: 0;
+	>.col {
+		padding: 0;
+		margin: -.5px;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+	}
+	.service_item.style_4 {
+		border: none;
+		text-align: left;
+		border-radius: 0;
+		padding: 50px 45px;
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		background-size: 0;
+		.item_icon {
+			width: auto;
+			height: 65px;
+			margin: 0 0 30px 0;
+		}
+		.item_title {
+			color: $color_white;
+			font-size: 28px;
+			margin-bottom: 35px;
+			line-height: 1.3;
+			@media #{$xs,$sm} {
+				font-size: 24px;
+			}
+		}
+		.item_details_btn {
+			width: 40px;
+			height: 40px;
+			border-radius: 100%;
+			align-items: center;
+			display: inline-flex;
+			justify-content: center;
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+		&:hover {
+			background-size: cover;
+			.item_icon path {
+				fill: $color_dark;
+			}
+			.item_title {
+				color: $color_dark;
+			}
+			.item_details_btn {
+				background-color: $color_dark;
+			}
+		}
+	}
+}
+// Service Items Grouped (Service Item Style 4) - End
+
+/* Service Widget - End
+================================================== */

@@ -1,0 +1,105 @@
+/* Breadcrumb Section - Start
+================================================== */
+.page_banner {
+	overflow: hidden;
+	position: relative;
+	padding: 260px 0 150px;
+	background: linear-gradient(0deg, rgba(83, 85, 223, 0.2) 0%, rgba(83, 85, 223, 0) 100%);
+	@media #{$md,$lg,$xl,$xxl} {
+		padding: 220px 0 150px;
+	}
+	@media #{$sm,$xs} {
+		padding: 210px 0 150px
+	}
+	&:before {
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		bottom: 0;
+		z-index: 1;
+		content: '';
+		height: 32px;
+		position: absolute;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		background-image: url('../../images/shapes/shape_up_white.svg');
+		@media #{$xs,$sm} {
+			background-image: none;
+		}
+	}
+
+	.shape_1 {
+		bottom: 0;
+		inset-inline-start: -85px;
+		max-width: 16px;
+	}
+	.shape_2 {
+		top: -130px;
+		inset-inline-end: -305px;
+		max-width: 139px;
+
+		// right: -305px;
+	}
+	.shape_3 {
+		top: -90px;
+		inset-inline-end: 236px;
+	}
+}
+
+.page_title {
+	font-size: 62px;
+	line-height: 1.2;
+	color: $color_black;
+	margin-bottom: 30px;
+	@media #{$md} {
+		font-size: 50px;
+	}
+	margin-bottom: 30px;
+	@media #{$sm} {
+		font-size: 45px;
+	}
+	@media #{$xs} {
+		font-size: 38px;
+	}
+	@media #{$xxs} {
+		font-size: 32px;
+	}
+}
+
+.breadcrumb_nav {
+	>li {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 22px;
+		position: relative;
+		color: $color_black;
+		&:not(:last-child) {
+			margin-inline-end: 17px;
+			padding-inline-end: 17px;
+			&:after {
+				top: 1px;
+				inset-inline-end: -7px;
+				font-weight: 400;
+				content: '\f061';
+				position: absolute;
+				font-family: 'Font Awesome 5 Pro';
+			}
+		}
+		&:last-child {
+			>a {
+				pointer-events: none;
+			}
+		}
+		>a {
+			display: block;
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 22px;
+			color: $color_primary;
+			&:hover {
+			}
+		}
+	}
+}
+/* Breadcrumb Section - End
+================================================== */

@@ -1,0 +1,87 @@
+/* Pricing Table - Start
+================================================== */
+.pricing_items_group {
+	margin: 0;
+	padding: .5px;
+	>.col {
+		padding: 0;
+		margin: -.5px;
+	}
+}
+
+.pricing_item {
+	position: relative;
+	background-size: cover;
+	padding: 30px 30px 40px;
+	background-repeat: no-repeat;
+	background-position: center top;
+	border: 1px solid $color_border;
+	&:before {
+		top: -6px;
+		inset-inline-end: -5px;
+		z-index: 1;
+		content: '';
+		width: 99px;
+		height: 99px;
+		display: none;
+		position: absolute;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		background-position: right top;
+		background-image: url('../../images/shapes/badge_recomanded.png');
+	}
+	.item_title {
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 22px;
+		margin-bottom: 15px;
+	}
+	.price_value {
+		margin-bottom: 20px;
+		strong {
+			font-size: 67px;
+			font-weight: 700;
+			line-height: 92px;
+			color: $color_dark;
+			font-family: $font_heading;
+			@media #{$xs,$lg} {
+				font-size: 60px;
+			}
+		}
+		sub {
+			font-size: 16px;
+			line-height: 22px;
+		}
+	}
+	p {
+		font-size: 17px;
+		line-height: 27px;
+		margin-bottom: 30px;
+	}
+
+	.icon_list {
+		margin-bottom: 40px;
+	}
+	.icon_list.unordered_list_block > li:not(:last-child) {
+		margin-bottom: 15px;
+	}
+	.icon_list .list_item_text {
+		font-weight: 500;
+	}
+}
+
+.pricing_item.recomanded_item {
+	color: $color_white;
+	border-color: $color_primary;
+	background-color: $color_primary;
+	&:before {
+		display: block;
+	}
+	.item_title,
+	.price_value strong,
+	.icon_list .list_item_text {
+		color: $color_white;
+	}
+}
+/* Pricing Table - End
+================================================== */

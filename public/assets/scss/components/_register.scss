@@ -1,0 +1,112 @@
+/* Register Account Form - Start
+================================================== */
+.register_section {
+	.overlay {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+}
+.register_form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	background-color: #ffffff;
+
+	p {
+		font-size: 14px;
+		line-height: 1.429;
+		strong {
+			margin-bottom: 10px;
+			color: $color_warning;
+		}
+	}
+
+	.form_image {
+		display: flex;
+		flex: 0 0 270px;
+		align-items: center;
+		background-size: auto;
+		justify-content: center;
+		background-repeat: no-repeat;
+		background-color: $color_primary;
+		background-position: right 10px center;
+		.image_wrap {
+			margin: -70px -16px -24px -56px;
+		}
+
+		&.style_2 {
+			background-position: center center;
+			background-image: linear-gradient( 90deg, rgb(223,126,32) 0%, rgb(253,203,52) 100%);
+			.image_wrap {
+				margin: 0px -33px -10px;
+			}
+		}
+	}
+	.form_wrap {
+		flex: 1;
+		padding: 50px 30px 50px 100px;
+	}
+	.title_wrap,
+	.btn_wrap {
+		display: flex;
+		margin-bottom: 40px;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.form_title {
+		font-size: 18px;
+		margin-bottom: 0;
+	}
+	.create_account_link {
+		font-size: 16px;
+		font-weight: 600;
+		color: $color_primary;
+	}
+	.underline_effect {
+	}
+	.forget_password {
+		font-size: 14px;
+		font-weight: 500;
+		color: $color_primary;
+	}
+
+	.form_item {
+		margin-bottom: 20px;
+		label {
+			inset-inline-start: 0;
+			top: 8px;
+			color: #dddddd;
+			line-height: 1;
+			font-size: 21px;
+			position: absolute;
+		}
+		input {
+			height: 40px;
+			border-radius: 0;
+			padding-inline-start: 32px;
+			border-width: 0 0 1px 0;
+			&:-moz-placeholder {
+				color: #9f9f9f;
+			}
+			&::-moz-placeholder {
+				color: #9f9f9f;
+			}
+			&:-ms-input-placeholder {
+				color: #9f9f9f;
+			}
+			&::-webkit-input-placeholder {
+				color: #9f9f9f;
+			}
+		}
+	}
+
+	.login_with_social {
+		display: flex;
+		align-items: center;
+	}
+
+	.social_icon {
+		margin-inline-start: 30px;
+	}
+}
+/* Register Account Form - End
+================================================== */

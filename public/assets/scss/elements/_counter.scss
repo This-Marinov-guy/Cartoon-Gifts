@@ -1,0 +1,164 @@
+/* Counter Widget - Start
+================================================== */
+.counter_section {
+	.shape_1 {
+		top: 40%;
+		inset-inline-start: 50%;
+		width: 110%;
+		transform: translateX(-50%);
+	}
+	.shape_2 {
+		inset-inline-end: -50px;
+		bottom: -70px;
+		img {
+			opacity: 0.2;
+			max-width: 490px;
+			filter: blur(200px);
+		}
+	}
+	.shape_3 {
+		top: 10px;
+		inset-inline-start: 250px;
+		max-width: 16px;
+	}
+	.shape_4 {
+		top: 60px;
+		inset-inline-start: -70px;
+		max-width: 110px;
+	}
+}
+
+.counter_item {
+	padding: 60px;
+	text-align: center;
+	background-color: #EEEEFC;
+	border-radius: $radius_primary;
+	transition: $transition_fast;
+	@media #{$xxs,$lg} {
+		padding: 45px;
+	}
+	&:hover {
+		box-shadow: 0 2px 0 0 $color_primary;
+	}
+	.counter_value {
+		font-size: 67px;
+		font-weight: 700;
+		line-height: 80px;
+		color: $color_black;
+		margin-bottom: 10px;
+		@media #{$xxs,$lg} {
+			font-size: 60px;
+		}
+		span {
+			display: inline-block;
+		}
+	}
+	sup {
+		top: -28px;
+		inset-inline-start: -12px;
+		font-size: 30px;
+		font-weight: 700;
+		line-height: 41px;
+		color: $color_primary;
+		vertical-align: middle;
+	}
+	.counter_title {
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 22px;
+		color: $color_body;
+	}
+}
+
+.funfact_section {
+	background-image: linear-gradient(0deg, transparent 50%, $color_light_2 0%);
+}
+.funfact_box {
+	display: flex;
+	align-items: center;
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: $color_dark;
+	border-radius: $radius_primary;
+	@media #{$xs,$sm} {
+		flex-direction: column;
+	}
+	.funfact_item {
+		padding: 60px;
+		@media #{$md} {
+			padding: 60px 30px;
+		}
+		@media #{$xs,$sm,$md} {
+			text-align: center;
+		}
+		@media #{$xxs} {
+			padding: 60px 30px;
+		}
+		&:not(:last-child) {
+			flex: 0 0 290px;
+			border-inset-inline-end: 1px solid rgba(255, 255, 255, 0.1);
+			@media #{$md} {
+				flex: 0 0 230px;
+			}
+			@media #{$xs,$sm} {
+				flex: 1 1 100%;
+				border: 0;
+				width: 100%;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+		}
+	}
+}
+
+.funfact_item {
+	.counter_value {
+		line-height: 1;
+		font-size: 67px;
+		font-weight: 800;
+		@media #{$xxs} {
+			font-size: 60px;
+		}
+	}
+	.counter_title {
+		line-height: 1;
+		font-size: 16px;
+		font-weight: 700;
+		color: $color_danger;
+	}
+}
+
+.funfact_box_2 {
+	display: flex;
+	padding: 15px;
+	border-radius: $radius_primary;
+	justify-content: space-between;
+	background-color: rgba(83, 85, 223, 0.1);
+	@media #{$xs} {
+		display: grid;
+		place-content: center;
+	}
+	.funfact_item {
+		flex: 0 0 33.333%;
+		padding: 15px 30px;
+		text-align: center;
+		@media #{$lg} {
+			padding: 15px 15px;
+		}
+		.counter_value {
+			line-height: 1;
+			font-size: 38px;
+			margin: 0 0 8px;
+			color: $color_primary;
+		}
+		.counter_title {
+			line-height: 1;
+			font-size: 14px;
+			font-weight: 500;
+			color: $color_body;
+			letter-spacing: 0.5px;
+		}
+	}
+}
+/* Counter Widget - End
+================================================== */

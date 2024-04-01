@@ -1,0 +1,137 @@
+/* Table Of Content - start
+================================================== */
+/* 
+* Project Name   :  Paradox - Creative Agency HTML5 Template
+* File           :  CSS Base
+* Version        :  1.0.1
+* Last change    :  5 May 2023, Saturday
+* Author         :  BDevs (https://themeforest.net/user/bdevs)
+
+==================================================
+
+1 - Template Global Settings
+	1.1 - Template Fonts
+	1.2 - Template Global Reset
+	1.3 - Template Variable
+	1.4 - Template Mixin
+	1.5 - Template Breakpoints
+
+2 - Template Elements
+	2.1 - Template backtotop
+	2.2 - Template color
+	2.3 - Template space
+	2.4 - Template animation
+	2.5 - Template preloader
+	2.6 - Template list
+	2.7 - Template menu
+	2.8 - Template meanmenu
+	2.9 - Template button
+	2.10 - Template typography
+	2.11 - Template carousel
+	2.12 - Template video
+	2.13 - Template form
+	2.14 - Template admin
+	2.15 - Template tab
+	2.16 - Template social
+	2.17 - Template counter
+	2.18 - Template rating
+	2.19 - Template iconbox
+	2.20 - Template accordion
+	2.22 - Template pagination
+	2.23 - Template countdown
+	2.24 - Template offcanvas
+
+3 - Template Parts
+	3.1 - Template header
+	3.2 - Template footer
+	3.3 - Template breadcrumb
+	3.4 - Template sidebar
+
+4 - Template Components
+	4.1 - Template banner
+	4.2 - Template clients
+	4.3 - Template service
+	4.4 - Template portfolio
+	4.5 - Template blog
+	4.6 - Template pricing
+	4.7 - Template testimonial
+	4.8 - Template calltoaction
+	4.9 - Template team
+	4.10 - Template policy
+
+5 - Template Pages
+	5.1 - Template about
+	5.2 - Template details
+	5.3 - Template register
+	5.4 - Template comming_soon
+	5.5 - Template terms_conditions
+	5.6 - Template contact
+	5.7 - Template error
+
+*/
+/* Table Of Content - end
+================================================== */
+
+// Template Global Settings
+@import 'variable';
+@import 'fonts';
+@import 'mixin';
+@import 'reset';
+@import 'breakpoints';
+
+// Dark Theme
+// @import 'themeDark';
+
+// Template Elements
+@import 'elements/backtotop';
+@import 'elements/color';
+@import 'elements/space';
+@import 'elements/animation';
+@import 'elements/preloader';
+@import 'elements/list';
+@import 'elements/menu';
+@import 'elements/meanmenu';
+@import 'elements/button';
+@import 'elements/typography';
+@import 'elements/carousel';
+@import 'elements/video';
+@import 'elements/form';
+@import 'elements/admin';
+@import 'elements/tab';
+@import 'elements/social';
+@import 'elements/counter';
+@import 'elements/rating';
+@import 'elements/iconbox';
+@import 'elements/accordion';
+@import 'elements/pagination';
+@import 'elements/progressbar';
+@import 'elements/countdown';
+@import 'elements/offcanvas';
+
+// Template Parts
+@import 'template-parts/header';
+@import 'template-parts/footer';
+@import 'template-parts/breadcrumb';
+@import 'template-parts/sidebar';
+@import 'template-parts/settings';
+
+// Template Components
+@import 'components/banner';
+@import 'components/clients';
+@import 'components/service';
+@import 'components/portfolio';
+@import 'components/blog';
+@import 'components/pricing';
+@import 'components/testimonial';
+@import 'components/calltoaction';
+@import 'components/team';
+@import 'components/policy';
+
+// Template Pages
+@import 'templates/about';
+@import 'templates/details';
+@import 'templates/register';
+@import 'templates/comming_soon';
+@import 'templates/terms_conditions';
+@import 'templates/contact';
+@import 'templates/error';

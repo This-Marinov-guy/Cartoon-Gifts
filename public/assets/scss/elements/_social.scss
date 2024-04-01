@@ -1,0 +1,38 @@
+/* Social Media - Start
+================================================== */
+.social_wrap {
+	display: flex;
+	align-items: center;
+	.social_title {
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 27px;
+		margin: 0 10px 0 0;
+		color: $color_primary;
+	}
+}
+.social_icon {
+	margin: -6px;
+	>li {
+		padding: 6px;
+	}
+	a {
+		z-index: 1;
+		width: 40px;
+		height: 40px;
+		display: flex;
+		color: $color_dark;
+		position: relative;
+		border-radius: 100%;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid $color_border;
+		&:hover {
+			color: $color_white;
+			border-color: $color_primary;
+			background-color: $color_primary;
+		}
+	}
+}
+/* Social Media - End
+================================================== */

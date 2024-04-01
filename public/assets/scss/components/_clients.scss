@@ -1,0 +1,38 @@
+/* Clients Logo - Start
+================================================== */
+.client_logo_boxed {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 50px 30px;
+	padding: 59px 10px;
+	place-items: center;
+	border-radius: $radius_primary;
+	background-color: $color_white;
+	border: 1px solid $color_border;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 1132px;
+	@media #{$md,$sm} {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media #{$xs,} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media #{$xxs} {
+		grid-template-columns:auto;
+	}
+	&.bg_primary {
+		border-color: $color_primary;
+		background-color: $color_primary;
+	}
+}
+.client_logo_item {
+	text-align: center;
+}
+
+.client_logo_boxed.border-0 {
+	padding: 44px 0;
+	background-color: transparent;
+}
+/* Clients Logo - End
+================================================== */

@@ -1,0 +1,48 @@
+/* Error Template - Start
+================================================== */
+.error_section {
+	padding: 200px 0 120px;
+	@media #{$md,$lg,$xl,$xxl} {
+		padding: 150px 0 120px;
+	}
+	@media #{$xs,$sm} {
+		padding: 130px 0 100px;
+	}
+	@media #{$xxs} {
+		padding: 110px 0 100px;
+	}
+	.error_image {
+		margin: auto;
+		max-width: 750px;
+		@media #{$md,$lg,$xl} {
+			max-width: 550px;
+		}
+		@media #{$sm} {
+			max-width: 450px;
+		}
+	}
+
+	h1 {
+		font-size: 50px;
+		font-weight: 700;
+		margin: 50px 0 30px;
+		line-height: 1.3;
+		@media #{$md} {
+			font-size: 45px;
+		}
+		@media #{$xs,$sm} {
+			font-size: 40px;
+		}
+		@media #{$xxs} {
+			font-size: 30px;
+		}
+	}
+
+	p {
+		font-size: 17px;
+		line-height: 27px;
+		margin-bottom: 40px;
+	}
+}
+/* Error Template - End
+================================================== */

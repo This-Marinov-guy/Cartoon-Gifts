@@ -1,0 +1,899 @@
+/* Hero Banner Section - Start
+================================================== */
+
+.hero_banner_section {
+	.container {
+		max-width: 1480px;
+	}
+}
+
+// Hero Banner Style 1 - Start
+.hero_banner_section.style_1 {
+	display: flex;
+	padding-top: 200px;
+	margin-bottom: 60px;
+	align-items: center;
+	background: linear-gradient(180deg, rgba(10, 51, 194, 0.06) 0%, transparent 100%);
+	padding-bottom: 150px;
+	@media #{$xxl} {
+		padding-bottom: 50px;
+		padding-top: 180px;
+	}
+	@media #{$xl} {
+		padding-bottom: 50px;
+		padding-top: 165px;
+	}
+	@media #{$lg} {
+		padding-bottom: 35px;
+		padding-top: 160px;
+	}
+	@media #{$md} {
+		padding-top: 145px;
+		padding-bottom: 0px;
+	}
+	 @media #{$sm} {
+		padding-bottom: 30px;
+		padding-top: 145px;
+	}
+	 @media #{$xs} {
+		padding-bottom: 40px;
+		padding-top: 145px;
+	}
+	 @media #{$xxs} {
+		padding-bottom: 30px;
+	}
+
+	.section_heading {
+		.heading_title {
+			font-size: 80px;
+			line-height: 1.2;
+			margin-bottom: 25px;
+			@media #{$xxl,$xl,$md} {
+				font-size: 70px;
+			}
+			@media #{$lg} {
+				font-size: 60px;
+			}
+			@media #{$xs,$sm} {
+				font-size: 40px;
+			}
+			@media #{$xxs} {
+				font-size: 34px;
+			}
+			span {
+				position: relative;
+			}
+			.focus_text {
+				position: absolute;
+				bottom: 5px;
+				inset-inline-start: 0px;
+				z-index: -1;
+				-webkit-animation: section-animation 3s infinite;
+				animation: section-animation 3s infinite;
+			}
+		}
+	}
+
+	.hero_banner_image {
+		max-width: 720px;
+		margin: auto -87px auto auto;
+		@media #{$xxl} {
+			max-width: 630px;
+			margin: auto 35px auto auto;
+		}
+		@media #{$xl} {
+			max-width: 600px;
+			margin: 0;
+		}
+		@media #{$lg} {
+			margin: auto 0px auto auto;
+		}
+		@media #{$md} {
+			margin: auto auto 30px;
+			max-width: 630px;
+		}
+		@media #{$sm} {
+			max-width: 550px;
+			margin: auto auto 30px;
+		}
+		@media #{$xs} {
+			max-width: 100%;
+			margin: auto auto 30px;
+		}
+		img {
+			width: 100%;
+		}
+		.banner_main_1 {
+			animation: upDown 1s infinite alternate;
+		}
+	}
+
+	.shape_1 {
+		top: 0;
+		inset-inline-start: 50%;
+		bottom: 0;
+		width: 50%;
+		border-radius: 0 0 0 120px;
+		@include rtl {
+			border-radius: 0 0px 120px 0px;
+			@media #{$xs} {
+				inset-inline-start: 0%;
+				width: 100%;
+				border-radius: 0;
+			}
+		}
+		background-image: linear-gradient(0deg, #D2DCFB 0%, rgba(210, 220, 251, 0) 100%);
+		@media #{$xs} {
+			inset-inline-start: 0%;
+			width: 100%;
+			border-radius: 0;
+		}
+	}
+	.shape_2 {
+		inset-inline-start: -180px;
+		bottom: -50px;
+		width: 253px;
+		opacity: 0.5;
+		height: 143px;
+		border-radius: 50%;
+		filter: blur(175px);
+		transform: rotate(29.58deg);
+		background-color: $color_warning;
+	}
+	.shape_3 {
+		top: 0;
+		inset-inline-start: 0;
+		width: 342px;
+		height: 194px;
+		border-radius: 50%;
+		filter: blur(175px);
+		background-color: $color_warning;
+	}
+	.shape_4 {
+		top: -100px;
+		inset-inline-end: -230px;
+		max-width: 289px;
+	}
+	.shape_5 {
+		top: -35px;
+		right: 75px;
+		max-width: 142px;
+	}
+	.shape_6 {
+		bottom: -12px;
+		inset-inline-end: -195px;
+		max-width: 842px;
+		right: -195px;
+		@media #{$xs,$sm,$md} {
+			inset-inline-end: 0;
+			right: 0px;
+		}
+	}
+}
+// Hero Banner Style 1 - End
+
+// Hero Banner Style 2 - Start
+.hero_banner_section.style_2 {
+	text-align: center;
+	padding: 188px 0 88px;
+	background: linear-gradient(0deg, rgba(255, 127, 80, 0.1) 0%, rgba(255, 127, 80, 0) 100%);
+	@media #{$xs,$sm} {
+		padding: 158px 0 58px;
+	}
+	.cd-headline {
+		font-size: 67px;
+		margin-bottom: 41px;
+		line-height: 1.3;
+		@media #{$lg,$md} {
+			font-size: 60px;
+		}
+		@media #{$sm} {
+			font-size: 50px;
+		}
+		@media #{$xs} {
+			font-size: 45px;
+		}
+		@media #{$xxs} {
+			font-size: 32px;
+		}
+		.cd-words-wrapper {
+			color: $color_danger;
+		}
+	}
+	.index-module_type__E-SaG {
+		position: relative;
+		color: #FF7F50;
+	}
+	.index-module_type__E-SaG::after {
+		content: '';
+		animation: index-module_cursor__PQg0P 1.1s infinite step-start;
+		height: 80px;
+		width: 2px;
+		position: absolute;
+		top: 5px;
+		right: -2px;
+		background: #0F0E0E;
+	}
+	.man_image {
+		margin: auto;
+		max-width: 500px;
+		animation: upDown 1s infinite alternate;
+	}
+	.shape_1 {
+		top: 50%;
+		inset-inline-start: 50%;
+		margin-inline-start: -30px;
+		@include transform(translate(-50%, -50%));
+	}
+	.shape_2 {
+		top: 254px;
+		inset-inline-start: -16px;
+	}
+	.shape_3 {
+		inset-inline-end: -50px;
+		bottom: 160px;
+	}
+	.shape_4 {
+		top: 260px;
+		inset-inline-end: -20px;
+	}
+
+	.shape_5 {
+		top: 208px;
+		inset-inline-start: -76px;
+		left: -76px;
+	}
+	.shape_6 {
+		inset-inline-start: 50%;
+		top: 140px;
+		max-width: 263px;
+		transform: translateX(-50%);
+		img {
+			opacity: 0.5;
+			filter: blur(200px);
+		}
+	}
+	.shape_7 {
+		top: -100px;
+		inset-inline-end: -120px;
+		max-width: 432px;
+		img {
+			opacity: 0.4;
+			filter: blur(300px);
+		}
+	}
+
+	.iconbox_support {
+		inset-inline-start: 90px;
+		bottom: 118px;
+		position: absolute;
+	}
+	.iconbox_award {
+		top: 45%;
+		inset-inline-end: 100px;
+		position: absolute;
+		@media #{$xs,$sm} {
+			display:none;
+		}
+	}
+	.iconbox_item {
+		display: flex;
+		text-align: left;
+		align-items: center;
+		padding: 10px 15px 10px 10px;
+		background-color: $color_white;
+		@media #{$xs,$sm} {
+			display:none;
+		}
+		&:before {
+			display: none;
+		}
+
+		.item_icon {
+			margin: 0 10px 0 0;
+		}
+
+		.item_title {
+			margin: 0;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 27px;
+			color: $color_body;
+			font-family: $font_body;
+		}
+		p {
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 22px;
+			color: $color_dark;
+			font-family: $font_heading;
+		}
+	}
+}
+// Hero Banner Style 2 - End
+
+// Hero Banner Style 3 - Start
+.hero_banner_section.style_3 {
+	padding: 146px 0 80px;
+	@media #{$xxl} {
+		padding: 100px 0 50px;
+	}
+	@media #{$xl} {
+		padding: 90px 0 50px;
+	}
+	@media #{$lg} {
+		padding: 110px 0 60px;
+	}
+	@media #{$xs,$sm} {
+		padding: 135px 0 30px;
+	}
+	.hero_banner_heading {
+		font-size: 90px;
+		line-height: 1.08;
+		margin-bottom: 70px;
+		color: $color_white;
+		position: relative;
+		z-index: 1;
+		@media #{$xxl} {
+			font-size: 80px;
+		}
+		@media #{$xl} {
+			font-size: 75px;
+		}
+		@media #{$lg} {
+			font-size: 65px;
+		}
+		@media #{$md} {
+			font-size: 68px;
+		}
+		@media #{$xs,$sm} {
+			font-size: 50px;
+		}
+		@media #{$xxs} {
+			font-size: 40px;
+		}
+		span {
+			position: relative;
+			z-index: 5;
+			&::before {
+				position: absolute;
+				content: "";
+				bottom: 5px;
+				inset-inline-start: 0;
+				background: url('../../images/shapes/shape_line_2.svg');
+				width: 100%;
+				height: 100%;
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: bottom;
+				-webkit-animation: section-animation 3s infinite;
+				animation: section-animation 3s infinite;
+				z-index: -1;
+			}
+		}
+	}
+	.man_image {
+		@media #{$xxl,$xl,$md} {
+			max-width: 560px;
+		}
+		@media #{$lg} {
+			width: 460px;
+		}
+		img {
+			animation: upDown 1s infinite alternate;
+			width: 100%;			
+		}
+	}
+	.shape_1 {
+		top: 50%;
+		left: 50%;
+		width: 670px;
+		@include transform(translate(-50%, -50%));
+		@media #{$xl} {
+			width: 600px;
+		}
+		@media #{$lg} {
+			width: 500px;
+		}
+		@media #{$xs} {
+			display: none;
+		}
+	}
+}
+.hero_banner_image_3{
+	@media #{$md} {
+		margin: 0 15%;
+	}
+}
+// Hero Banner Style 3 - End
+
+// Hero Banner Style 4 - Start
+.banner_bg_4 {
+	position: absolute;
+	top: 0;
+	inset-inline-end: 0;
+	width: 42%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: left;
+	@include rtl {
+		@include transform (rotate(180deg));
+	}
+	@media #{$lg,$xl,$xxl} {
+		width: 50%;
+	}
+	@media #{$xs,$sm,$md} {
+		display: none;
+	}
+}
+.banner_bg_sm {
+	position: absolute;
+	content: "";
+	z-index: -1;
+	height: 45%;
+	width: 100%;
+	background: $color_primary;
+	bottom: 0;
+	.banner_bg_shape {
+		position: absolute;
+		top: -1px;
+		width: 100%;
+		img {
+			width: 100%;
+		  }
+	}
+}
+.hero_banner_section.style_4 {
+	position: relative;
+	overflow: hidden;
+	padding: 292px 0 184px;
+	@media #{$xxl} {
+		padding: 200px 0 150px;
+	}
+	@media #{$xl} {
+		padding: 200px 0 150px;
+	}
+	@media #{$lg} {
+		padding: 185px 0 150px;
+	}
+	@media #{$md} {
+		padding: 165px 0 220px;
+	}
+	@media #{$xs,$sm} {
+		padding: 150px 0 250px;
+	}
+	.hero_banner_heading {
+		font-size: 80px;
+		margin-bottom: 30px;
+		line-height: 1.12;
+		@media #{$xl,$xxl} {
+			font-size: 65px;
+		}
+		@media #{$lg} {
+			font-size: 50px;
+		}
+		@media #{$md} {
+			font-size: 55px;
+		}
+		@media #{$xs,$sm} {
+			font-size: 46px;
+		}
+		@media #{$xs} {
+			font-size: 32px;
+		}
+		.focus_text {
+			color: $color_primary;
+		}
+	}
+	p {
+		font-size: 17px;
+		line-height: 27px;
+		margin-bottom: 50px;
+	}
+	.subscribe_form {
+		border: none;
+		input {
+			background-color: rgba(25, 84, 237, 0.1);
+		}
+	}
+
+	.rocket_image {
+		max-width: 280px;
+		margin: auto -48px auto auto;
+		@media #{$xxl} {
+			margin: auto 0px auto auto;
+		}
+		@media #{$xl} {
+			margin: auto 25px auto auto;
+		}
+		@media #{$lg} {
+			max-width: 260px;
+			margin: auto 0px auto auto;
+		}
+		@media #{$md} {
+			margin: auto;
+			transform: translateY(40%);
+			max-width: 250px;
+		}
+		@media #{$xs,$sm} {
+			margin: auto;
+			max-width: 175px;
+			transform: translateY(65%);
+		}
+		@include rtl {
+			margin: auto auto auto -48px;
+			@media #{$xl,$xxl} {
+				margin: auto auto auto 0px;
+			}
+			@media #{$xs,$sm,$md} {
+				margin: auto;
+			}
+		}
+		img {
+			animation: upDown 1s infinite alternate;
+		}
+	}
+	.shape_1 {
+		top: 17px;
+		inset-inline-end: -74px;
+		opacity: 0.5;
+		max-width: 336px;
+		filter: blur(200px);
+		@media #{$xs,$sm,$md} {
+			inset-inline-end: auto;
+			transform: translateX(-50%);
+			left: 50%;
+		}
+	}
+	.shape_2 {
+		top: -96px;
+		inset-inline-end: -56px;
+	}
+	.shape_3 {
+		inset-inline-end: 300px;
+		bottom: -86px;
+	}
+	.shape_4 {
+		top: 20px;
+		inset-inline-start: 150px;
+		@media #{$xl,$xxl} {
+			inset-inline-start: 30px;
+		}
+		@media #{$lg} {
+			inset-inline-start: 0px;
+		}
+		@media #{$xs,$sm,$md} {
+			left: 50%;
+			transform: translateX(-50%);
+			@include rtl {
+				left: auto;
+				right: 50%;
+				transform: translateX(50%);
+			}
+		}
+		@media #{$xxs} {
+			width: 100%;
+		}
+		>li {
+			&:nth-child(1) {
+				padding-inline-start: 75px;
+				@media #{$xs,$sm,$md} {
+					padding-inline-start: 0px;
+				}
+			}
+			&:nth-child(2) {
+				padding-inline-start: 30px;
+				@media #{$xs,$sm,$md} {
+					padding-inline-start: 0px;
+				}
+			}
+			@media #{$xs,$sm,$md} {
+				max-width: 100px
+			}
+		}
+	}
+	.shape_5 {
+		inset-inline-end: -130px;
+		bottom: -130px;
+		max-width: 260px;
+		@media #{$xxs} {
+			max-width: 220px;
+		}
+	}
+	.shape_6 {
+		inset-inline-start: -40px;
+		bottom: -35px;
+		left: -40px;
+		@include rtl {
+			transform: rotate(-90deg);
+		}
+		@media #{$xxs} {
+			max-width: 140px;
+		}
+	}
+}
+// Hero Banner Style 4 - End
+
+// Hero Banner Style 5 - Start
+.hero_banner_section.style_5 {
+	padding: 155px 0 0;
+	@media #{$xxl} {
+		padding: 135px 0 0;
+	}
+	@media #{$xl} {
+		padding: 150px 0 0;
+	}
+	@media #{$lg} {
+		padding: 155px 0 85px;
+	}
+	@media #{$md,$sm,$xs} {
+		padding: 140px 0 0;
+	}
+	.hero_banner_heading {
+		font-size: 80px;
+		font-weight: 800;
+		line-height: 1.12;
+		margin: -67px 0 50px;
+		@media #{$xxl} {
+			font-size: 70px;
+		}
+		@media #{$xl} {
+			font-size: 70px;
+		}
+		@media #{$lg,$md} {
+			font-size: 60px;
+		}
+		@media #{$sm} {
+			font-size: 50px;
+		}
+		@media #{$xs} {
+			font-size: 45px;
+		}
+		@media #{$xxs} {
+			font-size: 32px;
+		}
+		.focus_text {
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 27px;
+			margin-bottom: 30px;
+			align-items: center;
+			border-radius: 50px;
+			display: inline-flex;
+			padding: 5px 5px 5px 15px;
+			border: 1px solid $color_border;
+			small {
+				padding: 0 10px;
+				margin-inline-start: 10px;
+				border-radius: 50px;
+				background-color: $color_warning;
+			}
+		}
+	}
+	.hero_banner_image {
+		margin: 0 -147px -15px 0;
+		@media #{$xxl} {
+			margin: 0 0px -15px 0;
+		}
+		@media #{$md} {
+			margin: auto;
+			max-width: 650px;
+		}
+		@media #{$xs,$sm,$md,$lg,$xl} {
+			margin: auto;
+		}
+	}
+	.analyse_image {
+		inset-inline-start: 50%;
+		z-index: 1;
+		bottom: 197px;
+		max-width: 234px;
+		border-radius: $radius_primary;
+	}
+	.color_shadow_1 {
+		bottom: 0;
+		inset-inline-end: 27px;
+		opacity: 0.5;
+		max-width: 830px;
+		filter: blur(200px);
+	}
+	.color_shadow_2 {
+		top: 0;
+		inset-inline-start: 0;
+		opacity: 0.3;
+		max-width: 300px;
+		filter: blur(200px);
+	}
+	.color_shadow_3 {
+		inset-inline-start: 25%;
+		top: -160px;
+		opacity: 0.3;
+		max-width: 425px;
+		filter: blur(200px);
+	}
+	.shape_1 {
+		top: 159px;
+		inset-inline-start: 52px;
+		animation: upDown 1s infinite alternate;
+		@include rtl {
+			transform: rotate(180deg);
+		}
+	}
+	.shape_2 {
+		top: 93px;
+		inset-inline-end: 20px;
+		animation: upDown 1s infinite alternate;
+		@include rtl {
+			transform: rotate(-90deg);
+		}
+	}
+}
+// Hero Banner Style 5 - End
+
+// Hero Banner Style 6 - Start
+.hero_banner_section.style_6 {
+	overflow: hidden;
+	padding: 223px 0 120px;
+	background-image: linear-gradient(40.25deg, rgba(253, 210, 78, 0.15) 0%, rgba(253, 210, 78, 0) 63.9%);
+	@media #{$xxl} {
+		padding: 185px 0 100px;
+	}
+	@media #{$xl} {
+		padding: 160px 0 100px;
+	}
+	@media #{$lg} {
+		padding: 160px 0 100px;
+	}
+	@media #{$md} {
+		padding: 150px 0 60px;
+	}
+	@media #{$sm} {
+		padding: 150px 0 50px;
+	}
+	@media #{$xs} {
+		padding: 150px 0 60px;
+	}
+	@media #{$xxs} {
+		padding: 140px 0 30px;
+	}
+
+	&::before {
+		position: absolute;
+		content: "";
+		height: 100%;
+		width: 100%;
+		background: linear-gradient(160.25deg, #FDD24E 0%, rgba(253, 210, 78, 0) 63.9%);
+		opacity: 0.15;
+		top: 0;
+		inset-inline-start: 0;
+		z-index: -1;
+	}
+	.hero_banner_image {
+		max-width: 747px;
+		margin-inline-start: -84px;
+		@media #{$xxl} {
+			max-width: 650px;
+			margin-inline-start: 0px;
+		}
+		@media #{$xl} {
+			max-width: 600px;
+			margin-inline-start: 0px;
+		}
+		@media #{$xs,$sm,$md,$lg} {
+			margin-inline-start: 0px;
+		}
+		img {
+			animation: upDown 1s infinite alternate;
+			width: 100%;
+		}
+	}
+	.hero_banner_heading {
+		font-size: 75px;
+		font-weight: 800;
+		line-height: 1.12;
+		margin-bottom: 55px;
+		padding-inline-end: 100px;
+		@media #{$xxl,$xl} {
+			font-size: 65px;
+			padding-inline-end: 0px;
+		}
+		@media #{$md} {
+			font-size: 60px;
+			padding-inline-end: 0;
+		}
+		@media #{$sm,$lg} {
+			font-size: 55px;
+			padding-inline-end: 0;
+		}
+		@media #{$xs} {
+			font-size: 46px;
+			padding-inline-end: 0;
+		}
+		@media #{$xxs} {
+			font-size: 32px;
+		}
+		.small_title {
+			display: block;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 1;
+			margin-bottom: 29px;
+			text-transform: uppercase;
+		}
+		.focus_text {
+			position: relative;
+			z-index: 5;
+			display: inline-block;
+			&::after {
+				position: absolute;
+				content: "";
+				height: 100%;
+				width: 100%;
+				bottom: 0;
+				inset-inline-start: 0;
+				z-index: -1;
+				background-repeat: no-repeat;
+				background-position: center bottom 15px;
+				background-image: linear-gradient(0deg, $color_warning 16px, transparent 0);
+				-webkit-animation: section-animation 3s infinite;
+				animation: section-animation 3s infinite;
+				@media #{$xxs} {
+					bottom: -8px;
+				}
+			}
+		}
+	}
+
+	.shape_1 {
+		inset-inline-start: -230px;
+		bottom: -150px;
+		max-width: 912px;
+		@media #{$xxl} {
+			max-width: 800px;
+		}
+		@media #{$xl} {
+			max-width: 705px;
+		}
+		@media #{$lg} {
+			max-width: 640px;
+		}
+		@media #{$md} {
+			max-width: 815px;
+		}
+		@media #{$sm} {
+			max-width: 730px;
+		}
+		@media #{$xs} {
+			max-width: 640px;
+		}
+		@media #{$xxs} {
+			max-width: 520px;
+		}
+	}
+	.shape_2 {
+		top: 100px;
+		inset-inline-end: -94px;
+		max-width: 153px;
+		@media #{$xs} {
+			display: none;
+		}
+	}
+	.shape_3 {
+		top: 248px;
+		inset-inline-end: 202px;
+		max-width: 20px;
+		@media #{$xs,$sm} {
+			display: none;
+		}
+	}
+	.shape_4 {
+		inset-inline-end: 23%;
+		bottom: 160px;
+		max-width: 16px;
+	}
+}
+// Hero Banner Style 6 - End
+
+/* Hero Banner Section - End
+================================================== */

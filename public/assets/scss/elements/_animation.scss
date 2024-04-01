@@ -1,0 +1,155 @@
+/* CSS Animation - Start
+================================================== */
+
+
+.decoration_wrap {
+  z-index: 1;
+  position: relative;
+
+
+  .deco_item {
+    z-index: -1;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 30px 30px;
+    @media #{$xs,$sm,$md} {
+      flex-direction: row;
+		}
+  }
+
+  .overlay {
+    top: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    bottom: 0;
+    z-index: -1;
+    position: absolute;
+  }
+
+  .half_bg_top {
+    top: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    z-index: -1;
+    position: absolute;
+  }
+}
+.amin-up-down {
+  animation: upDown 1s infinite alternate;
+}
+
+@keyframes dropDown {
+  0% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+
+.upDown {
+  animation: upDown 1s infinite alternate;
+}
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+.spin {
+  animation: spin 4s infinite linear;
+}
+@keyframes spin {
+  0%  {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.flash {
+  animation: flash 5s linear infinite;
+}
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* CSS Animation - End
+================================================== */
+
+
+.fadeInDown {
+  animation-name:uicoreFadeInDown,uicoreFadeIn!important;
+  animation-timing-function:cubic-bezier(.22,1,.36,1),cubic-bezier(0,0,.2,1)
+ }
+ .rotateInUpLeft {
+  animation-name:rotateInUpLeft,uicoreFadeIn;
+  animation-timing-function:cubic-bezier(.22,1,.36,1),cubic-bezier(0,0,.2,1)
+ }
+
+
+ @keyframes section-animation {
+	0% {
+		width: 0;
+	}
+	15% {
+		width: 100%;
+	}
+	85% {
+		opacity: 1;
+	}
+	90% {
+		width: 100%;
+		opacity: 0;
+	}
+	to {
+		width: 0;
+		opacity: 0;
+	}
+}
+
+// icon animation 
+@keyframes iconltr {
+	49% {
+		transform: translateX(30%);
+	}
+
+	50% {
+		opacity: 0;
+		transform: translateX(-30%);
+	}
+
+	51% {
+		opacity: 1;
+	}
+}
+// icon animation Up
+@keyframes iconltrup {
+	49% {
+		transform: translateY(30%);
+	}
+
+	50% {
+		opacity: 0;
+		transform: translateU(-30%);
+	}
+
+	51% {
+		opacity: 1;
+	}
+}

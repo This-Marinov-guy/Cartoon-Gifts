@@ -1,0 +1,132 @@
+/* Team - Start
+================================================== */
+.team_item {
+	padding: 30px;
+	position: relative;
+	text-align: center;
+	background-color: $color_white;
+	border-radius: $radius_primary;
+	transition: $transition_slow;
+	border: 1px solid $color_border;
+	.admin_thumbnail {
+		z-index: 1;
+		padding: 2px;
+		overflow: hidden;
+		position: relative;
+		border-radius: 100%;
+		margin-bottom: 20px;
+		display: inline-block;
+		&:before {
+			inset-inline-start: 0;
+			inset-inline-end: 0;
+			bottom: 0;
+			content: '';
+			z-index: -1;
+			height: 0%;
+			position: absolute;
+			transition: $transition_slow;
+			background-image: linear-gradient(0deg, rgba(10, 51, 194, 1), rgba(10, 51, 194, 0));
+		}
+		.thumbnail_wrap {
+			margin: auto;
+			width: 194px;
+			height: 194px;
+			overflow: hidden;
+			border-radius: 100%;
+			border: 2px solid $color_white;
+		}
+	}
+	.admin_name {
+		font-size: 21px;
+		line-height: 29px;
+		margin-bottom: 6px;
+	}
+	.admin_designation {
+		font-size: 14px;
+		line-height: 27px;
+		color: $color_primary;
+	}
+	.admin_social {
+		justify-content: center;
+	}
+
+	&:hover {
+		z-index: 1;
+		box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
+		.admin_thumbnail {
+			&:before {
+				height: 100%;
+			}
+		}
+	}
+}
+
+.team_item.style_1 {
+	.admin_social {
+		margin-top: 30px;
+		padding-top: 30px;
+		border-top: 1px solid $color_border;
+		>li {
+			padding: 0 6px;
+		}
+		a {
+			width: 33px;
+			height: 33px;
+			opacity: 0.2;
+			display: flex;
+			font-size: 14px;
+			color: $color_dark;
+			border-radius: 100%;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid $color_dark;
+			&:hover {
+				opacity: 1;
+				color: $color_white;
+				border-color: $color_primary;
+				background-color: $color_primary;
+			}
+		}
+	}
+}
+
+.team_item.style_2 {
+	.admin_social {
+		inset-inline-start: 50%;
+		z-index: 1;
+		opacity: 0;
+		bottom: -30px;
+		padding: 0 6px;
+		min-width: 120px;
+		overflow: hidden;
+		position: absolute;
+		border-radius: 50px;
+		transform: translateX(-50%);
+		transition: $transition_fast;
+		background-color: $color_warning;
+		>li {
+		}
+		a {
+			width: 30px;
+			height: 38px;
+			display: flex;
+			font-size: 14px;
+			color: $color_dark;
+			align-items: center;
+			justify-content: center;
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.05);
+			}
+		}
+	}
+
+	&:hover {
+		transform: translateY(-10px);
+		.admin_social {
+			opacity: 1;
+			bottom: -19px;
+		}
+	}
+}
+/* Team - End
+================================================== */

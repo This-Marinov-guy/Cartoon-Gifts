@@ -1,0 +1,55 @@
+/* Tab Style - Start
+================================================== */
+
+// Tebs Nav Boxed - Start
+.tabs_nav_boxed {
+	padding: 30px 0;
+	border-radius: $radius_primary;
+	border: 1px solid $color_border;
+	>li {
+		display: block;
+	}
+	button {
+		display: flex;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 27px;
+		padding: 10px 40px;
+		position: relative;
+		align-items: center;
+		@media #{$xs} {
+			padding: 10px 30px;
+		}
+		span {
+			color: $color_body;
+			transition: $transition_fast;
+		}
+		i {
+			opacity: 0;
+			font-size: 4px;
+			line-height: 1;
+			color: $color_primary;
+			transform: translateX(-10px);
+			transition: $transition_fast;
+		}
+		&:hover {
+			span {
+				color: $color_primary;
+			}
+		}
+		&.active {
+			span {
+				color: $color_primary;
+				transform: translateX(10px);
+			}
+			i {
+				opacity: 1;
+				transform: translateX(0px);
+			}
+		}
+	}
+}
+// Tebs Nav Boxed - End
+
+/* Tab Style - End
+================================================== */

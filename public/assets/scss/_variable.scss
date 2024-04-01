@@ -1,0 +1,31 @@
+// Font Family
+$font_body: 'Manrope', sans-serif;
+$font_heading: 'Manrope', sans-serif;
+
+// Default Color
+$color_white: #ffffff;
+$color_black: #000000;
+$color_body: #5D636A;
+$color_body_2: #AFAFAF;
+$color_dark: #0F0E0E;
+$color_dark_2: #33333A;
+$color_dark_3: #292930;
+$color_primary: #5355DF;
+$color_warning: #FFC961;
+$color_danger: #FF7F50;
+$color_rating: #FFC045;
+$color_light: #F1F1FC;
+$color_light_2: rgba(255, 127, 80, 0.1);
+$color_light_3: #F7F8FA;
+$color_border: rgba(15, 14, 14, 0.1);
+
+// Shadow
+$shadow_dropdown: 0 0 60px 0 rgba(15, 14, 14, 0.12);
+
+// Border Transition
+$radius_primary: 12px;
+$radius_secondary: 50px;
+
+// Default Transition
+$transition_fast: 0.3s cubic-bezier(0.5, 1, 0.89, 1);
+$transition_slow: 0.6s cubic-bezier(0.5, 1, 0.89, 1);

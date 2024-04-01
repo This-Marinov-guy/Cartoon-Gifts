@@ -1,0 +1,85 @@
+/* 2.12 - Pagination Nav - start
+================================================== */
+.pagination_wrap {
+  padding-top: 60px;
+}
+.pagination_nav {
+  margin: -1px;
+  gap: 5px;
+  li {
+    padding: 1px;
+  }
+  a {
+    height: 40px;
+    display: inline-flex;
+    min-width: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0F0E0E;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center
+  }
+  li {
+    &:hover,
+    &.active {
+      a {
+        color: $color_white;
+        background-color: $color_primary;
+      }
+    }
+  }
+}
+
+.other_post_pagination {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: $radius_primary;
+  justify-content: space-between;
+  border: 1px solid $color_border;
+  flex-wrap: wrap;
+  gap: 20px 15px;
+  a {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    color: $color_dark;
+    align-items: center;
+    display: inline-flex;
+    .btn_text {
+      padding: 0 10px;
+    }
+    .btn_icon {
+      width: 14px;
+      height: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    img {
+      &:last-child {
+        display: none;
+      }
+    }
+    &:first-child {
+      .btn_text {
+        order: 1;
+      }
+    }
+
+    &:hover {
+      color: $color_primary;
+      img {
+        &:first-child {
+          display: none;
+        }
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+  }
+}
+/* 2.12 - Pagination Nav - end
+================================================== */

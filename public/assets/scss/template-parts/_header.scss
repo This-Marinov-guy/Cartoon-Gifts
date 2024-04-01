@@ -1,0 +1,298 @@
+
+/* Template Header - Start
+================================================== */
+
+// Header Elements - Start
+
+// Header baricon
+.bar {
+    &-icon {
+        width: 30px;
+        height: 22px;
+        @include flexbox();
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        span {
+            width: 100%;
+            height: 2px;
+            background: $color_dark;
+            display: inline-block;
+            &:nth-child(2) {
+                @include transition (.3s);
+				position: relative;
+				width: 6.56px;
+				small {
+					position: absolute;
+					height: 100%;
+					background: $color_dark;
+					left: 12.56px;
+					width: 18.06px;
+					z-index: 5555;
+					@include rtl {
+						right: 12.56px;
+					}
+				}
+            }
+        }
+		&.is-white {
+			span {
+				background: $color_white;
+				&:nth-child(2) {
+					small {
+						background: $color_white;
+					}
+				}
+			}
+		}
+    }
+}
+.site_header {
+	top: 0;
+	inset-inline-start: 0;
+	inset-inline-end: 0;
+	z-index: 99;
+	position: absolute;
+	transition: $transition_fast;
+	@media #{$xs,$sm,$md} {
+		padding: 15px 0;
+	}
+	.container {
+		max-width: 1480px;
+	}
+	&.sticky {
+		position: fixed;
+		background-color: $color_white;
+		box-shadow: 0 2px 6px 0 rgba(16, 18, 19, 0.08);
+		-webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+		animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+		-webkit-box-shadow: 0px 4px 10px rgba(3, 4, 28, 0.1);
+	}
+
+	.select_option {
+		align-items: center;
+		display: inline-flex;
+		@media #{$lg} {
+			display: none;
+		}
+		.icon_wrap {
+			margin: -5px 8px 0 0;
+			@include rtl {
+				margin: -5px 0px 0 8px;
+			}
+		}
+	}
+	.bd-btn-link {
+		height: 48px;
+		padding:0 25px;
+	}
+	.btn {
+		padding: 0 25px;
+		span small {
+			padding: 13px 0;
+		}
+	}
+
+	.select_option {
+		.nice-select {
+			padding: 0;
+			border: none;
+			background-color: transparent;
+			outline: none;
+			font-size: 16px;
+			font-weight: 600;
+			font-family: 'Manrope', sans-serif;
+			& .option {
+				@include rtl {
+					text-align: right;
+				}
+			}
+			&:after {
+				color: $color_dark;
+			}
+			.list {
+				right: 0;
+				left: auto;
+				@include rtl {
+					right: auto;
+					left: 0;
+				}
+			}
+			.current {
+				font-weight: 600;
+				color: $color_dark;
+			}
+		}
+	}
+}
+.sticky {
+	.main-menu {
+		ul {
+			& > li {
+				& > a {
+					padding: 27px 0;
+				}
+			}
+		}
+	}
+}
+// Header Elements - End
+
+// Header style
+.header_wrapper {
+	display: grid;
+	grid-template-columns: 25% auto 25%;
+	justify-content: space-between;
+	align-items: center;
+	@include rtl {
+		@media #{$xl} {
+			grid-template-columns: 16% auto 33%;
+		}
+		@media #{$lg} {
+			grid-template-columns: 20% auto 30%;
+		}
+		grid-template-columns: 18% auto 30%;
+		@media #{$xs,$sm,$md} {
+			grid-template-columns: auto auto;
+		}
+	}
+	@media #{$xl} {
+		grid-template-columns: 18% auto 27%;
+	}
+	@media #{$lg} {
+		grid-template-columns: 20% auto 20%;
+	}
+	@media #{$xs,$sm,$md} {
+		grid-template-columns: auto auto;
+	}
+}
+.header_right {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+	justify-content: flex-end;
+}
+@media #{$xxs} {
+	.site_logo {
+		a {
+			max-width: 150px;
+		}
+	}
+}
+
+// Header Buttons Group - Start
+.header_btns_group {
+	>li {
+		&:last-child {
+			margin-inline-start: 30px;
+			@media #{$xl} {
+				margin-inline-start: 25px;
+			}
+			@include rtl {
+				margin-inline-end: 30px;
+			}
+		}
+	}
+}
+// Header Buttons Group - End
+
+// Header Style 2 - Start
+header.site_header_2 {
+	border-bottom: 1px solid $color_border;
+	.select_option {
+		.nice-select {
+			&:focus {
+				border-color: $color_danger;
+			}
+
+			.list {
+				>li {
+					&:hover,
+					&.selected {
+						color: $color_danger;
+					}
+				}
+			}
+		}
+	}
+}
+// Header Style 2 - End
+
+// Header Style 3 - Start
+header.site_header_3 {
+	transition: unset;
+	.select_option .nice-select .current,
+	.select_option .nice-select::after {
+		color: $color_white;
+	}
+	&.sticky {
+		backdrop-filter: blur(18px);
+		background-color: rgba(16, 18, 19, 0.7);
+		animation: .4s ease-in-out 0s normal none 1 running fadeInDown;
+	}
+}
+.site_header.site_header_3 .select_option .nice-select {
+	color: $color_white;
+}
+// Header Style 3 - End
+
+// Header Style 4 - Start
+.site_header_4 {
+	.content_box {
+		margin-top: 20px;
+		padding: 0px 20px;
+		border-radius: 120px;
+		transition: all .2s ease;
+		background-color: $color_white;
+		@media #{$xs,$sm,$md} {
+			margin-top: 0px;
+			padding: 13px 15px;
+			border-radius: 0 0 40px 40px;
+			box-shadow: 0px 8px 55px 0px rgba(16, 18, 19, 0.08);
+		}
+	}
+	&.sticky {
+		.content_box {
+			margin-top: 0;
+			border-radius: 0 0 40px 40px;
+			box-shadow: 0px 8px 55px 0px rgba(16, 18, 19, 0.08);
+			@media #{$xs,$sm,$md} {
+				padding: 13px 15px;
+			}
+		}
+	}
+}
+// Header Style 4 - End
+
+.nice-select .list {
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 0 1px rgba(68,68,68,.11);
+	box-sizing: border-box;
+	margin-top: 4px;
+	opacity: 0;
+	overflow: hidden;
+	padding: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	transform-origin: 50% 0;
+	transform: scale(.75) translateY(-21px);
+	transition: all .2s cubic-bezier(.5,0,0,1.25),opacity .15s ease-out;
+	z-index: 9;
+}
+.nice-select.open .list {
+	opacity: 1;
+	pointer-events: auto;
+	transform: scale(1) translateY(0);
+	li {
+		list-style: none;
+	}
+}
+.select_option .list li {
+	list-style: none;
+}
+
+/* Template Header - End
+================================================== */

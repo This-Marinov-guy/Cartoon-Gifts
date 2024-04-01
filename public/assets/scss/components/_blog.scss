@@ -1,0 +1,171 @@
+/* Blog - Start
+================================================== */
+.blog_item {
+	padding: 20px 20px 30px;
+	border-radius: $radius_primary;
+	background-color: $color_light;
+	min-height: 100%;
+	.flex_wrap {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 25px 0;
+	}
+	.item_image {
+		display: block;
+		overflow: hidden;
+		margin-bottom: 20px;
+		border-radius: $radius_primary;
+		img {
+			transition: $transition_slow;
+			width: 100%;
+		}
+		&:hover {
+			img {
+				transform: scale(1.08);
+			}
+		}
+	}
+	.item_title {
+		margin: 0;
+		padding: 20px 0;
+		font-size: 28px;
+		line-height: 1.37;
+		@media #{$lg,$xs} {
+			font-size: 22px;
+		}
+		>a {
+			color: $color_dark;
+			&:hover {
+				color: $color_primary;
+			}
+		}
+	}
+	.post_date {
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 22px;
+	}
+}
+
+.blog_item.bg_light_2 {
+	background-color: #FFF3EE;
+
+	.category_list a {
+		color: $color_white;
+		background-color: $color_danger;
+		&:hover {
+			background-color: $color_primary;
+		}
+	}
+
+	.item_title {
+		>a {
+			&:hover {
+				color: $color_danger;
+			}
+		}
+	}
+
+	.btn-link {
+		.btn_text {
+			&:before {
+				background-color: $color_danger;
+			}
+		}
+		&:hover {
+			color: $color_danger;
+		}
+	}
+}
+
+.blog_grouped {
+	.blog_item {
+		.item_title {
+			font-size: 24px;
+			@media #{$xxs,$xl,$lg,$md} {
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+.blog_classic_grouped {
+	.blog_item {
+		&:not(:last-child) {
+			margin-bottom: 60px;
+		}
+		.flex_wrap {
+			justify-content: flex-start;
+		}
+		.post_date {
+			margin-inline-start: 20px;
+		}
+		p {
+			font-size: 17px;
+			line-height: 27px;
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.recent_post_list {
+	>li {
+		&:not(:last-child) {
+			margin-bottom: 30px;
+		}
+	}
+}
+.recent_post_item {
+	display: flex;
+	align-items: center;
+	gap: 30px 15px;
+	@media #{$xxs,$lg} {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+	@media #{$xxs} {
+		gap: 15px 15px;
+	}
+	.item_image {
+		flex: 0 0 100px;
+		max-width: 100px;
+		overflow: hidden;
+		border-radius: $radius_primary;
+		@media #{$xxs} {
+			flex: inherit;
+			max-width: 100%;
+		}
+		img {
+			transition: $transition_fast;
+			min-height: 100px;
+			object-fit: cover;
+		}
+	}
+
+	.item_title {
+		font-size: 20px;
+		margin: 6px 0 0;
+		line-height: 1.3;
+		@media #{$xxs,$lg} {
+			font-size: 18px;
+		}
+		a {
+			color: $color_dark;
+			&:hover {
+				color: $color_primary;
+			}
+		}
+	}
+
+	&:hover {
+		.item_image {
+			img {
+				transform: scale(1.08);
+			}
+		}
+	}
+}
+/* Blog - End
+================================================== */

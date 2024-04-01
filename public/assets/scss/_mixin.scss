@@ -1,0 +1,165 @@
+	// Background Image Mixin
+	@mixin bg_image_property($bg_repeat: no-repeat, $bg_size: cover, $bg_position: center center) {
+		background-size: $bg_size;
+		background-repeat: $bg_repeat;
+		background-position: $bg_position;
+	}
+	
+    // after before
+    %theme-afbf{
+        position: absolute;
+        content: '';
+    }
+
+    // bg color
+    @mixin bg-color($color, $opacity) {
+        background: rgba($color, $opacity);
+    }
+    
+    // placeholder input
+    @mixin bd-placeholder {
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            @content;
+        }
+        &:-moz-placeholder { /* Firefox 19+ */
+            @content;
+        }
+        &::-moz-placeholder { /* Firefox 4-18 */
+            @content;
+        }
+        &:-ms-input-placeholder { /* IE 10+  Edge*/
+        @content;
+        }
+        &::placeholder{ /* MODERN BROWSER */
+            @content;
+        }
+    }
+
+    // animate 
+    @mixin animate($animation, $duration, $repeat, $easing) {
+        -webkit-animation: $animation $duration $repeat $easing;
+           -moz-animation: $animation $duration $repeat $easing;
+            -ms-animation: $animation $duration $repeat $easing;
+            -o-animation: $animation $duration $repeat $easing;
+                animation: $animation $duration $repeat $easing;
+    }
+
+    // filter 
+    @mixin filter($value) {
+        -webkit-filter: $value;
+            filter: $value;
+    }
+
+    // appearance for select
+    @mixin appearance($value) {
+        -webkit-appearance: $value;
+            -moz-appearance: $value;
+            -ms-appearance: $value;
+            -o-appearance: $value;
+            appearance: $value;
+    }
+    
+    // keyframes 
+    @mixin keyframes($name) {
+        @-webkit-keyframes #{$name} {
+            @content; 
+        }
+        @-moz-keyframes #{$name} {
+            @content;
+        }
+        @-ms-keyframes #{$name} {
+            @content;
+        }
+        @keyframes #{$name} {
+            @content;
+        } 
+    }
+
+    //backgroud 
+    @mixin background {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    // transition specific
+    @mixin tp-transition($property: all, $time: .3s,  $func : ease-out, $delay : 0s) {
+        -webkit-transition: $property $time $delay $func;
+        -moz-transition: $property $time $delay $func;
+        -ms-transition: $property $time $delay $func;
+        -o-transition: $property $time $delay $func;
+        transition: $property $time $delay $func;
+    }
+
+    // transition multiple
+    @mixin tp-transition-mul($property) {
+        -webkit-transition: $property;
+        -moz-transition: $property;
+        -ms-transition: $property;
+        -o-transition: $property;
+        transition: $property ;
+    }
+      
+    //transition 
+    @mixin transition($time) {
+        -webkit-transition: all $time ease-out 0s;
+        -moz-transition: all $time ease-out 0s;
+        -ms-transition: all $time ease-out 0s;
+        -o-transition: all $time ease-out 0s;
+        transition: all $time ease-out 0s;
+    }
+    
+    // transform
+    @mixin transform($transforms) {
+        -webkit-transform: $transforms;
+        -moz-transform: $transforms;
+        -ms-transform: $transforms;
+        -o-transform: $transforms;
+        transform: $transforms;
+    }
+    
+    //border
+    @mixin border-radius($man) {
+    -webkit-border-radius: $man;
+    -moz-border-radius: $man;
+    -o-border-radius: $man;
+    -ms-border-radius: $man;
+    border-radius: $man;
+    }
+    
+    // sentence case
+    @mixin sentence-case() {
+        text-transform: lowercase;
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    // Flexbox display
+    @mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    }
+    @mixin inline-flex() {
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: -ms-inline-flexbox;
+    }
+    
+    // Box shadows
+    @mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;       
+    -ms-box-shadow: $shadow;       
+    -o-box-shadow: $shadow;       
+     box-shadow: $shadow;
+    }
+
+    // RTL 
+    @mixin rtl {
+        [dir="rtl"] & {
+            @content;
+        }
+    }

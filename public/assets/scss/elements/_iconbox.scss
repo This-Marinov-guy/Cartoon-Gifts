@@ -1,0 +1,175 @@
+/* IconBox Widget - Start
+================================================== */
+.iconbox_item {
+	z-index: 1;
+	position: relative;
+	background-color: #EEEEFC;
+	padding: 30px 50px 30px 30px;
+	border: 1px solid transparent;
+	border-radius: $radius_primary;
+	transition: $transition_fast;
+	@media #{$lg} {
+		padding: 25px 25px 25px 25px;
+	}
+	&:before {
+		top: 0;
+		inset-inline-start: 0;
+		opacity: 0;
+		content: '';
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		transform: scale(0.96);
+		transition: $transition_fast;
+		border-radius: $radius_primary;
+	}
+	&:hover {
+		&:before {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+	.item_icon {
+		width: 60px;
+		height: 60px;
+		align-items: center;
+		border-radius: 100%;
+		margin-bottom: 15px;
+		display: inline-flex;
+		justify-content: center;
+	}
+	.serial_number {
+		font-size: 50px;
+		font-weight: 700;
+		line-height: 68px;
+		position: relative;
+		margin-bottom: 15px;
+		display: inline-block;
+		color: $color_warning;
+		font-family: $font_heading;
+		&:before {
+			top: 50%;
+			inset-inline-start: 24px;
+			content: '';
+			width: 60px;
+			height: 60px;
+			opacity: 0.2;
+			position: absolute;
+			border-radius: 100%;
+			transform: translateY(-50%);
+			background-color: $color_warning;
+		}
+	}
+	.item_title {
+		font-size: 21px;
+		line-height: 29px;
+		margin-bottom: 15px;
+		@media #{$xxs,$lg} {
+			font-size: 18px;	
+		}
+	}
+	p {
+		font-size: 16px;
+		line-height: 22px;
+	}
+}
+
+.iconbox_item.icon_align_left {
+	display: flex;
+	.item_icon {
+		width: 60px;
+		height: 60px;
+		flex: 0 0 60px;
+		margin-inline-end: 15px;
+	}
+}
+
+.iconbox_item.bg-white {
+	border-color: $color_border;
+	&:before {
+		transform: scale(1);
+		background-color: $color_light;
+	}
+	&:hover {
+		border-color: $color_light;
+	}
+}
+
+.mission_vision {
+	.iconbox_item {
+		padding: 20px 50px 20px 20px;
+		background-color: transparent;
+		@media #{$xs,$lg} {
+			padding: 20px 20px 20px 20px;
+		}
+		&:before {
+			background-color: rgba(83, 85, 223, 0.1);
+		}
+		.item_icon {
+			background-color: rgba(83, 85, 223, 0.1);
+		}
+		&.text-white {
+			&:before {
+				background-color: rgba(255, 255, 255, 0.08);
+			}
+			.item_icon {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+			.item_title {
+				color: $color_white;
+			}
+		}
+	}
+}
+
+.skill_iconboxes {
+	margin-bottom: -12px;
+	>.col {
+		padding: 12px;
+	}
+	.iconbox_item {
+		padding: 20px;
+		text-align: center;
+		.item_icon {
+			width: 70px;
+			height: 70px;
+			margin-bottom: 10px;
+			transition: $transition_fast;
+			img {
+				transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+			}
+		}
+		.item_title {
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 22px;
+		}
+		&:hover {
+			border-color: $color_border;
+			.item_icon {
+				background-color: $color_white;
+				img {
+					transform: scale(0.7);
+				}
+			}
+		}
+	}
+}
+
+.our_value_iconbox {
+	.iconbox_item {
+		padding: 0;
+		border: none;
+		border-radius: 0;
+		background-color: transparent;
+		&:before {
+			display: none;
+		}
+		.item_icon {
+			background-color: $color_primary;
+		}
+	}
+}
+/* IconBox Widget - End
+================================================== */

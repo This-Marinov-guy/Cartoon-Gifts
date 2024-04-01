@@ -1,0 +1,39 @@
+/* Color Classes - Start
+================================================== */
+.bg_dark {
+	background-color: $color_dark;
+}
+.bg_dark_2 {
+	background-color: $color_dark_2;
+}
+.bg_dark_3 {
+	background-color: $color_dark_3;
+}
+.bg_primary {
+	background-color: $color_primary;
+}
+.bg_warning {
+	background-color: $color_warning;
+}
+.bg_danger {
+	background-color: $color_danger;
+}
+.bg_light {
+	background-color: $color_light;
+}
+.bg_light_2 {
+	background-color: $color_light_2;
+}
+.bg_light_3 {
+	background-color: $color_light_3;
+}
+
+.bg_gradient_light {
+	background-image: linear-gradient(0deg, #F1F1FC 0%, rgba(241, 241, 252, 0) 100%);
+}
+
+.bg_half_top_light {
+	background-image: linear-gradient(0deg, transparent 41%, #E3ECFA 0%);
+}
+/* Color Classes - End
+================================================== */

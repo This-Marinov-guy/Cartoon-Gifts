@@ -1,0 +1,144 @@
+/* Register Templates - Start
+================================================== */
+.register_section {
+	display: flex;
+	flex-wrap: wrap;
+	min-height: 100vh;
+	align-items: stretch;
+	background-image: linear-gradient(0deg, rgba(83, 85, 223, 0.2) 0%, rgba(83, 85, 223, 0) 100%);
+	@media #{$xs,$sm,$md} {
+		flex-wrap: wrap-reverse;
+	}
+	.column {
+		display: flex;
+		flex: 0 0 50%;
+		overflow: hidden;
+		align-items: center;
+		justify-content: center;
+		@media #{$xs,$sm,$md} {
+			flex: 0 0 100%;	
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+		& .tilt {
+			max-width: 526px;
+			@media #{$xs} {
+				width: 100%;
+				margin: 0 20%;
+			}
+			@media #{$lg} {
+				width: 100%;
+				margin: 0 10%;
+			}
+		}
+		&:first-child {
+			background-color: #DCDAFF;
+		}
+		&:last-child {
+			padding-inline-start: 117px;
+			@media #{$lg} {
+				padding-inline-start: 60px;
+			}
+			@media #{$xl} {
+				padding-inline-start: 75px;
+			}
+			@media #{$md} {
+				padding: 80px 15px;
+			}
+			@media #{$xs,$sm} {
+				padding: 60px 15px;
+			}
+		}
+	}
+
+	.shape_1 {
+		top: 140px;
+		inset-inline-start: -70px;
+		img {
+			animation: spin 8s infinite linear;
+		}
+	}
+	.shape_2 {
+		inset-inline-end: 100px;
+		bottom: 166px;
+		max-width: 140px;
+		img {
+			animation: upDown 1.5s infinite alternate;
+		}
+	}
+	.shape_3 {
+		top: 170px;
+		inset-inline-end: 200px;
+		@media #{$xs} {
+			display: none;
+		}
+		img {
+			animation: upDown 1s infinite alternate;
+		}
+	}
+	.shape_4 {
+		top: -100px;
+		inset-inline-end: -120px;
+		max-width: 430px;
+		img {
+			opacity: 0.4;
+			filter: blur(300px);
+		}
+	}
+}
+
+.register_form_wrap {
+	margin: auto;
+	max-width: 450px;
+	@media #{$sm,$md} {
+		width: 550px;
+	}
+	.site_logo {
+		margin-bottom: 40px;
+	}
+	.form_title {
+		font-size: 38px;
+		line-height: 1.3;
+		margin-bottom: 10px;
+		@media #{$xxs} {
+			font-size: 28px;
+		}
+		@media #{$xs,$sm} {
+			font-size: 34px;
+		}
+	}
+	p {
+		margin-bottom: 40px;
+		a {
+			color: $color_primary;
+			font-weight: 600;
+		}
+	}
+
+	.form-group,
+	.form-check {
+		margin-bottom: 20px;
+	}
+	.form-label {
+		margin-bottom: 4px;
+	}
+
+	.bd-btn-link {
+		width: 100%;
+		display: block;
+		margin-bottom: 40px;
+		border-radius: $radius_primary;
+	}
+
+	.link_forgot_pass {
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 27px;
+		color: $color_primary;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+/* Register Templates - End
+================================================== */

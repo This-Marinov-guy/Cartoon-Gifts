@@ -1,0 +1,462 @@
+/* Menu Css - Start
+================================================== */
+.main-menu {
+    & ul {
+        margin-bottom: 0;
+        & li {
+            position: relative;
+            list-style: none;
+            display: inline-block;
+            margin-inline-end: 35px;
+            @media #{$lg} {
+                margin-inline-end: 30px;
+            }
+  
+            &:last-child {
+                margin-inline-end: 0;
+            }
+  
+            & a {
+                display: inline-block;
+                font-size: 16px;
+                font-weight: 600;
+                color: $color_dark;
+                padding: 35px 0;
+                text-align: left;
+                position: relative;
+                @include rtl{
+                    text-align: right;
+                }
+                &::before {
+                    content: '';
+                    margin-inline-end: 12px;
+                    display: inline-block;
+                    @include transition(.3s);
+                    width: 6px;
+                    height: 6px;
+                    top: 50.76px;
+                    background: $color_primary;;
+                    position: absolute;
+                    top: 50%;
+                    inset-inline-start: -12px;
+                    transform: translateY(-50%) rotate(45deg);
+                    opacity: 0;
+                }
+            }
+  
+            &.has-dropdown {
+                &>a {
+                    position: relative;
+                    &::after {
+                        content: '\f107';
+                        @include transform(translateY(1px));
+                        font-size: 14px;
+                        color: var(--clr-common-white);
+                        font-family: "Font Awesome 5 Pro";
+                        font-weight: 400;
+                        margin-inline-start: 5px;
+                        display: inline-block;
+                        @include transition(.3s);
+                    }
+                }
+            }
+  
+            &.has-mega-menu {
+                position: static;
+            }
+  
+            /* submenu css start */
+            & .submenu {
+                position: absolute;
+                top: 100%;
+                inset-inline-start: 0;
+                min-width: 240px;
+                background: $color_white;
+                z-index: 99;
+                visibility: hidden;
+                opacity: 0;
+                transform-origin: top center;
+                padding: 31px 0 8px;
+                color: $color_white;
+                @include transition(.3s);
+                border: 1px solid #d9d9d9;
+                & li {
+                    display: block;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    @include transform(translateY(-10px));
+                    &.has-dropdown {
+                        &>a {
+                            &::after {
+                                position: absolute;
+                                top: 50%;
+                                inset-inline-end: 25px;
+                                @include transform(translateY(-50%) rotate(-90deg));
+                                color: $color_dark;
+                            }
+                        }
+                    }
+  
+                    & a {
+                        position: relative;
+                        z-index: 11;
+                        color: $color_dark;
+                        font-weight: 600;
+                        font-size: 14px;
+                        padding: 0 25px;
+                        padding-bottom: 0px;
+                        padding-inline-start: 30px;
+                        padding-bottom: 7px;
+                        width: 100%;
+  
+                        &::before {
+                            position: absolute;
+                            content: '';
+                            left: 25px;
+                            top: 40%;
+                            @include transform(translateY(-50%));
+                            width: 0;
+                            height: 1.2px;
+                            background-color: $color_primary;
+                            @include transition(.3s);
+                            @include rtl {
+                                left: auto;
+                                right: 25px;
+                            }
+                        }
+                    }
+  
+                    & .submenu {
+                        inset-inline-start: 100%;
+                        top: 0;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+  
+                    &:hover {
+                        &>a {
+                            color: $color_primary;;
+                            padding-inline-start: 43px;
+  
+                            &::before {
+                                width: 12px;
+                            }
+  
+                            &::after {
+                                color: $color_dark;
+                            }
+                        }
+  
+                        &>.submenu {
+                            @include transform(translateY(1));
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+  
+            /* mega menu start */
+            & .mega-menu{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 40px 225px;
+                background: $color_white;
+                box-shadow: 0px 20px 30px rgba(3, 4, 28, 0.1);
+                visibility: hidden;
+                opacity: 0;
+                transform-origin: top center;
+                @include transition(.3s);
+                border: 1px solid #d9d9d9;
+                border-bottom: 0;
+                z-index: 99;
+                @media #{$xl} {
+                    padding: 40px 150px;
+                }
+                @media #{$lg} {
+                    padding: 25px 25px;
+                    padding-inline-start: 80px;
+                }
+                & li{
+                    float: left;
+                    width: 25%;
+                    margin-inline-end: 0;
+                    text-align: left;
+                    @include rtl {
+                        float: right;
+                        margin-left: 0;
+                        text-align: right;
+                    }
+  
+                    & .mega-menu-title{
+                        font-weight: 600;
+                        font-size: 15px;
+                        letter-spacing: 0.1em;
+                        text-transform: uppercase;
+                        color: $color_black;
+                        cursor: text;
+                        padding: 0;
+                        display: inline-block;
+                        margin-bottom: 15px;
+                        border-bottom: 1px solid #d9d9d9;
+                        padding-bottom: 5px;
+                        &::before{
+                            display: none;
+                        }
+                    }
+                    & ul{
+                        & li{
+                            width: 100%;
+                            float: none;
+                            margin-bottom: 5px;
+
+                            &:last-child{
+                                margin-bottom: 0;
+                            }
+                            & a{
+                                font-weight: 500;
+                                font-size: 15px;
+                                color: #5D636A;
+                                padding: 0;
+                                position: relative;
+                                &::before{
+                                    position: absolute;
+                                    content: '';
+                                    left: 0;
+                                    right: auto;
+                                    top: 50%;
+                                    bottom: auto;
+                                    @include transform(translateY(-50%));
+                                    width: 0;
+                                    height: 1.2px;
+                                    background-color: $color_primary;
+                                    @include transition(.3s);
+                                    @include rtl {
+                                        right: 0;
+                                        left: auto;
+                                    }
+                                }
+                            }     
+                            &:hover{
+                                & > a{
+                                    color: $color_primary;
+                                    &::before{
+                                        background-color: $color_primary;
+                                    }
+                                }
+                            }                      
+                        }
+                    }
+                    &:hover{
+                        & > .mega-menu-title{
+                            color: $color_primary;
+                            padding-inline-start: 0;
+                        }
+  
+                        & > a{
+                            color: $color_primary;
+                        }
+                    }
+                    a {
+                        &:hover {
+                            padding-inline-start: 18px;
+                            @include rtl {
+                                padding-inline-start: 18px;
+                                padding-inline-end: 0px;
+                            }
+                            &::before{
+                                width: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+  
+            &:hover {
+                &>a {
+                    color: $color_primary;
+                    &:before {
+                        opacity: 1;
+                    }
+                    &::after {
+                        color: $color_primary;
+                    }
+                }
+  
+                &>.submenu {
+                    visibility: visible;
+                    opacity: 1;
+                }
+  
+                & .mega-menu {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &-2{
+        & ul{
+            & li{
+                a {
+                    &::before {
+                        background: $color-danger;
+                    }
+                }
+                & .submenu{
+                    
+                    & li{
+                        & a{
+                            &:hover {
+                                color: $color-danger;
+                                &::before {
+                                    background: $color-danger;
+                                }
+                            }
+                        }
+                        &:hover{
+                            & > a{
+                                color: $color-danger;
+                                &::before{
+                                    background-color: $color-danger;
+                                }
+                            }
+                        } 
+                        &.has-dropdown{
+                            &:hover{
+                                & > a{
+                                    &::after{
+                                        color: $color-danger;
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                & .mega-menu{
+                    & li{
+                        & ul{
+                            & li{
+                                &:hover{
+                                    & > a{
+                                        color: $color-danger;   
+                                        &::before{
+                                            background: $color-danger;
+                                        }
+                                    }
+                                }
+                            
+                            }
+                        }
+
+                        &:hover{
+                            & > .mega-menu-title{
+                                color: $color-danger;                  
+                            }
+                        }
+                    }
+                }
+
+                &:hover{
+                    & > a{
+                        color: $color-danger;
+
+                        &::after{
+                            color: $color-danger;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-3{
+        & ul{
+            & li{
+                a{
+                    color: $color_white;
+                    &:before {
+                        background: $color_warning;
+                    }
+                }
+                & .submenu{
+                    & li{
+                        &:hover{
+                            & > a{
+                                color: $color_warning;   
+                                &::before{
+                                    background: $color_warning;
+                                }
+                            }
+                        }
+                        & a{
+                            &:hover {
+                 				color: $color_warning;
+                                &::before {
+					                background: $color_warning;
+                                }
+                            }
+                        }
+
+                        &.has-dropdown{
+                            &:hover{
+                                & > a{
+                                    &::after{
+                         				color: $color_warning;
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                & .mega-menu{
+                    & li{
+                        & ul{
+                            & li{
+                                &:hover{
+                                    & > a{
+                         				color: $color_warning;   
+                                        &::before{
+        					                background: $color_warning;
+                                        }
+                                    }
+                                }
+                            
+                            }
+                        }
+
+                        &:hover{
+                            & > .mega-menu-title{
+                 				color: $color_warning;                  
+                            }
+                        }
+                    }
+                }
+
+                &:hover{
+                    & > a{
+         				color: $color_warning;
+
+                        &::after{
+                            color: $color_warning;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-4{
+        & ul{
+            & li{
+                a{
+                    padding: 30px 0;
+                }
+            }
+        }
+    }
+}
+

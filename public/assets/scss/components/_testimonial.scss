@@ -1,0 +1,248 @@
+/* Testimonial - Start
+================================================== */
+.total_review_info {
+	display: flex;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 22px;
+	color: $color_dark;
+	align-items: center;
+	.review_stars {
+		margin-inline-end: 10px;
+		i {
+			color: $color_rating;
+		}
+	}
+	.review_text {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.review_section {
+	.shape_1 {
+		top: 50%;
+		inset-inline-start: -80px;
+		max-width: 30px;
+	}
+	.shape_2 {
+		bottom: -26px;
+		inset-inline-end: -135px;
+		max-width: 53px;
+	}
+	.shape_3 {
+		top: 15%;
+		inset-inline-end: -160px;
+		max-width: 18px;
+	}
+}
+
+// Review Item Style 1 - Start
+.review_items_group {
+	margin: -30px -15px;
+	>.col {
+		padding: 30px 15px;
+	}
+}
+
+.review_item.style_1 {
+	.content_area {
+		padding: 40px 30px;
+		position: relative;
+		margin-bottom: 44px;
+		background-color: $color_light;
+		border-radius: $radius_primary;
+		&:before {
+			bottom: -29px;
+			inset-inline-start: 68px;
+			content: '';
+			width: 40px;
+			height: 30px;
+			position: absolute;
+			background-color: $color_light;
+			clip-path: polygon(0 0, 100% 0, 0% 100%);
+		}
+	}
+	.review_content {
+		font-size: 19px;
+		font-weight: 500;
+		line-height: 27px;
+		color: $color_dark;
+		margin-bottom: 30px;
+		padding-bottom: 30px;
+		border-bottom: 1px solid $color_border;
+	}
+	.rating_star {
+		color: $color_primary;
+		>li {
+			color: $color_warning;
+		}
+	}
+	.quote_icon {
+		inset-inline-end: 30px;
+		bottom: 22px;
+		opacity: 0.05;
+		position: absolute;
+	}
+}
+
+.text-white {
+	.review_item.style_1 {
+		.content_area {
+			background-color: $color_dark_2;
+			&:before {
+				background-color: $color_dark_2;
+			}
+		}
+		.review_content {
+			color: #E3E3E3;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		.admin_item {
+			.admin_name {
+				color: $color_white;
+			}
+			.admin_designation {
+				color: $color_body_2;
+			}
+		}
+		.rating_star {
+			color: #FFC961;
+		}
+	}
+}
+
+.bg_light {
+	.review_item.style_1 {
+		.content_area {
+			background-color: $color_white;
+			&:before {
+				background-color: $color_white;
+			}
+		}
+	}
+}
+// Review Item Style 1 - End
+
+// Review Item Style 2 - Start
+.review_carousel_2 {
+	.carousel_arrow {
+		margin-top: 60px;
+	}
+}
+.review_item.style_2 {
+	padding: 40px;
+	position: relative;
+	background-color: $color_white;
+	border-radius: $radius_primary;
+	.review_title {
+		font-size: 21px;
+		font-weight: 700;
+		line-height: 29px;
+		margin-bottom: 8px;
+		color: $color_primary;
+	}
+	.rating_star {
+		margin-bottom: 30px;
+	}
+	.review_content {
+		font-size: 18px;
+		line-height: 25px;
+		color: $color_dark;
+		margin-bottom: 20px;
+		padding-bottom: 30px;
+		border-bottom: 1px solid $color_border;
+	}
+	.quote_icon {
+		top: 50%;
+		inset-inline-end: 20px;
+		opacity: 0.03;
+		position: absolute;
+		transform: translateY(-50%);
+	}
+}
+
+.review_item.style_2.text-center {
+	padding: 40px 60px;
+	@media #{$xs,$sm} {
+		padding: 30px 25px;
+	}
+	.review_title {
+		display: none;
+	}
+	.rating_star {
+		justify-content: center;
+	}
+	.admin_item {
+		margin: auto;
+		text-align: left;
+		justify-content: center;
+	}
+	.quote_icon {
+		top: 50%;
+		inset-inline-start: 50%;
+		inset-inline-end: auto;
+		@include transform(translate(-50%, -50%));
+	}
+}
+// Review Item Style 2 - End
+
+// Review Item Style 2 - Start
+.review_carousel_4 {
+	padding-top: 115px;
+	padding-bottom: 150px;
+	@media #{$xs,$sm} {
+		padding-top: 60px;
+		padding-bottom: 100px;
+	}
+	.slick-dots {
+		padding: 0;
+		width: auto;
+		float: left;
+		display: inline-flex;
+	}
+	.carousel_arrow {
+		float: right;
+		margin-top: -20px;
+		@media #{$xs,$sm,$md} {
+			padding-top: 0;
+		}
+		button {
+			width: 40px;
+			height: 40px;
+			background-color: transparent;
+			&:hover {
+				background-color: $color_primary;
+			}
+		}
+	}
+}
+
+.review_item.style_3 {
+	position: relative;
+	margin-bottom: 20px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid $color_border;
+	.rating_star {
+		margin-bottom: 30px;
+	}
+	.review_content {
+		font-size: 24px;
+		line-height: 34px;
+		margin-bottom: 40px;
+		color: $color_dark_2;
+		@media #{$xs,$lg} {
+			font-size: 20px;
+		}
+	}
+	.quote_icon {
+		inset-inline-end: 0;
+		top: 32px;
+		opacity: 0.04;
+		position: absolute;
+	}
+}
+// Review Item Style 2 - End
+
+/* Testimonial - End
+================================================== */

@@ -1,0 +1,411 @@
+/* 2.9 - Form Style - Start
+================================================== */
+.form-group {
+	position: relative;
+	margin-bottom: 30px;
+}
+.form-control {
+	width: 100%;
+	caret-color: $color_primary;
+	transition: $transition_fast;
+	border-radius: $radius_primary;
+	background-color: $color_white;
+	border: 1px solid rgba(83, 85, 223, 0.2);
+	&:focus {
+		box-shadow: none;
+		border-color: $color_primary;
+	}
+}
+input.form-control {
+	height: 60px;
+	padding: 0 20px;
+}
+textarea.form-control {
+	min-height: 250px;
+	padding: 16px 20px;
+	resize: none;
+}
+.form-label {
+	display: block;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 22px;
+	color: $color_dark;
+	margin-bottom: 14px;
+	font-family: $font_heading;
+}
+.form_required_indicator {
+	top: 0;
+	line-height: 1;
+	font-size: 18px;
+	margin-inline-start: 2px;
+	color: $color_primary;
+}
+
+:-moz-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+::-webkit-input-placeholder {
+	font-size: 14px;
+	line-height: 27px;
+	color: $color_body;
+}
+
+// Select Option - Start
+.select_option {
+	width: 100%;
+	display: table;
+	position: relative;
+	margin-bottom: 30px;
+	.nice-select {
+		width: 100%;
+		height: 60px;
+		padding: 0 20px;
+		line-height: 60px;
+		transition: $transition_fast;
+		border-radius: $radius_primary;
+		background-color: $color_white;
+		border: 1px solid $color_border;
+		color: $color_body;
+		@include rtl {
+			text-align: right !important;
+		}
+		
+		& .option {
+			@include rtl {
+				text-align: right;
+			}
+		}
+		&:after {
+			margin: 0;
+			width: auto;
+			height: auto;
+			border: none;
+			float: right;
+			margin-inline-start: 5px;
+			font-weight: 400;
+			content: '\f107';
+			transform: unset;
+			position: static;
+			color: $color_body;
+			transition: $transition_fast;
+			font-family: 'Font Awesome 5 Pro';
+			@include rtl {
+				float: left;
+			}
+		}
+		&:focus {
+			border-color: $color_primary;
+		}
+
+		.list {
+			width: 100%;
+			margin-top: 1px;
+			min-width: 200px;
+			padding: 20px 25px;
+			box-shadow: $shadow_dropdown;
+			border-radius: $radius_primary;
+			border: 1px solid $color_border;
+			>li {
+				padding: 4px 0;
+				font-size: 16px;
+				min-height: auto;
+				font-weight: 600;
+				line-height: 22px;
+				color: $color_body;
+				transition: $transition_fast;
+				white-space: break-spaces;
+				background-color: transparent;
+				&:hover,
+				&.selected {
+					color: $color_primary;
+					background-color: transparent;
+				}
+			}
+		}
+
+		.list li:not(selected) + .current {
+			color: $color_dark;
+		}
+
+		[data-display] {
+			color: $color_body;
+		}
+		.current {
+			font-size: 16px;
+			line-height: 22px;
+			color: $color_body;
+		}
+	}
+}
+// Select Option - Start
+
+// CheckBox - Start
+.form-check {
+	position: relative;
+	padding-inline-start: 26px;
+	margin-bottom: 30px;
+	input {
+		inset-inline-start: 0;
+		top: 6px;
+		margin: 0;
+		width: 16px;
+		height: 16px;
+		cursor: pointer;
+		appearance: none;
+		position: absolute;
+		border-radius: 100%;
+		transition: $transition_slow;
+		border: 1px solid $color_body;
+		&:before {
+			top: 50%;
+			left: 50%;
+			opacity: 0;
+			line-height: 1;
+			font-size: 8px;
+			content: "\f00c";
+			font-weight: 700;
+			position: absolute;
+			color: $color_white;
+			@include transform(translate(-50%, -50%));
+			font-family: "Font Awesome 5 Pro";
+		}
+
+		&:checked {
+			border-color: $color_primary;
+			background-color: $color_primary;
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+	label {
+		margin: 0;
+		cursor: pointer;
+		font-size: 14px;
+		line-height: 27px;
+		a {
+			color: $color_primary;
+		}
+	}
+}
+// CheckBox - End
+
+// Small Newsletter Form - Start
+.small_newsletter_form {
+	position: relative;
+	margin-bottom: 30px;
+	.input_icon {
+		inset-inline-start: 0;
+		top: 13px;
+		font-size: 20px;
+		color: $color_dark;
+		position: absolute;
+	}
+	input {
+		width: 100%;
+		height: 60px;
+		display: block;
+		padding-inline-start: 25px;
+		padding-inline-end: 60px;
+		color: $color_white;
+		border-radius: 50px;
+		border: 1px solid $color_dark_2;
+		background-color: $color_dark_2;
+		transition: $transition_slow;
+		&:hover,
+		&:focus {
+			border-color: rgba(255, 255, 255, 0.08);
+		}
+	}
+	&:has(.input_icon) {
+		input {
+			padding-inline-start: 30px;
+		}
+	}
+	button {
+		top: 7px;
+		right: 7px;
+		width: 46px;
+		height: 46px;
+		display: flex;
+		position: absolute;
+		color: $color_dark;
+		border-radius: 100%;
+		align-items: center;
+		justify-content: center;
+		background-color: $color_warning;
+		@include rtl {
+			left: 7px;
+			right: auto;
+		}
+		&:hover {
+			color: $color_white;
+			background-color: $color_primary;
+			i {
+				animation: iconltr 0.5s forwards;
+			}
+		}
+	}
+}
+.small_newsletter_form.style_2 {
+	input {
+		border-radius: 0;
+		color: $color_dark;
+		border-width: 0 0 2px;
+		background-color: transparent;
+		&:hover,
+		&:focus {
+			border-color: $color_dark;
+		}
+	}
+	button {
+		inset-inline-end: 0;
+		color: $color_white;
+		background-color: $color_dark;
+		&:hover {
+			color: $color_white;
+			background-color: $color_danger;
+		}
+	}
+}
+// Small Newsletter Form - End
+
+// Client Form - Start
+.form_box {
+	margin: auto;
+	padding: 60px;
+	max-width: 890px;
+	background-color: $color_light;
+	border-radius: $radius_primary;
+	@media #{$xs}{
+		padding: 40px;
+	}
+	@media #{$xxs}{
+		padding: 40px 30px;
+	}
+	.form_title {
+		font-size: 38px;
+		font-weight: 700;
+		margin-bottom: 40px;
+		line-height: 1.3;
+		@media #{$xs,$sm} {
+			font-size: 30px;
+		}
+		@media #{$xxs} {
+			font-size: 25px;
+		}
+		.focus_title {
+			color: $color_primary;
+		}
+	}
+}
+// Client Form - End
+
+// Subscribe Form - Start
+.subscribe_form {
+	margin: auto;
+	max-width: 610px;
+	@media #{$xs,$sm,$md} {
+		max-width: 100%;
+	}
+	.form-control {
+		padding: 0;
+		height: 80px;
+		border: none;
+		border-radius: 120px;
+		padding-top:  10px;
+		padding-bottom:  10px;
+		padding-inline-start: 60px;
+		padding-inline-end: 230px;
+		background-color: $color_white;
+		border: 1px solid $color_border;
+		@media #{$xs} {
+			padding: 10px 25px 10px 60px;
+			@include rtl {
+				padding: 10px 60px 10px 25px; 
+			}
+		}
+	}
+	.bd-btn-link {
+		top: 10px;
+		inset-inline-end: 10px;
+		position: absolute;
+		@media #{$xs} {
+			margin-top: 30px;
+			position: sticky;
+			width: 100%;
+		}
+		&:hover {
+			transform: unset;
+		}
+	}
+	.form-label {
+		top: 29px;
+		inset-inline-start: 35px;
+		margin: 0;
+		position: absolute;
+	}
+}
+
+.subscribe_form_2 {
+	.form-group {
+		.form-control {
+			height: 50px;
+			border-radius: 0;
+			padding: 0 0 0 24px;
+			border-width: 0 0 1px 0;
+			border-color: $color_dark;
+			background-color: transparent;
+			@include rtl {
+				padding: 0 24px 0 0;
+			}
+			&:focus {
+				border-color: $color_primary;
+			}
+		}
+		.input_icon {
+			inset-inline-start: 0;
+			top: 10px;
+			color: $color_dark;
+			position: absolute;
+		}
+	}
+	.bd-btn-link {
+		width: 100%;
+		display: block;
+		margin-bottom: 20px;
+		border-radius: $radius_primary;
+	}
+	.alert_text {
+		font-size: 14px;
+		line-height: 27px;
+		color: $color_primary;
+	}
+}
+// Subscribe Form - End
+
+// Kyeword Search Form - Start
+.kyeword_search_form {
+	display: flex;
+	align-items: center;
+	.form-control {
+		border-radius: 12px 0 0 12px;
+		@include rtl {
+			border-radius: 0px 12px 12px 0px;
+		}
+	}
+	button {
+		width: 70px;
+		height: 60px;
+		border-radius: 0 12px 12px 0;
+		background-color: $color_primary;
+		@include rtl {
+			border-radius: 12px 0 0 12px;
+		}
+	}
+}
+// Kyeword Search Form - End
+
+/* 2.9 - Form Style - End
+================================================== */
