@@ -73,9 +73,9 @@ const HeaderSix = () => {
                     <NiceSelect
                       options={[
                         { value: "English", text: "English" },
-                        { value: "Arabic", text: "Arabic" },
-                        { value: "Portuguese", text: "Portuguese" },
-                        { value: "French", text: "French" },
+                        { value: "Bulgarian", text: "Bulgarian" },
+                        { value: "Romanian", text: "Romanian" },
+                        { value: "Serbian", text: "Serbian" },
                       ]}
                       defaultCurrent={0}
                       onChange={selectHandler}

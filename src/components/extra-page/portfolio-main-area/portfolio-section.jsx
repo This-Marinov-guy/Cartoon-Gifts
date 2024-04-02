@@ -155,7 +155,7 @@ const PortfolioSection = () => {
           </div>
         </div>
       </div>
-      <Pagination_Data />
+      <Pagination_Data currentPage={1} totalPages={5}/>
     </section>
   );
 };

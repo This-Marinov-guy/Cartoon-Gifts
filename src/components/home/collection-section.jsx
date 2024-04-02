@@ -28,18 +28,18 @@ const CollectionSection = () => {
                   <span>Get In Touch</span>
                 </h2>
                 <h3 className="heading_title mb-30">
-                  Ready to Get Started A New Project ?
+                  Do you want to have your own personal cartoon ?
                 </h3>
               </div>
-              <Link href="/pricing" className="bd-btn-link btn_warning">
+              <Link href="/order" className="bd-btn-link btn_warning">
                 <span className="bd-button-content-wrapper">
                   <span className="bd-button-icon">
                     <i className="fa-light fa-arrow-right-long"></i>
                   </span>
                   <span className="pd-animation-flip">
                     <span className="bd-btn-anim-wrapp">
-                      <span className="bd-button-text">Get started</span>
-                      <span className="bd-button-text">Get started</span>
+                      <span className="bd-button-text">Make an order</span>
+                      <span className="bd-button-text">Order now</span>
                     </span>
                   </span>
                 </span>

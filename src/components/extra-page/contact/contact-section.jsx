@@ -1,14 +1,40 @@
 import React, { useState } from 'react';
 import SuccessComp from '@components/common/success/SuccessComp';
-import NiceSelect from '@ui/niceSelect';
 import Link from 'next/link';
+import emailjs from "emailjs-com";
+import { useToast } from '@chakra-ui/react'
+
 
 const ContactSection = () => {
   const [isSuccess, setIsSuccess] = useState(false);
+  const toast = useToast()
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE,
+        process.env.REACT_APP_TEMPLATE,
+        e.target,
+        process.env.REACT_APP_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          setIsSuccess(true);
+        },
+        (error) => toast({
+          title: `There was a problem sending your email - please try again!`,
+          status: 'error',
+          duration: 8000,
+          isClosable: true,
+        })
+      ).catch(() => toast({
+        title: `There was a problem sending your email - please try again!`,
+        status: 'error',
+        duration: 8000,
+        isClosable: true,
+      }));
   }
-  const selectHandler = e => { }
 
   return (
     <section className="contact_section section_space_lg">
@@ -33,8 +59,8 @@ const ContactSection = () => {
                       <input
                         className="form-control"
                         type="text"
-                        name="firstname"
-                        placeholder="First Name"
+                        name="name"
+                        placeholder="Your Name"
                       />
                     </div>
                   </div>
@@ -43,8 +69,8 @@ const ContactSection = () => {
                       <input
                         className="form-control"
                         type="text"
-                        name="lastname"
-                        placeholder="Last Name"
+                        name="subject"
+                        placeholder="Subject"
                       />
                     </div>
                   </div>
@@ -55,33 +81,6 @@ const ContactSection = () => {
                         type="email"
                         name="email"
                         placeholder="Email Address"
-                      />
-                    </div>
-                  </div>
-                  <div className="col col-md-6">
-                    <div className="select_option m-0">
-                      <NiceSelect
-                        options={[
-                          { value: "Select Subject", text: "Select Subject" },
-                          {
-                            value: "Website Development",
-                            text: "Website Development",
-                          },
-                          { value: "UX/UI Design", text: "UX/UI Design" },
-                          { value: "App Development", text: "App Development" },
-                          { value: "Video Editing", text: "Video Editing" },
-                          {
-                            value: "Programming & Tech",
-                            text: "Programming & Tech",
-                          },
-                          {
-                            value: "Business Consuting",
-                            text: "Business Consuting",
-                          },
-                        ]}
-                        defaultCurrent={0}
-                        onChange={selectHandler}
-                        name="Select Subject"
                       />
                     </div>
                   </div>

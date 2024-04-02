@@ -1,13 +1,13 @@
 const menu_data = [
   {
     id: 1,
-    title: 'Services',
-    link: '/services',
+    title: 'Home',
+    link: '/',
   },
   {
     id:2,
-    title: 'Portfolio',
-    link: '/portfolio',
+    title: 'Gallery',
+    link: '/gallery',
   },
   {
     id:4,

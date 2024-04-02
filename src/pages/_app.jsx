@@ -9,7 +9,6 @@ import "../styles/index.scss";
 import SEO from '@components/seo';
 import { Parallax } from 'react-parallax';
 
-
 function MyApp({ Component, pageProps }) {
 
   return (
@@ -25,7 +24,7 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
           </Parallax>
         </ChakraProvider>
-      </Provider>
+      </Provider >
     </>
   );
 }

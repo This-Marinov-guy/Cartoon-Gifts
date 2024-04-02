@@ -71,13 +71,12 @@ const Footer = () => {
         <div className="container">
           <div className="footer_bottom_grid">
             <div className="copyright_widget">
-              Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> All Rights Reserved.
+              Copyright © 2024 by Cartoon Gifts. All Rights Reserved.
             </div>
             <div className="footer_social">
               <ul className="social_icon unordered_list_end">
-                    <li><Link href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
-                    <li><Link href="https://twitter.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
-                    <li><Link href="https://www.youtube.com/" target="_blank"><i className="fab fa-youtube"></i></Link></li>
+                <li><Link href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
+                <li><Link href="https://www.instagram.com/" target="_blank"><i className="fab fa-instagram"></i></Link></li>
               </ul>
             </div>
           </div>
