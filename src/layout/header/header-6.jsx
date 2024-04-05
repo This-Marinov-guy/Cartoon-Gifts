@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import site_logo from "@assets/images/logo/site_logo_dark.svg";
+import site_logo from "@assets/images/logo/logo-title.png";
 import icon_globe from "@assets/images/icons/icon_globe.svg";
 import Image from "next/image";
 import Link from "next/link";

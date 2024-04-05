@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import icon_mapwork from '@assets/images/icons/icon_mapmark.svg'
-import site_logo_white from '@assets/images/logo/site_logo_white.svg'
+import site_logo_white from '@assets/images/logo/logo-title-dark.png'
 import Image from 'next/image';
 
 const Footer = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@assets/images/logo/site_logo_white.svg";
+import logo from "@assets/images/logo/logo-title-dark.png";
 import MobileMenus from "./mobile-menus";
 
 const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {

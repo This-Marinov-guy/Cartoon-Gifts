@@ -1,5 +1,5 @@
 import React from 'react';
-import site_logo_white from '@assets/images/logo/site_logo_white.svg'
+import site_logo_white from '@assets/images/logo/logo-title-dark.png'
 import Image from 'next/image';
 import Link from 'next/link';
 

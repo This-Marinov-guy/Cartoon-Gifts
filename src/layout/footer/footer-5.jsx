@@ -2,7 +2,7 @@ import React from 'react';
 
 import cta_image_5 from '@assets/images/calltoaction/cta_image_5.png';
 import shape_4 from '@assets/images/shapes/shape_4.svg';
-import site_logo_dark from '@assets/images/logo/site_logo_dark.svg';
+import site_logo_dark from '@assets/images/logo/logo-title.png';
 import icon_mapmark from '@assets/images/icons/icon_mapmark.svg';
 
 import Image from 'next/image';

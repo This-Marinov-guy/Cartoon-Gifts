@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import cta_image_3 from '@assets/images/calltoaction/cta_image_3.png'
-import flag_usite_logo_white from '@assets/images/logo/site_logo_white.svg'
+import flag_usite_logo_white from '@assets/images/logo/logo-title-dark.png'
 import Image from 'next/image';
 import flags_data from '@data/flags-data';
 

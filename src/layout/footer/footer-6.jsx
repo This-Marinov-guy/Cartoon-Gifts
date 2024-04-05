@@ -1,6 +1,6 @@
 import React from 'react';
 import shape_9 from '@assets/images/shapes/shape_9.svg'
-import site_logo_dark from '@assets/images/logo/site_logo_dark.svg'
+import site_logo_dark from '@assets/images/logo/logo-title.png'
 import Image from 'next/image';
 import Link from 'next/link';
 

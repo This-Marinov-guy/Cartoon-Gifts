@@ -3,7 +3,7 @@ import React from 'react';
 import banner_image from '@assets/images/banner/register_banner_image_1.png'
 import shape_circle_dashed_2 from '@assets/images/shapes/shape_circle_dashed_2.png'
 import shape_circle_half_1 from '@assets/images/shapes/shape_circle_half_1.svg'
-import site_logo_dark from '@assets/images/logo/site_logo_dark.svg'
+import site_logo_dark from '@assets/images/logo/logo-title.png'
 import shape_1 from '@assets/images/shapes/shape_1.svg'
 import shape_circle_2 from '@assets/images/shapes/shape_circle_2.svg'
 import Image from 'next/image';

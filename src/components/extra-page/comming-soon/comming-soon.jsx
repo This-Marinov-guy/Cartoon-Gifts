@@ -1,5 +1,5 @@
 import React from 'react';
-import site_logo from '@assets/images/logo/site_logo_dark.svg'
+import site_logo from '@assets/images/logo/logo-title.png'
 import shape_circle from '@assets/images/shapes/shape_circle_dashed_2.png'
 import shape_circle_1 from '@assets/images/shapes/shape_circle_1.svg'
 import shape_1 from '@assets/images/shapes/shape_1.svg'
