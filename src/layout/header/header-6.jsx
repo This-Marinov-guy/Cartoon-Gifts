@@ -17,11 +17,13 @@ const HeaderSix = () => {
   });
 
   const sticky = (e) => {
-    const header = document.querySelector(".header-main");
-    const scrollTop = window.scrollY;
-    scrollTop >= 40
-      ? header.classList.add("sticky")
-      : header.classList.remove("sticky");
+    if (window.innerWidth > 1200) {
+      const header = document.querySelector(".header-main");
+      const scrollTop = window.scrollY;
+      scrollTop >= 40
+        ? header.classList.add("sticky")
+        : header.classList.remove("sticky");
+    }
   };
   // Sticky Menu Area End
 
@@ -37,6 +39,7 @@ const HeaderSix = () => {
               <Link className="site_link" href="/">
                 <Image
                   src={site_logo}
+                  className='logo'
                   alt="Site Logo - Paradox - Agency Template"
                 />
               </Link>
@@ -100,6 +103,7 @@ const HeaderSix = () => {
                 <button
                   type="button"
                   className="bar-icon"
+                  style={{ position: 'fixed', top: '5%', right: '5%' }}
                   onClick={() => setIsOffCanvasOpen(true)}
                 >
                   <span></span>

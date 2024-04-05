@@ -4,6 +4,7 @@ import Header from '@layout/header/header';
 import React from 'react';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
 import dynamic from "next/dynamic";
+import AboutSectionSix from '@components/home-6/about-section-6';
 const PortfolioSection = dynamic(() => import('./portfolio-section'))
 
 const Index = () => {
@@ -11,6 +12,7 @@ const Index = () => {
         <main>
             <Header />
             <Breadcrumb title='Gallery' subTitle='Gallery' />
+            <AboutSectionSix />
             <PortfolioSection />
             <CollectionSection />
             <Footer />

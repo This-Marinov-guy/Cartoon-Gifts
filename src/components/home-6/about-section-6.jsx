@@ -19,13 +19,13 @@ const AboutSectionSix = () => {
             <div className="about_content">
               <div className="section_heading style_4">
                 <h2 className="heading_subtitle text-uppercase">
-                  <span>About paradox</span>
+                  <span>About Cartoon Gifts</span>
                 </h2>
                 <h3 className="heading_title">
-                  We Can do Every Single IT Solution together
+                  We make personalized cartoons for you and your special ones
                 </h3>
                 <p className="heading_description mb-0">
-                  Our action plan is focused and planned. We are result oriented organization and are committed to invest in initiatives for newer expanded Our action plan is focused and planned. We are result oriented organization
+                  Our goal is it make people happy through art. Our pieces are perfect for birthdays, anniversaries, weddings, retirements - basically any occasion. We make them personalized so they reflect the persons's interests and vision. It is your choice how we depict them and our duty to deliver.
                 </p>
               </div>
               <div className="mission_vision row">
@@ -35,9 +35,9 @@ const AboutSectionSix = () => {
                       <Image src={icon_eye_primary} style={{ width: "auto", height: "auto" }} alt="Paradox Icon Eye White" />
                     </div>
                     <div className="item_content">
-                      <h3 className="item_title">Our Vision</h3>
+                      <h3 className="item_title">What does it take</h3>
                       <p className="mb-0">
-                        We are help  generate positive the cash floinvest
+                        Just a photo and some details to be depicted - we take care of the rest
                       </p>
                     </div>
                   </div>
@@ -48,9 +48,9 @@ const AboutSectionSix = () => {
                       <Image src={icon_dart_board} style={{ width: "auto", height: "auto" }} alt="Paradox Icon Eye White" />
                     </div>
                     <div className="item_content">
-                      <h3 className="item_title">Our Mission</h3>
+                      <h3 className="item_title">How can I receive it</h3>
                       <p className="mb-0">
-                        We are help  generate positive the cash floinvest
+                        We put all our images in borders. If you want it quick and simple - digitalized copy is always an option
                       </p>
                     </div>
                   </div>

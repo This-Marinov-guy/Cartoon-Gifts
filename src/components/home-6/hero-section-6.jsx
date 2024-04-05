@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import hero_banner_img from '@assets/images/banner/hero_banner_image_7.png'
+import hero_banner_img from '@assets/images/banner/hero_banner_image_7.webp'
 import shape_banner_1 from '@assets/images/banner/shape_banner_2.svg'
 import shape_banner_2 from '@assets/images/banner/shape_banner_3.svg'
 import shape_banner_3 from '@assets/images/shapes/shape_close_icon.png'
@@ -55,7 +55,7 @@ const HeroSectionSix = () => {
           </div>
           <div className="col col-lg-6">
             <div className="hero_banner_image wow fadeInUp" data-wow-delay=".2s">
-              <Image src={hero_banner_img} style={{ width: "100%", height: "100%" }} alt="Paradox Illustration Image" />
+              <Image src={hero_banner_img} style={{ width: "80%", height: "80%", borderRadius: '10%' }} alt="Paradox Illustration Image" />
             </div>
           </div>
         </div>
