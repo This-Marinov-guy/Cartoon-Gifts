@@ -11,9 +11,9 @@ const PortfolioSectionSix = () => {
     lazyLoad: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 2,
+    initialSlide: 3,
     responsive: [
       {
         breakpoint: 1400,
