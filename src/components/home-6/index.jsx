@@ -5,7 +5,7 @@ import CounterSectionSix from './counter-section-6';
 import PortfolioSectionSix from './portfolio-section-6';
 import HeaderSix from '@layout/header/header-6';
 import FooterSix from '@layout/footer/footer-6';
-import ReviewSectionFive from '@components/home/review-section';
+import ReviewSectionFive from './review-section-6';
 
 const Index = () => {
   return (
