@@ -88,7 +88,7 @@ const settings = {
                     <div className="review_item style_1">
                       <div className="content_area">
                         <p className="review_content">
-                          {item.review_content}
+                          {item.content}
                         </p>
                         <ul className="rating_star unordered_list">
                           <li><i className="fas fa-star"></i></li>

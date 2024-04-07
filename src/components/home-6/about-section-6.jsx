@@ -1,5 +1,5 @@
 import React from 'react';
-import about_image from '@assets/images/about/about_image_11.png'
+import about_image from '@assets/images/about/about_image_1.png'
 import icon_eye_primary from '@assets/images/icons/icon_eye_primary.svg'
 import icon_dart_board from '@assets/images/icons/icon_dart_board_primary.svg'
 import shape_close_icon from '@assets/images/shapes/shape_close_icon.png'

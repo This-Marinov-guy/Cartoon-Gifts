@@ -8,51 +8,49 @@ import shape_circle from '@assets/images/shapes/shape_circle_2.svg'
 const PortfolioSectionSix = () => {
   const portfolio_slider = {
     dots: true,
-    speed: 1000,
-    arrows: true,
+    lazyLoad: true,
     infinite: true,
-    autoplay: true,
-    slidesToShow: 4,
-    slidesToScroll: 2,
-    pauseOnHover: true,
-    autoplaySpeed: 5000,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 2,
     responsive: [
-  		{
-  			breakpoint: 1400,
-  			settings: {
-  				slidesToShow: 3,
-  			},
-  		},
-  		{
-  			breakpoint: 1200,
-  			settings: {
-  				slidesToShow: 2,
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
           slidesToScroll: 2,
-  			},
-  		},
-  		{
-  			breakpoint: 992,
-  			settings: {
-  				slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
           slidesToScroll: 2,
-  			},
-  		},
-  		{
-  			breakpoint: 768,
-  			settings: {
-  				slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
           centerPadding: '80px',
-  			},
-  		},
-  		{
-  			breakpoint: 575,
-  			settings: {
-  				slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
           slidesToScroll: 1,
-  			},
-  		},
+        },
+      },
     ]
   };
   return (
@@ -60,10 +58,10 @@ const PortfolioSectionSix = () => {
       <div className="container">
         <div className="section_heading style_4 text-center">
           <h2 className="heading_subtitle text-uppercase">
-            <span>Our Best Portfolio</span>
+            <span>Gallery</span>
           </h2>
           <h3 className="heading_title">
-            Our Latest Portfolio
+            Our Latest work
           </h3>
         </div>
       </div>
@@ -77,14 +75,11 @@ const PortfolioSectionSix = () => {
                     <div className="carousel_item">
                       <div className="portfolio_item layout_grid text-center">
                         <div className="item_image">
-                            <Image src={item.image} style={{ width: "100%", height: "auto" }} alt="Paradox Portfolio Image" />
+                          <Image src={item.image} className='portfolio_img' alt="Paradox Portfolio Image" />
                         </div>
                         <div className="item_content">
-                  
                           <h3 className="item_title mb-0">
-                            <Link href={`/portfolio-details/${item.id}`}>
-                              {item.title}
-                            </Link>
+                            {item.title}
                           </h3>
                         </div>
                       </div>

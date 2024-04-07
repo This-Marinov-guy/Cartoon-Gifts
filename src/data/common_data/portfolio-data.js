@@ -1,6 +1,9 @@
-import portfolio_img_1 from "@assets/images/portfolio/portfolio_lfi_image_1.jpg";
-import portfolio_img_2 from "@assets/images/portfolio/portfolio_lfi_image_2.jpg";
-import portfolio_img_3 from "@assets/images/portfolio/portfolio_lfi_image_3.jpg";
+import portfolio_img_1 from "@assets/images/gallery/gallery_1.jpeg";
+import portfolio_img_2 from "@assets/images/gallery/gallery_2.jpg";
+import portfolio_img_3 from "@assets/images/gallery/gallery_3.jpg";
+import portfolio_img_4 from "@assets/images/gallery/gallery_4.jpg";
+import portfolio_img_5 from "@assets/images/gallery/gallery_5.jpg";
+import portfolio_img_6 from "@assets/images/gallery/gallery_6.jpg";
 
 import image_1 from "@assets/images/portfolio/portfolio_lfi_image_4.jpg";
 import image_2 from "@assets/images/portfolio/portfolio_lfi_image_3.jpg";
@@ -25,36 +28,36 @@ const portfolio_data = [
   //home portfolio_data //home-2 portfolio-data
   {
     id: 1,
-    title: "Mobile Furniture Store App",
+    title: "Birthday",
     image: portfolio_img_1,
     catagory_title: "Graphics",
     catagory_list: "Mobile App",
   },
   {
     id: 2,
-    title: "Street Art Map of the City",
+    title: "Baby Birthday",
     image: portfolio_img_2,
     catagory_title: "Development",
     catagory_list: "UI/UX",
   },
   {
     id: 3,
-    title: "Crafting Effective Landing Page",
+    title: "Newborn",
     image: portfolio_img_3,
     catagory_title: "Website Development",
     catagory_list: "Webpage",
   },
   {
     id: 4,
-    title: "3D Package Tracking Delivery",
-    image: portfolio_img_1,
+    title: "Anniversary",
+    image: portfolio_img_4,
     catagory_title: "Website Redesign",
     catagory_list: "Product",
   },
   {
     id: 5,
-    title: "3D Package Tracking Delivery",
-    image: portfolio_img_2,
+    title: "Birthday",
+    image: portfolio_img_5,
     catagory_title: "UI/UX Design",
     catagory_list: "Product",
   },
