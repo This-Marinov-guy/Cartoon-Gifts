@@ -110,6 +110,7 @@ const settings = {
                           <span className="admin_designation">{item.designation}</span>
                         </div>
                       </div> */}
+                      
                     </div>
                   </div>
                 ))
