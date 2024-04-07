@@ -7,6 +7,7 @@ import HeaderSix from '@layout/header/header-6';
 import FooterSix from '@layout/footer/footer-6';
 import ReviewSectionSix from './review-section-6';
 
+
 const Index = () => {
   return (
     <main>
