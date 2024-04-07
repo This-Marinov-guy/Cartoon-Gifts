@@ -1,3 +1,5 @@
+/* eslint react/no-unescaped-entities */
+
 import React from 'react';
 import about_image from '@assets/images/about/about_image_1.png'
 import icon_eye_primary from '@assets/images/icons/icon_eye_primary.svg'
