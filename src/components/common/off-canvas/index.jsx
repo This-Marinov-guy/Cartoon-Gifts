@@ -16,7 +16,7 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                   <Link href="/">
                     <Image
                       src={logo}
-                      style={{ width: "auto", height: "auto" }}
+                      style={{ transform: 'scale(0.9)' }}
                       alt="img not found"
                     />
                   </Link>
@@ -52,19 +52,9 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                     cartoongifts.eu@gmail.com
                   </a>
                 </p>
-                <span>
-                  <a href="tel:725214456" target="_blank" rel="noreferrer">
-                    725 214 456
-                  </a>
-                </span>
+                
               </div>
-              <div className="offcanvas__contact-text">
-                <p>
-                  <Link target="_blank" href="https://www.google.com/maps">
-                    Folkungagatan 83, Stockholm, Sweden
-                  </Link>
-                </p>
-              </div>
+              
             </div>
             <div className="offcanvas__devider"></div>
             <div className="offcanvas__social">
