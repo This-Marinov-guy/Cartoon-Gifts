@@ -36,7 +36,7 @@ const HeroSectionSix = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/portfolio" className="bd-btn-link outline-dark">
+                  <Link href="/gallery" className="bd-btn-link outline-dark">
                     <span className="bd-button-content-wrapper">
                       <span className="bd-button-icon">
                         <i className="fa-light fa-arrow-right-long"></i>

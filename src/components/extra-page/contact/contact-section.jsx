@@ -13,10 +13,10 @@ const ContactSection = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        process.env.REACT_APP_SERVICE,
-        process.env.REACT_APP_TEMPLATE,
+        process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE,
+        process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE,
         e.target,
-        process.env.REACT_APP_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY
       )
       .then(
         (result) => {
