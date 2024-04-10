@@ -36,7 +36,7 @@ const ContactSection = () => {
                 </li>
                 <li>
                   <strong>Email:</strong>
-                  <span><Link href="mailto:contact@paradox.com">contact@paradox.com</Link></span>
+                  <span><Link href="mailto:cartoongifts.eu@gmail.com">cartoongifts.eu@gmail.com</Link></span>
                 </li>
                 <li>
                   <strong>Opening:</strong>

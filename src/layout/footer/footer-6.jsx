@@ -82,9 +82,9 @@ const FooterSix = () => {
                   </h4>
                   <ul className="icon_list unordered_list_block">
                     <li>
-                      <Link href="mailto:contact@paradox.com">
+                      <Link href="mailto:cartoongifts.eu@gmail.com">
                         <span className="list_item_text">
-                          contact@paradox.com
+                          cartoongifts.eu@gmail.com
                         </span>
                       </Link>
                     </li>

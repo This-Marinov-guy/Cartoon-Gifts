@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import Action_image from '@assets/images/calltoaction/cta_image_1.png'
+import Action_image from '@assets/images/gallery/gallery_13.jpg'
 import Shape_image from '@assets/images/shapes/shape_circle_3.svg'
 import Link from 'next/link';
 
@@ -11,7 +11,7 @@ const CollectionSection = () => {
         <div className="row align-items-center">
           <div className="col col-lg-6 order-lg-last">
             <div className="cta_image decoration_wrap">
-              <Image src={Action_image} style={{ width: "100%", height: "100%" }} alt="Paradox Call To Action Image" />
+              <Image src={Action_image} style={{ height: "60%", borderRadius: '10%' }} alt="Paradox Call To Action Image" />
               <div className="deco_item shape_1">
                 <Image className="wow zoomIn" data-wow-delay=".1s" src={Shape_image} style={{ width: "100%", height: "100%" }} alt="Paradox Shape Image" />
               </div>

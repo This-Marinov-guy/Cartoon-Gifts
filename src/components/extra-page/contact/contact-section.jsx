@@ -122,7 +122,7 @@ const ContactSection = () => {
               </li>
               <li>
                 <strong>Email:</strong>
-                <span>contact@paradox.com</span>
+                <span>cartoongifts.eu@gmail.com</span>
               </li>
               <li>
                 <strong>Follow Us:</strong>

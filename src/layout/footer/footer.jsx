@@ -23,9 +23,9 @@ const Footer = () => {
                 </h4>
                 <ul className="icon_list unordered_list_block">
                   <li>
-                    <Link href="mailto:contact@paradox.com">
+                    <Link href="mailto:cartoongifts.eu@gmail.com">
                       <span className="list_item_text">
-                        contact@paradox.com
+                        cartoongifts.eu@gmail.com
                       </span>
                     </Link>
                   </li>
@@ -33,21 +33,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="footer_widget">
-              <h3 className="footer_widget_title">Find Us</h3>
-              <div className="icon_list_widget">
-                <ul className="icon_list unordered_list_block">
-                  <li>
-                    <div className="w-location mb-2">
-                      <Image src={icon_mapwork} style={{ width: "auto", height: "auto" }} alt="Icon Mapmark" />
-                    </div>
-                    <Link target="_blank" href="https://www.google.com/maps">
-                      <span className="list_item_text">
-                        1989 Timber Ridge Road <small className="d-md-block">Sacramento CA, California</small>
-                      </span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+              
             </div>
             <div className="footer_widget">
               <h3 className="footer_widget_title">Newsletter</h3>

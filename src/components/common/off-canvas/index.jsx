@@ -49,7 +49,7 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    paradox@example.com
+                    cartoongifts.eu@gmail.com
                   </a>
                 </p>
                 <span>

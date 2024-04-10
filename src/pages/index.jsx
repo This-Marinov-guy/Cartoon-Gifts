@@ -6,7 +6,7 @@ import Wrapper from "../layout/wrapper";
 export default function Home() {
   return (
     <Wrapper>
-      <SEO pageTitle={'Home Main'} />
+      <SEO pageTitle={'Welcome'} />
       <HomeMain />
     </Wrapper>
   )
