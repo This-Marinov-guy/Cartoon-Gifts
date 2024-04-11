@@ -1,7 +1,7 @@
 import React from 'react';
 import PricingSection from '../pricing/pricing-section';
 import FaqQuestion from '../pricing/faq-question';
-import Header from '@layout/header/header';
+import HeaderSix from '@layout/header/header-6';
 import Footer from '@layout/footer/footer';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
 import OrderForm from './order-form';
@@ -9,7 +9,7 @@ import OrderForm from './order-form';
 const Index = () => {
     return (
         <main>
-            <Header />
+            <HeaderSix />
             <Breadcrumb title='Make an Order' subTitle='Order' />
             <PricingSection />
             <OrderForm />
