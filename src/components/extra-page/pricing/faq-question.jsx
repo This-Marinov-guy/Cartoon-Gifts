@@ -12,19 +12,6 @@ const FaqQuestion = () => {
                 <h2 className="heading_title">
                   Need to know User Common Questions
                 </h2>
-                <Link href="/faq" className="bd-btn-link btn_primary">
-                  <span className="bd-button-content-wrapper">
-                    <span className="bd-button-icon">
-                      <i className="fa-light fa-arrow-right-long"></i>
-                    </span>
-                    <span className="pd-animation-flip">
-                      <span className="bd-btn-anim-wrapp">
-                        <span className="bd-button-text">Need to Know More</span>
-                        <span className="bd-button-text">Need to Know More</span>
-                      </span>
-                    </span>
-                  </span>
-                </Link>
               </div>
             </div>
           </div>

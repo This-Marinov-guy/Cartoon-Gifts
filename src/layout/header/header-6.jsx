@@ -40,7 +40,6 @@ const HeaderSix = () => {
                 <Image
                   src={site_logo}
                   className='logo'
-                  style={{transform: 'scale(0.8)'}}
                   alt="Site Logo - Paradox - Agency Template"
                 />
               </Link>

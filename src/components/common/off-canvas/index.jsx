@@ -16,7 +16,6 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                   <Link href="/">
                     <Image
                       src={logo}
-                      style={{ transform: 'scale(0.9)' }}
                       alt="img not found"
                     />
                   </Link>
