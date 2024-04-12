@@ -33,10 +33,11 @@ const Header = () => {
       <header className="site_header site_header_1 header-main">
         <div className="container">
           <div className="header_wrapper">
-            <div className="site_logo">
+            <div className="site_logo"> 
               <Link className="site_link" href="/">
                 <Image
                   src={site_logo_dark}
+                  className="logo"
                   alt="Site Logo - Paradox - Agency Template"
                 />
               </Link>

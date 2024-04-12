@@ -1,54 +1,67 @@
 /* Contact Template - Start
 ================================================== */
 .contact_form {
-	padding: 40px;
-	border-radius: $radius_primary;
-	background-color: $color_light;
-	@media #{$xxs} {
-		padding: 30px;
-	}
+  padding: 40px;
+  border-radius: $radius_primary;
+  background-color: $color_light;
+  @media #{$xxs} {
+    padding: 30px;
+  }
 }
 #gmap_canvas_iframe {
-	width: 100%;
-	height: 750px;
-	border-radius: $radius_primary;
-	border: 3px solid $color_warning;
+  width: 100%;
+  height: 750px;
+  border-radius: $radius_primary;
+  border: 3px solid $color_warning;
 }
 
 .contact_form_boxed {
-	padding: 80px;
-	border-radius: $radius_primary;
-	background-color: $color_primary;
-	@media #{$xs} {
-		padding: 50px;
-	}
-	@media #{$xxs} {
-		padding: 50px 30px;
-	}
-	.contact_form {
-		margin: auto;
-		max-width: 770px;
-	}
+  padding: 80px;
+  border-radius: $radius_primary;
+  background-color: $color_primary;
+  @media #{$xs} {
+    padding: 50px;
+  }
+  @media #{$xxs} {
+    padding: 50px 30px;
+  }
+  .contact_form {
+    margin: auto;
+    max-width: 770px;
+  }
 
-	.shape_1 {
-		inset-inline-start: 42px;
-		bottom: 33px;
-		max-width: 150px;
-		@media #{$xxs} {
-			display: none;
-		}
-	}
-	.shape_2 {
-		top: -60px;
-		inset-inline-end: -26px;
-		@media #{$sm} {
-			inset-inline-end: 0;
-			max-width: 200px;
-		}
-		@media #{$xs} {
-			display: none;
-		}
-	}
+  .shape_1 {
+    inset-inline-start: 42px;
+    bottom: 33px;
+    max-width: 150px;
+    @media #{$xxs} {
+      display: none;
+    }
+  }
+  .shape_2 {
+    top: -60px;
+    inset-inline-end: -26px;
+    @media #{$sm} {
+      inset-inline-end: 0;
+      max-width: 200px;
+    }
+    @media #{$xs} {
+      display: none;
+    }
+  }
 }
 /* Contact Template - End
 ================================================== */
+
+// Inputs
+
+.image_input {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px grey dashed;
+  border-radius: 10px;
+  padding: 10px;
+}

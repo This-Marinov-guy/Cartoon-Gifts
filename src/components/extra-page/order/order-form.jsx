@@ -43,7 +43,7 @@ const OrderForm = () => {
                                 />
                             </div>
                         </div>
-                        <div className='col'>
+                        <div className='col col-md-6'>
                             <ImageInput />
                         </div>
                         <div className="col">
