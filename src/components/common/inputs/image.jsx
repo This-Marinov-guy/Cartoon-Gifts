@@ -1,33 +1,30 @@
-import React, { useCallback } from 'react'
-import { useDropzone } from 'react-dropzone'
+import React, { Fragment, useState } from 'react'
+import Dropzone from 'react-dropzone'
 
-function ImageInput() {
-  const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.forEach((file) => {
-      const reader = new FileReader()
+const ImageInput = () => {
+  const [files, setFiles] = useState([])
 
-      reader.onabort = () => console.log('file reading was aborted')
-      reader.onerror = () => console.log('file reading has failed')
-      reader.onload = () => {
-        // Do whatever you want with the file contents
-        const binaryStr = reader.result
-        console.log(binaryStr)
-      }
-      reader.readAsArrayBuffer(file)
-    })
-
-  }, [])
-  const { getRootProps, getInputProps } = useDropzone({ onDrop })
+  const onDrop = (acceptedFiles) => {
+    setFiles([...acceptedFiles]);
+  }
 
   return (
-    <div {...getRootProps()}>
-      <input {...getInputProps()} />
-      <div className='image_input'>
-        <i class="fa-light fa-cloud-arrow-up" style={{color: 'purple', fontSize: '30px'}}></i>
-        <p>Drag 'n' drop some files here, or click to select files</p>
-        <small>Supported files: jpg, jpeg, png, webp</small>
-      </div>
-    </div>
+    <Dropzone onDrop={onDrop}>
+      {({ getRootProps, getInputProps, isDragActive }) => (
+        <div {...getRootProps()}>
+          <input {...getInputProps()} />
+          <div className='image_input'>
+
+            {files.length > 0 ? files.map((file, index) => { return <div className='center_div'><p key={index}>File 1</p><i className="fa-solid fa-xmark" style={{ color: 'red' }}></i></div> }) : <Fragment>
+              <i className="fa-light fa-cloud-arrow-up" style={{ color: 'purple', fontSize: '30px' }}></i>
+              {isDragActive ?
+                <p>Drop the files here ...</p> :
+                <p>Drag 'n' drop some files here, or click to select files</p>}
+              <small>Supported files: jpg, jpeg, png, webp</small>
+            </Fragment>}
+          </div>
+        </div>)}
+    </Dropzone>
   )
 }
 
