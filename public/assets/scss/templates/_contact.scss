@@ -67,9 +67,12 @@
 }
 
 .center_div {
-	height: 30px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 5px;
+}
+
+.center_div p {
+  margin: 0 !important;
 }

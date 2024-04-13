@@ -11,7 +11,6 @@ const Index = () => {
         <main>
             <HeaderSix />
             <Breadcrumb title='Make an Order' subTitle='Order' />
-            <PricingSection />
             <OrderForm />
             <FaqQuestion />
             <Footer />
