@@ -2,9 +2,7 @@ import React, { Fragment, useState } from 'react'
 import { cleanFileName } from '@utils/helpers'
 import Dropzone from 'react-dropzone'
 
-const ImageInput = () => {
-  const [files, setFiles] = useState([])
-
+const ImageInput = ({ files, setFiles }) => {
   const onDrop = (acceptedFiles) => {
     setFiles([...acceptedFiles]);
   }
@@ -16,7 +14,7 @@ const ImageInput = () => {
           <input {...getInputProps()} />
           <div className='image_input'>
 
-            {files.length > 0 ? files.map((file, index) => { return <div className='center_div'><p key={index}>{cleanFileName(file)}</p><i className="fa-solid fa-xmark" style={{ color: 'red' }}></i></div> }) : <Fragment>
+            {files.length > 0 ? files.map((file, index) => { return <div className='center_div'><p key={index}>{cleanFileName(file)}</p></div> }) : <Fragment>
               <i className="fa-light fa-cloud-arrow-up" style={{ color: 'purple', fontSize: '30px' }}></i>
               {isDragActive ?
                 <p>Drop the files here ...</p> :

@@ -449,3 +449,15 @@ textarea.form-control {
   right: -10px;
   border-radius: 50% !important;
 }
+
+.card-badge-desc {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  border-radius: 10px !important;
+}
+
+.x_icon {
+  color: red !important;
+  z-index: 999;
+}

@@ -29,6 +29,7 @@ const OrderForm = () => {
         },
     ]
 
+    const [files, setFiles] = useState([]);
     const [size, setSize] = useState({
         property: '',
         price: 0
@@ -47,14 +48,11 @@ const OrderForm = () => {
                 price: 0
             });
             setPrice((prevPrice) => prevPrice - item.price);
-        } else if (state) {
+        } else {
             setPrice((prevPrice) => prevPrice - state.price + item.price);
             callback(item);
-        } else {
-            callback(item);
-            setPrice((prevPrice) => prevPrice + item.price);
         }
-    };
+    }
 
     const handleSubmit = () => { }
 
@@ -100,7 +98,11 @@ const OrderForm = () => {
                             </div>
                         </div>
                         <div className='col col-md-6'>
-                            <ImageInput />
+                            <ImageInput files={files}
+                                setFiles={(newFiles) => {
+                                    setFiles(newFiles);
+                                    setPrice((prevPrice) => prevPrice - files.length * 10 + newFiles.length * 10)
+                                }} />
                             <small style={{ marginTop: '5px' }}>
                                 Make sure to:<br />
                                 - add pictures for any face/animal you want on your cartoon (+10£ for each extra)<br />
