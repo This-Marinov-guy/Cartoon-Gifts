@@ -417,7 +417,6 @@ textarea.form-control {
   gap: 20px;
 }
 
-.card-price-active,
 .card-price {
   position: relative;
   display: flex;
@@ -427,10 +426,9 @@ textarea.form-control {
   border: 1px solid grey;
   border-radius: 10px;
   transition: background-color 0.3s ease;
-}
-
-.card-price:hover {
-  background-color: grey;
+  &:hover {
+    background-color: grey;
+  }
 }
 
 .card-price,
@@ -442,10 +440,9 @@ textarea.form-control {
 .card-price-active {
   background-color: #48c5cb;
   border-color: #ffff;
-}
-
-.card-price-active:hover {
-  background-color: #48c5cb;
+  &:hover {
+    background-color: #48c5cb;
+  }
 }
 
 .card-badge {
