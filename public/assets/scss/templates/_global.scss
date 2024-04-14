@@ -1,0 +1,15 @@
+.center_div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.center_div p {
+  margin: 0 !important;
+}
+
+.x_icon {
+    color: red !important;
+    z-index: 999;
+  }

@@ -426,6 +426,9 @@ textarea.form-control {
   border: 1px solid grey;
   border-radius: 10px;
   transition: background-color 0.3s ease;
+  &:hover {
+    background-color: grey;
+  }
 }
 
 .card-price,
@@ -434,13 +437,12 @@ textarea.form-control {
   cursor: pointer;
 }
 
-.card-price:hover {
-  background-color: grey;
-}
-
 .card-price-active {
   background-color: #48c5cb;
   border-color: #ffff;
+  &:hover {
+    background-color: #48c5cb;
+  }
 }
 
 .card-badge {
@@ -457,7 +459,15 @@ textarea.form-control {
   border-radius: 10px !important;
 }
 
-.x_icon {
-  color: red !important;
-  z-index: 999;
+// Inputs
+
+.image_input {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px grey dashed;
+  border-radius: 10px;
+  padding: 10px;
 }
