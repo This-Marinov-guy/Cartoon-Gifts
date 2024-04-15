@@ -21,7 +21,7 @@ const HeroSectionSix = () => {
               </h1>
               <ul className="btns_group unordered_list">
                 <li>
-                  <Link href="/contact" className="bd-btn-link btn_primary">
+                  <Link href="/order" className="bd-btn-link btn_primary">
                     <span className="bd-button-content-wrapper">
                       <span className="bd-button-icon">
                         <i className="fa-light fa-arrow-right-long"></i>

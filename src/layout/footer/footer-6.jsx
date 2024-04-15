@@ -55,7 +55,7 @@ const FooterSix = () => {
                   <h3 className="social_title">Follow Us on :</h3>
                   <ul className="social_icon unordered_list">
                     <li><Link href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
-                    <li><Link href="https://instagram.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
+                    <li><Link href="https://instagram.com/" target="_blank"><i className="fab fa-instagram"></i></Link></li>
                   </ul>
                 </div>
               </div>
@@ -73,7 +73,7 @@ const FooterSix = () => {
                   </div>
                   <div className="form-check">
                     <input type="checkbox" id="checkMeOut" />
-                    <label htmlFor="checkMeOut">I accept with this Condition</label>
+                    <label htmlFor="checkMeOut">I give permission to be sent offers and discounts</label>
                   </div>
                 </form>
                 <div className="icon_list_widget">

@@ -29,11 +29,6 @@ const SignupMainArea = () => {
         </div>
         <div className="column decoration_wrap">
           <div className="register_form_wrap ms-lg-0">
-            <div className="site_logo">
-              <Link className="site_link" href="/">
-                <Image src={site_logo_dark} alt="Site Logo - Paradox - Agency Template" />
-              </Link>
-            </div>
             <h2 className="form_title">Create an account</h2>
             <p>Enter the information below to create your account</p>
             <form onClick={handleSubmit} action="#">

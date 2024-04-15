@@ -18,24 +18,9 @@ const SigninSection = () => {
   }
 
   return (
-    <section className="register_section overflow-hidden">
-      <div className="column decoration_wrap">
-        <div className="inner"></div>
-        <Image src={banner_image} alt="Paradox Iillustration Image" />
-        <div className="deco_item shape_1 wow fadeInDown" data-wow-delay=".1s">
-          <Image src={shape_circle_dashed_2} alt="Paradox - Shape Image" />
-        </div>
-        <div className="deco_item shape_2 wow fadeInUp" data-wow-delay=".1s">
-          <Image src={shape_circle_half_1} style={{ width: "100%", height: "100%" }} alt="Paradox - Shape Image" />
-        </div>
-      </div>
-      <div className="column decoration_wrap">
+    <section className="register_section overflow-hidden" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="column decoration_wrap p-20">
         <div className="register_form_wrap ms-lg-0">
-          <div className="site_logo">
-            <Link className="site_link" href="/">
-              <Image src={site_logo_dark} alt="Site Logo - Paradox - Agency Template" />
-            </Link>
-          </div>
           <h2 className="form_title">Welcome Back!</h2>
           <p>Enter the information below to signin your account</p>
           <form onClick={handleSubmit} action="#">

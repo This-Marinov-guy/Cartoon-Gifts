@@ -1,37 +1,59 @@
 import ImageInput from '@components/common/inputs/image'
+import RadioCard from '@components/common/inputs/radio-card'
 import RadioPrice from '@components/common/inputs/radio-price'
+import { Formik, Form, Field } from "formik";
+import * as yup from "yup";
 import React, { Fragment, useState } from 'react'
 
 const OrderForm = () => {
     const SIZE_ITEMS = [
         {
-            property: 'A1',
+            property: 'A4',
             price: 0
         },
         {
-            property: 'A2',
+            property: 'A3',
             price: 5
         },
         {
-            property: 'A3',
+            property: 'A2',
             price: 10
+        },
+        {
+            property: 'A1',
+            price: 15
         }
     ]
 
     const DELIVERY_ITEMS = [
         {
-            property: 'Express',
-            price: 15
-        },
-        {
             property: 'Normal',
             price: 5
         },
+        {
+            property: 'Express',
+            price: 15
+        },
     ]
 
+    const PET_OPTIONS = [
+        {
+            property: 'No',
+        },
+        {
+            property: 'Yes',
+        },
+    ]
+
+
     const [files, setFiles] = useState([]);
+    const [petFiles, setPetFiles] = useState([]);
+    const [hasPet, setHasPet] = useState({
+        property: 'No',
+        price: 0
+    });
     const [size, setSize] = useState({
-        property: '',
+        property: 'A4',
         price: 0
     });
     const [delivery, setDelivery] = useState({
@@ -39,7 +61,7 @@ const OrderForm = () => {
         price: 5
     });
 
-    const [price, setPrice] = useState(55);
+    const [price, setPrice] = useState(35);
 
     const handlePriceChange = (item, state, callback) => {
         if (state.property === item.property) {
@@ -54,6 +76,17 @@ const OrderForm = () => {
         }
     }
 
+    const schema = yup.object().shape({
+        name: yup.string().required(),
+        email: yup.string().email().required(),
+        occasion: yup.string().required(),
+        profession: yup.string().required(),
+        hobby: yup.string().required(),
+        label: yup.string(),
+        hasDescription: yup.boolean(),
+        description: yup.string(),
+    });
+
     const handleSubmit = () => { }
 
     return (
@@ -62,95 +95,187 @@ const OrderForm = () => {
                 <h2 className="heading_subtitle text-center" style={{ marginBottom: '20px' }}>
                     <span>Fill the form and submit your order</span>
                 </h2>
-                <form onSubmit={handleSubmit} action="#">
-                    <div className="row">
-                        <div className="col col-md-6">
-                            <div className="form-group m-0">
-                                <input
-                                    className="form-control"
-                                    type="text"
-                                    name="name"
-                                    placeholder="Your Name"
-                                />
-                            </div>
-                        </div>
-                        <div className="col col-md-6">
-                            <div className="form-group m-0">
-                                <input
-                                    className="form-control"
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email Address"
-                                />
-                            </div>
-                        </div>
-                        <div className="text-center mt-30">
-                            <h4>Let's see what exactly do you want</h4>
-                        </div>
-                        <div className='col col-md-6'>
-                            <div className="form-group">
-                                <textarea
-                                    rows="4"
-                                    className="form-control"
-                                    name="message"
-                                    placeholder="Briefly describe what you want on your cartoon"
-                                ></textarea>
-                            </div>
-                        </div>
-                        <div className='col col-md-6'>
-                            <ImageInput files={files}
-                                setFiles={(newFiles) => {
-                                    setFiles(newFiles);
-                                    setPrice((prevPrice) => prevPrice - files.length * 10 + newFiles.length * 10)
-                                }} />
-                            <small style={{ marginTop: '5px' }}>
-                                Make sure to:<br />
-                                - add pictures for any face/animal you want on your cartoon (+10£ for each extra)<br />
-                                - describe what will be the background (beach, mountains, yacht, etc.)<br />
-                                - are there any items with you (bottles, cars, helicopter, etc.) <br />
-                                - anything that can be helpful (I want to be Batman)
-                            </small>
-                        </div>
-                        <div className='col col-md-6'>
-                            <h4>Choose a size</h4>
-                            <div className='card-price-box'>
-                                {SIZE_ITEMS.map((item, index) => {
-                                    return (
-                                        <RadioPrice key={index} onClick={() => handlePriceChange(item, size, setSize)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={size.property == item.property} />
-                                    )
-                                })}
-                            </div>
-                        </div>
-                        <div className='col col-md-6'>
-                            <h4>Choose a delivery option</h4>
-                            <div className='card-price-box'>
-                                {DELIVERY_ITEMS.map((item, index) => {
-                                    return (
-                                        <RadioPrice key={index} onClick={() => handlePriceChange(item, delivery, setDelivery)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={delivery.property == item.property} />
-                                    )
-                                })}
-                            </div>
-                        </div>
-                        <div className='col-6 mt-30'>
-                            <div>
-                                <h5>Total: {price} £</h5>
-                                <button type="submit" className="bd-btn-link">
-                                    <span className="bd-button-content-wrapper">
-                                        <span className="bd-button-icon">
-                                            <i className="fa-light fa-arrow-right-long"></i>
-                                        </span>
-                                        <span className="pd-animation-flip">
-                                            <span className="bd-btn-anim-wrapp">
-                                                <span className="bd-button-text">Send Now</span>
-                                                <span className="bd-button-text">Send Now</span>
+                <Formik
+                    className="inner"
+                    validationSchema={schema}
+                    onSubmit={(values) => {
+                        handleSubmit(values)
+                    }}
+                    initialValues={{
+                        name: '',
+                        email: '',
+                        occasion: '',
+                        profession: '',
+                        hobby: '',
+                        label: '',
+                        hasDescription: true,
+                        description: '',
+                    }}
+                >
+                    {({ values, errors }) => (
+                        <Form
+                            encType="multipart/form-data"
+                            id="form"
+                            style={{ padding: "2%" }}
+                        >
+                            <div className="row">
+                                <div className="col col-md-6">
+                                    <div className="form-group m-0">
+                                        <Field
+                                            className={`form-control ${errors.name && 'error-border'}`}
+                                            type="text"
+                                            name="name"
+                                            placeholder="Your Name"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col col-md-6">
+                                    <div className="form-group m-0">
+                                        <Field
+                                            className={`form-control ${errors.email && 'error-border'}`}
+                                            type="email"
+                                            name="email"
+                                            placeholder="Email Address"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-center mt-30">
+                                    <h4>Let's see what exactly do you want</h4>
+                                </div>
+                                <div className="col col-md-6">
+                                    <div className="form-group m-0">
+                                        <Field
+                                            className={`form-control ${errors.occasion && 'error-border'}`}
+                                            type="text"
+                                            name="occasion"
+                                            placeholder="Occasion"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col col-md-6">
+                                    <div className="form-group m-0">
+                                        <Field
+                                            className={`form-control ${errors.profession && 'error-border'}`}
+                                            type="text"
+                                            name="profession"
+                                            placeholder="Person's profession"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col col-md-6">
+                                    <div className="form-group m-0">
+                                        <Field
+                                            className={`form-control ${errors.hobby && 'error-border'}`}
+                                            type="text"
+                                            name="hobby"
+                                            placeholder="Person's Hobby"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col col-md-6">
+                                    <div className="form-group m-0">
+                                        <Field
+                                            className="form-control"
+                                            type="text"
+                                            name="label"
+                                            placeholder="Label to be displayed (optional)"
+                                        />
+                                    </div>
+                                </div>
+                                <div className='col col-md-6'>
+                                    <div className="form-check mb-10 ml-10">
+                                        <Field type="checkbox" id="checkMeOut" name='hasDescription' />
+                                        <label htmlFor="checkMeOut">I trust Cartoon Gifts to make me the cartoon with their idea, given my details</label>
+                                    </div>
+                                    {values.hasDescription && <div className="form-group">
+                                        <Field
+                                            as='textarea'
+                                            rows="4"
+                                            className="form-control"
+                                            name="description"
+                                            placeholder="Briefly describe what you want on your cartoon"
+                                        ></Field>
+                                    </div>}
+                                </div>
+                                <div className='col col-md-6'>
+                                    <ImageInput files={files}
+                                        setFiles={(newFiles) => {
+                                            setFiles(newFiles);
+                                            setPrice((prevPrice) => prevPrice - files.length * 9 + newFiles.length * 9)
+                                        }} />
+                                    <p className='error'>Please give us at least 1 image to work with</p>
+                                    <small style={{ marginTop: '5px' }}>
+                                        Make sure to:<br />
+                                        - add pictures for any face you want on your cartoon (+9£ for each)<br />
+                                        - describe what will be the background (beach, mountains, yacht, etc.)<br />
+                                        - tell us are there any items with you (bottles, cars, helicopter, etc.) <br />
+                                        - add anything that can be helpful
+                                    </small>
+                                </div>
+                                <div className='col col-md-6' style={{ paddingBottom: '55px' }}>
+                                    <h4>Do you want a pet in your cartoon</h4>
+                                    <div className='card-price-box'>
+                                        {PET_OPTIONS.map((item, index) => {
+                                            return (
+                                                <RadioCard key={index} onClick={() => setHasPet(item)} property={item.property} active={hasPet.property == item.property} />
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                                <div className='col col-md-6'>
+                                    {hasPet.property === 'Yes' && <Fragment>
+                                        <h4>Pet Image (+7£ for each)</h4>
+                                        <ImageInput files={petFiles}
+                                            setFiles={(newFiles) => {
+                                                setPetFiles(newFiles);
+                                                setPrice((prevPrice) => prevPrice - petFiles.length * 7 + newFiles.length * 7)
+                                            }} />
+                                    </Fragment>}
+                                </div>
+                                <div className='col col-md-6'>
+                                    <h4>Choose a size</h4>
+                                    <div className='card-price-box'>
+                                        {SIZE_ITEMS.map((item, index) => {
+                                            return (
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, size, setSize)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={size.property == item.property} />
+                                            )
+                                        })}
+                                    </div>
+                                    <p className='error'>Please select a size</p>
+                                </div>
+                                <div className='col col-md-6'>
+                                    <h4>Choose a delivery option</h4>
+                                    <div className='card-price-box'>
+                                        {DELIVERY_ITEMS.map((item, index) => {
+                                            return (
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, delivery, setDelivery)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={delivery.property == item.property} />
+                                            )
+                                        })}
+                                    </div>
+                                    <p className='error'>Please select a delivery option</p>
+                                </div>
+                                <div className='col-6 mt-30'>
+                                    <div>
+                                        <h5>Total: {price} £</h5>
+                                        <button type="submit" className="bd-btn-link">
+                                            <span className="bd-button-content-wrapper">
+                                                <span className="bd-button-icon">
+                                                    <i className="fa-light fa-arrow-right-long"></i>
+                                                </span>
+                                                <span className="pd-animation-flip">
+                                                    <span className="bd-btn-anim-wrapp">
+                                                        <span className="bd-button-text">Go To Checkout</span>
+                                                        <span className="bd-button-text">Checkout</span>
+                                                    </span>
+                                                </span>
                                             </span>
-                                        </span>
-                                    </span>
-                                </button>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </form>
+                        </Form>
+                    )}
+                </Formik>
             </div>
         </Fragment>
     )

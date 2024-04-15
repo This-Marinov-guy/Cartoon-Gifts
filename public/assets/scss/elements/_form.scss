@@ -410,6 +410,19 @@ textarea.form-control {
 /* 2.9 - Form Style - End
 ================================================== */
 
+input,
+textarea {
+  transition: background-color 0.3s ease;
+}
+
+.error-border {
+  border-color: red !important;
+}
+
+.error {
+  color: red;
+}
+
 .card-price-box {
   margin: 20px;
   display: flex;
