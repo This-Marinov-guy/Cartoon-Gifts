@@ -3,7 +3,9 @@ import RadioCard from '@components/common/inputs/radio-card'
 import RadioPrice from '@components/common/inputs/radio-price'
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
+import { observer } from 'mobx-react-lite';
 import React, { Fragment, useState } from 'react'
+import { useStore } from 'src/stores/storeContext';
 
 const OrderForm = () => {
     const SIZE_ITEMS = [
@@ -45,6 +47,7 @@ const OrderForm = () => {
         },
     ]
 
+    const { checkoutStore } = useStore();
 
     const [files, setFiles] = useState([]);
     const [petFiles, setPetFiles] = useState([]);
@@ -62,6 +65,7 @@ const OrderForm = () => {
     });
 
     const [price, setPrice] = useState(35);
+    const [invalidFields, setInvalidFields] = useState([])
 
     const handlePriceChange = (item, state, callback) => {
         if (state.property === item.property) {
@@ -87,7 +91,38 @@ const OrderForm = () => {
         description: yup.string(),
     });
 
-    const handleSubmit = () => { }
+    const handleSubmit = (values) => {
+        setInvalidFields([])
+        if (!delivery.property) {
+            setInvalidFields(prevState => {
+                return [
+                    ...prevState, 'delivery'
+                ]
+            })
+        }
+
+        if (!size.property) {
+            setInvalidFields(prevState => {
+                return [
+                    ...prevState, 'size'
+                ]
+            })
+        }
+
+        if (files.length < 1) {
+            setInvalidFields(prevState => {
+                return [
+                    ...prevState, 'peopleImages'
+                ]
+            })
+        }
+
+        if (invalidFields.length > 0) {
+            return
+        }
+
+
+    }
 
     return (
         <Fragment>
@@ -203,7 +238,7 @@ const OrderForm = () => {
                                             setFiles(newFiles);
                                             setPrice((prevPrice) => prevPrice - files.length * 9 + newFiles.length * 9)
                                         }} />
-                                    <p className='error'>Please give us at least 1 image to work with</p>
+                                    {invalidFields.includes('peopleImages') && <p className='error'>Please give us at least 1 image to work with</p>}
                                     <small style={{ marginTop: '5px' }}>
                                         Make sure to:<br />
                                         - add pictures for any face you want on your cartoon (+9£ for each)<br />
@@ -241,7 +276,7 @@ const OrderForm = () => {
                                             )
                                         })}
                                     </div>
-                                    <p className='error'>Please select a size</p>
+                                    {invalidFields.includes('size') && <p className='error'>Please select a size</p>}
                                 </div>
                                 <div className='col col-md-6'>
                                     <h4>Choose a delivery option</h4>
@@ -252,7 +287,7 @@ const OrderForm = () => {
                                             )
                                         })}
                                     </div>
-                                    <p className='error'>Please select a delivery option</p>
+                                    {invalidFields.includes('delivery') && <p className='error'>Please select a delivery option</p>}
                                 </div>
                                 <div className='col-6 mt-30'>
                                     <div>
@@ -281,4 +316,4 @@ const OrderForm = () => {
     )
 }
 
-export default OrderForm
+export default observer(OrderForm);

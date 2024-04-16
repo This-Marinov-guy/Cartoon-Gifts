@@ -3,7 +3,7 @@ import { rootStore } from './rootStore';
 
 const StoreContext = createContext(rootStore);
 
-export const useStore = () => useContext(Provider);
+export const useStore = () => useContext(StoreContext);
 
 export const StoreProvider = ({ children }) => {
   return (
