@@ -58,15 +58,15 @@ const OrderForm = () => {
     });
 
     const handlePriceChange = (item, state) => {
-        if (state.property === item.property) {
-            state = {
+        if (checkoutStore[state].property === item.property) {
+            checkoutStore.setField('checkout', state , {
                 property: '',
                 price: 0
-            }
-            checkout.price = checkout.price - item.price;
+            });
+            checkoutStore.setField('checkout', 'price', checkout.price - item.price)
         } else {
-            checkout.price = checkout.price - state.price - item.price;
-            state = item;
+            checkoutStore.setField('checkout', 'price', checkout.price - checkoutStore[state].price - item.price);
+            checkoutStore.setField('checkout', state , item)
         }
     }
 
@@ -233,7 +233,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {SIZE_ITEMS.map((item, index) => {
                                             return (
-                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, checkout.size)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={checkout.size.property == item.property} />
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'size')} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={checkout.size.property == item.property} />
                                             )
                                         })}
                                     </div>
@@ -244,7 +244,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {DELIVERY_ITEMS.map((item, index) => {
                                             return (
-                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, checkout.delivery)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={checkout.delivery.property == item.property} />
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'delivery')} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={checkout.delivery.property == item.property} />
                                             )
                                         })}
                                     </div>
