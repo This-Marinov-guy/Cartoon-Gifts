@@ -197,7 +197,7 @@ const OrderForm = () => {
                                     <ImageInput files={files}
                                         setFiles={(newFiles) => {
                                             setFiles(newFiles);
-                                            setPrice((prevPrice) => prevPrice - files.length * 9 + newFiles.length * 9)
+                                            checkoutStore.setField('checkout', 'price', checkout.price - files.length * 9 + newFiles.length * 9);
                                         }} />
                                     {invalidFields.includes('peopleImages') && <p className='error'>Please give us at least 1 image to work with</p>}
                                     <small style={{ marginTop: '5px' }}>
@@ -224,7 +224,7 @@ const OrderForm = () => {
                                         <ImageInput files={petFiles}
                                             setFiles={(newFiles) => {
                                                 setPetFiles(newFiles);
-                                                setPrice((prevPrice) => prevPrice - petFiles.length * 7 + newFiles.length * 7)
+                                                checkoutStore.setField('checkout', 'price', checkout.price - petFiles.length * 7 + newFiles.length * 7);
                                             }} />
                                     </Fragment>}
                                 </div>
