@@ -65,7 +65,7 @@ const OrderForm = () => {
             });
             checkoutStore.setField('checkout', 'price', checkout.price - item.price)
         } else {
-            checkoutStore.setField('checkout', 'price', checkout.price - checkout[state].price - item.price);
+            checkoutStore.setField('checkout', 'price', checkout.price - checkout[state].price + item.price);
             checkoutStore.setField('checkout', state , item)
         }
     }
