@@ -48,6 +48,11 @@ export default class CheckoutStore {
         this.checkout.price = data.price;
     }
 
+       @action
+    setField(dataObject, property, value) {
+        this[dataObject] = {...this[dataObject], [property]: value};
+    }
+
     @action
     validate(data) {
         // if (!checkout.delivery.property) {
