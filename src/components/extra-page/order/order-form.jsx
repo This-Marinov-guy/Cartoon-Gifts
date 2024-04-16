@@ -48,6 +48,7 @@ const OrderForm = () => {
     ]
 
     const { checkoutStore } = useStore();
+    const { checkout, invalidFields } = checkoutStore;
 
     const [files, setFiles] = useState([]);
     const [petFiles, setPetFiles] = useState([]);
@@ -55,28 +56,17 @@ const OrderForm = () => {
         property: 'No',
         price: 0
     });
-    const [size, setSize] = useState({
-        property: 'A4',
-        price: 0
-    });
-    const [delivery, setDelivery] = useState({
-        property: 'Normal',
-        price: 5
-    });
 
-    const [price, setPrice] = useState(35);
-    const [invalidFields, setInvalidFields] = useState([])
-
-    const handlePriceChange = (item, state, callback) => {
+    const handlePriceChange = (item, state) => {
         if (state.property === item.property) {
-            callback({
+            state = {
                 property: '',
                 price: 0
-            });
-            setPrice((prevPrice) => prevPrice - item.price);
+            }
+            checkout.price = checkout.price - item.price;
         } else {
-            setPrice((prevPrice) => prevPrice - state.price + item.price);
-            callback(item);
+            checkout.price = checkout.price - state.price - item.price;
+            state = item;
         }
     }
 
@@ -92,35 +82,6 @@ const OrderForm = () => {
     });
 
     const handleSubmit = (values) => {
-        setInvalidFields([])
-        if (!delivery.property) {
-            setInvalidFields(prevState => {
-                return [
-                    ...prevState, 'delivery'
-                ]
-            })
-        }
-
-        if (!size.property) {
-            setInvalidFields(prevState => {
-                return [
-                    ...prevState, 'size'
-                ]
-            })
-        }
-
-        if (files.length < 1) {
-            setInvalidFields(prevState => {
-                return [
-                    ...prevState, 'peopleImages'
-                ]
-            })
-        }
-
-        if (invalidFields.length > 0) {
-            return
-        }
-
 
     }
 
@@ -137,14 +98,14 @@ const OrderForm = () => {
                         handleSubmit(values)
                     }}
                     initialValues={{
-                        name: '',
-                        email: '',
-                        occasion: '',
-                        profession: '',
-                        hobby: '',
-                        label: '',
+                        name: checkout.name,
+                        email: checkout.email,
+                        occasion: checkout.occasion,
+                        profession: checkout.profession,
+                        hobby: checkout.hobby,
+                        label: checkout.label,
                         hasDescription: true,
-                        description: '',
+                        description: checkout.description,
                     }}
                 >
                     {({ values, errors }) => (
@@ -272,7 +233,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {SIZE_ITEMS.map((item, index) => {
                                             return (
-                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, size, setSize)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={size.property == item.property} />
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, checkout.size)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={checkout.size.property == item.property} />
                                             )
                                         })}
                                     </div>
@@ -283,7 +244,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {DELIVERY_ITEMS.map((item, index) => {
                                             return (
-                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, delivery, setDelivery)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={delivery.property == item.property} />
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, checkout.delivery)} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={checkout.delivery.property == item.property} />
                                             )
                                         })}
                                     </div>
@@ -291,7 +252,7 @@ const OrderForm = () => {
                                 </div>
                                 <div className='col-6 mt-30'>
                                     <div>
-                                        <h5>Total: {price} £</h5>
+                                        <h5>Total: {checkout.price} £</h5>
                                         <button type="submit" className="bd-btn-link">
                                             <span className="bd-button-content-wrapper">
                                                 <span className="bd-button-icon">

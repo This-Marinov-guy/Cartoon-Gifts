@@ -25,6 +25,8 @@ export default class CheckoutStore {
         price: 35,
     };
 
+    @observable invalidFields = []
+
     constructor(root) {
         makeAutoObservable(this)
         this.rootStore = root
@@ -44,5 +46,37 @@ export default class CheckoutStore {
         this.checkout.size = data.size;
         this.checkout.delivery = data.delivery;
         this.checkout.price = data.price;
+    }
+
+    @action
+    validate(data) {
+        // if (!checkout.delivery.property) {
+            
+        //     setInvalidFields(prevState => {
+        //         return [
+        //             ...prevState, 'delivery'
+        //         ]
+        //     })
+        // }
+
+        // if (!checkout.size.property) {
+        //     setInvalidFields(prevState => {
+        //         return [
+        //             ...prevState, 'size'
+        //         ]
+        //     })
+        // }
+
+        // if (checkout.files.length < 1) {
+        //     setInvalidFields(prevState => {
+        //         return [
+        //             ...prevState, 'peopleImages'
+        //         ]
+        //     })
+        // }
+
+        // if (invalidFields.length > 0) {
+        //     return
+        // }
     }
 }
