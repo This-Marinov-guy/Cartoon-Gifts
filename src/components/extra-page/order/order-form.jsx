@@ -1,12 +1,14 @@
+import React, { Fragment, useState, useEffect } from 'react'
 import ImageInput from '@components/common/inputs/image'
 import RadioCard from '@components/common/inputs/radio-card'
 import RadioPrice from '@components/common/inputs/radio-price'
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import { observer } from 'mobx-react-lite';
-import React, { Fragment, useState } from 'react'
 import { useStore } from 'src/stores/storeContext';
 import CheckoutModal from './checkout-modal';
+import { useToast } from '@chakra-ui/react';
+import { askBeforeRedirect } from '@utils/globals';
 
 const OrderForm = () => {
     const SIZE_ITEMS = [
@@ -49,6 +51,7 @@ const OrderForm = () => {
     ]
 
     const { checkoutStore } = useStore();
+    const toast = useToast();
     const { checkout, invalidFields } = checkoutStore;
 
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
@@ -93,6 +96,21 @@ const OrderForm = () => {
         }
     }
 
+    const handleErrorMsg = (errors, isValid, dirty) => {
+        if (errors && !isValid && dirty) {
+            toast({
+                title: "You have some missing fields - please fill them and submit again",
+                status: 'warning',
+                duration: 10000,
+                isClosable: true,
+            })
+        }
+    }
+
+    useEffect(() => {
+        askBeforeRedirect();
+    }, []);
+
     return (
         <Fragment>
             <CheckoutModal isOpen={isCheckoutModalOpen}
@@ -118,7 +136,7 @@ const OrderForm = () => {
                         description: checkout.description,
                     }}
                 >
-                    {({ values, errors }) => (
+                    {({ values, errors, isValid, dirty }) => (
                         <Form
                             encType="multipart/form-data"
                             id="form"
@@ -263,7 +281,7 @@ const OrderForm = () => {
                                 <div className='col-6 mt-30'>
                                     <div>
                                         <h5>Total: {checkout.price} £</h5>
-                                        <button type="submit" className="bd-btn-link">
+                                        <button type="submit" onClick={() => handleErrorMsg(errors, isValid, dirty)} className="bd-btn-link">
                                             <span className="bd-button-content-wrapper">
                                                 <span className="bd-button-icon">
                                                     <i className="fa-light fa-arrow-right-long"></i>
