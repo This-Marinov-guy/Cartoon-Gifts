@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { observer } from 'mobx-react-lite';
 import React, { Fragment, useState } from 'react'
 import { useStore } from 'src/stores/storeContext';
+import CheckoutModal from './checkout-modal';
 
 const OrderForm = () => {
     const SIZE_ITEMS = [
@@ -50,6 +51,8 @@ const OrderForm = () => {
     const { checkoutStore } = useStore();
     const { checkout, invalidFields } = checkoutStore;
 
+    const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+
     const [files, setFiles] = useState([]);
     const [petFiles, setPetFiles] = useState([]);
     const [hasPet, setHasPet] = useState({
@@ -59,14 +62,14 @@ const OrderForm = () => {
 
     const handlePriceChange = (item, state) => {
         if (checkout[state].property === item.property) {
-            checkoutStore.setField('checkout', state , {
+            checkoutStore.setField('checkout', state, {
                 property: '',
                 price: 0
             });
             checkoutStore.setField('checkout', 'price', checkout.price - item.price)
         } else {
             checkoutStore.setField('checkout', 'price', checkout.price - checkout[state].price + item.price);
-            checkoutStore.setField('checkout', state , item)
+            checkoutStore.setField('checkout', state, item)
         }
     }
 
@@ -82,11 +85,18 @@ const OrderForm = () => {
     });
 
     const handleSubmit = (values) => {
+        checkoutStore.setData({ ...values, peopleImages: files, petImages: petFiles });
+        const validate = checkoutStore.validate();
 
+        if (validate) {
+            setIsCheckoutModalOpen(true);
+        }
     }
 
     return (
         <Fragment>
+            <CheckoutModal isOpen={isCheckoutModalOpen}
+                onClose={() => setIsCheckoutModalOpen(false)} />
             <div className="contact_form container mb-30">
                 <h2 className="heading_subtitle text-center" style={{ marginBottom: '20px' }}>
                     <span>Fill the form and submit your order</span>

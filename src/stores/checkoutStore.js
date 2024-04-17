@@ -1,4 +1,4 @@
-import { action, makeAutoObservable, observable, runInAction } from "mobx"
+import { action, makeAutoObservable, observable } from "mobx"
 
 export default class CheckoutStore {
     rootStore;
@@ -40,48 +40,58 @@ export default class CheckoutStore {
         this.checkout.profession = data.profession;
         this.checkout.hobby = data.hobby;
         this.checkout.label = data.label;
-        this.checkout.description = data.description;
+        this.checkout.description = data.hasDescription ? data.description : 'We will handle the description for you!';
         this.checkout.peopleImages = data.peopleImages;
         this.checkout.petImages = data.petImages;
-        this.checkout.size = data.size;
-        this.checkout.delivery = data.delivery;
-        this.checkout.price = data.price;
-    }
-
-       @action
-    setField(dataObject, property, value) {
-        this[dataObject] = {...this[dataObject], [property]: value};
     }
 
     @action
-    validate(data) {
-        // if (!checkout.delivery.property) {
-            
-        //     setInvalidFields(prevState => {
-        //         return [
-        //             ...prevState, 'delivery'
-        //         ]
-        //     })
-        // }
+    setField(dataObject, property, value) {
+        this[dataObject] = { ...this[dataObject], [property]: value };
+    }
 
-        // if (!checkout.size.property) {
-        //     setInvalidFields(prevState => {
-        //         return [
-        //             ...prevState, 'size'
-        //         ]
-        //     })
-        // }
+    @action
+    validate() {
+        if (!this.checkout.delivery.property) {
+            this.invalidFields = [...this.invalidFields, 'delivery']
+        }
 
-        // if (checkout.files.length < 1) {
-        //     setInvalidFields(prevState => {
-        //         return [
-        //             ...prevState, 'peopleImages'
-        //         ]
-        //     })
-        // }
+        if (!this.checkout.size.property) {
+            this.invalidFields = [...this.invalidFields, 'size']
+        }
 
-        // if (invalidFields.length > 0) {
-        //     return
-        // }
+        if (this.checkout.peopleImages.length < 1) {
+            this.invalidFields = [...this.invalidFields, 'peopleImages']
+        }
+
+        if (this.invalidFields.length > 0) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    @action
+    resetData() {
+        this.checkout.name = ''
+        this.checkout.email = ''
+        this.checkout.occasion = '';
+        this.checkout.profession = '';
+        this.checkout.hobby = '';
+        this.checkout.label = '';
+        this.checkout.hasDescription = true;
+        this.checkout.description = '';
+        this.checkout.peopleImages = [];
+        this.checkout.petImages = [];
+        this.checkout.size = {
+            property: 'A4',
+            price: 0
+        };
+        this.checkout.delivery = {
+            property: 'Normal',
+            price: 5
+        };
+        this.checkout.price = 35;
+        this.invalidFields = []
     }
 }

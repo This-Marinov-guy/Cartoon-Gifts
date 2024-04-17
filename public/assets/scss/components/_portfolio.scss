@@ -1,5 +1,18 @@
 /* Portfolio - Start
 ================================================== */
+.preview_small {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.preview_box_small {
+  max-width: 80%;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
 .portfolio_section {
   .shape_1 {
     top: 25%;

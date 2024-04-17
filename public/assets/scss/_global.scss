@@ -1,8 +1,8 @@
 .center_div {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .center_div p {
@@ -10,6 +10,30 @@
 }
 
 .x_icon {
-    color: red !important;
-    z-index: 999;
-  }
+  color: red !important;
+  z-index: 999;
+}
+
+body::-webkit-scrollbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+  border-radius: 8px;
+  background: transparent;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  margin-bottom: -10px;
+  border-radius: 8px;
+  background-color: rgb(208, 159, 208) !important;
+}
