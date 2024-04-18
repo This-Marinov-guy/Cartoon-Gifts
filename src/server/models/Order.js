@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var order = new Schema({
     timestamp: {
-        type: Date,
+        type: String,
         default: moment().format('Do MMMM YYYY, h:mm:ss a')
     },
     name: {
