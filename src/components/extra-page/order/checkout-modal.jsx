@@ -64,16 +64,13 @@ const CheckoutModal = (props) => {
         const formData = new FormData();
 
         Object.keys(checkout).forEach((key) => {
-            if (key === 'peopleImages' || key === 'petImages') {
-                checkout[key].forEach((image) => {
-                    formData.append(key, image);
-                });
-            }
+            formData.append(key, checkout[key]);
         });
 
         const response = await sendRequest('/api/order/create', 'POST', formData);
 
-        if (response.status) {
+        if (response && response.status) {
+            console.log(response.name);
             setSuccess(true);
             checkoutStore.resetData();
         }

@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
         }
       />
       <StoreProvider>
-        <ChakraProvider>
+        <ChakraProvider toastOptions={{ defaultOptions: { position: 'top' } }}>
           <Parallax>
             <Component {...pageProps} />
           </Parallax>

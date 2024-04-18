@@ -192,7 +192,7 @@ const OrderForm = () => {
                                     {invalidFields.includes('peopleImages') && <p className='error'>Please give us at least 1 image to work with</p>}
                                     <small style={{ marginTop: '5px' }}>
                                         Make sure to:<br />
-                                        - add pictures for any face you want on your cartoon (+9£ for each)<br />
+                                        - add pictures for any face you want on your cartoon (+{PERSON_IMAGE_PRICE}£ for each)<br />
                                         - describe what will be the background (beach, mountains, yacht, etc.)<br />
                                         - tell us are there any items with you (bottles, cars, helicopter, etc.) <br />
                                         - add anything that can be helpful
@@ -210,7 +210,7 @@ const OrderForm = () => {
                                 </div>
                                 <div className='col col-md-6'>
                                     {hasPet.property === 'Yes' && <Fragment>
-                                        <h4>Pet Image (+7£ for each)</h4>
+                                        <h4>Pet Image (+{PET_IMAGE_PRICE}£ for each)</h4>
                                         <ImageInput files={petFiles}
                                             setFiles={(newFiles) => {
                                                 setPetFiles(newFiles);
