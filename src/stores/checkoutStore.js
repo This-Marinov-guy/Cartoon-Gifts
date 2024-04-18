@@ -67,6 +67,28 @@ export default class CheckoutStore {
     }
 
     @action
+    setFormData() {
+        const formData = new FormData();
+        [...this.checkout.peopleImages, ...this.checkout.petImages].forEach((image) => {
+            formData.append("images", image);
+        });
+
+        formData.append("name", this.checkout.name);
+        formData.append("email", this.checkout.email);
+        formData.append("occasion", this.checkout.occasion);
+        formData.append("profession", this.checkout.profession);
+        formData.append("hobby", this.checkout.hobby);
+        formData.append("label", this.checkout.label);
+        formData.append("hasPet", this.checkout.petImages.length > 0);
+        formData.append("description", this.checkout.description);
+        formData.append("size", this.checkout.size.property);
+        formData.append("delivery", this.checkout.delivery.property);
+        formData.append("price", this.checkout.price);
+
+        return formData;
+    }
+
+    @action
     resetData() {
         this.checkout.name = ''
         this.checkout.email = ''

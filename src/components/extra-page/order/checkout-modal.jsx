@@ -61,16 +61,10 @@ const CheckoutModal = (props) => {
     }
 
     const submitOrder = async () => {
-        const formData = new FormData();
-
-        Object.keys(checkout).forEach((key) => {
-            formData.append(key, checkout[key]);
-        });
-
+        const formData = checkoutStore.setFormData();
         const response = await sendRequest('/api/order/create', 'POST', formData);
 
         if (response && response.status) {
-            console.log(response.name);
             setSuccess(true);
             checkoutStore.resetData();
         }
