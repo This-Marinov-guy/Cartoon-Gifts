@@ -1,4 +1,5 @@
 
+import moment from 'moment';
 import multer from 'multer';
 import cloudinary from 'src/server/config/cloudinary';
 import connectDB from 'src/server/middleware/mongodb';
@@ -23,19 +24,18 @@ const handler = async (req, res) => {
     await runMiddleware(req, res, myUploadMiddleware);
 
     const images = [];
+    const { name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price } = req.body;
 
     for (const file of req.files) {
         try {
             const b64 = Buffer.from(file.buffer).toString("base64");
             let dataURI = "data:" + file.mimetype + ";base64," + b64;
             const response = await cloudinary.uploader.upload(dataURI, {
-                folder: "images",
+                folder: name + '_' + occasion + '_' + moment().format('Do MMMM, h:mm:ss a'),
             });
             images.push(response.secure_url);
         } catch (error) { }
     }
-
-    const { name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price } = req.body;
 
     const order = new Order({
         name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
