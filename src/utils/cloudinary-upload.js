@@ -9,20 +9,21 @@ api_key: process.env.CLOUDINARY_API_KEY,
 api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Configure Cloudinary Storage
+// Function to upload images and return their URLs
+export async function uploadImages(files, folder, format ='jpg', id = '10010') {
+
+  const parser = multer({ storage: storage });
+
+
+  // Configure Cloudinary Storage
 const storage = new CloudinaryStorage({
 cloudinary: cloudinary,
 params: {
-folder: 'uploads',
-format: async (req, file) => 'png', // or other formats
-public_id: (req, file) => 'generated-public-id', // generate a unique ID for each file
+folder: folder,
+format: async (req, file) => format, // or other formats
+public_id: (req, file) => id, // generate a unique ID for each file
 },
 });
-
-const parser = multer({ storage: storage });
-
-// Function to upload images and return their URLs
-export async function uploadImages(files) {
 const uploader = async (path) => await cloudinary.uploader.upload(path);
 
 // Map over the files and upload each one
