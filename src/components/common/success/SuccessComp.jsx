@@ -6,7 +6,7 @@ import {
     AlertDescription,
 } from '@chakra-ui/react'
 
-const SuccessComp = () => {
+const SuccessComp = (props) => {
     return (
         <Alert
             status='success'
@@ -19,10 +19,10 @@ const SuccessComp = () => {
         >
             <AlertIcon boxSize='40px' mr={0} />
             <AlertTitle mt={4} mb={1} fontSize='lg'>
-                Message submitted!
+                {props.title}
             </AlertTitle>
             <AlertDescription maxWidth='sm'>
-                Thanks for submitting your message. Our team will get back to you soon.
+                {props.description}
             </AlertDescription>
         </Alert>
     )

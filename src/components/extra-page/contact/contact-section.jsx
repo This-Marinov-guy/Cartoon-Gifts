@@ -52,7 +52,7 @@ const ContactSection = () => {
         <div className="row">
           <div className="col col-lg-6">
             <div className="contact_form">
-              {isSuccess ? <SuccessComp /> : <form onSubmit={handleSubmit} action="#">
+              {isSuccess ? <SuccessComp title='Message submitted!' description='Thanks for submitting your message. Our team will get back to you soon.' /> : <form onSubmit={handleSubmit} action="#">
                 <div className="row">
                   <div className="col col-md-6">
                     <div className="form-group m-0">

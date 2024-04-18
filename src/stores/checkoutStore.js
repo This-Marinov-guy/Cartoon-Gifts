@@ -1,3 +1,4 @@
+import { BASIC_PRICE, DELIVERY_ITEMS, SIZE_ITEMS } from "@utils/defines";
 import { action, makeAutoObservable, observable } from "mobx"
 
 export default class CheckoutStore {
@@ -14,15 +15,9 @@ export default class CheckoutStore {
         description: '',
         peopleImages: [],
         petImages: [],
-        size: {
-            property: 'A4',
-            price: 0
-        },
-        delivery: {
-            property: 'Normal',
-            price: 5
-        },
-        price: 35,
+        size: SIZE_ITEMS[0],
+        delivery: DELIVERY_ITEMS[0],
+        price: BASIC_PRICE,
     };
 
     @observable invalidFields = []
@@ -40,7 +35,7 @@ export default class CheckoutStore {
         this.checkout.profession = data.profession;
         this.checkout.hobby = data.hobby;
         this.checkout.label = data.label;
-        this.checkout.description = data.hasDescription ? data.description : 'We will handle the description for you!';
+        this.checkout.description = (data.hasDescription && data.description) ? data.description : 'We will handle the description for you!';
         this.checkout.peopleImages = data.peopleImages;
         this.checkout.petImages = data.petImages;
     }
@@ -83,15 +78,9 @@ export default class CheckoutStore {
         this.checkout.description = '';
         this.checkout.peopleImages = [];
         this.checkout.petImages = [];
-        this.checkout.size = {
-            property: 'A4',
-            price: 0
-        };
-        this.checkout.delivery = {
-            property: 'Normal',
-            price: 5
-        };
-        this.checkout.price = 35;
+        this.checkout.size = SIZE_ITEMS[0];
+        this.checkout.delivery = DELIVERY_ITEMS[0];
+        this.checkout.price = BASIC_PRICE;
         this.invalidFields = []
     }
 }

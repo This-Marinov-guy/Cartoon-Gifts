@@ -4,6 +4,7 @@ import RadioCard from '@components/common/inputs/radio-card'
 import RadioPrice from '@components/common/inputs/radio-price'
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
+import { SIZE_ITEMS, DELIVERY_ITEMS, PET_OPTIONS, PERSON_IMAGE_PRICE, PET_IMAGE_PRICE } from '@utils/defines';
 import { observer } from 'mobx-react-lite';
 import { useStore } from 'src/stores/storeContext';
 import CheckoutModal from './checkout-modal';
@@ -11,48 +12,9 @@ import { useToast } from '@chakra-ui/react';
 import { askBeforeRedirect } from '@utils/globals';
 
 const OrderForm = () => {
-    const SIZE_ITEMS = [
-        {
-            property: 'A4',
-            price: 0
-        },
-        {
-            property: 'A3',
-            price: 5
-        },
-        {
-            property: 'A2',
-            price: 10
-        },
-        {
-            property: 'A1',
-            price: 15
-        }
-    ]
-
-    const DELIVERY_ITEMS = [
-        {
-            property: 'Normal',
-            price: 5
-        },
-        {
-            property: 'Express',
-            price: 15
-        },
-    ]
-
-    const PET_OPTIONS = [
-        {
-            property: 'No',
-        },
-        {
-            property: 'Yes',
-        },
-    ]
-
     const { checkoutStore } = useStore();
-    const toast = useToast();
     const { checkout, invalidFields } = checkoutStore;
+    const toast = useToast();
 
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
 
@@ -136,7 +98,7 @@ const OrderForm = () => {
                         description: checkout.description,
                     }}
                 >
-                    {({ values, errors, isValid, dirty }) => (
+                    {({ values, errors, isValid, dirty, touched }) => (
                         <Form
                             encType="multipart/form-data"
                             id="form"
@@ -146,7 +108,7 @@ const OrderForm = () => {
                                 <div className="col col-md-6">
                                     <div className="form-group m-0">
                                         <Field
-                                            className={`form-control ${errors.name && 'error-border'}`}
+                                            className={`form-control ${(errors.name && touched.name) && 'error-border'}`}
                                             type="text"
                                             name="name"
                                             placeholder="Your Name"
@@ -156,7 +118,7 @@ const OrderForm = () => {
                                 <div className="col col-md-6">
                                     <div className="form-group m-0">
                                         <Field
-                                            className={`form-control ${errors.email && 'error-border'}`}
+                                            className={`form-control ${(errors.email && touched.email) && 'error-border'}`}
                                             type="email"
                                             name="email"
                                             placeholder="Email Address"
@@ -169,7 +131,7 @@ const OrderForm = () => {
                                 <div className="col col-md-6">
                                     <div className="form-group m-0">
                                         <Field
-                                            className={`form-control ${errors.occasion && 'error-border'}`}
+                                            className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
                                             type="text"
                                             name="occasion"
                                             placeholder="Occasion"
@@ -179,7 +141,7 @@ const OrderForm = () => {
                                 <div className="col col-md-6">
                                     <div className="form-group m-0">
                                         <Field
-                                            className={`form-control ${errors.profession && 'error-border'}`}
+                                            className={`form-control ${(errors.profession && touched.profession) && 'error-border'}`}
                                             type="text"
                                             name="profession"
                                             placeholder="Person's profession"
@@ -189,7 +151,7 @@ const OrderForm = () => {
                                 <div className="col col-md-6">
                                     <div className="form-group m-0">
                                         <Field
-                                            className={`form-control ${errors.hobby && 'error-border'}`}
+                                            className={`form-control ${(errors.hobby && touched.hobby) && 'error-border'}`}
                                             type="text"
                                             name="hobby"
                                             placeholder="Person's Hobby"
@@ -225,7 +187,7 @@ const OrderForm = () => {
                                     <ImageInput files={files}
                                         setFiles={(newFiles) => {
                                             setFiles(newFiles);
-                                            checkoutStore.setField('checkout', 'price', checkout.price - files.length * 9 + newFiles.length * 9);
+                                            checkoutStore.setField('checkout', 'price', checkout.price - files.length * PERSON_IMAGE_PRICE + newFiles.length * PERSON_IMAGE_PRICE);
                                         }} />
                                     {invalidFields.includes('peopleImages') && <p className='error'>Please give us at least 1 image to work with</p>}
                                     <small style={{ marginTop: '5px' }}>
@@ -252,7 +214,7 @@ const OrderForm = () => {
                                         <ImageInput files={petFiles}
                                             setFiles={(newFiles) => {
                                                 setPetFiles(newFiles);
-                                                checkoutStore.setField('checkout', 'price', checkout.price - petFiles.length * 7 + newFiles.length * 7);
+                                                checkoutStore.setField('checkout', 'price', checkout.price - petFiles.length * PET_IMAGE_PRICE + newFiles.length * PET_IMAGE_PRICE);
                                             }} />
                                     </Fragment>}
                                 </div>

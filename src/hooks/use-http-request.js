@@ -13,7 +13,7 @@ export const useHttpClient = () => {
             commonStore.setLoading(true);
             try {
                 const response = await axios.request({
-                    url: window.location.origin + url,
+                    url,
                     method,
                     data,
                     config: {
@@ -29,6 +29,7 @@ export const useHttpClient = () => {
                         isClosable: true,
                     })
                 }
+
                 return response.data;
             } catch (err) {
                 toast({

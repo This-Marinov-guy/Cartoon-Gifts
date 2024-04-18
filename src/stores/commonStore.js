@@ -1,11 +1,16 @@
 import { action, makeAutoObservable, observable } from "mobx"
 
-export default class CheckoutStore {
+export default class CommonStore {
     rootStore;
 
     @observable loading = false;
 
     @observable error = '';
+
+    constructor(root) {
+        makeAutoObservable(this)
+        this.rootStore = root
+    }
 
     @action setLoading(loading) {
         this.loading = loading
@@ -13,10 +18,5 @@ export default class CheckoutStore {
 
     @action setError(error) {
         this.error = error
-    }
-
-    constructor(root) {
-        makeAutoObservable(this)
-        this.rootStore = root
     }
 }
