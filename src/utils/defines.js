@@ -40,3 +40,5 @@ export const PET_OPTIONS = [
 export const BASIC_PRICE = 35
 export const PERSON_IMAGE_PRICE = 9
 export const PET_IMAGE_PRICE = 7
+
+export const ERROR_MESSAGE = 'It looks like something went wrong - please try again with new details or contact our team!'

@@ -46,6 +46,11 @@ export default class CheckoutStore {
     }
 
     @action
+    setInvalidField(value) {
+        this.invalidFields = [...this.invalidFields, value]
+    }
+
+    @action
     validate() {
         if (!this.checkout.delivery.property) {
             this.invalidFields = [...this.invalidFields, 'delivery']

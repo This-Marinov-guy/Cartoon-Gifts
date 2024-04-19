@@ -188,8 +188,12 @@ const OrderForm = () => {
                                         setFiles={(newFiles) => {
                                             setFiles(newFiles);
                                             checkoutStore.setField('checkout', 'price', checkout.price - files.length * PERSON_IMAGE_PRICE + newFiles.length * PERSON_IMAGE_PRICE);
-                                        }} />
+                                        }}
+                                        onReject={(files) => checkoutStore.setInvalidField('invalidPeopleFiles')
+                                        }
+                                    />
                                     {invalidFields.includes('peopleImages') && <p className='error'>Please give us at least 1 image to work with</p>}
+                                    {invalidFields.includes('invalidPeopleFiles') && <p className='error'>There was a problem with some of your files - they are either corrupted or exceed 5MB</p>}
                                     <small style={{ marginTop: '5px' }}>
                                         Make sure to:<br />
                                         - add pictures for any face you want on your cartoon (+{PERSON_IMAGE_PRICE}£ for each)<br />
@@ -215,7 +219,10 @@ const OrderForm = () => {
                                             setFiles={(newFiles) => {
                                                 setPetFiles(newFiles);
                                                 checkoutStore.setField('checkout', 'price', checkout.price - petFiles.length * PET_IMAGE_PRICE + newFiles.length * PET_IMAGE_PRICE);
-                                            }} />
+                                            }}
+                                            onReject={(files) => checkoutStore.setInvalidField('invalidPetFiles')}
+                                        />
+                                        {invalidFields.includes('invalidPetFiles') && <p className='error'>There was a problem with some of your files - they are either corrupted or exceed 5MB</p>}
                                     </Fragment>}
                                 </div>
                                 <div className='col col-md-6'>

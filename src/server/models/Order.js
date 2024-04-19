@@ -8,6 +8,11 @@ var order = new Schema({
         type: String,
         default: moment().format('Do MMMM YYYY, h:mm:ss a')
     },
+    orderNumber: {
+        type: String, 
+        required: true,
+        unique: true 
+    },
     name: {
         type: String,
         required: true
@@ -36,12 +41,15 @@ var order = new Schema({
     },
     size: {
         type: String,
+        required: true
     },
     delivery: {
         type: String,
+        required: true
     },
     price: {
         type: Number,
+        required: true
     },
     hasPet: {
         type: Boolean,
