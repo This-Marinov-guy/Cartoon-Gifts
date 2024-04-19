@@ -19,6 +19,7 @@ const CheckoutModal = (props) => {
 
     const { sendRequest, loading } = useHttpClient();
 
+    const [orderNumber, setOrderNumber] = useState(null);
     const [success, setSuccess] = useState(false);
     const [imageLoading, setImageLoading] = useState(false);
     const [previewUrls, setPreviewUrls] = useState([]);
@@ -65,6 +66,7 @@ const CheckoutModal = (props) => {
         const response = await sendRequest('/api/order/create', 'POST', formData);
 
         if (response && response.status) {
+            setOrderNumber(response.orderNumber);
             setSuccess(true);
             checkoutStore.resetData();
         }
@@ -76,7 +78,7 @@ const CheckoutModal = (props) => {
             <ModalContent>
                 <ModalHeader>Finish your order</ModalHeader>
                 <ModalCloseButton />
-                {success ? <SuccessComp title='Order received' description='Thank you for the order - we will email you the details right away. If you have any problems or did not receive an email, do not hesitate to contact us!' /> : <Fragment>
+                {success ? <SuccessComp title={`Received Order`} subTitle={`${orderNumber}`} description='Thank you for the order - we will email you the details right away. If you have any problems or did not receive an email, do not hesitate to contact us!' /> : <Fragment>
                     <ModalBody>
                         <h5 className='mb-20'>Your Details</h5>
                         <p>Name: {checkout.name}</p>

@@ -8,13 +8,13 @@ const ImageInput = ({ files, setFiles, onReject }) => {
   }
 
   return (
-    <Dropzone onDrop={onDrop} accept="image/jpeg, image/png, image/webp image/jpg image/svg+xml image/bmp image/heic image/heif" maxFiles={10} maxSize={5485760} onDropRejected={onReject}>
+    <Dropzone onDrop={onDrop} accept={{ "image/jpeg": [], "image/png": [], "image/webp": [], "image/jpg": [], "image/svg": ['.xml', '.svg'], "image/bmp": [], "image/heic": ['.heif', '.heic'] }} maxFiles={10} maxSize={5485760} onDropRejected={onReject}>
       {({ getRootProps, getInputProps, isDragActive }) => (
         <div {...getRootProps()}>
           <input {...getInputProps()} />
           <div className='image_input'>
 
-            {files.length > 0 ? files.map((file, index) => { return <div className='center_div'><p key={index}>{cleanFileName(file)}</p></div> }) : <Fragment>
+            {files.length > 0 ? files.map((file, index) => { return <div key={index} className='center_div'><p>{cleanFileName(file)}</p></div> }) : <Fragment>
               <i className="fa-light fa-cloud-arrow-up" style={{ color: 'purple', fontSize: '30px' }}></i>
               {isDragActive ?
                 <p>Drop the files here ...</p> :

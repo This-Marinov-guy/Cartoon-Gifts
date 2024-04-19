@@ -45,7 +45,7 @@ const OrderForm = () => {
         profession: yup.string().required(),
         hobby: yup.string().required(),
         label: yup.string(),
-        hasDescription: yup.boolean(),
+        noDescription: yup.boolean(),
         description: yup.string(),
     });
 
@@ -94,7 +94,7 @@ const OrderForm = () => {
                         profession: checkout.profession,
                         hobby: checkout.hobby,
                         label: checkout.label,
-                        hasDescription: true,
+                        noDescription: checkout.noDescription,
                         description: checkout.description,
                     }}
                 >
@@ -170,10 +170,10 @@ const OrderForm = () => {
                                 </div>
                                 <div className='col col-md-6'>
                                     <div className="form-check mb-10 ml-10">
-                                        <Field type="checkbox" id="checkMeOut" name='hasDescription' />
+                                        <Field type="checkbox" id="checkMeOut" name='noDescription' />
                                         <label htmlFor="checkMeOut">I trust Cartoon Gifts to make me the cartoon with their idea, given my details</label>
                                     </div>
-                                    {values.hasDescription && <div className="form-group">
+                                    {!values.noDescription && <div className="form-group">
                                         <Field
                                             as='textarea'
                                             rows="4"

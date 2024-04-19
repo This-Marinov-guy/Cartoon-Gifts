@@ -22,15 +22,17 @@ const runMiddleware = (req, res, fn) => {
     });
 }
 
-const validatePrice = (req) => {
-    const { size, delivery, price } = req.body
-    const images = Object.values(req.files);
+const validatePrice = (inputs, files) => {
+    const { size, delivery, price } = inputs
+    const images = Object.values(files);
 
     const calcPrice = BASIC_PRICE + SIZE_ITEMS.find(item => item.property === size).price + DELIVERY_ITEMS.find(item => item.property === delivery).price + images.length * PET_IMAGE_PRICE
 
     if (price - calcPrice < 20) {
-        return res.status(200).json({ status: false, message: ERROR_MESSAGE });
+        return false
     }
+
+    return true;
 }
 
 const handler = async (req, res) => {
@@ -38,13 +40,15 @@ const handler = async (req, res) => {
         return res.status(401).json({ message: 'Invalid action' });
     }
 
-    validatePrice(req);
-
     await runMiddleware(req, res, myUploadMiddleware);
 
     const orderNumber = uuidv4();
     const images = [];
     const { name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price } = req.body;
+
+    // if (!validatePrice({ size, delivery, price }, req.files)) {
+    //     return res.status(200).json({ status: false, message: ERROR_MESSAGE })
+    // }
 
     for (let i = 0; i < req.files.length; i++) {
         const file = req.files[i];
@@ -74,7 +78,7 @@ const handler = async (req, res) => {
         return res.status(200).json({ status: false, message: ERROR_MESSAGE });
     }
 
-    return res.status(200).json({ status: true });
+    return res.status(200).json({ status: true, orderNumber });
 }
 
 export const config = {

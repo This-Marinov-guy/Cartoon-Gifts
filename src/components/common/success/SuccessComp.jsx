@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import {
     Alert,
     AlertIcon,
@@ -20,6 +20,10 @@ const SuccessComp = (props) => {
             <AlertIcon boxSize='40px' mr={0} />
             <AlertTitle mt={4} mb={1} fontSize='lg'>
                 {props.title}
+                {props.subTitle && <Fragment>
+                    <br />
+                    {props.subTitle}
+                </Fragment>}
             </AlertTitle>
             <AlertDescription maxWidth='sm'>
                 {props.description}

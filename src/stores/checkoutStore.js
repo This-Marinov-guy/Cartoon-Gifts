@@ -11,7 +11,7 @@ export default class CheckoutStore {
         profession: '',
         hobby: '',
         label: '',
-        hasDescription: true,
+        noDescription: false,
         description: '',
         peopleImages: [],
         petImages: [],
@@ -35,7 +35,7 @@ export default class CheckoutStore {
         this.checkout.profession = data.profession;
         this.checkout.hobby = data.hobby;
         this.checkout.label = data.label;
-        this.checkout.description = (data.hasDescription && data.description) ? data.description : 'We will handle the description for you!';
+        this.checkout.description = (data.noDescription && data.description) ? data.description : 'We will handle the description for you!';
         this.checkout.peopleImages = data.peopleImages;
         this.checkout.petImages = data.petImages;
     }
@@ -101,7 +101,7 @@ export default class CheckoutStore {
         this.checkout.profession = '';
         this.checkout.hobby = '';
         this.checkout.label = '';
-        this.checkout.hasDescription = true;
+        this.checkout.noDescription = false;
         this.checkout.description = '';
         this.checkout.peopleImages = [];
         this.checkout.petImages = [];
