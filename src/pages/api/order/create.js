@@ -53,7 +53,7 @@ const handler = async (req, res) => {
     for (let i = 0; i < req.files.length; i++) {
         const file = req.files[i];
         try {
-            if (!file.type.startsWith('image/') || file.size > 5485760) {
+            if (!file.mimetype.startsWith('image/') || file.size > 5485760) {
                 return res.status(200).json({ status: false, message: 'It looks like you have an image that is unsupported type or exceeds 5Mb - please change it and try again!' });
             }
 
