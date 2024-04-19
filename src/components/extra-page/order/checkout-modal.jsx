@@ -8,6 +8,7 @@ import {
     ModalBody,
     ModalCloseButton,
 } from '@chakra-ui/react'
+import { observer } from 'mobx-react-lite'
 import { Spinner } from '@chakra-ui/react'
 import { useStore } from 'src/stores/storeContext'
 import { useHttpClient } from '@hooks/use-http-request'
@@ -115,4 +116,4 @@ const CheckoutModal = (props) => {
     )
 }
 
-export default CheckoutModal
+export default observer(CheckoutModal)
