@@ -41,6 +41,11 @@ body {
 .logo {
   width: 50%;
   height: 50%;
+
+  @media #{$xs,$sm,$md} {
+    height: 100%;
+    width: 200px;
+  }
 }
 
 .bar {

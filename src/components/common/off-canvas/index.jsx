@@ -6,7 +6,7 @@ import icon_globe from "@assets/images/icons/icon_globe.svg";
 import MobileMenus from "./mobile-menus";
 import GoogleTranslate from "@ui/google-translate";
 
-const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
+const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen, desktop }) => {
   return (
     <React.Fragment>
       <div className="fix">
@@ -42,7 +42,7 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
               </div>
             </div>
             <div className="header_btns_group center_div" style={{ flexDirection: 'column', gap: '15px' }}>
-              <div className="select_option m-0">
+              {!desktop && <div>
                 <div className="icon_wrap">
                   <Image
                     src={icon_globe}
@@ -51,9 +51,9 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                   />
                 </div>
                 <GoogleTranslate />
-              </div>
+              </div>}
               <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
-                <span className="bd-button-content-wrapper">
+                <span className="b  yd-button-content-wrapper">
                   <span className="pd-animation-flip">
                     <span className="bd-btn-anim-wrapp">
                       <span className="bd-button-text">Make an order</span>

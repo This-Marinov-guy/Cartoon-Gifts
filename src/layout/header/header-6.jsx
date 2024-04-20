@@ -9,17 +9,17 @@ import GoogleTranslate from "@ui/google-translate";
 
 const HeaderSix = () => {
   // Sticky Menu Area start
-  const [desktop, setDesktop] = useState(true)
+  const [desktop, setDesktop] = useState(false)
 
-  useEffect((e) => {
-    sticky(e)
-    window.addEventListener("scroll", sticky);
+  useEffect(() => {
+    sticky();
+    window.addEventListener("resize", sticky);
     return () => {
-      window.removeEventListener("scroll", sticky);
+      window.removeEventListener("resize", sticky);
     };
   });
 
-  const sticky = (e) => {
+  const sticky = () => {
     if (window.innerWidth > 1200) {
       setDesktop(true);
       const header = document.querySelector(".header-main");
@@ -69,7 +69,7 @@ const HeaderSix = () => {
               </div>
             </div>
             <div className="header_right">
-              <div className="header_actions_desktop header_btns_group center_div" style={{ gap: '15px' }}>
+              {desktop && <div className="header_btns_group center_div" style={{ gap: '15px' }}>
                 <div className="select_option m-0">
                   <div className="icon_wrap">
                     <Image
@@ -90,7 +90,7 @@ const HeaderSix = () => {
                     </span>
                   </span>
                 </Link>
-              </div>
+              </div>}
               <div className="offcanvas-toggle d-lg-none">
                 <button
                   type="button"
@@ -111,10 +111,11 @@ const HeaderSix = () => {
       </header>
 
       {/* full canvas area start */}
-      {!desktop && <OffCanvasMain
+      <OffCanvasMain
         isOffCanvasOpen={isOffCanvasOpen}
         setIsOffCanvasOpen={setIsOffCanvasOpen}
-      />}
+        desktop={desktop}
+      />
       {/* full canvas area end */}
     </>
   );
