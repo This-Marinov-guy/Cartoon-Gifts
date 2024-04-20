@@ -7,8 +7,6 @@ import shape_banner_3 from '@assets/images/shapes/shape_close_icon.png'
 import shape_circle_1 from '@assets/images/shapes/shape_circle_1.svg'
 import Image from 'next/image';
 
-
-
 const HeroSectionSix = () => {
   return (
     <section className="hero_banner_section style_6 decoration_wrap">

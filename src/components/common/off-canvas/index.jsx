@@ -2,7 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@assets/images/logo/logo-title-dark.png";
+import icon_globe from "@assets/images/icons/icon_globe.svg";
 import MobileMenus from "./mobile-menus";
+import GoogleTranslate from "@ui/google-translate";
 
 const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
   return (
@@ -39,7 +41,29 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                 <MobileMenus />
               </div>
             </div>
-            <div className="offcanvas__contact text-center">
+            <div className="header_btns_group center_div" style={{ flexDirection: 'column', gap: '15px' }}>
+              <div className="select_option m-0">
+                <div className="icon_wrap">
+                  <Image
+                    src={icon_globe}
+                    style={{ width: "40px", height: "auto" }}
+                    alt="Globe Icon"
+                  />
+                </div>
+                <GoogleTranslate />
+              </div>
+              <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
+                <span className="bd-button-content-wrapper">
+                  <span className="pd-animation-flip">
+                    <span className="bd-btn-anim-wrapp">
+                      <span className="bd-button-text">Make an order</span>
+                      <span className="bd-button-text">Order now</span>
+                    </span>
+                  </span>
+                </span>
+              </Link>
+            </div>
+            <div className="offcanvas__contact text-center mt-10">
               <h4 className="offcanvas__title">Contact Info</h4>
               <div className="offcanvas__contact-text mb-2">
                 <p>
@@ -51,9 +75,9 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                     cartoongifts.eu@gmail.com
                   </a>
                 </p>
-                
+
               </div>
-              
+
             </div>
             <div className="offcanvas__devider"></div>
             <div className="offcanvas__social">

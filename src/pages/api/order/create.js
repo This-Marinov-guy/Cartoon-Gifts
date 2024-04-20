@@ -1,10 +1,11 @@
 
-import { BASIC_PRICE, DELIVERY_ITEMS, ERROR_MESSAGE, PET_IMAGE_PRICE, SIZE_ITEMS } from '@utils/defines';
+import { BASIC_PRICE, DELIVERY_ITEMS, ERROR_COMM, ERROR_MESSAGE, PET_IMAGE_PRICE, SIZE_ITEMS } from '@utils/defines';
 import moment from 'moment';
 import multer from 'multer';
 import cloudinary from 'src/server/config/cloudinary';
 import connectDB from 'src/server/middleware/mongodb';
 import Order from 'src/server/models/Order';
+import nodeMailer from 'src/server/services/node-mailer';
 import { v4 as uuidv4 } from 'uuid';
 
 const storage = multer.memoryStorage();
@@ -78,7 +79,12 @@ const handler = async (req, res) => {
         return res.status(200).json({ status: false, message: ERROR_MESSAGE });
     }
 
-    return res.status(200).json({ status: true, orderNumber });
+    if (nodeMailer({ subject: 'test', text: 'text-2' })) {
+        return res.status(200).json({ status: true, orderNumber });
+    } else {
+        return res.status(200).json({ status: false, message: ERROR_COMM });
+    }
+
 }
 
 export const config = {

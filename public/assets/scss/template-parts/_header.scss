@@ -3,6 +3,40 @@
 
 // Header Elements - Start
 
+//google translate
+.goog-te-gadget img {
+  display: none !important;
+}
+body > .skiptranslate {
+  display: none;
+}
+body {
+  top: 0px !important;
+}
+
+#goog-gt-tt,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc {
+  display: none !important;
+}
+
+.goog-te-combo {
+  width: 180px;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 60px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Manrope", sans-serif;
+  transition: $transition_fast;
+  border-radius: $radius_primary;
+  background-color: $color_white;
+  border: 1px solid $color_border;
+  color: $color_body;
+  & .option {
+    height: 10px;
+  }
+}
+
 // Header baricon
 .logo {
   width: 50%;
@@ -198,6 +232,13 @@
     }
   }
 }
+
+.header_actions_desktop {
+  @media #{$xs,$sm,$md} {
+    display: none;
+  }
+}
+
 // Header Buttons Group - End
 
 // Header Style 2 - Start

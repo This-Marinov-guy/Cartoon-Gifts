@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Menus from "./menus";
 import OffCanvasMain from "@components/common/off-canvas";
-import NiceSelect from "@ui/niceSelect";
+import GoogleTranslate from "@ui/google-translate";
 
 const HeaderSix = () => {
   // Sticky Menu Area start
@@ -63,42 +63,28 @@ const HeaderSix = () => {
               </div>
             </div>
             <div className="header_right">
-              <ul className="header_btns_group unordered_list_end d-none d-md-flex">
-                <li>
-                  <div className="select_option m-0">
-                    <div className="icon_wrap">
-                      <Image
-                        src={icon_globe}
-                        style={{ width: "20px", height: "auto" }}
-                        alt="Globe Icon"
-                      />
-                    </div>
-                    <NiceSelect
-                      options={[
-                        { value: "English", text: "English" },
-                        { value: "Bulgarian", text: "Bulgarian" },
-                        { value: "Romanian", text: "Romanian" },
-                        { value: "Serbian", text: "Serbian" },
-                      ]}
-                      defaultCurrent={0}
-                      onChange={selectHandler}
-                      name="English"
+              <div className="header_actions_desktop header_btns_group center_div" style={{ gap: '15px' }}>
+                <div className="select_option m-0">
+                  <div className="icon_wrap">
+                    <Image
+                      src={icon_globe}
+                      style={{ width: "40px", height: "auto" }}
+                      alt="Globe Icon"
                     />
                   </div>
-                </li>
-                <li>
-                  <Link href="/order" className="bd-btn-link btn_dark">
-                    <span className="bd-button-content-wrapper">
-                      <span className="pd-animation-flip">
-                        <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Make an order</span>
-                          <span className="bd-button-text">Order now</span>
-                        </span>
+                  <GoogleTranslate />
+                </div>
+                <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
+                  <span className="bd-button-content-wrapper">
+                    <span className="pd-animation-flip">
+                      <span className="bd-btn-anim-wrapp">
+                        <span className="bd-button-text">Make an order</span>
+                        <span className="bd-button-text">Order now</span>
                       </span>
                     </span>
-                  </Link>
-                </li>
-              </ul>
+                  </span>
+                </Link>
+              </div>
               <div className="offcanvas-toggle d-lg-none">
                 <button
                   type="button"
