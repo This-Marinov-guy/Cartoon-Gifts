@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@assets/images/logo/logo-title-dark.png";
@@ -6,7 +6,15 @@ import icon_globe from "@assets/images/icons/icon_globe.svg";
 import MobileMenus from "./mobile-menus";
 import GoogleTranslate from "@ui/google-translate";
 
-const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen, desktop }) => {
+const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    setMobile(true)
+
+    return () => setMobile(false)
+  }, [])
+
   return (
     <React.Fragment>
       <div className="fix">
@@ -42,7 +50,7 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen, desktop }) => {
               </div>
             </div>
             <div className="header_btns_group center_div" style={{ flexDirection: 'column', gap: '15px' }}>
-              {!desktop && <div>
+              {mobile && <div>
                 <div className="icon_wrap">
                   <Image
                     src={icon_globe}

@@ -34,7 +34,6 @@ const HeaderSix = () => {
   // Sticky Menu Area End
 
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
-  const selectHandler = e => { }
 
   return (
     <>
@@ -111,11 +110,10 @@ const HeaderSix = () => {
       </header>
 
       {/* full canvas area start */}
-      <OffCanvasMain
+      {!desktop && <OffCanvasMain
         isOffCanvasOpen={isOffCanvasOpen}
         setIsOffCanvasOpen={setIsOffCanvasOpen}
-        desktop={desktop}
-      />
+      />}
       {/* full canvas area end */}
     </>
   );
