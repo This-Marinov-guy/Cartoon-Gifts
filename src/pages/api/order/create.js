@@ -54,18 +54,20 @@ const handler = async (req, res) => {
     for (let i = 0; i < req.files.length; i++) {
         const file = req.files[i];
         try {
-            if (!file.type.startsWith('image/') || file.size > 5485760) {
+            if (!file.mimetype.startsWith('image/') || file.size > 5485760) {
                 return res.status(200).json({ status: false, message: 'It looks like you have an image that is unsupported type or exceeds 5Mb - please change it and try again!' });
             }
 
-            const b64 = Buffer.from(file.buffer).toString("base64");
-            let dataURI = "data:" + file.mimetype + ";base64," + b64;
+            const b64 = Buffer.from(file.buffer).toString('base64');
+            const dataURI = `data:${file.mimetype};base64,${b64}`;
             const response = await cloudinary.uploader.upload(dataURI, {
-                folder: name + '_' + occasion + '_' + orderNumber,
-                public_id: `${i + 1}`,
+                folder: `${name}_${occasion}_${orderNumber}`,
+                public_id: `image_${i}`,
             });
             images.push(response.secure_url);
-        } catch (error) { }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const order = new Order({
