@@ -9,7 +9,10 @@ import GoogleTranslate from "@ui/google-translate";
 
 const HeaderSix = () => {
   // Sticky Menu Area start
-  useEffect(() => {
+  const [desktop, setDesktop] = useState(true)
+
+  useEffect((e) => {
+    sticky(e)
     window.addEventListener("scroll", sticky);
     return () => {
       window.removeEventListener("scroll", sticky);
@@ -18,11 +21,14 @@ const HeaderSix = () => {
 
   const sticky = (e) => {
     if (window.innerWidth > 1200) {
+      setDesktop(true);
       const header = document.querySelector(".header-main");
       const scrollTop = window.scrollY;
       scrollTop >= 40
         ? header.classList.add("sticky")
         : header.classList.remove("sticky");
+    } else {
+      setDesktop(false);
     }
   };
   // Sticky Menu Area End
@@ -105,10 +111,10 @@ const HeaderSix = () => {
       </header>
 
       {/* full canvas area start */}
-      <OffCanvasMain
+      {!desktop && <OffCanvasMain
         isOffCanvasOpen={isOffCanvasOpen}
         setIsOffCanvasOpen={setIsOffCanvasOpen}
-      />
+      />}
       {/* full canvas area end */}
     </>
   );
