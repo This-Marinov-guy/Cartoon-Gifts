@@ -33,10 +33,10 @@ const GoogleTranslateDesktop = () => {
 
                 </DrawerContent>
             </Drawer>
-            <div onClick={() => setIsOpen(true)} className="center_div" style={{ alignItems: 'flex-start', gap: '10px', cursor: 'pointer' }}>
+            <div onClick={() => setIsOpen(true)} className="google_btn bd-btn-link center_div">
                 <Image
                     src={icon_globe}
-                    style={{ width: "50px", height: "auto" }}
+                    style={{ width: "40px", height: "auto" }}
                     alt="Globe Icon"
                 />
                 <h6>Change Language</h6>

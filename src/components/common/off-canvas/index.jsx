@@ -5,6 +5,7 @@ import logo from "@assets/images/logo/logo-title-dark.png";
 import icon_globe from "@assets/images/icons/icon_globe.svg";
 import MobileMenus from "./mobile-menus";
 import GoogleTranslate from "@ui/google-translate";
+import GoogleTranslateDesktop from "@ui/google-translate-desktop";
 
 const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
   return (
@@ -42,7 +43,7 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
               </div>
             </div>
             <div className="header_btns_group center_div" style={{ flexDirection: 'column', gap: '15px' }}>
-             <GoogleTranslate/>
+             <GoogleTranslateDesktop />
               <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
                 <span className="b  yd-button-content-wrapper">
                   <span className="pd-animation-flip">

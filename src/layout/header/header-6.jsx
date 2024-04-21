@@ -6,15 +6,10 @@ import Link from "next/link";
 import Menus from "./menus";
 import OffCanvasMain from "@components/common/off-canvas";
 import GoogleTranslateDesktop from "@ui/google-translate-desktop";
-import { headers } from 'next/headers'
-import useWindowDimensions from "@hooks/use-window-dimensions";
-
 
 const HeaderSix = () => {
   // Sticky Menu Area start
-
-  const {width} = useWindowDimensions;
-  const [desktop, setDesktop] = useState(width > 991)
+  const [desktop, setDesktop] = useState(false)
 
   useEffect(() => {
     sticky()
@@ -26,16 +21,15 @@ const HeaderSix = () => {
   }, []);
 
   const sticky = () => {
-    if (window.innerWidth > 991) {
-      setDesktop(true);
+    setDesktop(window.innerWidth > 991);
+
+    if (desktop) {
       const header = document.querySelector(".header-main");
       const scrollTop = window.scrollY;
       scrollTop >= 40
         ? header.classList.add("sticky")
         : header.classList.remove("sticky");
-    } else {
-      setDesktop(false);
-    }
+    } 
   };
   // Sticky Menu Area End
 
