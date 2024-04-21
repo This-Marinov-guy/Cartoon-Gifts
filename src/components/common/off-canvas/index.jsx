@@ -75,23 +75,13 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
             <div className="offcanvas__social">
               <ul>
                 <li>
-                  <Link target="_blank" href="https://www.facebook.com">
+                  <Link target="_blank" href="https://www.facebook.com/cartoongiftsbulgaria1">
                     Facebook
                   </Link>
                 </li>
                 <li>
-                  <Link target="_blank" href="https://www.instagram.com">
+                  <Link target="_blank" href="https://www.instagram.com/cartoongiftsbulgaria/?hl=en">
                     Instagram
-                  </Link>
-                </li>
-                <li>
-                  <Link target="_blank" href="https://www.twitter.com">
-                    Twitter
-                  </Link>
-                </li>
-                <li>
-                  <Link target="_blank" href="https://www.linkedin.com">
-                    Linkedin
                   </Link>
                 </li>
               </ul>

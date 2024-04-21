@@ -8,7 +8,6 @@ import "../styles/index.scss";
 import SEO from '@components/seo';
 import { Parallax } from 'react-parallax';
 import { StoreProvider } from 'src/stores/storeContext';
-import { changeLanguage } from '@utils/globals';
 import HeaderSix from '@layout/header/header-6';
 
 function MyApp({ Component, pageProps }) {

@@ -187,7 +187,7 @@ const SiteFooterThire = () => {
                 <div className="footer_widget">
                   <h3 className="footer_widget_title text-white">Follow Us</h3>
                   <ul className="social_icon unordered_list">
-                    <li><Link href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
+                    <li><Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
                     <li><Link href="https://twitter.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
                     <li><Link href="https://www.youtube.com/" target="_blank"><i className="fab fa-youtube"></i></Link></li>
                     <li><Link href="https://www.behance.net/" target="_blank"><i className="fab fa-behance"></i></Link></li>

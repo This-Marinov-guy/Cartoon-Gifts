@@ -128,7 +128,7 @@ const ContactSection = () => {
                 <strong>Follow Us:</strong>
                 <ul className="social_icon unordered_list">
                   <li>
-                    <Link href="https://www.facebook.com/" target="_blank">
+                    <Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank">
                       <i className="fab fa-facebook-f"></i>
                     </Link>
                   </li>

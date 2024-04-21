@@ -29,7 +29,7 @@ const HeaderSix = () => {
       scrollTop >= 40
         ? header.classList.add("sticky")
         : header.classList.remove("sticky");
-    } 
+    }
   };
   // Sticky Menu Area End
 
@@ -81,7 +81,7 @@ const HeaderSix = () => {
                   </span>
                 </Link>
               </div>
-              <div className="offcanvas-toggle">
+              <div className="offcanvas-toggle d-lg-none">
                 <button
                   type="button"
                   className="bar-icon"
