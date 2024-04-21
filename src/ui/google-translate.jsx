@@ -20,8 +20,6 @@ const GoogleTranslate = (props) => {
         );
         document.body.appendChild(addScript);
         window.googleTranslateElementInit = googleTranslateElementInit;
-
-        changeLanguage()
     }, []);
 
     return (
