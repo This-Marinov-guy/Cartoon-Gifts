@@ -20,7 +20,7 @@ const HeaderSix = () => {
   });
 
   const sticky = () => {
-    if (window.innerWidth > 1200) {
+    if (window.innerWidth > 991) {
       setDesktop(true);
       const header = document.querySelector(".header-main");
       const scrollTop = window.scrollY;
@@ -68,7 +68,7 @@ const HeaderSix = () => {
               </div>
             </div>
             <div className="header_right">
-              <div className="header_btns_group d-none d-md-flex center_div" style={{ gap: '15px' }}>
+              <div className="header_btns_group d-none d-lg-flex center_div" style={{ gap: '15px' }}>
                 {desktop && <GoogleTranslate/>}
                 <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
                   <span className="bd-button-content-wrapper">
@@ -81,7 +81,7 @@ const HeaderSix = () => {
                   </span>
                 </Link>
               </div>
-              <div className="offcanvas-toggle d-lg-none">
+              <div className="offcanvas-toggle">
                 <button
                   type="button"
                   className="bar-icon"

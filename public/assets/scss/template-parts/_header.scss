@@ -238,12 +238,6 @@ body {
   }
 }
 
-.header_actions_desktop {
-  @media #{$xs,$sm,$md} {
-    display: none;
-  }
-}
-
 // Header Buttons Group - End
 
 // Header Style 2 - Start

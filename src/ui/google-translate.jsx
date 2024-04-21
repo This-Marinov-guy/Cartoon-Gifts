@@ -25,7 +25,7 @@ const GoogleTranslate = (props) => {
     }, []);
 
     return (
-        <div className="center_div">
+        <div className="center_div" style={{ marginLeft: '20px', position:'relative' }}>
             <Image
                 src={icon_globe}
                 style={{ width: "40px", height: "auto" }}
