@@ -196,14 +196,14 @@ const OrderForm = () => {
                                     {invalidFields.includes('invalidPeopleFiles') && <p className='error'>There was a problem with some of your files - they are either corrupted or exceed 5MB</p>}
                                     <small style={{ marginTop: '5px' }}>
                                         Make sure to:<br />
-                                        - add pictures for any face you want on your cartoon (+{PERSON_IMAGE_PRICE}£ for each)<br />
+                                        - add pictures for any face you want on your cartoon (+{PERSON_IMAGE_PRICE}€ for each)<br />
                                         - describe what will be the background (beach, mountains, yacht, etc.)<br />
                                         - tell us are there any items with you (bottles, cars, helicopter, etc.) <br />
                                         - add anything that can be helpful
                                     </small>
                                 </div>
                                 <div className='col col-md-6' style={{ paddingBottom: '55px' }}>
-                                    <h4>Do you want a pet in your cartoon</h4>
+                                    <h4>Do you want a pet in your cartoon (free of charge)</h4>
                                     <div className='card-price-box'>
                                         {PET_OPTIONS.map((item, index) => {
                                             return (
@@ -214,7 +214,7 @@ const OrderForm = () => {
                                 </div>
                                 <div className='col col-md-6'>
                                     {hasPet.property === 'Yes' && <Fragment>
-                                        <h4>Pet Image (+{PET_IMAGE_PRICE}£ for each)</h4>
+                                        <h4>Pet Images</h4>
                                         <ImageInput files={petFiles}
                                             setFiles={(newFiles) => {
                                                 setPetFiles(newFiles);
@@ -230,7 +230,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {SIZE_ITEMS.map((item, index) => {
                                             return (
-                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'size')} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={checkout.size.property == item.property} />
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'size')} property={item.property} price={!isNaN(item.price) && `+${item.price} €`} active={checkout.size.property == item.property} />
                                             )
                                         })}
                                     </div>
@@ -241,7 +241,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {DELIVERY_ITEMS.map((item, index) => {
                                             return (
-                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'delivery')} property={item.property} price={!isNaN(item.price) && `+${item.price} £`} active={checkout.delivery.property == item.property} />
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'delivery')} property={item.property} price={!isNaN(item.price) && `+${item.price} €`} active={checkout.delivery.property == item.property} />
                                             )
                                         })}
                                     </div>
@@ -249,7 +249,7 @@ const OrderForm = () => {
                                 </div>
                                 <div className='col-6 mt-30'>
                                     <div>
-                                        <h5>Total: {checkout.price} £</h5>
+                                        <h5>Total: {checkout.price} €</h5>
                                         <button type="submit" onClick={() => handleErrorMsg(errors, isValid, dirty)} className="bd-btn-link">
                                             <span className="bd-button-content-wrapper">
                                                 <span className="bd-button-icon">

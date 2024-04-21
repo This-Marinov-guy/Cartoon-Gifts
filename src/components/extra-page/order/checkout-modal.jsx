@@ -102,7 +102,7 @@ const CheckoutModal = (props) => {
                         <hr />
                     </ModalBody>
                     <ModalFooter>
-                        <h5 className='mr-20'>Total: {checkout.price} £</h5>
+                        <h5 className='mr-20'>Total: {checkout.price} €</h5>
                         <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
                             Cancel
                         </button>
