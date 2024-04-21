@@ -9,7 +9,7 @@ import GoogleTranslate from "@ui/google-translate";
 
 const HeaderSix = () => {
   // Sticky Menu Area start
-  const [desktop, setDesktop] = useState(true)
+  const [desktop, setDesktop] = useState(false)
 
   useEffect(() => {
     sticky();
