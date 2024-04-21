@@ -40,7 +40,7 @@
 ================================================== */
 
 .m-auto {
-  margin: auto;
+  margin: auto !important;
 }
 
 @for $i from 1 through 50 {

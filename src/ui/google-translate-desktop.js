@@ -9,6 +9,7 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
+    DrawerFooter,
 } from '@chakra-ui/react'
 import GoogleTranslate from "./google-translate";
 
@@ -30,6 +31,12 @@ const GoogleTranslateDesktop = () => {
                     <DrawerBody>
                         <GoogleTranslate />
                     </DrawerBody>
+
+                    <DrawerFooter>
+                        <button type="submit" onClick={() => setIsOpen(false)} className="bd-btn-link m-auto">
+                            Close
+                        </button>
+                    </DrawerFooter>
 
                 </DrawerContent>
             </Drawer>

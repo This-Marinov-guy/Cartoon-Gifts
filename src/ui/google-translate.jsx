@@ -8,7 +8,7 @@ const GoogleTranslate = () => {
         new window.google.translate.TranslateElement(
             {
                 pageLanguage: "en",
-                includedLanguages: "en,bg,ro,sb",
+                includedLanguages: "en,bg,ro,rs,ru,sl,sk",
             },
             "google_translate_element"
         );
@@ -31,7 +31,7 @@ const GoogleTranslate = () => {
                 style={{ width: "40px", height: "auto" }}
                 alt="Globe Icon"
             />
-            <div className="google_btn" id="google_translate_element"></div>
+            <div id="google_translate_element"></div>
         </div>
     );
 };
