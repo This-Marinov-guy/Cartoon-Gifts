@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@assets/images/logo/logo-title-dark.png";
@@ -7,14 +7,6 @@ import MobileMenus from "./mobile-menus";
 import GoogleTranslate from "@ui/google-translate";
 
 const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
-  const [mobile, setMobile] = useState(false);
-
-  useEffect(() => {
-    setMobile(true)
-
-    return () => setMobile(false)
-  }, [])
-
   return (
     <React.Fragment>
       <div className="fix">
@@ -50,16 +42,14 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
               </div>
             </div>
             <div className="header_btns_group center_div" style={{ flexDirection: 'column', gap: '15px' }}>
-              {mobile && <div>
-                <div className="icon_wrap">
-                  <Image
-                    src={icon_globe}
-                    style={{ width: "40px", height: "auto" }}
-                    alt="Globe Icon"
-                  />
-                </div>
+              <div className="icon_wrap center_div" style={{ alignItems: 'flex-start', gap: '10px' }}>
+                <Image
+                  src={icon_globe}
+                  style={{ width: "40px", height: "auto" }}
+                  alt="Globe Icon"
+                />
                 <GoogleTranslate />
-              </div>}
+              </div>
               <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
                 <span className="b  yd-button-content-wrapper">
                   <span className="pd-animation-flip">

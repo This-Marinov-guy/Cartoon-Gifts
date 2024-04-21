@@ -2,14 +2,15 @@ if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
 }
 
+import React from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 import "../styles/index.scss";
 import SEO from '@components/seo';
 import { Parallax } from 'react-parallax';
 import { StoreProvider } from 'src/stores/storeContext';
+import { changeLanguage } from '@utils/globals';
 
 function MyApp({ Component, pageProps }) {
-
   return (
     <>
       <SEO

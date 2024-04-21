@@ -22,3 +22,16 @@ export const askBeforeRedirect = (basedOnEnv = true) => {
         };
     }
 }
+
+export const changeLanguage = () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const language = searchParams.get('lang');
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        if (language) {
+            var dropdown = document.querySelector('.goog-te-combo');
+            dropdown.value = language;
+            dropdown.dispatchEvent(new Event('change'));
+        }
+    });
+}

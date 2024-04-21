@@ -1,6 +1,7 @@
+import { changeLanguage } from "@utils/globals";
 import React, { useEffect } from "react";
 
-const GoogleTranslate = () => {
+const GoogleTranslate = (props) => {
     const googleTranslateElementInit = () => {
         new window.google.translate.TranslateElement(
             {
@@ -19,6 +20,8 @@ const GoogleTranslate = () => {
         );
         document.body.appendChild(addScript);
         window.googleTranslateElementInit = googleTranslateElementInit;
+
+        changeLanguage()
     }, []);
 
     return (

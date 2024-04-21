@@ -9,7 +9,7 @@ import GoogleTranslate from "@ui/google-translate";
 
 const HeaderSix = () => {
   // Sticky Menu Area start
-  const [desktop, setDesktop] = useState(false)
+  const [desktop, setDesktop] = useState(true)
 
   useEffect(() => {
     sticky();
@@ -68,8 +68,8 @@ const HeaderSix = () => {
               </div>
             </div>
             <div className="header_right">
-              {desktop && <div className="header_btns_group center_div" style={{ gap: '15px' }}>
-                <div className="select_option m-0">
+              <div className="header_btns_group d-none d-md-flex center_div" style={{ gap: '15px' }}>
+                {desktop && <div className="select_option m-0">
                   <div className="icon_wrap">
                     <Image
                       src={icon_globe}
@@ -78,7 +78,7 @@ const HeaderSix = () => {
                     />
                   </div>
                   <GoogleTranslate />
-                </div>
+                </div>}
                 <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
                   <span className="bd-button-content-wrapper">
                     <span className="pd-animation-flip">
@@ -89,7 +89,7 @@ const HeaderSix = () => {
                     </span>
                   </span>
                 </Link>
-              </div>}
+              </div>
               <div className="offcanvas-toggle d-lg-none">
                 <button
                   type="button"
