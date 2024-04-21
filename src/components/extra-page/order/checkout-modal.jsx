@@ -79,7 +79,7 @@ const CheckoutModal = (props) => {
             <ModalContent>
                 <ModalHeader>Finish your order</ModalHeader>
                 <ModalCloseButton />
-                {success ? <SuccessComp title={`Received Order`} subTitle={`${orderNumber}`} description='Thank you for the order - we will email you the details right away. If you have any problems or did not receive an email, do not hesitate to contact us!' /> : <Fragment>
+                {success ? <SuccessComp title={`Received Order`} subTitle={`${orderNumber}`} description='Thank you for the order - we will email you the details right away. If you have any problems or did not receive an email, do not hesitate to contact us!' active={success}/> : <Fragment>
                     <ModalBody>
                         <h5 className='mb-20'>Your Details</h5>
                         <p>Name: {checkout.name}</p>

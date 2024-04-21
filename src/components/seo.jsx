@@ -6,7 +6,7 @@ const SEO = ({ pageTitle, font }) => (
       <title>
         {(pageTitle && `${pageTitle} | `) + 'Cartoon Gifts'}
       </title>
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
       <meta
         name="description"
         content="Welcome to Cartoon Gifts - we create personalized and unique cartoons on demand for any occasion. Our product is 100% handmade and is customized by your preferences."

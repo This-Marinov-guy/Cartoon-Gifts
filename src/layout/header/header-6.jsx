@@ -5,19 +5,25 @@ import Image from "next/image";
 import Link from "next/link";
 import Menus from "./menus";
 import OffCanvasMain from "@components/common/off-canvas";
-import GoogleTranslate from "@ui/google-translate";
+import GoogleTranslateDesktop from "@ui/google-translate-desktop";
+import { headers } from 'next/headers'
+import useWindowDimensions from "@hooks/use-window-dimensions";
+
 
 const HeaderSix = () => {
   // Sticky Menu Area start
-  const [desktop, setDesktop] = useState(true)
+
+  const {width} = useWindowDimensions;
+  const [desktop, setDesktop] = useState(width > 991)
 
   useEffect(() => {
-    sticky();
+    sticky()
+
     window.addEventListener("resize", sticky);
     return () => {
       window.removeEventListener("resize", sticky);
     };
-  });
+  }, []);
 
   const sticky = () => {
     if (window.innerWidth > 991) {
@@ -69,8 +75,8 @@ const HeaderSix = () => {
             </div>
             <div className="header_right">
               <div className="header_btns_group d-none d-lg-flex center_div" style={{ gap: '15px' }}>
-                {desktop && <GoogleTranslate/>}
-                <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
+                {desktop && <GoogleTranslateDesktop />}
+                <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '200px' }}>
                   <span className="bd-button-content-wrapper">
                     <span className="pd-animation-flip">
                       <span className="bd-btn-anim-wrapp">

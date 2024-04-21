@@ -3,12 +3,12 @@ import React, { useEffect } from "react";
 import icon_globe from "@assets/images/icons/icon_globe.svg";
 import Image from "next/image";
 
-const GoogleTranslate = (props) => {
+const GoogleTranslate = () => {
     const googleTranslateElementInit = () => {
         new window.google.translate.TranslateElement(
             {
                 pageLanguage: "en",
-                includedLanguages: "en,bg,ro",
+                includedLanguages: "en,bg,ro,sb",
             },
             "google_translate_element"
         );
@@ -25,7 +25,7 @@ const GoogleTranslate = (props) => {
     }, []);
 
     return (
-        <div className="center_div" style={{ marginLeft: '20px', position:'relative' }}>
+        <div className="center_div" style={{ marginLeft: '20px', position: 'relative' }}>
             <Image
                 src={icon_globe}
                 style={{ width: "40px", height: "auto" }}

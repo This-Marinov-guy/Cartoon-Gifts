@@ -9,7 +9,7 @@ import { Fade } from '@chakra-ui/react'
 
 const SuccessComp = (props) => {
     return (
-        <Fade in={true}>
+        <Fade in={props.active}>
             <Alert
                 status='success'
                 variant='subtle'
