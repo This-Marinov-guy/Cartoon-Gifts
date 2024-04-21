@@ -26,8 +26,8 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                   <svg
                     className="menu-close-btn"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="33.666"
-                    height="33.666"
+                    width="22.666"
+                    height="22.666"
                     viewBox="0 0 33.666 33.666"
                   >
                     <path d="m1.414 1.414 30.83763383 30.83763383"></path>
@@ -42,14 +42,7 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
               </div>
             </div>
             <div className="header_btns_group center_div" style={{ flexDirection: 'column', gap: '15px' }}>
-              <div className="icon_wrap center_div" style={{ alignItems: 'flex-start', gap: '10px' }}>
-                <Image
-                  src={icon_globe}
-                  style={{ width: "40px", height: "auto" }}
-                  alt="Globe Icon"
-                />
-                <GoogleTranslate />
-              </div>
+             <GoogleTranslate/>
               <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
                 <span className="b  yd-button-content-wrapper">
                   <span className="pd-animation-flip">
