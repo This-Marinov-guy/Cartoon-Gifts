@@ -19,11 +19,15 @@ export const SIZE_ITEMS = [
 
 export const DELIVERY_ITEMS = [
     {
-        property: 'Normal',
+        property: 'Digital',
+        price: 0
+    },
+    {
+        property: 'Normal (Physical)',
         price: 5
     },
     {
-        property: 'Express',
+        property: 'Express (Physical)',
         price: 15
     },
 ]
