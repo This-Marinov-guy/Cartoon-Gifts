@@ -23,13 +23,13 @@ const HeaderSix = () => {
   const sticky = () => {
     setDesktop(window.innerWidth > 991);
 
-    if (desktop) {
-      const header = document.querySelector(".header-main");
-      const scrollTop = window.scrollY;
-      scrollTop >= 40
-        ? header.classList.add("sticky")
-        : header.classList.remove("sticky");
-    }
+    // if (desktop) {
+    //   const header = document.querySelector(".header-main");
+    //   const scrollTop = window.scrollY;
+    //   scrollTop >= 40
+    //     ? header.classList.add("sticky")
+    //     : header.classList.remove("sticky");
+    // }
   };
   // Sticky Menu Area End
 
