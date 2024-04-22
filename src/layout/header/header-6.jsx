@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import site_logo from "@assets/images/logo/logo-title.png";
 import icon_globe from "@assets/images/icons/icon_globe.svg";
 import Image from "next/image";
@@ -8,31 +8,6 @@ import OffCanvasMain from "@components/common/off-canvas";
 import GoogleTranslateDesktop from "@ui/google-translate-desktop";
 
 const HeaderSix = () => {
-  // Sticky Menu Area start
-  const [desktop, setDesktop] = useState(false)
-
-  useEffect(() => {
-    sticky()
-
-    window.addEventListener("resize", sticky);
-    return () => {
-      window.removeEventListener("resize", sticky);
-    };
-  }, []);
-
-  const sticky = () => {
-    setDesktop(window.innerWidth > 991);
-
-    // if (desktop) {
-    //   const header = document.querySelector(".header-main");
-    //   const scrollTop = window.scrollY;
-    //   scrollTop >= 40
-    //     ? header.classList.add("sticky")
-    //     : header.classList.remove("sticky");
-    // }
-  };
-  // Sticky Menu Area End
-
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
 
   return (
