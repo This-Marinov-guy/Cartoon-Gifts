@@ -69,7 +69,7 @@ const HeaderSix = () => {
             </div>
             <div className="header_right">
               <div className="header_btns_group d-none d-lg-flex center_div" style={{ gap: '15px' }}>
-                {desktop && <GoogleTranslateDesktop />}
+                <GoogleTranslateDesktop />
                 <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '200px' }}>
                   <span className="bd-button-content-wrapper">
                     <span className="pd-animation-flip">
@@ -101,10 +101,10 @@ const HeaderSix = () => {
       </header>
 
       {/* full canvas area start */}
-      {!desktop && <OffCanvasMain
+      <OffCanvasMain
         isOffCanvasOpen={isOffCanvasOpen}
         setIsOffCanvasOpen={setIsOffCanvasOpen}
-      />}
+      />
       {/* full canvas area end */}
     </>
   );
