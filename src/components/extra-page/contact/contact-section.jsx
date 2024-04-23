@@ -114,11 +114,7 @@ const ContactSection = () => {
             <ul className="contact_info_list style_2 ps-lg-4 unordered_list_block">
               <li>
                 <strong>Location:</strong>
-                <span>1989 Timber Ridge Road Sacramento CA, California</span>
-              </li>
-              <li>
-                <strong>Phone:</strong>
-                <span>+1-202-555-0149</span>
+                <span>61 wolverhampton Rd, Stafford, ST174AW, United Kingdom</span>
               </li>
               <li>
                 <strong>Email:</strong>
@@ -133,7 +129,7 @@ const ContactSection = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://www.youtube.com/" target="_blank">
+                    <Link href="https://www.instagram.com/cartoongiftsbulgaria/?hl=en" target="_blank">
                       <i className="fab fa-instagram"></i>
                     </Link>
                   </li>

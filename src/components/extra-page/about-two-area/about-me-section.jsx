@@ -34,7 +34,7 @@ const AboutMeSection = () => {
             <ul className="social_icon unordered_list">
               <li><Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
               <li><Link href="https://twitter.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
-              <li><Link href="https://www.youtube.com/" target="_blank"><i className="fab fa-youtube"></i></Link></li>
+              <li><Link href="https://www.instagram.com/cartoongiftsbulgaria/?hl=en" target="_blank"><i className="fab fa-youtube"></i></Link></li>
             </ul>
             <p>
               {`I'm`} a digital marketer specializing in strategy & account management for enterprise brands. I love taking exciting projects and helping companies pioneer engaging consumer-centric experiences.
