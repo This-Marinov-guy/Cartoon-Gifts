@@ -34,8 +34,8 @@ const nodeMailer = async (options) => {
         const htmlToSend = template(options.data);
 
         const mailOptions = {
-            from: options.from ?? 'notification-center@example.com',
-            to: options.to ?? 'cartoongifts.eu@gmail.com',
+            from: options.sender ?? 'notification-center@example.com',
+            to: options.receiver ?? 'cartoongifts.eu@gmail.com',
             subject: options.subject,
             html: htmlToSend,
         };
