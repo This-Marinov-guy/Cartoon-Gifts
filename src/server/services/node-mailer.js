@@ -1,8 +1,7 @@
 import nodemailer from 'nodemailer';
 import handlebars from 'handlebars';
 import fs from 'fs';
-
-
+import path from 'path'
 
 const nodeMailer = async (options) => {
     const readHTMLFile = function (path, callback) {
@@ -24,7 +23,7 @@ const nodeMailer = async (options) => {
         }
     });
 
-    readHTMLFile(__dirname + '../templates/' + options.template, function (err, html) {
+    readHTMLFile(path.join(process.cwd(), 'src/server/templates', options.template), function async(err, html) {
         if (err) {
             console.log('error reading file', err);
             return false;

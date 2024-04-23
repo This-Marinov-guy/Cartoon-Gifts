@@ -81,7 +81,13 @@ const handler = async (req, res) => {
         return res.status(200).json({ status: false, message: ERROR_MESSAGE });
     }
 
-    if (nodeMailer({ subject: 'test', text: 'text-2' })) {
+    if (nodeMailer({
+        subject: `New Order ${orderNumber}`,
+        template: 'order-notification.html',
+        data: {
+            orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
+        }
+    })) {
         return res.status(200).json({ status: true, orderNumber });
     } else {
         return res.status(200).json({ status: false, message: ERROR_COMM });

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Template</title>
+    <style>
+      /* Your CSS styles here */
+    </style>
+  </head>
+  <body>
+    <h1>Order Number {{orderNumber}}</h1>
+    <hr />
+    <p>Name: {{name}}</p>
+    <p>Email: {{email}}</p>
+    <p>Occasion: {{occasion}}</p>
+    <p>Profession: {{profession}}</p>
+    <p>
+      Pet included: {{#if hasPet}}
+      <span>Yes</span>
+      {{else}}
+      <span>No</span>
+      {{/if}}
+    </p>
+    <p>Hobby: {{hobby}}</p>
+    <p>Label: {{hasPet}}</p>
+    <p>Description: {{description}}</p>
+    <p>Size: {{size}}</p>
+    <p>Delivery: {{delivery}}</p>
+    <p>Estimated price: {{price}}</p>
+    <hr />
+    <h3>Images</h3>
+    {{#each images}}
+    <img src={{this}} alt="Image">
+    </img>
+    {{/each}}
+  </body>
+</html>
