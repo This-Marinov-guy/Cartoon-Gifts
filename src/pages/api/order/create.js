@@ -5,6 +5,7 @@ import multer from 'multer';
 import cloudinary from 'src/server/config/cloudinary';
 import connectDB from 'src/server/middleware/mongodb';
 import Order from 'src/server/models/Order';
+import mailTrap from 'src/server/services/mail-trap';
 import nodeMailer from 'src/server/services/node-mailer';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -80,6 +81,14 @@ const handler = async (req, res) => {
         console.log(err);
         return res.status(200).json({ status: false, message: ERROR_MESSAGE });
     }
+
+    mailTrap({
+        receiver: email,
+        template_uuid: 'b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a',
+        data: {
+            orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
+        }
+    })
 
     if (nodeMailer({
         subject: `New Order ${orderNumber}`,
