@@ -12,7 +12,7 @@ const mailTrap = (options) => {
     };
     const recipients = [
         {
-            email: options.recipients,
+            email: options.recipient,
         }
     ];
 
