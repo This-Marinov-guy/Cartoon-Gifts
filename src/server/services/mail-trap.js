@@ -20,7 +20,6 @@ const mailTrap = (options) => {
         client.send({
             from: sender,
             to: recipients,
-            subject: options.subject,
             template_uuid: options.template_uuid,
             template_variables: options.data,
         }).then(() => {

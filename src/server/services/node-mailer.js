@@ -49,7 +49,6 @@ const nodeMailer = async (options) => {
 
         // Send the email
         const response = await transporter.sendMail(mailOptions);
-        console.log('Email sent:', response);
 
         // Return true if email is sent successfully
         return true;
