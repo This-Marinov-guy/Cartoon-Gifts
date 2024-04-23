@@ -21,7 +21,7 @@ const mailTrap = (options) => {
             from: sender,
             to: recipients,
             template_uuid: options.template_uuid,
-            template_variables: template_variables : { ...options.data}
+            template_variables: options.data,
         })
         .then(() => { return true })
         .catch((err) => {
