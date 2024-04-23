@@ -67,9 +67,9 @@ const CheckoutModal = (props) => {
         const response = await sendRequest('/api/order/create', 'POST', formData);
 
         if (response && response.status) {
-            setOrderNumber(response.orderNumber);
-            setSuccess(true);
-            checkoutStore.resetData();
+            // setOrderNumber(response.orderNumber);
+            // setSuccess(true);
+            // checkoutStore.resetData();
         }
     }
 

@@ -7,7 +7,7 @@ const mailTrap = (options) => {
     const client = new MailtrapClient({ endpoint: ENDPOINT, token: TOKEN });
 
     const sender = {
-        email: "no-reply@cartoongiftseu.com",
+        email: "noreply@cartoongiftseu.com",
         name: "Cartoon Gifts",
     };
     const recipients = [
@@ -20,6 +20,7 @@ const mailTrap = (options) => {
         .send({
             from: sender,
             to: recipients,
+            subject: options.subject,
             template_uuid: options.template_uuid,
             template_variables: options.data,
         })

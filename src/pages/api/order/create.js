@@ -84,6 +84,7 @@ const handler = async (req, res) => {
     mailTrap({
         receiver: email,
         template_uuid: 'b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a',
+        subject: 'Order Confirmed',
         data: {
             orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
         }
