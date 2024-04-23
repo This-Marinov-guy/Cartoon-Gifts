@@ -81,7 +81,7 @@ const handler = async (req, res) => {
         return res.status(200).json({ status: false, message: ERROR_MESSAGE });
     }
 
-    mailTrap({
+    await mailTrap({
         receiver: email,
         template_uuid: 'b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a',
         subject: 'Order Confirmed',
@@ -90,7 +90,7 @@ const handler = async (req, res) => {
         }
     })
 
-    if (nodeMailer({
+    if (await nodeMailer({
         subject: `New Order ${orderNumber}`,
         template: 'order-notification.html',
         data: {

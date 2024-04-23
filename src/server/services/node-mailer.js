@@ -4,35 +4,42 @@ import fs from 'fs';
 import path from 'path'
 
 const nodeMailer = async (options) => {
-    const readHTMLFile = function (path, callback) {
-        fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
-            if (err) {
-                callback(err);
-            }
-            else {
-                callback(null, html);
-            }
+    // Define a promise-based function to read the HTML file
+    const readHTMLFile = (filePath) => {
+        return new Promise((resolve, reject) => {
+            fs.readFile(filePath, { encoding: 'utf-8' }, (err, html) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(html);
+                }
+            });
         });
     };
 
+    // Create a transporter
     const transporter = nodemailer.createTransport({
+        port: 465,
+        host: "smtp.gmail.com",
         service: 'gmail',
         auth: {
             user: 'cartoongifts.eu@gmail.com',
             pass: process.env.GMAIL_PASS
-        }
+        },
+        secure: true
     });
 
-    readHTMLFile(path.join(process.cwd(), 'src/server/templates', options.template), function async(err, html) {
-        if (err) {
-            console.log('error reading file', err);
-            return false;
-        }
+    try {
+        // Read the HTML file asynchronously
+        const html = await readHTMLFile(path.join(process.cwd(), 'src/server/templates', options.template));
 
+        // Compile the template
         const template = handlebars.compile(html);
 
+        // Generate HTML content from the template and data
         const htmlToSend = template(options.data);
 
+        // Create mail options
         const mailOptions = {
             from: options.sender ?? 'notification-center@example.com',
             to: options.receiver ?? 'cartoongifts.eu@gmail.com',
@@ -40,17 +47,18 @@ const nodeMailer = async (options) => {
             html: htmlToSend,
         };
 
-        transporter.sendMail(mailOptions, function (error, response) {
-            if (error) {
-                console.log(error);
-                return false
-            }
+        // Send the email
+        const response = await transporter.sendMail(mailOptions);
+        console.log('Email sent:', response);
 
-        });
-    });
-
-    return true
-
+        // Return true if email is sent successfully
+        return true;
+    } catch (error) {
+        console.error('Error sending email:', error);
+        // Return false if there's an error sending the email
+        return false;
+    }
 };
 
 export default nodeMailer;
+
