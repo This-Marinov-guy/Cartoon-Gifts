@@ -1,6 +1,5 @@
 
 import { BASIC_PRICE, DELIVERY_ITEMS, ERROR_COMM, ERROR_MESSAGE, PET_IMAGE_PRICE, SIZE_ITEMS } from '@utils/defines';
-import moment from 'moment';
 import multer from 'multer';
 import cloudinary from 'src/server/config/cloudinary';
 import connectDB from 'src/server/middleware/mongodb';
