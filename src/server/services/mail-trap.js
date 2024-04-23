@@ -25,9 +25,13 @@ const mailTrap = (options) => {
             template_variables: options.data,
         }).then(() => {
             resolve(true); // Resolve with true if the email is sent successfully
+
+            return true
         }).catch((err) => {
             console.error('Error sending email:', err);
             reject(false); // Reject with false if there's an error sending the email
+
+            return false
         });
     });
 }
