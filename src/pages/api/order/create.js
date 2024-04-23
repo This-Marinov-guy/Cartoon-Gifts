@@ -81,15 +81,6 @@ const handler = async (req, res) => {
         return res.status(200).json({ status: false, message: ERROR_MESSAGE });
     }
 
-    await mailTrap({
-        receiver: email,
-        template_uuid: 'b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a',
-        subject: 'Order Confirmed',
-        data: {
-            orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
-        }
-    })
-
     if (await nodeMailer({
         subject: `New Order ${orderNumber}`,
         template: 'order-notification.html',
@@ -97,6 +88,16 @@ const handler = async (req, res) => {
             orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
         }
     })) {
+
+        await mailTrap({
+            receiver: email,
+            template_uuid: 'b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a',
+            subject: 'Order Confirmed',
+            data: {
+                orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
+            }
+        })
+
         return res.status(200).json({ status: true, orderNumber });
     } else {
         return res.status(200).json({ status: false, message: ERROR_COMM });

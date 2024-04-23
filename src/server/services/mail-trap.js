@@ -1,7 +1,7 @@
 import { MailtrapClient } from "mailtrap";
 
-const mailTrap = async (options) => {
-    try {
+const mailTrap = (options) => {
+    return new Promise((resolve, reject) => {
         const TOKEN = process.env.MAIL_TRAP_PASS;
         const ENDPOINT = "https://send.api.mailtrap.io/";
 
@@ -17,22 +17,19 @@ const mailTrap = async (options) => {
             }
         ];
 
-        // Send the email using async/await
-        await client.send({
+        client.send({
             from: sender,
             to: recipients,
             subject: options.subject,
             template_uuid: options.template_uuid,
             template_variables: options.data,
+        }).then(() => {
+            resolve(true); // Resolve with true if the email is sent successfully
+        }).catch((err) => {
+            console.error('Error sending email:', err);
+            reject(false); // Reject with false if there's an error sending the email
         });
-
-        // Return true if the email is sent successfully
-        return true;
-    } catch (error) {
-        console.error('Error sending email:', error);
-        // Return false if there's an error sending the email
-        return false;
-    }
+    });
 }
 
 export default mailTrap;
