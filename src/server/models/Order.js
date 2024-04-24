@@ -57,7 +57,22 @@ var order = new Schema({
     images: {
         type: [String],
         required: true,
+    },
+    shipping: {
+        country: {
+            type: String,
+        },
+        address: {
+            type: String,
+        },
+        zip: {
+            type: String,
+        },
+        phone: {
+            type: String,
+        },
     }
+
 });
 
 mongoose.models = {};

@@ -45,7 +45,10 @@ const handler = async (req, res) => {
 
     const orderNumber = uuidv4();
     const images = [];
-    const { name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price } = req.body;
+    const { name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, country, address, zip, phone } = req.body;
+    const shipping = {
+        country, address, zip, phone
+    }
 
     // if (!validatePrice({ size, delivery, price }, req.files)) {
     //     return res.status(200).json({ status: false, message: ERROR_MESSAGE })
@@ -71,7 +74,7 @@ const handler = async (req, res) => {
     }
 
     const order = new Order({
-        orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
+        orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images, shipping
     })
 
     try {
@@ -86,7 +89,7 @@ const handler = async (req, res) => {
         template_uuid: 'b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a',
         subject: 'Order Confirmed',
         data: {
-            orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
+            orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images, shipping
         }
     })) {
 
@@ -94,7 +97,7 @@ const handler = async (req, res) => {
             subject: `New Order ${orderNumber}`,
             template: 'order-notification.html',
             data: {
-                orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images
+                orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images, shipping
             }
         });
 
