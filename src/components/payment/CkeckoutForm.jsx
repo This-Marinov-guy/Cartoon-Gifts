@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { PaymentElement, Elements, useStripe, useElements } from "@stripe/react-stripe-js";
+import { Skeleton, Stack } from '@chakra-ui/react'
 
-const CheckoutForm = ({stripePromise, clientSecret}) => {
+const CheckoutForm = ({ stripePromise, clientSecret }) => {
     const stripe = useStripe();
     const elements = useElements();
 
@@ -15,7 +16,11 @@ const CheckoutForm = ({stripePromise, clientSecret}) => {
         if (!stripe || !elements) {
             // Stripe.js has not yet loaded.
             // Make sure to disable form submission until Stripe.js has loaded.
-            return <p>Loading</p>;
+            return <Stack>
+                <Skeleton height='20px' />
+                <Skeleton height='20px' />
+                <Skeleton height='20px' />
+            </Stack>;
         }
 
         setIsProcessing(true);
