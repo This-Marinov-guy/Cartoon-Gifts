@@ -71,23 +71,23 @@ export default class CheckoutStore {
             this.invalidFields = [...this.invalidFields, 'peopleImages']
         }
 
-        if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
-            if (!this.checkout.shipping.country) {
-                this.invalidFields = [...this.invalidFields, 'country']
-            }
+        // if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
+        //     if (!this.checkout.shipping.country) {
+        //         this.invalidFields = [...this.invalidFields, 'country']
+        //     }
 
-            if (!this.checkout.shipping.address) {
-                this.invalidFields = [...this.invalidFields, 'address']
-            }
+        //     if (!this.checkout.shipping.address) {
+        //         this.invalidFields = [...this.invalidFields, 'address']
+        //     }
 
-            if (!this.checkout.shipping.zip) {
-                this.invalidFields = [...this.invalidFields, 'zip']
-            }
+        //     if (!this.checkout.shipping.zip) {
+        //         this.invalidFields = [...this.invalidFields, 'zip']
+        //     }
 
-            if (!this.checkout.shipping.phone) {
-                this.invalidFields = [...this.invalidFields, 'phone']
-            }
-        }
+        //     if (!this.checkout.shipping.phone) {
+        //         this.invalidFields = [...this.invalidFields, 'phone']
+        //     }
+        // }
 
         if (this.invalidFields.length > 0) {
             return false
@@ -115,12 +115,12 @@ export default class CheckoutStore {
         formData.append("delivery", this.checkout.delivery.property);
         formData.append("price", this.checkout.price);
 
-        if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
-            formData.append("country", this.checkout.shipping.country);
-            formData.append("address", this.checkout.shipping.address);
-            formData.append("zip", this.checkout.shipping.zip);
-            formData.append("phone", this.checkout.shipping.phone);
-        }
+        // if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
+        //     formData.append("country", this.checkout.shipping.country);
+        //     formData.append("address", this.checkout.shipping.address);
+        //     formData.append("zip", this.checkout.shipping.zip);
+        //     formData.append("phone", this.checkout.shipping.phone);
+        // }
 
         return formData;
     }

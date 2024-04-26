@@ -16,9 +16,7 @@ export const useHttpClient = () => {
                     url,
                     method,
                     data,
-                    config: {
-                        ...headers
-                    }
+                    headers,
                 });
 
                 if (response.data.status === false && response.data.message) {

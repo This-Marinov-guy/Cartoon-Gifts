@@ -13,6 +13,8 @@ import { Spinner } from '@chakra-ui/react'
 import { useStore } from 'src/stores/storeContext'
 import { useHttpClient } from '@hooks/use-http-request'
 import SuccessComp from '@components/common/success/SuccessComp'
+import CheckoutForm from '@components/payment/CheckoutForm'
+import PaymentElement from '@components/payment/PaymentElement'
 
 const CheckoutModal = (props) => {
     const { checkoutStore } = useStore();
@@ -21,6 +23,7 @@ const CheckoutModal = (props) => {
     const { sendRequest, loading } = useHttpClient();
 
     const [orderNumber, setOrderNumber] = useState(null);
+    const [clientSecret, setClientSecret] = useState(null);
     const [success, setSuccess] = useState(false);
     const [imageLoading, setImageLoading] = useState(false);
     const [previewUrls, setPreviewUrls] = useState([]);
@@ -64,12 +67,16 @@ const CheckoutModal = (props) => {
 
     const submitOrder = async () => {
         const formData = checkoutStore.setFormData();
-        const response = await sendRequest('/api/order/create', 'POST', formData);
+        const response = await sendRequest('/api/payment/payment-intent', 'POST', {
+            amount: 10,
+            metadata: formData
+        })
 
         if (response && response.status) {
-            setOrderNumber(response.orderNumber);
-            setSuccess(true);
-            checkoutStore.resetData();
+            setClientSecret(response.clientSecret)
+            // setOrderNumber(response.orderNumber);
+            // setSuccess(true);
+            // checkoutStore.resetData();
         }
     }
 
@@ -79,7 +86,7 @@ const CheckoutModal = (props) => {
             <ModalContent>
                 <ModalHeader>Finish your order</ModalHeader>
                 <ModalCloseButton />
-                {success ? <SuccessComp title={`Received Order`} subTitle={`${orderNumber}`} description='Thank you for the order - we will email you the details right away. If you have any problems or did not receive an email, do not hesitate to contact us!' active={success}/> : <Fragment>
+                {clientSecret ? <PaymentElement clientSecret={clientSecret} /> : <Fragment>
                     <ModalBody>
                         <h5 className='mb-20'>Your Details</h5>
                         <p>Name: {checkout.name}</p>
