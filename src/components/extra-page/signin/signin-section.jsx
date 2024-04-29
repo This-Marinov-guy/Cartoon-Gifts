@@ -52,6 +52,10 @@ const SigninSection = () => {
     <section className="register_section overflow-hidden" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div className="column decoration_wrap p-20">
         <div className="register_form_wrap ms-lg-0">
+          <Link href='/'>
+            <i class="fa-solid fa-angles-left mr-5"></i>
+            Back Home
+          </Link>
           <h2 className="form_title">Welcome Back!</h2>
           <p>Enter the information below to signin your account</p>
           <form onSubmit={(event) => loginHandler(event)}

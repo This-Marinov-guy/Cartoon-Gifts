@@ -247,6 +247,51 @@ const OrderForm = () => {
                                     </div>
                                     {invalidFields.includes('delivery') && <p className='error'>Please select a delivery option</p>}
                                 </div>
+                                {(checkout.delivery.property && checkout.delivery.property !== 'Digital') &&
+                                    <>
+                                        <h4>Fill your shipping address</h4>
+                                        <div className="col col-md-6">
+                                            <div className="form-group m-0">
+                                                <Field
+                                                    className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
+                                                    type="text"
+                                                    name="occasion"
+                                                    placeholder="Country"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="col col-md-6">
+                                            <div className="form-group m-0">
+                                                <Field
+                                                    className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
+                                                    type="text"
+                                                    name="occasion"
+                                                    placeholder="Address"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="col col-md-6">
+                                            <div className="form-group m-0">
+                                                <Field
+                                                    className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
+                                                    type="text"
+                                                    name="occasion"
+                                                    placeholder="ZIP code"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="col col-md-6">
+                                            <div className="form-group m-0">
+                                                <Field
+                                                    className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
+                                                    type="text"
+                                                    name="occasion"
+                                                    placeholder="Phone"
+                                                />
+                                            </div>
+                                        </div>
+                                    </>
+                                }
                                 <div className='col-6 mt-30'>
                                     <div>
                                         <h5>Total: {checkout.price} €</h5>

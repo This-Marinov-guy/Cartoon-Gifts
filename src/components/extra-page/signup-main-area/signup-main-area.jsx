@@ -1,5 +1,5 @@
 import React from 'react';
-import banner_image from '@assets/images/banner/register_banner_image_1.png'
+import banner_image from '@assets/images/logo/logo.png'
 import shape_circle_dashed_2 from '@assets/images/shapes/shape_circle_dashed_2.png'
 import shape_circle_half_1 from '@assets/images/shapes/shape_circle_half_1.svg'
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -38,7 +38,7 @@ const SignupMainArea = () => {
     <main>
       <section className="register_section">
         <div className="column decoration_wrap">
-          <Image src={banner_image} alt="Paradox Iillustration Image" />
+          <Image style={{ height: '60%', width: 'auto' }} src={banner_image} alt="Paradox Iillustration Image" />
           <div className="deco_item shape_1 wow fadeInDown" data-wow-delay=".1s">
             <Image src={shape_circle_dashed_2} alt="Paradox - Shape Image" />
           </div>
@@ -48,6 +48,10 @@ const SignupMainArea = () => {
         </div>
         <div className="column decoration_wrap">
           <div className="register_form_wrap ms-lg-0">
+            <Link href='/'>
+              <i class="fa-solid fa-angles-left mr-5"></i>
+              Back Home
+            </Link>
             <h2 className="form_title">Create an account</h2>
             <p>Enter the information below to create your account</p>
             <Formik
@@ -79,23 +83,23 @@ const SignupMainArea = () => {
               {() => (
                 <Form className='row'>
                   <div className="col col-md-6 form-group">
-                    <label htmlFor="input_name" className="form-label">Your Name<sup className="form_required_indicator">*</sup></label>
+                    <label htmlFor="input_name" className="form-label">Your Name</label>
                     <Field name='name' className="form-control" type="text" placeholder="Your Name" />
                     <ErrorMessage className="error" name="name" component="div" />
                   </div>
                   <div className="col col-md-6 form-group">
-                    <label htmlFor="input_email" className="form-label">Email Address<sup className="form_required_indicator">*</sup></label>
+                    <label htmlFor="input_email" className="form-label">Email Address</label>
                     <Field name='email' className="form-control" type="email" placeholder="Your Address" />
                     <ErrorMessage className="error" name="email" component="div" />
                   </div>
                   <div className="col col-md-6 form-group">
-                    <label htmlFor="input_pass" className="form-label">Enter Password<sup className="form_required_indicator">*</sup></label>
-                    <Field name='password' className="form-control" type="text" placeholder="Enter Password" />
+                    <label htmlFor="input_pass" className="form-label">Enter Password</label>
+                    <Field name='password' className="form-control" type="password" placeholder="Enter Password" />
                     <ErrorMessage className="error" name="password" component="div" />
                   </div>
                   <div className="col col-md-6 form-group">
-                    <label htmlFor="input_pass" className="form-label">Enter Password<sup className="form_required_indicator">*</sup></label>
-                    <Field name='confirmPassword' className="form-control" type="text" placeholder="Confirm Password" />
+                    <label htmlFor="input_pass" className="form-label">Enter Password</label>
+                    <Field name='confirmPassword' className="form-control" type="password" placeholder="Confirm Password" />
                     <ErrorMessage className="error" name="confirmPassword" component="div" />
                   </div>
                   {/* <div className="form-check">
@@ -120,7 +124,7 @@ const SignupMainArea = () => {
               )}
             </Formik>
 
-            <p className="mb-0">Already have an account? <Link href="/login">Sign In</Link></p>
+            <p className="mb-0">Already have an account? <Link href="/login">Log In</Link></p>
           </div>
 
           <div className="deco_item shape_3 wow fadeInRight" data-wow-delay=".1s">
