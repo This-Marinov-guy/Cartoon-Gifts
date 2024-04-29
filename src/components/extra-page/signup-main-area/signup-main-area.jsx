@@ -2,14 +2,13 @@ import React from 'react';
 import banner_image from '@assets/images/banner/register_banner_image_1.png'
 import shape_circle_dashed_2 from '@assets/images/shapes/shape_circle_dashed_2.png'
 import shape_circle_half_1 from '@assets/images/shapes/shape_circle_half_1.svg'
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup"; import shape_1 from '@assets/images/shapes/shape_1.svg'
 import shape_circle_2 from '@assets/images/shapes/shape_circle_2.svg'
 import Image from 'next/image';
 import { Spinner, useToast } from '@chakra-ui/react'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
-import { useToast } from '@chakra-ui/react'
 import { useHttpClient } from '@hooks/use-http-request';
 
 const schema = yup.object().shape({
@@ -74,27 +73,27 @@ const SignupMainArea = () => {
                 email: '',
                 password: '',
                 confirmPassword: '',
-                check: false
+                // check: false
               }}
             >
               {() => (
-                <Form>
-                  <div className="form-group">
+                <Form className='row'>
+                  <div className="col col-md-6 form-group">
                     <label htmlFor="input_name" className="form-label">Your Name<sup className="form_required_indicator">*</sup></label>
                     <Field name='name' className="form-control" type="text" placeholder="Your Name" />
                     <ErrorMessage className="error" name="name" component="div" />
                   </div>
-                  <div className="form-group">
+                  <div className="col col-md-6 form-group">
                     <label htmlFor="input_email" className="form-label">Email Address<sup className="form_required_indicator">*</sup></label>
                     <Field name='email' className="form-control" type="email" placeholder="Your Address" />
                     <ErrorMessage className="error" name="email" component="div" />
                   </div>
-                  <div className="form-group">
+                  <div className="col col-md-6 form-group">
                     <label htmlFor="input_pass" className="form-label">Enter Password<sup className="form_required_indicator">*</sup></label>
                     <Field name='password' className="form-control" type="text" placeholder="Enter Password" />
                     <ErrorMessage className="error" name="password" component="div" />
                   </div>
-                  <div className="form-group">
+                  <div className="col col-md-6 form-group">
                     <label htmlFor="input_pass" className="form-label">Enter Password<sup className="form_required_indicator">*</sup></label>
                     <Field name='confirmPassword' className="form-control" type="text" placeholder="Confirm Password" />
                     <ErrorMessage className="error" name="confirmPassword" component="div" />
