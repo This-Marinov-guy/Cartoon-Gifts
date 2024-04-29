@@ -4,7 +4,6 @@ import Link from 'next/link';
 import emailjs from "emailjs-com";
 import { useToast } from '@chakra-ui/react'
 
-
 const ContactSection = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const toast = useToast()
