@@ -4,7 +4,7 @@ import RadioCard from '@components/common/inputs/radio-card'
 import RadioPrice from '@components/common/inputs/radio-price'
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import { SIZE_ITEMS, DELIVERY_ITEMS, PET_OPTIONS, PERSON_IMAGE_PRICE, PET_IMAGE_PRICE } from '@utils/defines';
+import { SIZE_ITEMS, DELIVERY_ITEMS, PET_OPTIONS, PERSON_IMAGE_PRICE, PET_IMAGE_PRICE, SHIPPING_COUNTRIES } from '@utils/defines';
 import { observer } from 'mobx-react-lite';
 import { useStore } from 'src/stores/storeContext';
 import CheckoutModal from './checkout-modal';
@@ -24,6 +24,8 @@ const OrderForm = () => {
         property: 'No',
         price: 0
     });
+
+    const showShipping = checkout.delivery.property && checkout.delivery.property !== 'Digital'
 
     const handlePriceChange = (item, state) => {
         if (checkout[state].property === item.property) {
@@ -47,6 +49,10 @@ const OrderForm = () => {
         label: yup.string(),
         noDescription: yup.boolean(),
         description: yup.string(),
+        country: showShipping ? yup.string().required() : yup.string(),
+        address: showShipping ? yup.string().required() : yup.string(),
+        zip: showShipping ? yup.string().required() : yup.string(),
+        phone: showShipping ? yup.string().required() : yup.string(),
     });
 
     const handleSubmit = (values) => {
@@ -96,6 +102,10 @@ const OrderForm = () => {
                         label: checkout.label,
                         noDescription: checkout.noDescription,
                         description: checkout.description,
+                        country: checkout.shipping.country,
+                        address: checkout.shipping.address,
+                        zip: checkout.shipping.zip,
+                        phone: checkout.shipping.phone,
                     }}
                 >
                     {({ values, errors, isValid, dirty, touched }) => (
@@ -247,25 +257,34 @@ const OrderForm = () => {
                                     </div>
                                     {invalidFields.includes('delivery') && <p className='error'>Please select a delivery option</p>}
                                 </div>
-                                {(checkout.delivery.property && checkout.delivery.property !== 'Digital') &&
+                                {showShipping &&
                                     <>
                                         <h4>Fill your shipping address</h4>
                                         <div className="col col-md-6">
                                             <div className="form-group m-0">
                                                 <Field
-                                                    className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
-                                                    type="text"
-                                                    name="occasion"
+                                                    as='select'
+                                                    className={`form-control ${(errors.country && touched.country) && 'error-border'}`}
+                                                    name="country"
                                                     placeholder="Country"
-                                                />
+                                                >
+                                                    <option value="" disabled>
+                                                        Select an option
+                                                    </option>
+                                                    {SHIPPING_COUNTRIES.map((option) => (
+                                                        <option key={option.value} value={option.value}>
+                                                            {option.label}
+                                                        </option>
+                                                    ))}
+                                                </Field>
                                             </div>
                                         </div>
                                         <div className="col col-md-6">
                                             <div className="form-group m-0">
                                                 <Field
-                                                    className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
+                                                    className={`form-control ${(errors.address && touched.address) && 'error-border'}`}
                                                     type="text"
-                                                    name="occasion"
+                                                    name="address"
                                                     placeholder="Address"
                                                 />
                                             </div>
@@ -273,9 +292,9 @@ const OrderForm = () => {
                                         <div className="col col-md-6">
                                             <div className="form-group m-0">
                                                 <Field
-                                                    className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
+                                                    className={`form-control ${(errors.zip && touched.zip) && 'error-border'}`}
                                                     type="text"
-                                                    name="occasion"
+                                                    name="zip"
                                                     placeholder="ZIP code"
                                                 />
                                             </div>
@@ -283,9 +302,9 @@ const OrderForm = () => {
                                         <div className="col col-md-6">
                                             <div className="form-group m-0">
                                                 <Field
-                                                    className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
+                                                    className={`form-control ${(errors.phone && touched.phone) && 'error-border'}`}
                                                     type="text"
-                                                    name="occasion"
+                                                    name="phone"
                                                     placeholder="Phone"
                                                 />
                                             </div>
