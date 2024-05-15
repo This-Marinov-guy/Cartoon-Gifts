@@ -73,8 +73,6 @@ const CheckoutModal = (props) => {
 
         if (response && response.status) {
             setClientSecret(response.clientSecret)
-            // setSuccess(true);
-            // checkoutStore.resetData();
         }
     }
 

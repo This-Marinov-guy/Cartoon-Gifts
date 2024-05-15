@@ -33,6 +33,10 @@ const Order = () => {
                     Your payment might have failed or you have canceled your order - if this is not the case, please contact us!
                     <br />
                     <a style={{ color: '#1e0a91' }} href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                    <br />
+                    <button type="button" className="bd-btn-link btn_dark" style={{ marginTop: '20px' }} >
+                        Back to order
+                    </button>
                 </AlertDescription>
             </Alert>
             <Footer />

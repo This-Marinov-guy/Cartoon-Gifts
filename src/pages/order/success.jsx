@@ -12,6 +12,13 @@ import Footer from '@layout/footer/footer';
 import { EMAIL } from '@utils/defines';
 
 const Order = () => {
+    const { checkoutStore } = useStore();
+    const { checkout } = checkoutStore;
+
+    useEffect(() => {
+        checkout.resetData();
+    }, [])
+
     return (
         <Wrapper>
             <SEO pageTitle={'Order Success'} />
@@ -26,7 +33,7 @@ const Order = () => {
                 className='page-alert'
             >
                 <AlertIcon boxSize='80px' mr={0} />
-                <AlertTitle style={{marginTop: '20px'}} mt={4} mb={1} fontSize='lg'>
+                <AlertTitle style={{ marginTop: '20px' }} mt={4} mb={1} fontSize='lg'>
                     Successful Order!
                 </AlertTitle>
                 <AlertDescription >
@@ -35,7 +42,7 @@ const Order = () => {
                     If you have problems or want to contact us please email us at: <a style={{ color: '#1e0a91' }} href={`mailto:${EMAIL}`}>{EMAIL}</a>
                 </AlertDescription>
             </Alert>
-            <Footer/>
+            <Footer />
         </Wrapper>
     );
 };
