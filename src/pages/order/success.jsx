@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import SEO from '@components/seo';
 import Wrapper from '@layout/wrapper';
 import HeaderSix from '@layout/header/header-6';
