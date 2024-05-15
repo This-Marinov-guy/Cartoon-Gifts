@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { Skeleton, Stack } from '@chakra-ui/react'
+import SkeletonOne from "@components/common/loading/SkeletonOne";
 
-const CheckoutForm = () => {
+const CheckoutForm = (props) => {
     const stripe = useStripe();
     const elements = useElements();
 
@@ -14,11 +14,7 @@ const CheckoutForm = () => {
         e.preventDefault();
 
         if (!stripe || !elements) {
-            return <Stack>
-                <Skeleton height='20px' />
-                <Skeleton height='20px' />
-                <Skeleton height='20px' />
-            </Stack>;
+            return <SkeletonOne />;
         }
 
         setIsProcessing(true);
@@ -26,9 +22,8 @@ const CheckoutForm = () => {
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                redirect: "if_required",
-                return_url: `${window.location.origin}/payment-success`,
-                receipt_email: 'vlady1002@abv.bg',
+                return_url: props.paymentProperties.successUrl,
+                receipt_email: props.paymentProperties.email,
             },
         });
 
@@ -43,8 +38,9 @@ const CheckoutForm = () => {
 
     return (
         <form className="payment_form" id="payment-form" onSubmit={handleSubmit}>
+            <h4 className="mb-5">Total: {props.paymentProperties.amount} €</h4>
             <PaymentElement id="payment-element" />
-            <button type="button" className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
+            <button type="button" onClick={props.onClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
                 Back
             </button>
             <button disabled={isProcessing || !stripe || !elements} id="submit" className="bd-btn-link mt-20"

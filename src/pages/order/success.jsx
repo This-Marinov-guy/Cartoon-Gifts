@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import Footer from '@layout/footer/footer';
 import { EMAIL } from '@utils/defines';
+import { useStore } from 'src/stores/storeContext';
 
 const Order = () => {
     const { checkoutStore } = useStore();

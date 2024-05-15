@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import Footer from '@layout/footer/footer';
 import { EMAIL } from '@utils/defines';
+import Link from 'next/link';
 
 const Order = () => {
     return (
@@ -34,9 +35,9 @@ const Order = () => {
                     <br />
                     <a style={{ color: '#1e0a91' }} href={`mailto:${EMAIL}`}>{EMAIL}</a>
                     <br />
-                    <button type="button" className="bd-btn-link btn_dark" style={{ marginTop: '20px' }} >
+                    <Link href='/order' className="bd-btn-link btn_dark" style={{ marginTop: '20px' }} >
                         Back to order
-                    </button>
+                    </Link>
                 </AlertDescription>
             </Alert>
             <Footer />
