@@ -6,7 +6,8 @@ import shape_circle_5 from '@assets/images/shapes/shape_circle_5.svg';
 import shape_circle_dashed_3 from '@assets/images/shapes/shape_circle_dashed_3.png';
 import shape_box_1 from '@assets/images/shapes/shape_box_1.png';
 import shape_box_2 from '@assets/images/shapes/shape_box_2.png';
-import site_logo from '@assets/images/logo/site_logo_dark_2.svg';
+import site_logo from '@assets/images/logo/logo-title.png'
+
 import Image from 'next/image';
 
 

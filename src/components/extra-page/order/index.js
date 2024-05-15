@@ -1,5 +1,4 @@
 import React from 'react';
-import PricingSection from '../pricing/pricing-section';
 import FaqQuestion from '../pricing/faq-question';
 import HeaderSix from '@layout/header/header-6';
 import Footer from '@layout/footer/footer';

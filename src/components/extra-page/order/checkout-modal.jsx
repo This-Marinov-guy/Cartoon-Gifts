@@ -22,7 +22,6 @@ const CheckoutModal = (props) => {
 
     const { sendRequest, loading } = useHttpClient();
 
-    const [orderNumber, setOrderNumber] = useState(null);
     const [clientSecret, setClientSecret] = useState(null);
     const [success, setSuccess] = useState(false);
     const [imageLoading, setImageLoading] = useState(false);
@@ -68,13 +67,12 @@ const CheckoutModal = (props) => {
     const submitOrder = async () => {
         const formData = checkoutStore.setFormData();
         const response = await sendRequest('/api/payment/payment-intent', 'POST', {
-            amount: 10,
+            amount: checkout.price,
             metadata: formData
         })
 
         if (response && response.status) {
             setClientSecret(response.clientSecret)
-            // setOrderNumber(response.orderNumber);
             // setSuccess(true);
             // checkoutStore.resetData();
         }
@@ -114,7 +112,7 @@ const CheckoutModal = (props) => {
                             Cancel
                         </button>
                         <button disabled={loading} type="submit" onClick={submitOrder} className="bd-btn-link">
-                            {loading ? <Spinner /> : 'Sent'}
+                            {loading ? <Spinner /> : 'Pay'}
                         </button>
                     </ModalFooter>
                 </Fragment>}

@@ -57,3 +57,5 @@ export const PET_IMAGE_PRICE = 2
 
 export const ERROR_MESSAGE = 'It looks like something went wrong - please try again with new details or contact our team!'
 export const ERROR_COMM = 'Accept our apologies, please try later or contact our team for help!'
+
+export const EMAIL = 'cartoongifts.eu@gmail.com'
