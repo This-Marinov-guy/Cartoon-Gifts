@@ -1,4 +1,5 @@
 import Stripe from 'stripe';
+import { buffer } from 'micro';
 import { createOrder } from "src/server/services/order-service";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -12,12 +13,13 @@ const handler = async (req, res) => {
         return;
     }
 
+    const buf = await buffer(req);
     const sig = req.headers['stripe-signature'];
 
     let event = null;
 
     try {
-        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+        event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
     } catch (err) {
         console.error('Error verifying webhook signature:', err);
         return res.status(400).send(`Webhook Error: ${err.message}`);
