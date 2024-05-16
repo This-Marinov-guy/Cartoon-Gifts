@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import { useToast } from '@chakra-ui/react';
 import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import SkeletonOne from "@components/common/loading/SkeletonOne";
 
 const CheckoutForm = (props) => {
     const stripe = useStripe();
     const elements = useElements();
+    const toast = useToast();
 
-    const [message, setMessage] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false);
 
     const handleSubmit = async (e) => {
@@ -28,9 +29,20 @@ const CheckoutForm = (props) => {
         });
 
         if (error.type === "card_error" || error.type === "validation_error") {
-            setMessage(error.message);
+            toast({
+                title: error.message,
+                status: 'warning',
+                duration: 15000,
+                isClosable: true,
+            })
+
         } else {
-            setMessage("An unexpected error occured.");
+            toast({
+                title: "An unexpected error occured.",
+                status: 'warning',
+                duration: 15000,
+                isClosable: true,
+            })
         }
 
         setIsProcessing(false);
@@ -40,7 +52,6 @@ const CheckoutForm = (props) => {
         <form className="payment_form" id="payment-form" onSubmit={handleSubmit}>
             <PaymentElement id="payment-element" />
             {/* Show any error or success messages */}
-            {message && <div id="payment-message">{message}</div>}
             <div className='mt-15'>
                 <h5>Total: {props.paymentProperties.amount} €</h5>
                 <button type="button" onClick={props.onClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
