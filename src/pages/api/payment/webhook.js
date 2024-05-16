@@ -14,7 +14,7 @@ const handler = async (req, res) => {
     let event = null;
 
     try {
-        event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+        event = stripe.webhooks.constructEvent(body, sig, 'whsec_aeifEA8Ip4iz5uDXM2PZbYe7Zn3xGDiu');
     } catch (err) {
         res.status(400).end('Invalid Signature');
         return;
