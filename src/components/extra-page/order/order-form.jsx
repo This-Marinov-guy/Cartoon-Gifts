@@ -181,7 +181,7 @@ const OrderForm = () => {
                                 <div className='col col-md-6'>
                                     <div className="form-check mb-10 ml-10">
                                         <Field type="checkbox" id="checkMeOut" name='noDescription' />
-                                        <label htmlFor="checkMeOut">Gogo e tup no gotin</label>
+                                        <label htmlFor="checkMeOut">I trust Cartoon Gifts to make me the cartoon with their idea, given my details</label>
                                     </div>
                                     {!values.noDescription && <div className="form-group">
                                         <Field
