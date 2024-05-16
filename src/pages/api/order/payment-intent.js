@@ -1,7 +1,6 @@
-
+import stripe from "src/server/config/stripe";
 import multer from 'multer';
 import cloudinary from 'src/server/config/cloudinary';
-import { createOrder } from 'src/server/services/order-service';
 import { v4 as uuidv4 } from 'uuid';
 
 const storage = multer.memoryStorage();
@@ -27,12 +26,8 @@ const handler = async (req, res) => {
     await runMiddleware(req, res, myUploadMiddleware);
 
     const orderNumber = uuidv4();
+    const { name } = req.body.metadata;
     const images = [];
-    const name = req.body.name;
-
-    // if (!validatePrice({ size, delivery, price }, req.files)) {
-    //     return res.status(200).json({ status: false, message: ERROR_MESSAGE })
-    // }
 
     for (let i = 0; i < req.files.length; i++) {
         const file = req.files[i];
@@ -53,24 +48,29 @@ const handler = async (req, res) => {
         }
     }
 
-    try {
-        const response = await createOrder({ images, orderNumber, ...req.body })
+    const { amount, metadata } = req.body;
 
-        if (response.status) {
-            return res.status(200).json({ status: true, orderNumber });
-        } else {
-            return res.status(200).json({ status: false, message: response.message });
-        }
-    } catch (error) {
-        console.log(error);
-        return res.status(200).json({ status: false, message: ERROR_COMM });
+    try {
+        const paymentIntent = await stripe.paymentIntents.create({
+            currency: "EUR",
+            amount: amount * 100,
+            automatic_payment_methods: { enabled: true },
+            metadata: {
+                images,
+                ...metadata
+            },
+        });
+
+        res.status(200).json({
+            status: true, clientSecret: paymentIntent.client_secret,
+        });
+    } catch (e) {
+        return res.status(400).send({
+            error: {
+                status: false, message: e.message,
+            },
+        });
     }
 }
-
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-};
 
 export default handler;

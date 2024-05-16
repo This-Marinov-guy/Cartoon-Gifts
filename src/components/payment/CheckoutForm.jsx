@@ -38,19 +38,21 @@ const CheckoutForm = (props) => {
 
     return (
         <form className="payment_form" id="payment-form" onSubmit={handleSubmit}>
-            <h4 className="mb-5">Total: {props.paymentProperties.amount} €</h4>
             <PaymentElement id="payment-element" />
-            <button type="button" onClick={props.onClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
-                Back
-            </button>
-            <button disabled={isProcessing || !stripe || !elements} id="submit" className="bd-btn-link mt-20"
-            >
-                <span id="button-text">
-                    {isProcessing ? "Processing ... " : "Pay now"}
-                </span>
-            </button>
             {/* Show any error or success messages */}
             {message && <div id="payment-message">{message}</div>}
+            <div className='mt-15'>
+                <h5>Total: {props.paymentProperties.amount} €</h5>
+                <button type="button" onClick={props.onClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
+                    Back
+                </button>
+                <button disabled={isProcessing || !stripe || !elements} id="submit" className="bd-btn-link mt-20"
+                >
+                    <span id="button-text">
+                        {isProcessing ? "Processing ... " : "Pay now"}
+                    </span>
+                </button>
+            </div>
         </form>
     );
 }

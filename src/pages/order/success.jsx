@@ -14,10 +14,9 @@ import { useStore } from 'src/stores/storeContext';
 
 const Order = () => {
     const { checkoutStore } = useStore();
-    const { checkout } = checkoutStore;
 
     useEffect(() => {
-        checkout.resetData();
+        checkoutStore.resetData();
     }, [])
 
     return (

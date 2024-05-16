@@ -1,4 +1,5 @@
 import stripe from "src/server/config/stripe";
+import { createOrder } from "src/server/services/order-service";
 
 const handler = async (req, res) => {
     if (req.method !== 'POST') {
@@ -21,10 +22,22 @@ const handler = async (req, res) => {
 
     let intent = null;
 
-    switch (event['type']) {
+    switch (event.type) {
         case 'payment_intent.succeeded':
-            intent = event.data.object;
-            console.log("Succeeded:", intent.id);
+            const metadata = event.data.object.metadata;
+
+            try {
+                const response = await createOrder(metadata);
+
+                if (response.status) {
+                    res.status(200).json({ status: true, message: 'Order created: ' + metadata.orderNumber });
+                } else {
+                    res.status(500).end({ status: false, message: response.message });
+                }
+            } catch (error) {
+                res.status(500).end('Error: ' + error);
+            }
+
             break;
         case 'payment_intent.payment_failed':
             intent = event.data.object;
@@ -35,7 +48,8 @@ const handler = async (req, res) => {
             console.log('Unknown event registered: ' + event.type);
     }
 
-    res.status(200).json({ received: true, message: 'Event Registered' });
+    // in case we forgot to add a return response up
+    res.status(200).json({ received: true, message: 'Event Registered with unknown type: ' + event.type });
 }
 
 export const config = {
