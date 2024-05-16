@@ -1,5 +1,9 @@
-import stripe from "src/server/config/stripe";
+import Stripe from 'stripe';
 import { createOrder } from "src/server/services/order-service";
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
 const handler = async (req, res) => {
     if (req.method !== 'POST') {
@@ -9,15 +13,14 @@ const handler = async (req, res) => {
     }
 
     const sig = req.headers['stripe-signature'];
-    const body = req.body;
 
     let event = null;
 
     try {
-        event = stripe.webhooks.constructEvent(body, sig, 'whsec_aeifEA8Ip4iz5uDXM2PZbYe7Zn3xGDiu');
+        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
     } catch (err) {
-        res.status(400).end('Invalid Signature');
-        return;
+        console.error('Error verifying webhook signature:', err);
+        return res.status(400).send(`Webhook Error: ${err.message}`);
     }
 
     let intent = null;
