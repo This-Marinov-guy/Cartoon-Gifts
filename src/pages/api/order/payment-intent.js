@@ -26,7 +26,7 @@ const handler = async (req, res) => {
     await runMiddleware(req, res, myUploadMiddleware);
 
     const orderNumber = uuidv4();
-    const { name } = req.body.metadata;
+    const { name, price } = req.body;
     const images = [];
 
     for (let i = 0; i < req.files.length; i++) {
@@ -48,16 +48,14 @@ const handler = async (req, res) => {
         }
     }
 
-    const { amount, metadata } = req.body;
-
     try {
         const paymentIntent = await stripe.paymentIntents.create({
             currency: "EUR",
-            amount: amount * 100,
+            amount: price * 100,
             automatic_payment_methods: { enabled: true },
             metadata: {
-                images,
-                ...metadata
+                images: JSON.stringify(images),
+                ...req.body
             },
         });
 
@@ -72,5 +70,11 @@ const handler = async (req, res) => {
         });
     }
 }
+
+export const config = {
+    api: {
+        bodyParser: false,
+    },
+};
 
 export default handler;

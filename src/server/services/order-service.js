@@ -1,4 +1,5 @@
 import { BASIC_PRICE, DELIVERY_ITEMS, ERROR_MESSAGE, PET_IMAGE_PRICE, SIZE_ITEMS } from '@utils/defines';
+import { getJsonString } from '@utils/helpers';
 import connectDB from 'src/server/middleware/mongodb';
 import Order from 'src/server/models/Order';
 import mailTrap from 'src/server/services/mail-trap';
@@ -22,6 +23,8 @@ export const createOrder = connectDB(async (orderData) => {
     const shipping = {
         country, address, zip, phone
     }
+
+    const images = getJsonString(orderData.images) || orderData.images
 
     const order = new Order({
         orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images, shipping

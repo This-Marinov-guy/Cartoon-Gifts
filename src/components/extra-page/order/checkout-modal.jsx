@@ -73,15 +73,14 @@ const CheckoutModal = (props) => {
     const submitOrder = async () => {
         setPortalLoading(true);
         const formData = checkoutStore.setFormData();
-        const response = await sendRequest('/api/order/payment-intent', 'POST', {
-            amount: checkout.price,
-            metadata: { method: 'order', ...formData }
-        })
+
+        const response = await sendRequest('/api/order/payment-intent', 'POST', formData);
 
         if (response && response.status) {
             setClientSecret(response.clientSecret)
-            setPortalLoading(false);
         }
+
+        setPortalLoading(false);
     }
 
     const body = clientSecret ? <PaymentElement
