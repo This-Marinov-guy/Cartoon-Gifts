@@ -45,6 +45,7 @@ const handler = async (req, res) => {
             images.push(response.secure_url);
         } catch (error) {
             console.log(error);
+            return res.status(200).json({ status: false, message: 'It looks like you have an image that is unsupported type or exceeds 5Mb - please change it and try again!' });
         }
     }
 

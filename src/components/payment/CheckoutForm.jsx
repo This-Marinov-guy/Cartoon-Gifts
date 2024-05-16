@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useToast } from '@chakra-ui/react';
 import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import SkeletonOne from "@components/common/loading/SkeletonOne";
+import { ModalFooter, } from '@chakra-ui/react'
 
 const CheckoutForm = (props) => {
     const stripe = useStripe();
@@ -31,7 +32,7 @@ const CheckoutForm = (props) => {
         if (error.type === "card_error" || error.type === "validation_error") {
             toast({
                 title: error.message,
-                status: 'warning',
+                status: 'error',
                 duration: 15000,
                 isClosable: true,
             })
@@ -39,7 +40,7 @@ const CheckoutForm = (props) => {
         } else {
             toast({
                 title: "An unexpected error occured.",
-                status: 'warning',
+                status: 'error',
                 duration: 15000,
                 isClosable: true,
             })
