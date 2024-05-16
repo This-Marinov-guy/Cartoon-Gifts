@@ -84,9 +84,7 @@ export default class CheckoutStore {
     }
 
     @action
-    setFormData() {
-        this.checkout.price = 2;
-        
+    setFormData() {        
         const formData = new FormData();
         formData.append('method', 'order');
         [...this.checkout.peopleImages, ...this.checkout.petImages].forEach((image) => {
