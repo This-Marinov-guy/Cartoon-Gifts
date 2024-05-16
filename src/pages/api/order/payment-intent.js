@@ -54,6 +54,7 @@ const handler = async (req, res) => {
             amount: price * 100,
             automatic_payment_methods: { enabled: true },
             metadata: {
+                orderNumber,
                 images: JSON.stringify(images),
                 ...req.body
             },
