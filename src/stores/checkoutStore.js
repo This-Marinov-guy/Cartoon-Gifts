@@ -101,7 +101,7 @@ export default class CheckoutStore {
         formData.append("description", this.checkout.description);
         formData.append("size", this.checkout.size.property);
         formData.append("delivery", this.checkout.delivery.property);
-        formData.append("price", 2);
+        formData.append("price", this.checkout.price);
 
         if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
             formData.append("country", this.checkout.shipping.country);
