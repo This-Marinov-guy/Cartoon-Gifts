@@ -23,10 +23,22 @@
       {{/if}}
     </p>
     <p>Hobby: {{hobby}}</p>
-    <p>Label: {{hasPet}}</p>
+    <p>Label: {{#if label}}
+      <span>{{label}}</span>
+      {{else}}
+      <span>No Label</span>
+      {{/if}}</p>
     <p>Description: {{description}}</p>
     <p>Size: {{size}}</p>
     <p>Delivery: {{delivery}}</p>
+    {{#if shipping}}
+    <hr/>
+    <p>Delivery address</p>
+    <p>Country: {{shipping.country}}</p>
+    <p>address: {{shipping.address}}</p>
+    <p>zip: {{shipping.zip}}</p>
+    <p>phone: {{shipping.phone}}</p>
+    <hr/>
     <p>Estimated price: {{price}}</p>
     <hr />
     <h3>Images</h3>

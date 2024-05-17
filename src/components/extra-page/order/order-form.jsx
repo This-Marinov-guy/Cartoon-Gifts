@@ -75,10 +75,6 @@ const OrderForm = () => {
         }
     }
 
-    useEffect(() => {
-        askBeforeRedirect();
-    }, []);
-
     return (
         <Fragment>
             <CheckoutModal isOpen={isCheckoutModalOpen}

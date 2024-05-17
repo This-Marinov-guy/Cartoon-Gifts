@@ -58,14 +58,14 @@ const portfolio_data = [
   },
   {
     id: 7,
-    title: "Baby Birthday",
+    title: "Golden Birthday",
     image: portfolio_img_7,
     catagory_title: "Development",
     catagory_list: "UI/UX",
   },
   {
     id: 8,
-    title: "Newborn",
+    title: "BIrthday",
     image: portfolio_img_8,
     catagory_title: "Website Development",
     catagory_list: "Webpage",
@@ -93,14 +93,14 @@ const portfolio_data = [
   },
   {
     id: 12,
-    title: "Baby Birthday",
+    title: "Engagement",
     image: portfolio_img_12,
     catagory_title: "Development",
     catagory_list: "UI/UX",
   },
   {
     id: 13,
-    title: "Newborn",
+    title: "Team party",
     image: portfolio_img_13,
     catagory_title: "Website Development",
     catagory_list: "Webpage",
