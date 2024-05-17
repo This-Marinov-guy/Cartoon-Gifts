@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import site_logo from "@assets/images/logo/logo-title.png";
 import icon_globe from "@assets/images/icons/icon_globe.svg";
 import Image from "next/image";
@@ -44,7 +44,9 @@ const HeaderSix = () => {
             </div>
             <div className="header_right">
               <div className="header_btns_group d-none d-lg-flex center_div" style={{ gap: '15px' }}>
-                {/* <GoogleTranslateDesktop /> */}
+                <div className="translate" style={{ width: '200px' }}>
+
+                </div>
                 <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '200px' }}>
                   <span className="bd-button-content-wrapper">
                     <span className="pd-animation-flip">
