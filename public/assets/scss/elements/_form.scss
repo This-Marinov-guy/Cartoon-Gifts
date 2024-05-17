@@ -16,6 +16,17 @@
     border-color: $color_primary;
   }
 }
+.currency-input {
+  caret-color: $color_primary;
+  transition: $transition_fast;
+  border-radius: 2px;
+  background-color: $color_white;
+  border: 0.5px solid rgba(83, 85, 223, 0.2);
+  &:focus {
+    box-shadow: none;
+    border-color: $color_primary;
+  }
+}
 select.form-control,
 input.form-control {
   height: 60px;

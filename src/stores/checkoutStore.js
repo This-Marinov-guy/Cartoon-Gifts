@@ -1,4 +1,4 @@
-import { BASIC_PRICE, DELIVERY_ITEMS, SIZE_ITEMS } from "@utils/defines";
+import { BASIC_PRICE, CURRENCIES, DELIVERY_ITEMS, SIZE_ITEMS } from "@utils/defines";
 import { action, makeAutoObservable, observable } from "mobx"
 
 export default class CheckoutStore {
@@ -84,7 +84,7 @@ export default class CheckoutStore {
     }
 
     @action
-    setFormData() {        
+    setFormData(selectedCurrency = 'EUR') {
         const formData = new FormData();
         formData.append('method', 'order');
         [...this.checkout.peopleImages, ...this.checkout.petImages].forEach((image) => {
@@ -101,7 +101,11 @@ export default class CheckoutStore {
         formData.append("description", this.checkout.description);
         formData.append("size", this.checkout.size.property);
         formData.append("delivery", this.checkout.delivery.property);
-        formData.append("price", this.checkout.price);
+
+        const currency = CURRENCIES.find((c) => c.value = selectedCurrency) || CURRENCIES[0];
+
+        formData.append("price", this.checkout.price * currency.multiplier);
+        formData.append("currency", currency.value);
 
         if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
             formData.append("country", this.checkout.shipping.country);

@@ -16,6 +16,7 @@ import SuccessComp from '@components/common/success/SuccessComp'
 import CheckoutForm from '@components/payment/CheckoutForm'
 import PaymentElement from '@components/payment/PaymentElement'
 import SkeletonOne from '@components/common/loading/SkeletonOne'
+import PriceAndCurrency from '@components/common/inputs/price-and-currency'
 
 const CheckoutModal = (props) => {
     const { checkoutStore } = useStore();
@@ -124,7 +125,7 @@ const CheckoutModal = (props) => {
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
                 {!clientSecret && <ModalFooter>
-                    <h5 className='mr-20'>Total: {checkout.price} €</h5>
+                    <PriceAndCurrency price={checkout.price} />
                     <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
                         Back
                     </button>

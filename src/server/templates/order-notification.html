@@ -9,39 +9,40 @@
     </style>
   </head>
   <body>
-    <h1>Order Number {{orderNumber}}</h1>
+    <h1>Номер на поръчката {{orderNumber}}</h1>
     <hr />
-    <p>Name: {{name}}</p>
-    <p>Email: {{email}}</p>
-    <p>Occasion: {{occasion}}</p>
-    <p>Profession: {{profession}}</p>
+    <p>Име: {{name}}</p>
+    <p>Имейл: {{email}}</p>
+    <p>Повод: {{occasion}}</p>
+    <p>Професия: {{profession}}</p>
     <p>
-      Pet included: {{#if hasPet}}
-      <span>Yes</span>
+      Да има ли домашен любимец: {{#if hasPet}}
+      <span>Да</span>
       {{else}}
-      <span>No</span>
+      <span>Не</span>
       {{/if}}
     </p>
-    <p>Hobby: {{hobby}}</p>
-    <p>Label: {{#if label}}
+    <p>Хоби: {{hobby}}</p>
+    <p>Надпис: {{#if label}}
       <span>{{label}}</span>
       {{else}}
-      <span>No Label</span>
+      <span>няма надпис</span>
       {{/if}}</p>
-    <p>Description: {{description}}</p>
-    <p>Size: {{size}}</p>
-    <p>Delivery: {{delivery}}</p>
+    <p>Описание на желанието на клиента: {{description}}</p>
+    <p>Размер: {{size}}</p>
+    <p>Доставка: {{delivery}}</p>
     {{#if shipping}}
     <hr/>
-    <p>Delivery address</p>
-    <p>Country: {{shipping.country}}</p>
-    <p>address: {{shipping.address}}</p>
-    <p>zip: {{shipping.zip}}</p>
-    <p>phone: {{shipping.phone}}</p>
+    <p>Адрес за доставка</p>
+    <p>Държава: {{shipping.country}}</p>
+    <p>адрес: {{shipping.address}}</p>
+    <p>пощенски код: {{shipping.zip}}</p>
+    <p>телефон: {{shipping.phone}}</p>
     <hr/>
-    <p>Estimated price: {{price}}</p>
+    {{/if}}
+    <p>Обявена цена: {{price}}</p>
     <hr />
-    <h3>Images</h3>
+    <h3>Снимки</h3>
     {{#each images}}
     <img src={{this}} alt="Image">
     </img>

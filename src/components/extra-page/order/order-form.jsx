@@ -4,12 +4,13 @@ import RadioCard from '@components/common/inputs/radio-card'
 import RadioPrice from '@components/common/inputs/radio-price'
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import { SIZE_ITEMS, DELIVERY_ITEMS, PET_OPTIONS, PERSON_IMAGE_PRICE, PET_IMAGE_PRICE, SHIPPING_COUNTRIES } from '@utils/defines';
+import { SIZE_ITEMS, DELIVERY_ITEMS, PET_OPTIONS, PERSON_IMAGE_PRICE, PET_IMAGE_PRICE, SHIPPING_COUNTRIES, CURRENCIES } from '@utils/defines';
 import { observer } from 'mobx-react-lite';
 import { useStore } from 'src/stores/storeContext';
 import CheckoutModal from './checkout-modal';
 import { useToast } from '@chakra-ui/react';
 import { askBeforeRedirect } from '@utils/globals';
+import PriceAndCurrency from '@components/common/inputs/price-and-currency';
 
 const OrderForm = () => {
     const { checkoutStore } = useStore();
@@ -309,7 +310,7 @@ const OrderForm = () => {
                                 }
                                 <div className='col-6 mt-30'>
                                     <div>
-                                        <h5>Total: {checkout.price} €</h5>
+                                        <PriceAndCurrency price={checkout.price} />
                                         <button type="submit" onClick={() => handleErrorMsg(errors, isValid, dirty)} className="bd-btn-link">
                                             <span className="bd-button-content-wrapper">
                                                 <span className="bd-button-icon">

@@ -26,7 +26,7 @@ const handler = async (req, res) => {
     await runMiddleware(req, res, myUploadMiddleware);
 
     const orderNumber = uuidv4();
-    const { name, price } = req.body;
+    const { name, price, currency } = req.body;
     const images = [];
 
     for (let i = 0; i < req.files.length; i++) {
@@ -51,7 +51,7 @@ const handler = async (req, res) => {
 
     try {
         const paymentIntent = await stripe.paymentIntents.create({
-            currency: "EUR",
+            currency,
             amount: price * 100,
             automatic_payment_methods: { enabled: true },
             metadata: {

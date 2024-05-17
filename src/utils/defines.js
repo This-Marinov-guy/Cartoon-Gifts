@@ -6,6 +6,11 @@ export const SHIPPING_COUNTRIES = [
     { value: 'romania', label: 'Romania' },
 ];
 
+export const CURRENCIES = [
+    {value: 'EUR', label: 'euro', symbol: '€', multiplier: 1},
+    {value: 'BGN', label: 'лева', symbol: 'лв.', multiplier: 2},
+]
+
 export const SIZE_ITEMS = [
     {
         property: 'A4',
