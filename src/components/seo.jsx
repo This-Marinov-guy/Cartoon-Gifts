@@ -15,11 +15,11 @@ const SEO = ({ pageTitle, font }) => (
       <meta name="theme-color" content="#000000" />
       {/* <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> */}
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-      <meta name="robots" content="noindex, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
       {font && <link href={font} rel="stylesheet" />}
       <link rel="icon" href="/favicon.ico" />
+      <link rel="robots" href="/robots.txt" />
     </Head>
   </>
 );
