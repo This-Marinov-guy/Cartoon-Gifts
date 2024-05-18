@@ -41,6 +41,8 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
               </div>
             </div>
             <div className="header_btns_group center_div" style={{ flexDirection: 'column', gap: '15px' }}>
+            <div className="translate-switcher" style={{ height: '50px', width: '200px' }}>
+                </div>
              {/* <GoogleTranslateDesktop /> */}
               <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
                 <span className="b  yd-button-content-wrapper">
