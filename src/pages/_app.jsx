@@ -23,23 +23,25 @@ function MyApp({ Component, pageProps }) {
         strategy="lazyOnload" // Other options: "beforeInteractive", "afterInteractive", "lazyOnload"
         onLoad={() => Weglot.initialize({
           api_key: 'wg_de22bcb9e9ad87316072cfbeec7c3f062',
-          switchers: [
-            {
-              style: {
-                full_name: false,
-                with_name: true,
-                is_dropdown: true,
-                with_flags: true,
-                flag_type: "circle",
-                invert_flags: false
-              },
-              // Move switcher somewhere in the page
-              location: {
-                target: ".translate-switcher",
-                sibling: null
-              }
-            }
-          ], cache: true,
+          hide_switcher: true,
+          // switchers: [
+          //   {
+          //     style: {
+          //       full_name: false,
+          //       with_name: true,
+          //       is_dropdown: true,
+          //       with_flags: true,
+          //       flag_type: "circle",
+          //       invert_flags: false
+          //     },
+          //     // Move switcher somewhere in the page
+          //     location: {
+          //       target: ".translate-switcher",
+          //       sibling: null
+          //     }
+          //   }
+          // ],
+          cache: true,
           auto_switch: true,
           auto_switch_fallback: "en",
           wait_transition: true,
