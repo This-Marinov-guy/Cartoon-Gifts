@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
           "https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
         }
       />
-      <Script
+      {/* <Script
         src="https://cdn.weglot.com/weglot.min.js"
         strategy="lazyOnload" // Other options: "beforeInteractive", "afterInteractive", "lazyOnload"
         onLoad={() => Weglot.initialize({
@@ -45,6 +45,14 @@ function MyApp({ Component, pageProps }) {
           auto_switch: true,
           auto_switch_fallback: "en",
           wait_transition: true,
+        })}
+      /> */}
+      <Script src="//cdn.conveythis.com/javascript/conveythis-initializer.js"
+        strategy="lazyOnload" // Other options: "beforeInteractive", "afterInteractive", "lazyOnload"
+        onLoad={() => document.addEventListener("DOMContentLoaded", function (e) {
+          ConveyThis_Initializer.init({
+            api_key: "pub_af1f4825a77a06596ebd36af4110510f"
+          });
         })}
       />
       <StoreProvider>
