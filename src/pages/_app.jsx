@@ -22,7 +22,12 @@ function MyApp({ Component, pageProps }) {
         src="https://cdn.weglot.com/weglot.min.js"
         strategy="lazyOnload" // Other options: "beforeInteractive", "afterInteractive", "lazyOnload"
         onLoad={() => Weglot.initialize({
-          api_key: 'wg_de22bcb9e9ad87316072cfbeec7c3f062'
+          api_key: 'wg_de22bcb9e9ad87316072cfbeec7c3f062',
+          hide_switcher: true,
+          cache: true,
+          auto_switch: true,
+          auto_switch_fallback: "en",
+          wait_transition: true,
         })}
       />
       <StoreProvider>
