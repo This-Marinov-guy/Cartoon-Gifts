@@ -49,11 +49,11 @@ function MyApp({ Component, pageProps }) {
       /> */}
       <Script src="//cdn.conveythis.com/javascript/conveythis-initializer.js"
         strategy="lazyOnload" // Other options: "beforeInteractive", "afterInteractive", "lazyOnload"
-        onLoad={() => document.addEventListener("DOMContentLoaded", function (e) {
+        onLoad={() =>
           ConveyThis_Initializer.init({
             api_key: "pub_af1f4825a77a06596ebd36af4110510f"
-          });
-        })}
+          })
+        }
       />
       <StoreProvider>
         <ChakraProvider toastOptions={{ defaultOptions: { position: 'top' } }}>
