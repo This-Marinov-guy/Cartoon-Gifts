@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }) {
         strategy="lazyOnload" // Other options: "beforeInteractive", "afterInteractive", "lazyOnload"
         onLoad={() =>
           ConveyThis_Initializer.init({
-            api_key: "pub_af1f4825a77a06596ebd36af4110510f"
+            api_key: process.env.NEXT_PUBLIC_CONVEY_THIS
           })
         }
       />
