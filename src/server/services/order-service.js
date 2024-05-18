@@ -33,15 +33,16 @@ export const createOrder = connectDB(async (orderData) => {
     try {
         await order.save();
 
-        if (await mailTrap({
+        const clientEmailResponse = await mailTrap({
             receiver: email,
             template_uuid: 'b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a',
             subject: 'Order Confirmed',
             data: {
                 orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images, shipping
             }
-        })) {
+        })
 
+        if (clientEmailResponse) {
             await nodeMailer({
                 subject: `New Order ${orderNumber}`,
                 template: 'order-notification.html',
