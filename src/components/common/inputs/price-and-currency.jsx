@@ -8,9 +8,9 @@ const PriceAndCurrency = (props) => {
     const { currency } = currencyStore
 
     return (
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: '10px', marginBottom: '10px' }}>
-            <h5 style={{width: '130px'}}>Total: {props.price * currency.multiplier} {currency.symbol}</h5>
-            {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className='price-currency-container'>
+            <h5>Total: {props.price * currency.multiplier} {currency.symbol}</h5>
+            <div className='price-currency-label'>
                 <small>Currency</small>
                 <select className='currency-input' value={currency.value} onChange={(event) => currencyStore.setCurrencyByValue(event.target.value)}>
                     {CURRENCIES.map((option, index) => (
@@ -19,7 +19,7 @@ const PriceAndCurrency = (props) => {
                         </option>
                     ))}
                 </select>
-            </div> */}
+            </div>
         </div>
     )
 }

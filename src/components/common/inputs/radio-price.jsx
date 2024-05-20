@@ -7,7 +7,7 @@ const RadioPrice = (props) => {
             {props.desc && <Badge className='card-badge-desc' colorScheme='yellow'>{props.desc}</Badge>}
             {props.active && <Badge className='card-badge' colorScheme='blue'><i className="fa-solid fa-check"></i></Badge>}
             <h5>{props.property}</h5>
-            <small style={{ margin: '10px 0 0 5px' }}>{props.price}</small>
+            <small>{props.price}</small>
         </div>
     )
 }

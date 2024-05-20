@@ -3,7 +3,7 @@ import { useClickAway } from "react-use";
 
 const NiceSelect = ({options,defaultCurrent, placeholder,className,onChange,name}) => {
     const [open, setOpen] = useState(false);
-    const [current, setCurrent] = useState(options[defaultCurrent]);
+    const [current, setCurrent] = useState('Bulgarian');
     const onClose = useCallback(() => {
         setOpen(false);
     }, []);

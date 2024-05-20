@@ -19,13 +19,8 @@
 .currency-input {
   caret-color: $color_primary;
   transition: $transition_fast;
-  border-radius: 2px;
-  background-color: $color_white;
-  border: 0.5px solid rgba(83, 85, 223, 0.2);
-  &:focus {
-    box-shadow: none;
-    border-color: $color_primary;
-  }
+  border-radius: 5px;
+  border: 1px solid $color_primary;
 }
 select.form-control,
 input.form-control {
@@ -484,6 +479,13 @@ textarea {
   border-radius: 10px !important;
 }
 
+.card-price small {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0 0 5px;
+  width: 50px;
+}
+
 // Inputs
 
 .image_input {
@@ -499,4 +501,20 @@ textarea {
 
 .payment_form {
   padding: 2% 5%;
+}
+
+.price-currency-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  &h5 {
+    width: 120px;
+  }
+}
+
+.price-currency-label {
+  display: flex;
+  flex-direction: column;
 }

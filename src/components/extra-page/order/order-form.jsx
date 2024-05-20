@@ -13,9 +13,11 @@ import { askBeforeRedirect } from '@utils/globals';
 import PriceAndCurrency from '@components/common/inputs/price-and-currency';
 
 const OrderForm = () => {
-    const { checkoutStore } = useStore();
+    const { currencyStore, checkoutStore } = useStore();
+    const { multiplier, symbol } = currencyStore.currency;
     const { checkout, invalidFields } = checkoutStore;
     const toast = useToast();
+
 
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
 
@@ -65,8 +67,8 @@ const OrderForm = () => {
         }
     }
 
-    const handleErrorMsg = (errors, isValid, dirty) => {
-        if (errors && !isValid && dirty) {
+    const handleErrorMsg = (errors, isValid) => {
+        if (errors && !isValid) {
             toast({
                 title: "You have some missing fields - please fill them and submit again",
                 status: 'warning',
@@ -203,7 +205,7 @@ const OrderForm = () => {
                                     {invalidFields.includes('invalidPeopleFiles') && <p className='error'>There was a problem with some of your files - they are either corrupted or exceed 5MB</p>}
                                     <small style={{ marginTop: '5px' }}>
                                         Make sure to:<br />
-                                        - add pictures for any face you want on your cartoon (+{PERSON_IMAGE_PRICE}€ for each)<br />
+                                        - add pictures for any face you want on your cartoon (+{PERSON_IMAGE_PRICE * multiplier} {symbol} for each)<br />
                                         - describe what will be the background (beach, mountains, yacht, etc.)<br />
                                         - tell us are there any items with you (bottles, cars, helicopter, etc.) <br />
                                         - add anything that can be helpful
@@ -237,7 +239,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {SIZE_ITEMS.map((item, index) => {
                                             return (
-                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'size')} property={item.property} price={!isNaN(item.price) && `+${item.price} €`} active={checkout.size.property == item.property} />
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'size')} property={item.property} price={!isNaN(item.price) && `+${item.price * multiplier} ${symbol}`} active={checkout.size.property == item.property} />
                                             )
                                         })}
                                     </div>
@@ -248,7 +250,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {DELIVERY_ITEMS.map((item, index) => {
                                             return (
-                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'delivery')} property={item.property} price={!isNaN(item.price) && `+${item.price} €`} active={checkout.delivery.property == item.property} />
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'delivery')} property={item.property} price={!isNaN(item.price) && `+${item.price * multiplier} ${symbol}`} active={checkout.delivery.property == item.property} />
                                             )
                                         })}
                                     </div>
@@ -311,7 +313,7 @@ const OrderForm = () => {
                                 <div className='col-6 mt-30'>
                                     <div>
                                         <PriceAndCurrency price={checkout.price} />
-                                        <button type="submit" onClick={() => handleErrorMsg(errors, isValid, dirty)} className="bd-btn-link">
+                                        <button type="submit" onClick={() => handleErrorMsg(errors, isValid)} className="bd-btn-link">
                                             <span className="bd-button-content-wrapper">
                                                 <span className="bd-button-icon">
                                                     <i className="fa-light fa-arrow-right-long"></i>

@@ -4,11 +4,14 @@ import { useToast } from '@chakra-ui/react';
 import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import SkeletonOne from "@components/common/loading/SkeletonOne";
 import { ModalFooter, } from '@chakra-ui/react'
+import { useStore } from "src/stores/storeContext";
 
 const CheckoutForm = (props) => {
     const stripe = useStripe();
     const elements = useElements();
     const toast = useToast();
+
+    const { currencyStore } = useStore();
 
     const [isProcessing, setIsProcessing] = useState(false);
 
@@ -54,7 +57,7 @@ const CheckoutForm = (props) => {
             <PaymentElement id="payment-element" />
             {/* Show any error or success messages */}
             <div className='mt-15'>
-                <h5>Total: {props.paymentProperties.amount} €</h5>
+                <h5>Total: {props.paymentProperties * currencyStore.currency.multiplier} {currencyStore.currency.symbol}</h5>
                 <button type="button" onClick={props.onClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
                     Back
                 </button>

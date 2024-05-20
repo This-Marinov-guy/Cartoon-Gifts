@@ -6,9 +6,11 @@ import Link from "next/link";
 import Menus from "./menus";
 import OffCanvasMain from "@components/common/off-canvas";
 import GoogleTranslateDesktop from "@ui/google-translate-desktop";
+import NiceSelect from "@ui/niceSelect";
 
 const HeaderSix = () => {
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
+  const selectHandler = e => { }
 
   return (
     <>
@@ -44,8 +46,26 @@ const HeaderSix = () => {
             </div>
             <div className="header_right">
               <div className="header_btns_group d-none d-lg-flex center_div" style={{ gap: '15px' }}>
-                <div id="translate-switcher" style={{ height: '50px', width: '200px' }}>
-                </div>
+                {/* <div className="select_option m-0">
+                  <div className="icon_wrap">
+                    <Image
+                      src={icon_globe}
+                      style={{ width: "40px", height: "auto" }}
+                      alt="Globe Icon"
+                    />
+                  </div>
+                  <NiceSelect
+                    options={[
+                      { value: "English", text: "English" },
+                      { value: "Arabic", text: "Arabic" },
+                      { value: "Portuguese", text: "Portuguese" },
+                      { value: "French", text: "French" },
+                    ]}
+                    defaultCurrent={0}
+                    onChange={selectHandler}
+                    name="English"
+                  />
+                </div> */}
                 <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '200px' }}>
                   <span className="bd-button-content-wrapper">
                     <span className="pd-animation-flip">
