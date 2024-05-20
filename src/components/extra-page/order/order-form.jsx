@@ -64,6 +64,13 @@ const OrderForm = () => {
 
         if (validate) {
             setIsCheckoutModalOpen(true);
+        } else {
+            toast({
+                title: "You have some missing fields - please fill them and submit again",
+                status: 'warning',
+                duration: 10000,
+                isClosable: true,
+            })
         }
     }
 
