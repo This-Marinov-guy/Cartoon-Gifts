@@ -64,6 +64,8 @@ export default class CheckoutStore {
 
     @action
     validate() {
+        this.invalidFields = [];
+
         if (!this.checkout.delivery.property) {
             this.invalidFields = [...this.invalidFields, 'delivery']
         }
@@ -84,7 +86,7 @@ export default class CheckoutStore {
     }
 
     @action
-    setFormData(selectedCurrency = 'EUR') {
+    setFormData(selectedCurrency) {
         const formData = new FormData();
         formData.append('method', 'order');
         [...this.checkout.peopleImages, ...this.checkout.petImages].forEach((image) => {
@@ -98,12 +100,13 @@ export default class CheckoutStore {
         formData.append("hobby", this.checkout.hobby);
         formData.append("label", this.checkout.label);
         formData.append("hasPet", this.checkout.petImages.length > 0);
-        formData.append("description", this.checkout.description);
+        formData.append("description", this.checkout.description || 'We will handle the description for you!');
         formData.append("size", this.checkout.size.property);
         formData.append("delivery", this.checkout.delivery.property);
 
-        const currency = CURRENCIES.find((c) => c.value = selectedCurrency) || CURRENCIES[0];
+        const currency = CURRENCIES.find(c => c.value === selectedCurrency) || CURRENCIES[0];
 
+        console.log(currency);
         formData.append("price", this.checkout.price * currency.multiplier);
         formData.append("currency", currency.value);
 

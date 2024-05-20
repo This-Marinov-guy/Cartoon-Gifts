@@ -12,14 +12,13 @@ import { observer } from 'mobx-react-lite'
 import { Spinner } from '@chakra-ui/react'
 import { useStore } from 'src/stores/storeContext'
 import { useHttpClient } from '@hooks/use-http-request'
-import SuccessComp from '@components/common/success/SuccessComp'
-import CheckoutForm from '@components/payment/CheckoutForm'
 import PaymentElement from '@components/payment/PaymentElement'
 import SkeletonOne from '@components/common/loading/SkeletonOne'
 import PriceAndCurrency from '@components/common/inputs/price-and-currency'
 
 const CheckoutModal = (props) => {
-    const { checkoutStore } = useStore();
+    const { currencyStore, checkoutStore } = useStore();
+    const { currency } = currencyStore;
     const { checkout } = checkoutStore;
 
     const { sendRequest, loading } = useHttpClient();
@@ -73,7 +72,7 @@ const CheckoutModal = (props) => {
 
     const submitOrder = async () => {
         setPortalLoading(true);
-        const formData = checkoutStore.setFormData();
+        const formData = checkoutStore.setFormData(currency.value);
 
         const response = await sendRequest('/api/order/payment-intent', 'POST', formData);
 
@@ -91,7 +90,8 @@ const CheckoutModal = (props) => {
             successUrl: `${window.location.origin}/order/success`,
             failUrl: `${window.location.origin}/order/fail`,
             email: checkout.email,
-            amount: checkout.price
+            amount: checkout.price,
+            currency: currencyStore.currency,
         }}
     /> : <Fragment>
         <h5 className='mb-20'>Your Details</h5>
@@ -125,7 +125,7 @@ const CheckoutModal = (props) => {
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
                 {!clientSecret && <ModalFooter>
-                    <PriceAndCurrency price={checkout.price} />
+                    <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}>Total: {checkout.price * currency.multiplier} {currency.symbol}</h5>
                     <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
                         Back
                     </button>

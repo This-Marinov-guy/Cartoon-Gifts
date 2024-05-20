@@ -11,7 +11,7 @@ const CheckoutForm = (props) => {
     const elements = useElements();
     const toast = useToast();
 
-    const { currencyStore } = useStore();
+    const payment = props.paymentProperties;
 
     const [isProcessing, setIsProcessing] = useState(false);
 
@@ -27,8 +27,8 @@ const CheckoutForm = (props) => {
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: props.paymentProperties.successUrl,
-                receipt_email: props.paymentProperties.email,
+                return_url: payment.successUrl,
+                receipt_email: payment.email,
             },
         });
 
@@ -57,7 +57,7 @@ const CheckoutForm = (props) => {
             <PaymentElement id="payment-element" />
             {/* Show any error or success messages */}
             <div className='mt-15'>
-                <h5>Total: {props.paymentProperties * currencyStore.currency.multiplier} {currencyStore.currency.symbol}</h5>
+                <h5>Total: {payment.amount * payment.currency.multiplier} {payment.currency.symbol}</h5>
                 <button type="button" onClick={props.onClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
                     Back
                 </button>
