@@ -1,9 +1,10 @@
 //PRICING
 
 export const SHIPPING_COUNTRIES = [
-    { value: 'bulgaria', label: 'Bulgaria' },
     { value: 'england', label: 'United Kingdom' },
+    { value: 'bulgaria', label: 'Bulgaria' },
     { value: 'romania', label: 'Romania' },
+    { value: 'serbia', label: 'Serbia' },
 ];
 
 
@@ -35,7 +36,7 @@ export const SIZE_ITEMS = [
     },
     {
         property: 'A1',
-        price: 45
+        price: 35
     }
 ]
 
@@ -46,7 +47,7 @@ export const DELIVERY_ITEMS = [
     },
     {
         property: 'Normal (Physical)',
-        price: 5
+        price: 7
     },
     {
         property: 'Express (Physical)',
@@ -65,7 +66,7 @@ export const PET_OPTIONS = [
 
 export const BASIC_PRICE = 30
 export const PERSON_IMAGE_PRICE = 5
-export const PET_IMAGE_PRICE = 2
+export const PET_IMAGE_PRICE = 0
 
 // ERROR MESSAGES
 

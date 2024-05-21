@@ -141,6 +141,7 @@ export default class CheckoutStore {
             zip: '',
             phone: ''
         }
+        
         this.invalidFields = []
     }
 }
