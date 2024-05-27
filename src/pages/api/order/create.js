@@ -30,16 +30,12 @@ const handler = async (req, res) => {
     const images = [];
     const name = req.body.name;
 
-    // if (!validatePrice({ size, delivery, price }, req.files)) {
-    //     return res.status(200).json({ status: false, message: ERROR_MESSAGE })
-    // }
-
     for (let i = 0; i < req.files.length; i++) {
         const file = req.files[i];
         try {
-            if (!file.mimetype.startsWith('image/') || file.size > 5485760) {
-                return res.status(200).json({ status: false, message: 'It looks like you have an image that is unsupported type or exceeds 5Mb - please change it and try again!' });
-            }
+            // if (!file.mimetype.startsWith('image/') || file.size > 5485760) {
+            //     return res.status(200).json({ status: false, message: 'It looks like you have an image that is unsupported type or exceeds 5Mb - please change it and try again!' });
+            // }
 
             const b64 = Buffer.from(file.buffer).toString('base64');
             const dataURI = `data:${file.mimetype};base64,${b64}`;

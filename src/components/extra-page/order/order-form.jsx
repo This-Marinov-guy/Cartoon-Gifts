@@ -114,7 +114,7 @@ const OrderForm = () => {
                         phone: checkout.shipping.phone,
                     }}
                 >
-                    {({ values, errors, isValid, dirty, touched }) => (
+                    {({ values, errors, isValid, touched }) => (
                         <Form
                             encType="multipart/form-data"
                             id="form"
