@@ -55,7 +55,7 @@ const FooterSix = () => {
                   <h3 className="social_title">Follow Us on :</h3>
                   <ul className="social_icon unordered_list">
                     <li><Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
-                    <li><Link href="https://instagram.com/" target="_blank"><i className="fab fa-instagram"></i></Link></li>
+                    <li><Link href="https://www.instagram.com/cartoongiftsbulgaria/?hl=en.com/" target="_blank"><i className="fab fa-instagram"></i></Link></li>
                   </ul>
                 </div>
               </div>
