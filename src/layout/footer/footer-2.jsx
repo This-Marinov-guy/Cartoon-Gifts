@@ -110,7 +110,7 @@ const FooterTwo = () => {
                     <div className="small_newsletter_form style_2">
                       <label className="input_icon" htmlFor="input_newsletter"><i className="fas fa-envelope"></i></label>
                       <input id="input_newsletter" type="email" placeholder="Email Adreess"/>
-                      <button type="submit">
+                      <button>
                         <i className="far fa-arrow-right"></i>
                       </button>
                     </div>
