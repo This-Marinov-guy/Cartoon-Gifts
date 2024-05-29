@@ -74,8 +74,8 @@ const OrderForm = () => {
         }
     }
 
-    const handleErrorMsg = (errors, isValid) => {
-        if (errors && !isValid) {
+    const handleErrorMsg = (errors, isValid, dirty) => {
+        if (errors && !isValid && !dirty) {
             toast({
                 title: "You have some missing fields - please fill them and submit again",
                 status: 'warning',
@@ -114,7 +114,7 @@ const OrderForm = () => {
                         phone: checkout.shipping.phone,
                     }}
                 >
-                    {({ values, errors, isValid, touched }) => (
+                    {({ values, errors, isValid, touched, dirty }) => (
                         <Form
                             encType="multipart/form-data"
                             id="form"
@@ -320,7 +320,7 @@ const OrderForm = () => {
                                 <div className='col-6 mt-30'>
                                     <div>
                                         <PriceAndCurrency price={checkout.price} />
-                                        <button type="submit" onClick={() => handleErrorMsg(errors, isValid)} className="bd-btn-link">
+                                        <button type="submit" onClick={() => handleErrorMsg(errors, isValid, dirty)} className="bd-btn-link">
                                             <span className="bd-button-content-wrapper">
                                                 <span className="bd-button-icon">
                                                     <i className="fa-light fa-arrow-right-long"></i>

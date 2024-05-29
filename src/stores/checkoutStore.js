@@ -87,7 +87,6 @@ export default class CheckoutStore {
 
     @action
     setFormData(selectedCurrency) {
-        this.checkout.price = 2;
         const formData = new FormData();
         formData.append('method', 'order');
         [...this.checkout.peopleImages, ...this.checkout.petImages].forEach((image) => {

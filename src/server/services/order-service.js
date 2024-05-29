@@ -19,15 +19,21 @@ export const validatePrice = (inputs, files) => {
 }
 
 export const createOrder = connectDB(async (orderData) => {
-    const { orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, country, address, zip, phone } = orderData;
-    const shipping = {
-        country, address, zip, phone
+    const { orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, currency, country, address, zip, phone } = orderData;
+    let shipping;
+
+    if (!country && !address && !zip && !phone) {
+        shipping = null
+    } else {
+        shipping = {
+            country, address, zip, phone
+        }
     }
 
     const images = getJsonString(orderData.images) || orderData.images
 
     const order = new Order({
-        orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images, shipping
+        orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price: price + ' ' + currency, images, shipping
     })
 
     try {
@@ -38,7 +44,7 @@ export const createOrder = connectDB(async (orderData) => {
             template_uuid: 'b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a',
             subject: 'Order Confirmed',
             data: {
-                orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images, shipping
+                orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, delivery, price: price + ' ' + currency, images, shipping
             }
         })
 
@@ -47,7 +53,7 @@ export const createOrder = connectDB(async (orderData) => {
                 subject: `New Order ${orderNumber}`,
                 template: 'order-notification.html',
                 data: {
-                    orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, images, shipping
+                    orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price: price + ' ' + currency, images, shipping
                 }
             });
         }
