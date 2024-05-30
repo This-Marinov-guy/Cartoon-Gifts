@@ -40,7 +40,7 @@ const Footer = () => {
               <form action="#">
                 <div className="small_newsletter_form">
                   <input type="email" placeholder="Email Adreess" />
-                  <button type="submit">
+                  <button>
                     <i className="far fa-arrow-right"></i>
                   </button>
                 </div>
