@@ -106,7 +106,7 @@ export default class CheckoutStore {
 
         const currency = CURRENCIES.find(c => c.value === selectedCurrency) || CURRENCIES[0];
 
-        formData.append("price", this.checkout.price * currency.multiplier);
+        formData.append("price", Math.ceil(this.checkout.price * currency.multiplier));
         formData.append("currency", currency.value);
 
         if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
