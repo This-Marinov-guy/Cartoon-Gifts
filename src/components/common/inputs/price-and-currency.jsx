@@ -12,7 +12,7 @@ const PriceAndCurrency = (props) => {
 
     return (
         <div className='price-currency-container'>
-            <h5>Total: {props.price * currency.multiplier} {currency.symbol}</h5>
+            <h5>Total: {Math.ceil(props.price * currency.multiplier)} {currency.symbol}</h5>
             {!loading && <div className='price-currency-label'>
                 <small>Currency</small>
                 <select className='currency-input' value={currency.value} onChange={(event) => currencyStore.setCurrencyByValue(event.target.value)}>
