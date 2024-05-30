@@ -125,7 +125,7 @@ const CheckoutModal = (props) => {
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
                 {!clientSecret && <ModalFooter>
-                    <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}>Total: {checkout.price * currency.multiplier} {currency.symbol}</h5>
+                    <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}>Total: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
                     <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
                         Back
                     </button>
