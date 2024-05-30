@@ -52,7 +52,7 @@ const handler = async (req, res) => {
     try {
         const paymentIntent = await stripe.paymentIntents.create({
             currency,
-            amount: price * 100,
+            amount: Math.ceil(price * 100),
             automatic_payment_methods: { enabled: true },
             metadata: {
                 orderNumber,
