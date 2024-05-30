@@ -19,7 +19,8 @@ export const validatePrice = (inputs, files) => {
 }
 
 export const createOrder = connectDB(async (orderData) => {
-    const { orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, price, currency, country, address, zip, phone } = orderData;
+    const { orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, delivery, currency, country, address, zip, phone } = orderData;
+    const price = Math.ceil(orderData.price);
     let shipping;
 
     if (!country && !address && !zip && !phone) {
