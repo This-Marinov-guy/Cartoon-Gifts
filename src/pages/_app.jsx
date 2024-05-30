@@ -13,7 +13,7 @@ import { Analytics } from "@vercel/analytics/react"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Analytics>
+    <>
       <SEO
         font={
           "https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
@@ -27,6 +27,7 @@ function MyApp({ Component, pageProps }) {
           })
         }
       />
+      <Analytics />
       <StoreProvider>
         <ChakraProvider toastOptions={{ defaultOptions: { position: 'top' } }}>
           <Parallax>
@@ -34,7 +35,7 @@ function MyApp({ Component, pageProps }) {
           </Parallax>
         </ChakraProvider>
       </StoreProvider>
-    </Analytics>
+    </>
   );
 }
 
