@@ -96,8 +96,8 @@ const FooterTwo = () => {
                   <h3 className="social_title">Follow Me on :</h3>
                   <ul className="social_icon unordered_list">
                     <li><Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
-                    <li><Link href="https://twitter.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
-                    <li><Link href="https://www.instagram.com/cartoongiftsbulgaria/?hl=en" target="_blank"><i className="fab fa-youtube"></i></Link></li>
+                    <li><Link href="https://www.tiktok.com/@cartoongiftseu" target="_blank"><i className="fab fa-tiktok-f"></i></Link></li>
+                    <li><Link href="https://www.instagram.com/cartoongiftsuk/" target="_blank"><i className="fab fa-youtube"></i></Link></li>
                     <li><Link href="https://www.behance.net/" target="_blank"><i className="fab fa-behance"></i></Link></li>
                     <li><Link href="https://dribbble.com/" target="_blank"><i className="fab fa-dribbble"></i></Link></li>
                   </ul>
@@ -109,7 +109,7 @@ const FooterTwo = () => {
                   <form action="#">
                     <div className="small_newsletter_form style_2">
                       <label className="input_icon" htmlFor="input_newsletter"><i className="fas fa-envelope"></i></label>
-                      <input id="input_newsletter" type="email" placeholder="Email Adreess"/>
+                      <input id="input_newsletter" type="email" placeholder="Email Address"/>
                       <button>
                         <i className="far fa-arrow-right"></i>
                       </button>
