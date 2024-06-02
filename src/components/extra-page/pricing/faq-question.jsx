@@ -40,7 +40,7 @@ const FaqQuestion = () => {
                 <div id="collapse_two" className="accordion-collapse collapse" aria-labelledby="heading_two" data-bs-parent="#faq_accordion">
                   <div className="accordion_body">
                     <p className="m-0">
-                      Currently, we have not integrated a payment system in the website but we are working on that. For now, we will give you the method of payment when we finalize your cartoon.
+                      Once you submit all the details, a checkout window will be opened for you to pay. We have integrated lots of different ways to ease the process.
                     </p>
                   </div>
                 </div>
