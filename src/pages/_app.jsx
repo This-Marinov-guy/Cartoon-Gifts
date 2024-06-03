@@ -10,6 +10,7 @@ import { Parallax } from 'react-parallax';
 import { StoreProvider } from 'src/stores/storeContext';
 import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/react"
+import { GoogleTagManager } from '@next/third-parties/google'
 import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
@@ -39,27 +40,27 @@ function MyApp({ Component, pageProps }) {
         strategy="lazyOnload" // Other options: "beforeInteractive", "afterInteractive", "lazyOnload"
         onLoad={() =>
           ConveyThis_Initializer.init({
-            api_key: 'pub_af1f4825a77a06596ebd36af4110510f'
+            api_key: process.env.NEXT_PUBLIC_CONVEY_THIS
           })
         }
       />
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=AW-16591998534"
+        src={"https://www.googletagmanager.com/gtag/js?id=" + process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
       />
       <Script
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: `
+        __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-16591998534');
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
           `,
         }}
       />
       <Analytics />
-      <GoogleTagManager gtmId="G-TNCL5ESQLK" />
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG} />
       <StoreProvider>
         <ChakraProvider toastOptions={{ defaultOptions: { position: 'top' } }}>
           <Parallax>
