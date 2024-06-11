@@ -1,4 +1,4 @@
-import { BASIC_PRICE, CURRENCIES, DELIVERY_ITEMS, SIZE_ITEMS } from "@utils/defines";
+import { ACTIVE_DISCOUNT, BASIC_PRICE, CURRENCIES, DELIVERY_ITEMS, SIZE_ITEMS } from "@utils/defines";
 import { action, makeAutoObservable, observable } from "mobx"
 
 export default class CheckoutStore {
@@ -140,7 +140,7 @@ export default class CheckoutStore {
             zip: '',
             phone: ''
         }
-        
+
         this.invalidFields = []
     }
 }

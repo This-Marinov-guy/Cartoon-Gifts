@@ -15,6 +15,7 @@ import { useHttpClient } from '@hooks/use-http-request'
 import PaymentElement from '@components/payment/PaymentElement'
 import SkeletonOne from '@components/common/loading/SkeletonOne'
 import PriceAndCurrency from '@components/common/inputs/price-and-currency'
+import { ACTIVE_DISCOUNT } from '@utils/defines'
 
 const CheckoutModal = (props) => {
     const { currencyStore, checkoutStore } = useStore();
@@ -90,7 +91,7 @@ const CheckoutModal = (props) => {
             successUrl: `${window.location.origin}/order/success`,
             failUrl: `${window.location.origin}/order/fail`,
             email: checkout.email,
-            amount: checkout.price,
+            amount: Math.ceil(checkout.price * (ACTIVE_DISCOUNT ?? 1)),
             currency: currencyStore.currency,
         }}
     /> : <Fragment>
@@ -124,8 +125,11 @@ const CheckoutModal = (props) => {
                 <ModalBody>
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
-                {!clientSecret && <ModalFooter>
-                    <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}>Total: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
+                {(!clientSecret) && <ModalFooter>
+                    {ACTIVE_DISCOUNT !== 1 ?
+                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}>Total: <s>{Math.ceil(checkout.price * currency.multiplier)}</s> {Math.ceil((checkout.price * currency.multiplier) * ACTIVE_DISCOUNT)} {currency.symbol}</h5> :
+                        <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}>Total: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
+                    }
                     <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
                         Back
                     </button>

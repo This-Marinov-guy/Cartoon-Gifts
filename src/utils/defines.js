@@ -67,6 +67,7 @@ export const PET_OPTIONS = [
 export const BASIC_PRICE = 30
 export const PERSON_IMAGE_PRICE = 5
 export const PET_IMAGE_PRICE = 0
+export const ACTIVE_DISCOUNT = 85/100
 
 // ERROR MESSAGES
 
