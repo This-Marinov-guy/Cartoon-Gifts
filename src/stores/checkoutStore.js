@@ -1,4 +1,4 @@
-import { ACTIVE_DISCOUNT, BASIC_PRICE, CURRENCIES, DELIVERY_ITEMS, PAYMENT_OPTIONS, SIZE_ITEMS } from "@utils/defines";
+import { BASIC_PRICE, CURRENCIES, DELIVERY_ITEMS, PAYMENT_OPTIONS, SIZE_ITEMS } from "@utils/defines";
 import { action, makeAutoObservable, observable } from "mobx"
 
 export default class CheckoutStore {
@@ -18,7 +18,7 @@ export default class CheckoutStore {
         size: SIZE_ITEMS[0],
         delivery: DELIVERY_ITEMS[0],
         price: BASIC_PRICE,
-        payment: PAYMENT_OPTIONS[0],
+        payment: PAYMENT_OPTIONS[0].value,
         shipping: {
             country: '',
             address: '',
@@ -41,6 +41,7 @@ export default class CheckoutStore {
         this.checkout.occasion = data.occasion;
         this.checkout.profession = data.profession;
         this.checkout.hobby = data.hobby;
+        this.checkout.payment = data.payment;
         this.checkout.label = data.label;
         this.checkout.description = (data.noDescription && data.description) ? data.description : 'We will handle the description for you!';
         this.checkout.peopleImages = data.peopleImages;
@@ -132,7 +133,7 @@ export default class CheckoutStore {
         this.checkout.label = '';
         this.checkout.noDescription = false;
         this.checkout.description = '';
-        this.checkout.payment = PAYMENT_OPTIONS[0];
+        this.checkout.payment = PAYMENT_OPTIONS[0].value;
         this.checkout.peopleImages = [];
         this.checkout.petImages = [];
         this.checkout.size = SIZE_ITEMS[0];

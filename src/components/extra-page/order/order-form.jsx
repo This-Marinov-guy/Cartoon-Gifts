@@ -28,7 +28,7 @@ const OrderForm = () => {
         price: 0
     });
 
-    const showShipping = (checkout.delivery.property && checkout.delivery.property !== 'Digital') || checkout.payment.value == PAYMENT_OPTIONS[1].value
+    const showShipping = (checkout.delivery.property && checkout.delivery.property !== 'Digital') || checkout.payment == PAYMENT_OPTIONS[1].value
 
     const handlePriceChange = (item, state) => {
         if (checkout[state].property === item.property) {
@@ -328,10 +328,10 @@ const OrderForm = () => {
                                                     key={index}
                                                     onClick={() => {
                                                         setFieldValue('payment', item.value);
-                                                        checkoutStore.setField('checkout', 'payment', item);
+                                                        checkoutStore.setField('checkout', 'payment', item.value);
                                                     }}
                                                     property={item.property}
-                                                    active={checkoutStore.checkout.payment?.value == item.value}
+                                                    active={checkoutStore.checkout.payment == item.value}
                                                     error={errors.payment} />
                                             )
                                         })}
