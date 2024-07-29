@@ -1,4 +1,4 @@
-import { ACTIVE_DISCOUNT, BASIC_PRICE, CURRENCIES, DELIVERY_ITEMS, SIZE_ITEMS } from "@utils/defines";
+import { ACTIVE_DISCOUNT, BASIC_PRICE, CURRENCIES, DELIVERY_ITEMS, PAYMENT_OPTIONS, SIZE_ITEMS } from "@utils/defines";
 import { action, makeAutoObservable, observable } from "mobx"
 
 export default class CheckoutStore {
@@ -18,6 +18,7 @@ export default class CheckoutStore {
         size: SIZE_ITEMS[0],
         delivery: DELIVERY_ITEMS[0],
         price: BASIC_PRICE,
+        payment: PAYMENT_OPTIONS[0],
         shipping: {
             country: '',
             address: '',
@@ -103,6 +104,8 @@ export default class CheckoutStore {
         formData.append("description", this.checkout.description || 'We will handle the description for you!');
         formData.append("size", this.checkout.size.property);
         formData.append("delivery", this.checkout.delivery.property);
+        formData.append("payment", this.checkout.payment);
+
 
         const currency = CURRENCIES.find(c => c.value === selectedCurrency) || CURRENCIES[0];
 
@@ -129,6 +132,7 @@ export default class CheckoutStore {
         this.checkout.label = '';
         this.checkout.noDescription = false;
         this.checkout.description = '';
+        this.checkout.payment = PAYMENT_OPTIONS[0];
         this.checkout.peopleImages = [];
         this.checkout.petImages = [];
         this.checkout.size = SIZE_ITEMS[0];

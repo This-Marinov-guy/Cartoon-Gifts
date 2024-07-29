@@ -4,7 +4,7 @@ import RadioCard from '@components/common/inputs/radio-card'
 import RadioPrice from '@components/common/inputs/radio-price'
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import { SIZE_ITEMS, DELIVERY_ITEMS, PET_OPTIONS, PERSON_IMAGE_PRICE, PET_IMAGE_PRICE, SHIPPING_COUNTRIES, CURRENCIES } from '@utils/defines';
+import { SIZE_ITEMS, DELIVERY_ITEMS, PET_OPTIONS, PERSON_IMAGE_PRICE, PET_IMAGE_PRICE, SHIPPING_COUNTRIES, CURRENCIES, PAYMENT_OPTIONS } from '@utils/defines';
 import { observer } from 'mobx-react-lite';
 import { useStore } from 'src/stores/storeContext';
 import CheckoutModal from './checkout-modal';
@@ -52,6 +52,7 @@ const OrderForm = () => {
         label: yup.string(),
         noDescription: yup.boolean(),
         description: yup.string(),
+        payment: yup.string().required(),
         country: showShipping ? yup.string().required() : yup.string(),
         address: showShipping ? yup.string().required() : yup.string(),
         zip: showShipping ? yup.string().required() : yup.string(),
@@ -108,13 +109,14 @@ const OrderForm = () => {
                         label: checkout.label,
                         noDescription: checkout.noDescription,
                         description: checkout.description,
+                        payment: checkout.payment,
                         country: checkout.shipping.country,
                         address: checkout.shipping.address,
                         zip: checkout.shipping.zip,
                         phone: checkout.shipping.phone,
                     }}
                 >
-                    {({ values, errors, isValid, touched, dirty }) => (
+                    {({ values, errors, isValid, touched, dirty, setFieldValue }) => (
                         <Form
                             encType="multipart/form-data"
                             id="form"
@@ -317,7 +319,30 @@ const OrderForm = () => {
                                         </div>
                                     </>
                                 }
-                                <div className='col-6 mt-30'>
+                                <div className='col-12' style={{ paddingBottom: '55px' }}>
+                                    <h4>How are you gonna pay</h4>
+                                    <div className='card-price-box'>
+                                        {PAYMENT_OPTIONS.map((item, index) => {
+                                            return (
+                                                <RadioCard
+                                                    key={index}
+                                                    onClick={() => {
+                                                        if (item === PAYMENT_OPTIONS[1]) {
+                                                            checkoutStore.setField('checkout', 'delivery', DELIVERY_ITEMS[1]);
+                                                        } else {
+                                                            checkoutStore.setField('checkout', 'delivery', DELIVERY_ITEMS[0]);
+                                                        }
+                                                        setFieldValue('payment', item.value);
+                                                        checkoutStore.setField('checkout', 'payment', item);
+                                                    }}
+                                                    property={item.property}
+                                                    active={checkoutStore.checkout.payment?.value == item.value}
+                                                    error={errors.payment} />
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                                <div className='col-12 mt-30'>
                                     <div>
                                         <PriceAndCurrency price={checkout.price} />
                                         <button type="submit" onClick={() => handleErrorMsg(errors, isValid, dirty)} className="bd-btn-link">

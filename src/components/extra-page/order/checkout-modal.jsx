@@ -16,11 +16,14 @@ import PaymentElement from '@components/payment/PaymentElement'
 import SkeletonOne from '@components/common/loading/SkeletonOne'
 import PriceAndCurrency from '@components/common/inputs/price-and-currency'
 import { ACTIVE_DISCOUNT } from '@utils/defines'
+import { useRouter } from 'next/router'
 
 const CheckoutModal = (props) => {
     const { currencyStore, checkoutStore } = useStore();
     const { currency } = currencyStore;
     const { checkout } = checkoutStore;
+
+    const router = useRouter();
 
     const { sendRequest, loading } = useHttpClient();
     const [portalLoading, setPortalLoading] = useState(false);
@@ -75,13 +78,21 @@ const CheckoutModal = (props) => {
         setPortalLoading(true);
         const formData = checkoutStore.setFormData(currency.value);
 
-        const response = await sendRequest('/api/order/payment-intent', 'POST', formData);
+        if (checkoutStore.checkout.payment == PAYMENT_OPTIONS[1]) {
+            const response = await sendRequest('/api/order/create', 'POST', formData);
 
-        if (response && response.status) {
-            setClientSecret(response.clientSecret)
+            if (response.status) {
+                router.push('/order/success');
+            }
+        } else {
+            const response = await sendRequest('/api/order/payment-intent', 'POST', formData);
+
+            if (response && response.status) {
+                setClientSecret(response.clientSecret)
+            }
+
+            setPortalLoading(false);
         }
-
-        setPortalLoading(false);
     }
 
     const body = clientSecret ? <PaymentElement

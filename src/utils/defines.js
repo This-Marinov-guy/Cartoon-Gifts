@@ -64,6 +64,17 @@ export const PET_OPTIONS = [
     },
 ]
 
+export const PAYMENT_OPTIONS = [
+    {
+        property: 'Online (card)',
+        value: 'online'
+    },
+    {
+        property: 'Cash',
+        value: 'cash'
+    },
+]
+
 export const BASIC_PRICE = 30
 export const PERSON_IMAGE_PRICE = 5
 export const PET_IMAGE_PRICE = 0
