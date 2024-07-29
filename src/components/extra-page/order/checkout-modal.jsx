@@ -73,9 +73,11 @@ const CheckoutModal = (props) => {
         setClientSecret(null);
     }
 
-    const submitOrder = async () => {
+    const submitOrder = async () => {   
         setPortalLoading(true);
         const formData = checkoutStore.setFormData(currency.value);
+        
+        console.log(checkoutStore.checkout.payment, PAYMENT_OPTIONS[1].value);
 
         if (checkoutStore.checkout.payment == PAYMENT_OPTIONS[1].value) {
             const response = await sendRequest('/api/order/create', 'POST', formData);
