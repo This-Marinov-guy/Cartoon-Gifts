@@ -28,7 +28,7 @@ const OrderForm = () => {
         price: 0
     });
 
-    const showShipping = checkout.delivery.property && checkout.delivery.property !== 'Digital'
+    const showShipping = (checkout.delivery.property && checkout.delivery.property !== 'Digital') || checkout.payment.value == PAYMENT_OPTIONS[1].value
 
     const handlePriceChange = (item, state) => {
         if (checkout[state].property === item.property) {
@@ -327,11 +327,6 @@ const OrderForm = () => {
                                                 <RadioCard
                                                     key={index}
                                                     onClick={() => {
-                                                        if (item === PAYMENT_OPTIONS[1]) {
-                                                            checkoutStore.setField('checkout', 'delivery', DELIVERY_ITEMS[1]);
-                                                        } else {
-                                                            checkoutStore.setField('checkout', 'delivery', DELIVERY_ITEMS[0]);
-                                                        }
                                                         setFieldValue('payment', item.value);
                                                         checkoutStore.setField('checkout', 'payment', item);
                                                     }}
