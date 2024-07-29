@@ -14,8 +14,7 @@ import { useStore } from 'src/stores/storeContext'
 import { useHttpClient } from '@hooks/use-http-request'
 import PaymentElement from '@components/payment/PaymentElement'
 import SkeletonOne from '@components/common/loading/SkeletonOne'
-import PriceAndCurrency from '@components/common/inputs/price-and-currency'
-import { ACTIVE_DISCOUNT } from '@utils/defines'
+import { ACTIVE_DISCOUNT, PAYMENT_OPTIONS } from '@utils/defines'
 import { useRouter } from 'next/router'
 
 const CheckoutModal = (props) => {
@@ -78,7 +77,7 @@ const CheckoutModal = (props) => {
         setPortalLoading(true);
         const formData = checkoutStore.setFormData(currency.value);
 
-        if (checkoutStore.checkout.payment == PAYMENT_OPTIONS[1]) {
+        if (checkoutStore.checkout.payment == PAYMENT_OPTIONS[1].value) {
             const response = await sendRequest('/api/order/create', 'POST', formData);
 
             if (response.status) {
