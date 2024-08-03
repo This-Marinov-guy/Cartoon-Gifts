@@ -2,11 +2,13 @@ import { useCallback } from "react";
 import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
 import { useStore } from "src/stores/storeContext";
+import useTranslation from "next-translate/useTranslation";
 
 export const useHttpClient = () => {
     const { commonStore } = useStore();
     const { loading } = commonStore;
     const toast = useToast()
+    const { t } = useTranslation("hooks");
 
     const sendRequest = useCallback(
         async (url, method = "GET", data = null, headers = {}) => {
@@ -31,7 +33,7 @@ export const useHttpClient = () => {
                 return response.data;
             } catch (err) {
                 toast({
-                    title: 'Accept our apologies - something went wrong, please try again later or contact us through email!',
+                    title: t('use-http-request.errorTitle'),
                     status: 'error',
                     duration: 10000,
                     isClosable: true,

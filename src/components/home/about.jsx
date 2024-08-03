@@ -9,6 +9,8 @@ const About = () => {
     const [isOpen, setIsOpen] = useState(false);
     const openVideoModal = () => setIsOpen(!isOpen);
 
+    const { t } = useTranslation('components');
+
     return (
         <>
             <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setIsOpen(false)} />
@@ -17,7 +19,7 @@ const About = () => {
                     <div className="row align-items-center">
                         <div className="col col-lg-6 order-last order-lg-first">
                             <div className="about_image decoration_wrap text-center">
-                                <Image className="amin-up-down" src={about_image} style={{ width: "100%", height: "100%" }} alt="Paradox - About Image" />
+                                <Image className="amin-up-down" src={about_image} style={{ width: "100%", height: "100%" }} alt={t('home.about.imageAlt')} />
                             </div>
                         </div>
                         <div className="col col-lg-6">
@@ -28,13 +30,13 @@ const About = () => {
                                             <i className="fas fa-sharp fa-square-full"></i>
                                             <i className="fas fa-sharp fa-square-full"></i>
                                         </span>
-                                        <span>About US</span>
+                                        <span>{t('home.about.subtitle')}</span>
                                     </h2>
                                     <h3 className="heading_title">
-                                        Best for your Start-up Creative Agency
+                                        {t('home.about.title')}
                                     </h3>
                                     <p className="heading_description mb-0">
-                                        Our action plan is focused and planned. We are result oriented organization and are committed to invest in initiatives for newer expanded customer relationship. We always strive to enhance productivity and improve
+                                        {t('home.about.description')}
                                     </p>
                                 </div>
                                 <div className="about_list_boxed">
@@ -43,13 +45,13 @@ const About = () => {
                                             <span className="list_item_icon">
                                                 <i className="fas fa-check"></i>
                                             </span>
-                                            <span className="list_item_text">Comprehensive Analysis</span>
+                                            <span className="list_item_text">{t('home.about.comprehensiveAnalysis')}</span>
                                         </li>
                                         <li>
                                             <span className="list_item_icon">
                                                 <i className="fas fa-check"></i>
                                             </span>
-                                            <span className="list_item_text">Mobile Friendly Web app</span>
+                                            <span className="list_item_text">{t('home.about.mobileFriendly')}</span>
                                         </li>
                                     </ul>
                                     <ul className="icon_list unordered_list_block">
@@ -57,13 +59,13 @@ const About = () => {
                                             <span className="list_item_icon">
                                                 <i className="fas fa-check"></i>
                                             </span>
-                                            <span className="list_item_text">Well Designed Web App</span>
+                                            <span className="list_item_text">{t('home.about.wellDesigned')}</span>
                                         </li>
                                         <li>
                                             <span className="list_item_icon">
                                                 <i className="fas fa-check"></i>
                                             </span>
-                                            <span className="list_item_text">High Performance & Speed</span>
+                                            <span className="list_item_text">{t('home.about.highPerformance')}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -77,8 +79,8 @@ const About = () => {
                                                     </span>
                                                     <span className="pd-animation-flip">
                                                         <span className="bd-btn-anim-wrapp">
-                                                            <span className="bd-button-text">Know More</span>
-                                                            <span className="bd-button-text">Know More</span>
+                                                            <span className="bd-button-text">{t('home.about.knowMore')}</span>
+                                                            <span className="bd-button-text">{t('home.about.knowMore')}</span>
                                                         </span>
                                                     </span>
                                                 </span>
@@ -89,7 +91,7 @@ const About = () => {
                                                 <span id="intro_vbtn" className="icon_wrap">
                                                     <i className="fas fa-play"></i>
                                                 </span>
-                                                <span className="btn_text">Watch Our Video</span>
+                                                <span className="btn_text">{t('home.about.watchVideo')}</span>
                                             </button>
                                         </li>
                                     </ul>
@@ -99,7 +101,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="deco_item shape_2">
-                    <Image src={shape2} style={{ width: "100%", height: "100%" }} alt="Paradox Shape Image" />
+                    <Image src={shape2} style={{ width: "100%", height: "100%" }} alt={t('home.about.shapeImageAlt')} />
                 </div>
             </section>
         </>

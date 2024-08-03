@@ -3,10 +3,12 @@ import React from 'react';
 import portfolio_data from '@data/common_data/portfolio-data';
 import Image from 'next/image';
 import Slider from "react-slick";
+import useTranslation from 'next-translate/useTranslation';
 import { useRef } from 'react';
 
 const PortfolioSection = () => {
   const sliderRef = useRef(null);
+    const { t } = useTranslation('components');
 
   const handlePrevClick = () => {
     if (sliderRef.current) {
@@ -71,10 +73,10 @@ const PortfolioSection = () => {
                 <i className="fas fa-sharp fa-square-full"></i>
                 <i className="fas fa-sharp fa-square-full"></i>
               </span>
-              <span>Our Work</span>
+              <span>{t('extra-page.service-main-area.portfolio-section.ourWork')}</span>
             </h2>
             <h3 className="heading_title mb-0">
-              Our Latest Work
+            {t('extra-page.service-main-area.portfolio-section.ourLatestWork')}
             </h3>
           </div>
 
@@ -128,8 +130,8 @@ const PortfolioSection = () => {
                 </span>
                 <span className="pd-animation-flip">
                   <span className="bd-btn-anim-wrapp">
-                    <span className="bd-button-text">View All Work</span>
-                    <span className="bd-button-text">View All Work</span>
+                    <span className="bd-button-text">{t('extra-page.service-main-area.portfolio-section.viewAllWork')}</span>
+                    <span className="bd-button-text">{t('extra-page.service-main-area.portfolio-section.viewAllWork')}</span>
                   </span>
                 </span>
               </span>

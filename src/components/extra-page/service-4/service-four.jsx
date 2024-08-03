@@ -19,73 +19,75 @@ import icon_8 from '@assets/images/icons/icon_cog.svg'
 import icon_arrow_down from '@assets/images/icons/icon_arrow_down_right_dark_2.svg'
 import Image from 'next/image';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 
 
 const ServiceFour = () => {
+    const { t } = useTranslation('components');
   const service_data = [
     {
       id: 1,
       icon: icon_1,
       btn_icon: icon_arrow_down,
       bg_img: shape_color_1,
-      title: 'Development',
-      description: ' We are help  generate positive the cash flow',
+      title: t('extra-page.service-4.service-four.development.title'),
+      description: t('extra-page.service-4.service-four.development.description'),
     },
     {
       id: 2,
       icon: icon_2,
       bg_img: shape_color_2,
       btn_icon: icon_arrow_down,
-      title: 'UX/UI Design',
-      description: ' We are help  generate positive the cash flow',
+      title: t('extra-page.service-4.service-four.ux-ui-design.title'),
+      description: t('extra-page.service-4.service-four.ux-ui-design.description'),
     },
     {
       id: 3,
       icon: icon_3,
       bg_img: shape_color_3,
       btn_icon: icon_arrow_down,
-      title: '  Application',
-      description: ' We are help  generate positive the cash flow',
+      title: t('extra-page.service-4.service-four.application.title'),
+      description: t('extra-page.service-4.service-four.application.description'),
     },
     {
       id: 4,
       icon: icon_4,
       bg_img: shape_color_4,
       btn_icon: icon_arrow_down,
-      title: ' Marketing',
-      description: ' We are help  generate positive the cash flow',
+      title: t('extra-page.service-4.service-four.marketing.title'),
+      description:  t('extra-page.service-4.service-four.marketing.description'),
     },
     {
       id: 5,
       icon: icon_5,
       bg_img: shape_color_5,
       btn_icon: icon_arrow_down,
-      title: 'Video Editing',
-      description: ' We are help  generate positive the cash flow',
+      title: t('extra-page.service-4.service-four.video-editing.title'),
+      description: t('extra-page.service-4.service-four.video-editing.description'),
     },
     {
       id: 6,
       icon: icon_6,
       bg_img: shape_color_6,
       btn_icon: icon_arrow_down,
-      title: 'Programming',
-      description: ' We are help  generate positive the cash flow',
+      title:  t('extra-page.service-4.service-four.programming.title'),
+      description:  t('extra-page.service-4.service-four.programming.description'),
     },
     {
       id: 7,
       icon: icon_7,
       bg_img: shape_color_7,
       btn_icon: icon_arrow_down,
-      title: ' Business',
-      description: ' We are help  generate positive the cash flow',
+      title: t('extra-page.service-4.service-four.business.title'),
+      description: t('extra-page.service-4.service-four.business.description'),
     },
     {
       id: 8,
       icon: icon_8,
       bg_img: shape_color_8,
       btn_icon: icon_arrow_down,
-      title: 'Tech Support',
-      description: ' We are help  generate positive the cash flow',
+      title:  t('extra-page.service-4.service-four.tech-support.title'),
+      description: t('extra-page.service-4.service-four.tech-support.description'),
     }
   ]
   return (
@@ -109,7 +111,7 @@ const ServiceFour = () => {
                   </div>
                   <Link className="item_details_btn" href={`/service-details/${item.id}`} data-magnetic data-cursor="-opaque">
                     <span className="btn_icon">
-                      <Image src={item.btn_icon} style={{ height: "100%" }} alt="Paradox icons" />
+                      <Image src={item.btn_icon} style={{ height: "100%" }} alt={t('extra-page.service-4.service-four.alt.icon')} />
                     </span>
                   </Link>
                 </div>

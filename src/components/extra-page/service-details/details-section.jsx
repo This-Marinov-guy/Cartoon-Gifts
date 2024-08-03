@@ -7,9 +7,11 @@ import icon_teaching from '@assets/images/icons/icon_teaching_primary.svg';
 import icon_communication from '@assets/images/icons/icon_communication_primary.svg';
 import Image from 'next/image';
 import ModalVideo from 'react-modal-video';
+import useTranslation from 'next-translate/useTranslation';
 
 
 const DetailsSection = ({ item }) => {
+    const { t } = useTranslation('components');
   const [isOpen, setIsOpen] = useState(false);
 
   const openVideoModal = () => {
@@ -37,8 +39,8 @@ const DetailsSection = ({ item }) => {
                       </span>
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Get This Service Now</span>
-                          <span className="bd-button-text">Get This Service Now</span>
+                          <span className="bd-button-text">{t('extra-page.service-details.details-section.getServiceNow')}</span>
+                          <span className="bd-button-text">{t('extra-page.service-details.details-section.getServiceNow')}</span>
                         </span>
                       </span>
                     </span>
@@ -47,26 +49,26 @@ const DetailsSection = ({ item }) => {
               </div>
               <div className="col col-lg-6">
                 <p>
-                  A website development process is a documented, predictable set of steps to take to successfully complete a website development project or web application. This process helps to align development resources, stakeholders, and team members to ensure all aspects of the project are addressed and delivered on time
+                {t('extra-page.service-details.details-section.websiteDevelopmentDescription')}
                 </p>
                 <ul className="icon_list unordered_list_block">
                   <li>
                     <span className="list_item_icon">
                       <i className="fas fa-check"></i>
                     </span>
-                    <span className="list_item_text">Front-end web development is responsible for the look</span>
+                    <span className="list_item_text">{t('extra-page.service-details.details-section.frontendDevelopment')}</span>
                   </li>
                   <li>
                     <span className="list_item_icon">
                       <i className="fas fa-check"></i>
                     </span>
-                    <span className="list_item_text">Back-end web development</span>
+                    <span className="list_item_text">{t('extra-page.service-details.details-section.backendDevelopment')}</span>
                   </li>
                   <li>
                     <span className="list_item_icon">
                       <i className="fas fa-check"></i>
                     </span>
-                    <span className="list_item_text">Testing and debugging code requires patience</span>
+                    <span className="list_item_text">{t('extra-page.service-details.details-section.testingAndDebugging')}</span>
                   </li>
                 </ul>
               </div>
@@ -86,8 +88,7 @@ const DetailsSection = ({ item }) => {
                 <div className="details_sectio_content mb-4 mb-lg-0">
                   <div className="section_heading">
                     <h2 className="heading_title mb-0">
-                      Our services
-                      added Best values
+                    {t('extra-page.service-details.details-section.ourServicesTitle')}
                     </h2>
                   </div>
                   <Link href="/pricing" className="bd-btn-link btn_primary">
@@ -97,8 +98,8 @@ const DetailsSection = ({ item }) => {
                       </span>
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">View Case Studies</span>
-                          <span className="bd-button-text">View Case Studies</span>
+                          <span className="bd-button-text">{t('extra-page.service-details.details-section.viewCaseStudies')}</span>
+                          <span className="bd-button-text">{t('extra-page.service-details.details-section.viewCaseStudies')}</span>
                         </span>
                       </span>
                     </span>
@@ -113,9 +114,9 @@ const DetailsSection = ({ item }) => {
                         <Image src={icon_care} style={{ width: "100%", height: "100%" }} alt="Paradox Icon Eye White" />
                       </div>
                       <div className="item_content">
-                        <h3 className="item_title">Client Care</h3>
+                        <h3 className="item_title">{t('extra-page.service-details.details-section.clientCareTitle')}</h3>
                         <p className="mb-0">
-                          Client care always goes to the top of the list. It goes beyond just taking care of clients & making sure they are happy with your services. It is a genuine caring.
+                        {t('extra-page.service-details.details-section.clientCareDescription')}
                         </p>
                       </div>
                     </div>
@@ -126,9 +127,9 @@ const DetailsSection = ({ item }) => {
                         <Image src={icon_together} style={{ width: "100%", height: "100%" }} alt="Paradox Icon Eye White" />
                       </div>
                       <div className="item_content">
-                        <h3 className="item_title">Using Empathy</h3>
+                        <h3 className="item_title">{t('extra-page.service-details.details-section.empathyTitle')}</h3>
                         <p className="mb-0">
-                          This follows up with client care. By having empathy and being able to put yourself in your client’s shoes, you will be able to take client care to the next level.
+                        {t('extra-page.service-details.details-section.empathyDescription')}
                         </p>
                       </div>
                     </div>
@@ -139,9 +140,9 @@ const DetailsSection = ({ item }) => {
                         <Image src={icon_communication} style={{ width: "100%", height: "100%" }} alt="Paradox Icon Eye White" />
                       </div>
                       <div className="item_content">
-                        <h3 className="item_title">Communication Skills</h3>
+                        <h3 className="item_title">{t('extra-page.service-details.details-section.communicationTitle')}</h3>
                         <p className="mb-0">
-                          This may sound obvious, but actually, there’s much more to learning how to communicate with a client. First, you must be able to speak openly
+                        {t('extra-page.service-details.details-section.communicationDescription')}
                         </p>
                       </div>
                     </div>
@@ -152,9 +153,9 @@ const DetailsSection = ({ item }) => {
                         <Image src={icon_teaching} style={{ width: "100%", height: "100%" }} alt="Paradox Icon Eye White" />
                       </div>
                       <div className="item_content">
-                        <h3 className="item_title">Teaching & Mentoring</h3>
+                        <h3 className="item_title">{t('extra-page.service-details.details-section.teachingTitle')}</h3>
                         <p className="mb-0">
-                          The last on the list but one of the most important things you can do – giving back. By taking time to teach newbie devs and even mentoring a couple
+                        {t('extra-page.service-details.details-section.teachingDescription')}
                         </p>
                       </div>
                     </div>

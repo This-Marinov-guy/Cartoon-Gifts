@@ -4,25 +4,26 @@ import cta_image_3 from '@assets/images/calltoaction/cta_image_3.png'
 import flag_usite_logo_white from '@assets/images/logo/logo-title-dark.png'
 import Image from 'next/image';
 import flags_data from '@data/flags-data';
-
+import useTranslation from 'next-translate/useTranslation';
 import flags_overlay from '@assets/images/shapes/vactor_map.svg'
 
 
 const SiteFooterThire = () => {
+    const { t } = useTranslation('layout'); 
     return (
         <footer className="site_footer style_3">
         <div className="calltoaction_section style_3 section_space_lg bg_primary text-center decoration_wrap">
           <div className="overlay"></div>
-          <div className="container">Company
+          <div className="container">{t('footer.footer-3.company')}
             <div className="deco_item cta_image">
               <Image src={cta_image_3} style={{ width: "100%", height: "100%" }} alt="Paradox Call To Action Image" />
             </div>
             <div className="section_heading text-white">
               <h2 className="heading_title">
-                Ready to Go?
+                {t('footer.footer-3.readyToGo')}?
               </h2>
               <p className="heading_description mb-0">
-                Find out how to get started with Paradox
+                {t('footer.footer-3.findOut')}
               </p>
             </div>
             <Link href="/pricing" className="bd-btn-link btn_warning">
@@ -32,8 +33,8 @@ const SiteFooterThire = () => {
                  </span>
                  <span className="pd-animation-flip">
                     <span className="bd-btn-anim-wrapp">
-                       <span className="bd-button-text">Get Started</span>
-                       <span className="bd-button-text">Get Started</span>
+                       <span className="bd-button-text">{t('footer.footer-3.getStarted')}</span>
+                       <span className="bd-button-text">{t('footer.footer-3.getStarted')}</span>
                     </span>
                  </span> 
               </span>
@@ -72,7 +73,7 @@ const SiteFooterThire = () => {
                     </Link>
                   </div>
                   <p>
-                    Our action plan is focused and planned. We are result oriented organization
+                    {t('footer.footer-3.footer-3.actionPlan')}
                   </p>
                   <Link href="/about" className="bd-btn-link btn_warning">
                     <span className="bd-button-content-wrapper">
@@ -81,8 +82,8 @@ const SiteFooterThire = () => {
                        </span>
                        <span className="pd-animation-flip">
                           <span className="bd-btn-anim-wrapp">
-                             <span className="bd-button-text">Learn More</span>
-                             <span className="bd-button-text">Learn More</span>
+                             <span className="bd-button-text">{t('footer.footer-3.learnMore')}</span>
+                             <span className="bd-button-text">{t('footer.footer-3.learnMore')}</span>
                           </span>
                        </span> 
                     </span>
@@ -91,14 +92,14 @@ const SiteFooterThire = () => {
               </div>
               <div className="col col-lg-2 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title text-white">Our Services</h3>
+                  <h3 className="footer_widget_title text-white">{t('footer.footer-3.ourServices')}</h3>
                   <ul className="page_list unordered_list_block">
                     <li>
                       <Link href="/service">
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">UI/UX Design</span>
+                        <span className="list_item_text">{t('footer.footer-3.uiUxDesign')}</span>
                       </Link>
                     </li>
                     <li>
@@ -106,7 +107,7 @@ const SiteFooterThire = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Website Design</span>
+                        <span className="list_item_text">{t('footer.footer-3.websiteDesign')}</span>
                       </Link>
                     </li>
                     <li>
@@ -114,7 +115,7 @@ const SiteFooterThire = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Email Marketing</span>
+                        <span className="list_item_text">{t('footer.footer-3.emailMarketing')}</span>
                       </Link>
                     </li>
                     <li>
@@ -122,7 +123,7 @@ const SiteFooterThire = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">SEO Analysing</span>
+                        <span className="list_item_text">{t('footer.footer-3.seoAnalysing')}</span>
                       </Link>
                     </li>
                     <li>
@@ -130,7 +131,7 @@ const SiteFooterThire = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Digital Marketing</span>
+                        <span className="list_item_text">{t('footer.footer-3.digitalMarketing')}</span>
                       </Link>
                     </li>
                   </ul>
@@ -138,14 +139,14 @@ const SiteFooterThire = () => {
               </div>
               <div className="col col-lg-2 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title text-white">Company</h3>
+                  <h3 className="footer_widget_title text-white">{t('footer.footer-3.company')}</h3>
                   <ul className="page_list unordered_list_block">
                     <li>
                       <Link href="/about">
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">About Us</span>
+                        <span className="list_item_text">{t('footer.footer-3.aboutUs')}</span>
                       </Link>
                     </li>
                     <li>
@@ -153,7 +154,7 @@ const SiteFooterThire = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Our Team</span>
+                        <span className="list_item_text">{t('footer.footer-3.ourTeam')}</span>
                       </Link>
                     </li>
                     <li>
@@ -161,7 +162,7 @@ const SiteFooterThire = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Gallery</span>
+                        <span className="list_item_text">{t('footer.footer-3.gallery')}</span>
                       </Link>
                     </li>
                     <li>
@@ -169,7 +170,7 @@ const SiteFooterThire = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">FAQ</span>
+                        <span className="list_item_text">{t('footer.footer-3.faq')}</span>
                       </Link>
                     </li>
                     <li>
@@ -177,7 +178,7 @@ const SiteFooterThire = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Our Blog</span>
+                        <span className="list_item_text">{t('footer.footer-3.ourBlog')}</span>
                       </Link>
                     </li>
                   </ul>
@@ -185,7 +186,7 @@ const SiteFooterThire = () => {
               </div>
               <div className="col col-lg-3 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title text-white">Follow Us</h3>
+                  <h3 className="footer_widget_title text-white">{t('footer.footer-3.followUs')}</h3>
                   <ul className="social_icon unordered_list">
                     <li><Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
                     <li><Link href="https://twitter.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
@@ -195,7 +196,7 @@ const SiteFooterThire = () => {
                   </ul>
                   <div className="icon_list_widget">
                     <h4 className="widget_title mb-0">
-                      Email Us:
+                        {t('footer.footer-3.emailUs')}:
                     </h4>
                     <ul className="icon_list unordered_list_block">
                       <li>
@@ -215,12 +216,12 @@ const SiteFooterThire = () => {
         <div className="footer_bottom bg_dark_2">
           <div className="container">
             <div className="copyright_widget">
-              Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> All Rights Reserved.
+              Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> {t('footer.footer-3.allRightsReserved')}.
             </div>
             <ul className="page_list unordered_list">
               <li>
                 <Link href="/terms-conditions">
-                  <span className="list_item_text">Terms & Condition</span>
+                  <span className="list_item_text">{t('footer.footer-3.termsConditions')}</span>
                 </Link>
               </li>
               <li>
@@ -228,7 +229,7 @@ const SiteFooterThire = () => {
                   <span className="list_item_icon">
                     <i className="fas fa-circle"></i>
                   </span>
-                  <span className="list_item_text">Policy & Privacy</span>
+                  <span className="list_item_text">{t('footer.footer-3.policyPrivacy')}</span>
                 </Link>
               </li>
             </ul>

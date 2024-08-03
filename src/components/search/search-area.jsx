@@ -1,7 +1,9 @@
 import Search from "@svg/search";
 import React from "react";
+import useTranslation from "next-translate/useTranslation";
 
 const SearchArea = () => {
+    const { t } = useTranslation("components");
   // handleSubmit
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -14,9 +16,9 @@ const SearchArea = () => {
             <div className="search__result-wrapper">
               <div className="search__result-content text-center mb-40">
                 <h3 className="search__result-title">
-                  Search results for: <span> “hello”</span>
+                  {t('search.searchResultsFor')} <span> {t('search.query')}</span>
                 </h3>
-                <p>Harry found 46 results for your search query.</p>
+                <p>{t('search.queryResultDescription')}</p>
               </div>
               <div className="search__result-form">
                 <form onSubmit={handleSubmit}>
@@ -25,21 +27,21 @@ const SearchArea = () => {
                       <span>
                         <Search/>
                       </span>
-                      <input type="text" placeholder="Search for articles..." />
+                      <input type="text" placeholder={t('search.searchPlaceholder')} />
                     </div>
                     <button type="submit" className="tp-btn">
-                      Search
+                      {t('search.searchButtonText')}
                     </button>
                   </div>
                   <div className="search__result-tags">
-                    <a href="#">Technology</a>
-                    <a href="#">Business</a>
-                    <a href="#">Travel</a>
-                    <a href="#">Personality</a>
-                    <a href="#">Nature</a>
-                    <a href="#">Photographer</a>
-                    <a href="#">Agency</a>
-                    <a href="#">Life Style</a>
+                    <a href="#">{t('search.technology')}Technology</a>
+                    <a href="#">{t('search.business')}Business</a>
+                    <a href="#">{t('search.travel')}Travel</a>
+                    <a href="#">{t('search.personality')}Personality</a>
+                    <a href="#">{t('search.nature')}Nature</a>
+                    <a href="#">{t('search.photographer')}Photographer</a>
+                    <a href="#">{t('search.agency')}Agency</a>
+                    <a href="#">{t('search.lifeStyle')}Life Style</a>
                   </div>
                 </form>
               </div>

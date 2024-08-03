@@ -4,12 +4,14 @@ import Header from '@layout/header/header';
 import React from 'react';
 import BlogSection from './blog-section';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
+import useTranslation from 'next-translate/useTranslation';
 
 const Index = () => {
+    const { t } = useTranslation('components');
     return (
         <main>
             <Header />
-            <Breadcrumb title="Blog Grid" subTitle="Blog Grid" />
+            <Breadcrumb title={t('extra-page.blog.index.blogGridTitle')} subTitle={t('extra-page.blog.index.blogGridSubTitle')} />
             <BlogSection />
             <CollectionSection />
             <Footer />

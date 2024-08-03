@@ -3,10 +3,12 @@ import SuccessComp from '@components/common/success/SuccessComp';
 import Link from 'next/link';
 import emailjs from "emailjs-com";
 import { useToast } from '@chakra-ui/react'
+import useTranslation from 'next-translate/useTranslation';
 
 const ContactSection = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const toast = useToast()
+  const { t } = useTranslation('components');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,13 +24,13 @@ const ContactSection = () => {
           setIsSuccess(true);
         },
         (error) => toast({
-          title: `There was a problem sending your email - please try again!`,
+          title: t('extra-page.contact-section.sendEmailError'),
           status: 'error',
           duration: 8000,
           isClosable: true,
         })
       ).catch(() => toast({
-        title: `There was a problem sending your email - please try again!`,
+        title: t('extra-page.contact-section.sendEmailError'),
         status: 'error',
         duration: 8000,
         isClosable: true,
@@ -44,14 +46,18 @@ const ContactSection = () => {
               <i className="fas fa-sharp fa-square-full"></i>
               <i className="fas fa-sharp fa-square-full"></i>
             </span>
-            <span>Contact Us</span>
+            <span>{t('extra-page.contact-section.contactUs')}</span>
           </h2>
-          <h3 className="heading_title mb-0">Feel Free Contact Us</h3>
+          <h3 className="heading_title mb-0">{t('extra-page.contact-section.feelFreeContactUs')}</h3>
         </div>
         <div className="row">
           <div className="col col-lg-6">
             <div className="contact_form">
-              {isSuccess ? <SuccessComp title='Message submitted!' description='Thanks for submitting your message. Our team will get back to you soon.' active={isSuccess}/> : <form onSubmit={handleSubmit} action="#">
+              {isSuccess ? <SuccessComp 
+                                title={t('extra-page.contact-section.messageSubmitted')} 
+                                description={t('extra-page.contact-section.thanksForSubmitting')}
+                                active={isSuccess}/> 
+                        : <form onSubmit={handleSubmit} action="#">
                 <div className="row">
                   <div className="col col-md-6">
                     <div className="form-group m-0">
@@ -59,7 +65,7 @@ const ContactSection = () => {
                         className="form-control"
                         type="text"
                         name="name"
-                        placeholder="Your Name"
+                        placeholder={t('extra-page.contact-section.yourName')}
                       />
                     </div>
                   </div>
@@ -69,7 +75,7 @@ const ContactSection = () => {
                         className="form-control"
                         type="text"
                         name="subject"
-                        placeholder="Subject"
+                        placeholder={t('extra-page.contact-section.subject')}
                       />
                     </div>
                   </div>
@@ -79,7 +85,7 @@ const ContactSection = () => {
                         className="form-control"
                         type="email"
                         name="email"
-                        placeholder="Email Address"
+                        placeholder={t('extra-page.contact-section.emailAddress')}
                       />
                     </div>
                   </div>
@@ -88,7 +94,7 @@ const ContactSection = () => {
                       <textarea
                         className="form-control"
                         name="message"
-                        placeholder="Write your Message"
+                        placeholder={t('extra-page.contact-section.writeYourMessage')}
                       ></textarea>
                     </div>
                     <button type="submit" className="bd-btn-link">
@@ -98,8 +104,8 @@ const ContactSection = () => {
                         </span>
                         <span className="pd-animation-flip">
                           <span className="bd-btn-anim-wrapp">
-                            <span className="bd-button-text">Send Now</span>
-                            <span className="bd-button-text">Send Now</span>
+                            <span className="bd-button-text">{t('extra-page.contact-section.sendNow')}</span>
+                            <span className="bd-button-text">{t('extra-page.contact-section.sendNow')}</span>
                           </span>
                         </span>
                       </span>
@@ -112,15 +118,15 @@ const ContactSection = () => {
           <div className="col col-lg-6">
             <ul className="contact_info_list style_2 ps-lg-4 unordered_list_block">
               <li>
-                <strong>Location:</strong>
+                <strong>{t('extra-page.contact-section.location')}:</strong>
                 <span>61 wolverhampton Rd, Stafford, ST174AW, United Kingdom</span>
               </li>
               <li>
-                <strong>Email:</strong>
+                <strong>{t('extra-page.contact-section.email')}:</strong>
                 <span>cartoongifts.eu@gmail.com</span>
               </li>
               <li>
-                <strong>Follow Us:</strong>
+                <strong>{t('extra-page.contact-section.followUs')}:</strong>
                 <ul className="social_icon unordered_list">
                   <li>
                     <Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank">

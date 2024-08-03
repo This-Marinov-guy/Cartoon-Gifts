@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextTranslate = require('next-translate-plugin')
+
+const nextConfig = nextTranslate({
   reactStrictMode: false,
   eslint: {
     // Warning: This allows production builds to successfully complete even if
@@ -9,6 +11,6 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production"
   },
-}
+})
 
 module.exports = nextConfig

@@ -1,0 +1,11 @@
+{
+    
+    "pageTitle": "404 Not Found",
+
+    "errorImageAlt": "Paradox - Error Image",
+    "pageNotFound": "Page not found",
+    "urlNotFound": "The requested URL you are looking for doesn’t",
+    "urlNotFoundContinuation": "exist on this server.",
+    "goBackToHome": "Go Back To Home"
+
+}

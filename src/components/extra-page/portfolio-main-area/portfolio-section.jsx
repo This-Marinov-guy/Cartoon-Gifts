@@ -3,13 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Pagination_Data from '@components/common/pagination';
 import portfolio_data from '@data/common_data/portfolio-data';
+import useTranslation from 'next-translate/useTranslation';
 
 const PortfolioSection = () => {
+    const { t } = useTranslation('components');
   return (
     <section className="portfolio_section section_space_lg">
       <div className="container">
         <div className="button-group filters-button-group">
-          <h3>Our works</h3>
+          <h3>{t('extra-page.portfolio-main-area.ourWorks')}</h3>
         </div>
         <div className="tab-content" id="nav-tabContent">
           <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabIndex="0">

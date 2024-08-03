@@ -4,14 +4,16 @@ import Header from '@layout/header/header';
 import React from 'react';
 import ContactSection from './contact-section';
 import ContactFromSection from './contact-from-section';
-import CantactFaq from './cantact-faq';
+import CantactFaq from './contact-faq';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
+import useTranslation from 'next-translate/useTranslation';
 
 const Index = () => {
+    const { t } = useTranslation('components');
     return (
         <div>
             <Header />
-            <Breadcrumb title='Contact Us V2' subTitle='Contact Us V2' />
+            <Breadcrumb title={t('extra-page.contact-two-area.index.title')} subTitle={t('extra-page.contact-two-area.index.subTitle')} />
             <ContactSection />
             <ContactFromSection />
             <CantactFaq />

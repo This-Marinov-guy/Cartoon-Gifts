@@ -1,0 +1,102 @@
+{
+    "footer": {
+        "footer": {
+            "siteLogoAlt": "Site Logo - Paradox - Agency Template",
+            "contactUs": "Contact Us",
+            "getNewIdea": "If you want to Get a New Idea",
+            "newsletter": "Newsletter",
+            "emailAddress": "Email Address",
+            "checkMeOut": "Check me out",
+            "copyright": "Copyright © {{year}} by Cartoon Gifts. All Rights Reserved."
+        },
+        "footer-2": {
+            "readyToGo": "Ready to Go",
+            "findOutHow": "Find out how to get started with Paradox",
+            "getStarted": "Get started",
+            "actionPlan": "Our action plan is focused and planned. We are result oriented organization",
+            "followMeOn": "Follow Me on",
+            "newsletter": "Newsletter",
+            "emailAddress": "Email Address",
+            "acceptCondition": "I accept with this Condition",
+            "emailMe": "Email Me",
+            "allRightsReserved": "All Rights Reserved."
+        },
+        "footer-3": {
+            "company": "Company",
+            "readyToGo": "Ready to Go",
+            "getStarted": "Get Started",
+            "findOut": "Find out how to get started with Paradox",
+            "actionPlan": "Our action plan is focused and planned. We are result oriented organization",
+            "learnMore": "Learn More",
+            "ourServices": "Our Services",
+            "followUs": "Follow Us",
+            "emailUs": "Email Us",
+            "uiUxDesign": "UI/UX Design",
+            "websiteDesign": "Website Design",
+            "emailMarketing": "Email Marketing",
+            "seoAnalysing": "SEO Analysing",
+            "digitalMarketing": "Digital Marketing",
+            "aboutUs": "About Us",
+            "ourTeam": "Our Team",
+            "gallery": "Gallery",
+            "faq": "FAQ",
+            "allRightsReserved": "All Rights Reserved.",
+            "ourBlog": "Our Blog",
+            "termsConditions": "Terms & Condition",
+            "policyPrivacy": "Policy & Privacy"
+        },
+        "footer-4": {
+            "actionPlan": "Our action plan is focused and planned. We are result oriented organization",
+            "followUs": "Follow Us:",
+            "ourServices": "Our Services",
+            "company": "Company",
+            "newsletter": "Newsletter",
+            "emailAddress": "Email Address",
+            "checkMeOut": "Check me out",
+            "termsConditions": "Terms & Conditions",
+            "policyPrivacy": "Policy & Privacy",
+            "uiUxDesign": "UI/UX Design",
+            "websiteDesign": "Website Design",
+            "emailMarketing": "Email Marketing",
+            "seoAnalysing": "SEO Analysing",
+            "digitalMarketing": "Digital Marketing",
+            "aboutUs": "About Us",
+            "ourTeam": "Our Team",
+            "gallery": "Gallery",
+            "faq": "FAQ",
+            "ourBlog": "Our Blog"
+        },
+        "footer-5": {
+            "ctaHeading": "Let’s Create Something Amazing Together.",
+            "ctaButton": "Get Started",
+            "contactUs": "Contact Us",
+            "contactTitle": "If you want to Get a New Idea:",
+            "findUs": "Find Us",
+            "address": "1989 Timber Ridge Road",
+            "cityState": "Sacramento CA, California",
+            "newsletter": "Newsletter",
+            "newsletterPlaceholder": "Email Address",
+            "newsletterButton": "Check me out",
+            "copyright": "Copyright © 2023 by",
+            "allRightsReserved": "All Rights Reserved."
+        },
+        "footer-6": {
+            "celebrateOccasion": "Celebrate an occasion with us.",
+            "makeOrder": "Make an order",
+            "orderNow": "Order now",
+            "goal": "Our goal is to make people happy through art",
+            "followUs": "Follow Us on :",
+            "newsletter": "Newsletter",
+            "emailAddress": "Email Address",
+            "givePermission": "I give permission to be sent offers and discounts",
+            "emailMe": "Email Me:",
+            "allRightsReserved": "All Rights Reserved."
+        }          
+                    
+    },
+    "header": {
+        "makeOrder": "Make an order",
+        "getAQuote": "Get a Quotes",
+        "orderNow": "Order Now"
+    }
+}

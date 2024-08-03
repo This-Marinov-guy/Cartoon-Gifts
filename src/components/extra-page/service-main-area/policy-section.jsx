@@ -6,8 +6,10 @@ import icon_maintenance from '@assets/images/icons/icon_maintenance.svg'
 import shape_line_flow from '@assets/images/shapes/shape_line_flow.svg'
 import shape_circle_2 from '@assets/images/shapes/shape_circle_2.svg'
 import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
 
 const PolicySection = () => {
+    const { t } = useTranslation('components');
   return (
     <section className="policy_section section_space_lg decoration_wrap">
       <div className="container">
@@ -19,10 +21,10 @@ const PolicySection = () => {
                   <i className="fas fa-sharp fa-square-full"></i>
                   <i className="fas fa-sharp fa-square-full"></i>
                 </span>
-                <span>Why Chose Us</span>
+                <span>{t('extra-page.service-main-area.policy-section.whyChooseUs')}</span>
               </h2>
               <h3 className="heading_title mb-0">
-                We are Moving to a Higher & Better Stage.
+              {t('extra-page.service-main-area.policy-section.higherAndBetterStage')}
               </h3>
             </div>
           </div>
@@ -31,12 +33,12 @@ const PolicySection = () => {
           <div className="col col-lg-3 col-md-6 col-sm-6" data-parallax='{"y" : 30, "smoothness": 10}'>
             <div className="iconbox_item policy_item mb-4 mb-sm-0">
               <div className="item_icon">
-                <Image src={icon_development} alt="Paradox Icon Eye White" />
+                <Image src={icon_development} alt={t('extra-page.service-main-area.policy-section.fastDevelopmentAlt')} />
               </div>
               <div className="item_content">
-                <h3 className="item_title">Fast Development</h3>
+                <h3 className="item_title">{t('extra-page.service-main-area.policy-section.fastDevelopment')}</h3>
                 <p className="mb-0">
-                  We can launch a small site less then a week. So you can drop a Order.
+                {t('extra-page.service-main-area.policy-section.fastDevelopmentDesc')}
                 </p>
               </div>
             </div>
@@ -44,12 +46,12 @@ const PolicySection = () => {
           <div className="col col-lg-3 col-md-6 col-sm-6" data-parallax='{"y" : -30, "smoothness": 10}'>
             <div className="iconbox_item policy_item">
               <div className="item_icon">
-                <Image src={icon_flexibility} alt="Paradox Icon Eye White" />
+                <Image src={icon_flexibility} alt={t('extra-page.service-main-area.policy-section.fullFlexibilityAlt')} />
               </div>
               <div className="item_content">
-                <h3 className="item_title">Full Flexibility</h3>
+                <h3 className="item_title">{t('extra-page.service-main-area.policy-section.fullFlexibility')}</h3>
                 <p className="mb-0">
-                  Multiple development tools help us create. So you can drop a Order.
+                {t('extra-page.service-main-area.policy-section.fullFlexibilityDesc')}
                 </p>
               </div>
             </div>
@@ -57,12 +59,12 @@ const PolicySection = () => {
           <div className="col col-lg-3 col-md-6 col-sm-6" data-parallax='{"y" : 30, "smoothness": 10}'>
             <div className="iconbox_item policy_item mb-4 mb-sm-0">
               <div className="item_icon">
-                <Image src={icon_design} alt="Paradox Icon Eye White" />
+                <Image src={icon_design} alt={t('extra-page.service-main-area.policy-section.modernDesignAlt')} />
               </div>
               <div className="item_content">
-                <h3 className="item_title">Modern Design</h3>
+                <h3 className="item_title">{t('extra-page.service-main-area.policy-section.modernDesign')}</h3>
                 <p className="mb-0">
-                  Most modern approaches to any design. So you can drop a Order.
+                {t('extra-page.service-main-area.policy-section.modernDesignDesc')}
                 </p>
               </div>
             </div>
@@ -70,12 +72,12 @@ const PolicySection = () => {
           <div className="col col-lg-3 col-md-6 col-sm-6" data-parallax='{"y" : -30, "smoothness": 10}'>
             <div className="iconbox_item policy_item">
               <div className="item_icon">
-                <Image src={icon_maintenance} alt="Paradox Icon Eye White" />
+                <Image src={icon_maintenance} alt={t('extra-page.service-main-area.policy-section.simpleMaintenanceAlt')} />
               </div>
               <div className="item_content">
-                <h3 className="item_title">Simple Maintenance</h3>
+                <h3 className="item_title">{t('extra-page.service-main-area.policy-section.simpleMaintenance')}</h3>
                 <p className="mb-0">
-                  Multiple development tools help us create. So you can drop a Order.
+                {t('extra-page.service-main-area.policy-section.simpleMaintenanceDesc')}
                 </p>
               </div>
             </div>
@@ -84,10 +86,10 @@ const PolicySection = () => {
       </div>
 
       <div className="deco_item shape_1">
-        <Image src={shape_line_flow} style={{ width: "100%", height: "100%" }} alt="Paradox Shapes Image Line Flow" />
+        <Image src={shape_line_flow} style={{ width: "100%", height: "100%" }} alt={t('extra-page.service-main-area.policy-section.shapeLineFlowAlt')} />
       </div>
       <div className="deco_item shape_2">
-        <Image src={shape_circle_2} style={{ width: "100%", height: "100%" }} alt="Paradox Shapes Circle" />
+        <Image src={shape_circle_2} style={{ width: "100%", height: "100%" }} alt={t('extra-page.service-main-area.policy-section.shapeCircleAlt')} />
       </div>
     </section>
   );

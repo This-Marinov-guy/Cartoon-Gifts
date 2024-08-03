@@ -4,11 +4,13 @@ import cta_image_5 from '@assets/images/calltoaction/cta_image_5.png';
 import shape_4 from '@assets/images/shapes/shape_4.svg';
 import site_logo_dark from '@assets/images/logo/logo-title.png';
 import icon_mapmark from '@assets/images/icons/icon_mapmark.svg';
+import useTranslation from 'next-translate/useTranslation';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 const FooterFive = () => {
+    const { t } = useTranslation('layout');
     return (
         <footer className="site_footer style_4">
         <div className="calltoaction_section style_5">
@@ -24,7 +26,7 @@ const FooterFive = () => {
                   <div className="wrapper_box mb-4 mb-lg-0">
                     <div className="section_heading text-white">
                       <h2 className="heading_title mb-0">
-                        Let’s Create Something Amazing Together.
+                        {t('footer.footer-5.ctaHeading')}
                       </h2>
                     </div>
                     <Link href="/contact" className="bd-btn-link btn_warning">
@@ -34,8 +36,8 @@ const FooterFive = () => {
                          </span>
                          <span className="pd-animation-flip">
                             <span className="bd-btn-anim-wrapp">
-                               <span className="bd-button-text">Get Started</span>
-                               <span className="bd-button-text">Get Started</span>
+                               <span className="bd-button-text">{t('footer.footer-5.ctaButton')}</span>
+                               <span className="bd-button-text">{t('footer.footer-5.ctaButton')}</span>
                             </span>
                          </span> 
                       </span>
@@ -61,10 +63,10 @@ const FooterFive = () => {
               </div>
               <div className="col col-lg-3 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title">Contact Us</h3>
+                  <h3 className="footer_widget_title">{t('footer.footer-5.contactUs')}</h3>
                   <div className="icon_list_widget">
                     <h4 className="widget_title mb-0">
-                      If you want to Get a New Idea:
+                        {t('footer.footer-5.contactTitle')}:
                     </h4>
                     <ul className="icon_list unordered_list_block">
                       <li>
@@ -80,7 +82,7 @@ const FooterFive = () => {
               </div>
               <div className="col col-lg-3 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title">Find Us</h3>
+                  <h3 className="footer_widget_title">{t('footer.footer-5.findUs')}</h3>
                   <div className="icon_list_widget">
                     <ul className="icon_list unordered_list_block">
                       <li>
@@ -89,7 +91,7 @@ const FooterFive = () => {
                             <Image src={icon_mapmark} alt="Icon Mapmark" />
                           </span>
                           <span className="list_item_text">
-                            1989 Timber Ridge Road <small className="d-md-block">Sacramento CA, California</small>
+                            {t('footer.footer-5.address')} <small className="d-md-block">{t('footer.footer-5.cityState')}</small>
                           </span>
                         </Link>
                       </li>
@@ -99,17 +101,17 @@ const FooterFive = () => {
               </div>
               <div className="col col-lg-3 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title">Newsletter</h3>
+                  <h3 className="footer_widget_title">{t('footer.footer-5.newsletter')}</h3>
                   <form action="#">
                     <div className="small_newsletter_form">
-                      <input type="email" placeholder="Email Adreess"/>
+                      <input type="email" placeholder={t('footer.footer-5.newsletterPlaceholder')}/>
                       <button type="submit">
                         <i className="far fa-arrow-right"></i>
                       </button>
                     </div>
                     <div className="form-check mb-0">
                       <input type="checkbox" id="checkMeOut"/>
-                      <label htmlFor="checkMeOut">Check me out</label>
+                      <label htmlFor="checkMeOut">{t('footer.footer-5.newsletterButton')}</label>
                     </div>
                   </form>
                 </div>
@@ -121,7 +123,7 @@ const FooterFive = () => {
           <div className="container">
             <div className="footer_bottom_grid">
               <div className="copyright_widget">
-                Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> All Rights Reserved.
+                {t('footer.footer-5.copyright')} <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> {t('footer.footer-5.allRightsReserved')}.
               </div>
               <div className="footer_social">
                 <ul className="social_icon unordered_list_end">

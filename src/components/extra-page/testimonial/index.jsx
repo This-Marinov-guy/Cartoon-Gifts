@@ -5,12 +5,14 @@ import React from 'react';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
 import TestimonialSection from './testimonial-section';
 import ReviewSection from '@components/home-2/review-section';
+import useTranslation from 'next-translate/useTranslation';
 
 const Index = () => {
+    const { t } = useTranslation('components');
     return (
         <div>
             <Header />
-            <Breadcrumb title='Testimonials' subTitle='Testimonials' />
+            <Breadcrumb title={t('extra-page.testimonial.title')} subTitle={t('extra-page.testimonial.subTitle')} />
             <TestimonialSection />
             <ReviewSection />
             <CollectionSection />

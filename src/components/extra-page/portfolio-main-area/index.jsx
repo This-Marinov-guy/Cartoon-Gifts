@@ -6,12 +6,14 @@ import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
 import dynamic from "next/dynamic";
 import AboutSectionSix from '@components/home-6/about-section-6';
 const PortfolioSection = dynamic(() => import('./portfolio-section'))
+import useTranslation from 'next-translate/useTranslation';
 
 const Index = () => {
+    const { t } = useTranslation('components');
     return (
         <main>
             <HeaderSix />
-            <Breadcrumb title='Gallery' subTitle='Gallery' />
+            <Breadcrumb title={t('extra-page.portfolio-main-area.title')} subTitle={t('extra-page.portfolio-main-area.subTitle')} />
             <AboutSectionSix />
             <PortfolioSection />
             <CollectionSection />

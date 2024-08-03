@@ -6,8 +6,10 @@ import shape_banner_2 from '@assets/images/banner/shape_banner_3.svg'
 import shape_banner_3 from '@assets/images/shapes/shape_close_icon.png'
 import shape_circle_1 from '@assets/images/shapes/shape_circle_1.svg'
 import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
 
 const HeroSectionSix = () => {
+    const { t } = useTranslation('components');
   return (
     <section className="hero_banner_section style_6 decoration_wrap">
       <div className="container">
@@ -15,7 +17,7 @@ const HeroSectionSix = () => {
           <div className="col col-lg-6 order-lg-last">
             <div className="banner_content_6 mb-5 mb-lg-0">
               <h1 className="hero_banner_heading">
-                <span className="d-block">Get your<span className="focus_text">unique cartoon</span> with just a few clicks</span>
+                <span className="d-block">{t('getYour')}<span className="focus_text">{t('uniqueCartoon')}</span> {t('withJustAFewClicks')}</span>
               </h1>
               <ul className="btns_group unordered_list">
                 <li>
@@ -26,8 +28,8 @@ const HeroSectionSix = () => {
                       </span>
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Make an order</span>
-                          <span className="bd-button-text">Order now</span>
+                          <span className="bd-button-text">{t('makeAnOrder')}</span>
+                          <span className="bd-button-text">{t('orderNow')}</span>
                         </span>
                       </span>
                     </span>
@@ -41,8 +43,8 @@ const HeroSectionSix = () => {
                       </span>
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Learn More</span>
-                          <span className="bd-button-text">About Us</span>
+                          <span className="bd-button-text">{t('learnMore')}</span>
+                          <span className="bd-button-text">{t('aboutUs')}</span>
                         </span>
                       </span>
                     </span>

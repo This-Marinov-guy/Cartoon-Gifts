@@ -7,12 +7,13 @@ import shape_circle_dashed_3 from '@assets/images/shapes/shape_circle_dashed_3.p
 import shape_box_1 from '@assets/images/shapes/shape_box_1.png';
 import shape_box_2 from '@assets/images/shapes/shape_box_2.png';
 import site_logo from '@assets/images/logo/logo-title.png'
-
+import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 
 
 
 const FooterTwo = () => {
+    const { t } = useTranslation("layout");
   const handleSubmit=(e)=>{
     e.preventDefault()
   }
@@ -35,10 +36,10 @@ const FooterTwo = () => {
                 <div className="cta_content_2 mb-4 mb-lg-0">
                   <div className="section_heading text-white">
                     <h2 className="heading_title">
-                      Ready to Go?
+                        {t('footer.footer-2.readyToGo')}?
                     </h2>
                     <p className="heading_description mb-0">
-                      Find out how to get started with Paradox
+                        {t('footer.footer-2.findOutHow')}
                     </p>
                   </div>
                   <Link href="/pricing" className="bd-btn-link btn_dark">
@@ -48,8 +49,8 @@ const FooterTwo = () => {
                        </span>
                        <span className="pd-animation-flip">
                           <span className="bd-btn-anim-wrapp">
-                             <span className="bd-button-text">Get started</span>
-                             <span className="bd-button-text">Get started</span>
+                             <span className="bd-button-text">{t('footer.footer-2.getStarted')}</span>
+                             <span className="bd-button-text">{t('footer.footer-2.getStarted')}</span>
                           </span>
                        </span> 
                     </span>
@@ -90,10 +91,10 @@ const FooterTwo = () => {
                   </Link>
                 </div>
                 <p>
-                  Our action plan is focused and planned. We are result oriented organization
+                    {t('footer.footer-2.actionPlan')}
                 </p>
                 <div className="social_wrap d-block">
-                  <h3 className="social_title">Follow Me on :</h3>
+                  <h3 className="social_title">{t('footer.footer-2.followMeOn')} :</h3>
                   <ul className="social_icon unordered_list">
                     <li><Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
                     <li><Link href="https://twitter.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
@@ -105,24 +106,24 @@ const FooterTwo = () => {
               </div>
               <div className="col col-xl-4 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title">Newsletter</h3>
+                  <h3 className="footer_widget_title">{t('footer.footer-2.newsletter')}</h3>
                   <form action="#">
                     <div className="small_newsletter_form style_2">
                       <label className="input_icon" htmlFor="input_newsletter"><i className="fas fa-envelope"></i></label>
-                      <input id="input_newsletter" type="email" placeholder="Email Adreess"/>
+                      <input id="input_newsletter" type="email" placeholder={t('footer.footer-2.emailAddress')}/>
                       <button>
                         <i className="far fa-arrow-right"></i>
                       </button>
                     </div>
                     <div className="form-check">
                       <input type="checkbox" id="checkMeOutt" />
-                      <label htmlFor="checkMeOutt">I accept with this Condition</label>
+                      <label htmlFor="checkMeOutt">{t('footer.footer-2.acceptCondition')}</label>
                     </div>
                   </form>
                   
                   <div className="icon_list_widget">
                     <h4 className="widget_title mb-0">
-                      Email Me:
+                        {t('footer.footer-2.emailMe')}:
                     </h4>
                     <ul className="icon_list unordered_list_block">
                       <li>
@@ -138,7 +139,7 @@ const FooterTwo = () => {
               </div>
             </div>
             <div className="copyright_widget text-center copyright_space">
-              Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> All Rights Reserved.
+              Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> {t('footer.footer-2.allRightsReserved')}.
             </div>
           </div>
         </div>

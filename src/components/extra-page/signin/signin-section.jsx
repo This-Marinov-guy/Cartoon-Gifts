@@ -7,11 +7,13 @@ import { useHttpClient } from '@hooks/use-http-request';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import { useToast } from '@chakra-ui/react'
+import useTranslation from 'next-translate/useTranslation';
 
 const SigninSection = () => {
   const router = useRouter();
   const { loading, sendRequest } = useHttpClient();
   const toast = useToast()
+  const { t } = useTranslation('components');
 
   const [loginFormValues, setLoginFormValues] = useState({
     email: "",
@@ -39,7 +41,7 @@ const SigninSection = () => {
       if (response.status) {
         router.push('/');
         toast({
-          title: `Welcome back`,
+          title: t('extra-page.signin.welcomeBack'),
           status: 'success',
           duration: 8000,
           isClosable: true,
@@ -54,24 +56,24 @@ const SigninSection = () => {
         <div className="register_form_wrap ms-lg-0">
           <Link href='/'>
             <i class="fa-solid fa-angles-left mr-5"></i>
-            Back Home
+            {t('extra-page.signin.backHome')}
           </Link>
-          <h2 className="form_title">Welcome Back!</h2>
-          <p>Enter the information below to signin your account</p>
+          <h2 className="form_title">{t('extra-page.signin.welcomeBack')}!</h2>
+          <p>{t('extra-page.signin.signinDescription')}</p>
           <form onSubmit={(event) => loginHandler(event)}
             action="#">
             <div className="form-group">
-              <label htmlFor="input_email" className="form-label">Email Address<sup className="form_required_indicator">*</sup></label>
+              <label htmlFor="input_email" className="form-label">{t('extra-page.signin.emailAddress')}<sup className="form_required_indicator">*</sup></label>
               <input onChange={(event) => changeFormInputHandler(event)}
-                id="email" className="form-control" type="email" name="email" placeholder="Your Address" required />
+                id="email" className="form-control" type="email" name="email" placeholder={t('extra-page.signin.yourAddress')} required />
             </div>
             <div className="form-group">
-              <label htmlFor="input_pass" className="form-label">Enter Password<sup className="form_required_indicator">*</sup></label>
+              <label htmlFor="input_pass" className="form-label">{t('extra-page.signin.enterPassword')}<sup className="form_required_indicator">*</sup></label>
               <input onChange={(event) => changeFormInputHandler(event)}
-                id="password" className="form-control" type="password" name="password" placeholder="Enter Password" required />
+                id="password" className="form-control" type="password" name="password" placeholder={t('extra-page.signin.enterPassword')} required />
             </div>
             <div className="d-flex align-items-center justify-content-between mb-4">
-              <Link className="link_forgot_pass" href="#!">Forgot Password?</Link>
+              <Link className="link_forgot_pass" href="#!">{t('extra-page.signin.forgotPassword')}?</Link>
             </div>
             <button disabled={loading} type="submit" className="bd-btn-link">
               {loading ? <Spinner /> : <span className="bd-button-content-wrapper">
@@ -80,22 +82,22 @@ const SigninSection = () => {
                 </span>
                 <span className="pd-animation-flip">
                   <span className="bd-btn-anim-wrapp">
-                    <span className="bd-button-text">Sign In</span>
-                    <span className="bd-button-text">Sign In</span>
+                    <span className="bd-button-text">{t('extra-page.signin.signIn')}</span>
+                    <span className="bd-button-text">{t('extra-page.signin.signIn')}</span>
                   </span>
                 </span>
               </span>}
             </button>
 
           </form>
-          <p className="mb-0">Don’t have an Account? <Link href="/signup">Sign Up</Link></p>
+          <p className="mb-0">{t('extra-page.signin.dontHaveAccount')}? <Link href="/signup">{t('extra-page.signin.signUp')}</Link></p>
         </div>
 
         <div className="deco_item shape_3 wow fadeInRight" data-wow-delay=".1s">
-          <Image src={shape_1} alt="Paradox - Shape Image" />
+          <Image src={shape_1} alt={t('extra-page.signin.shape1Alt')} />
         </div>
         <div className="deco_item shape_4 wow zoomIn" data-wow-delay=".1s">
-          <Image src={shape_circle_2} alt="Paradox - Shape Image" />
+          <Image src={shape_circle_2} alt={t('extra-page.signin.shapeCircleAlt')} />
         </div>
       </div>
     </section>

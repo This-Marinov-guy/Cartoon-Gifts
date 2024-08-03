@@ -1,9 +1,12 @@
 import React from 'react';
 import dynamic from "next/dynamic";
-const Counter = dynamic(() => import('../../common/counter/CountUpContent'), {
+import useTranslation from 'next-translate/useTranslation';
+const Counter = dynamic(() => import('extra-page.about-page.counter-section.../../common/counter/CountUpContent'), {
   ssr: false
 })
 const CounterSection = () => {
+    const { t } = useTranslation('components');
+
   const factList = [
     {
       id: 1,
@@ -53,10 +56,10 @@ const CounterSection = () => {
           }
       </div>
       <div className="deco_item shape_1">
-        <img src="assets/images/shapes/shape_line_flow.svg" alt="Paradox Shapes Image Line Flow" />
+        <img src="assets/images/shapes/shape_line_flow.svg" alt={t('extra-page.about-page.counter-section.paradoxShapesImageLineFlow')} />
       </div>
       <div className="deco_item shape_2">
-        <img src="assets/images/shapes/shape_circle_2.svg" alt="Paradox Shapes Circle" />
+        <img src="assets/images/shapes/shape_circle_2.svg" alt={t('extra-page.about-page.counter-section.paradoxShapesCircle')} />
       </div>
     </section>
   );

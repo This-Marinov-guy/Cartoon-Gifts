@@ -1,0 +1,35 @@
+{
+    "blog-details": {
+        "title": "Blog Details",
+        "loading": "Loading"
+    },
+    "order": {
+        "orderPageTitle": "Order",
+        "orderPageToastTitle": "Summer sale - 15% off",
+        "orderPageToastDescription": "Enjoy our summer sale with a discount from us. It will be automatically applied on checkout!",
+        "orderSuccessPageTitle": "Order Success",
+        "orderSuccessPageAlertTitle": "Successful Order!",
+        "orderSuccessPageAlertDescription1": "Thank you for ordering from Cartoon Gifts! Your order is on its way to us - you will receive a confirmation email with the order details.",
+        "orderSuccessPageAlertDescription2": "If you have problems or want to contact us please email us at :",
+        "orderFailurePageTitle": "Order Failure",
+        "orderFailurePageAlertTitle": "It looks like something did not go as planned!",
+        "orderFailurePageAlertDescription": "Your payment might have failed or you have canceled your order - if this is not the case, please contact us!",
+        "backToOrderPage": "Back to order"
+    },
+    "portfolio-details": {
+        "title": "Portfolio Details",
+        "loading": "Loading"
+    },
+    "service-details": {
+        "title": "Service Details",
+        "loading": "Loading"
+    },
+    "comming-soon-title": "Coming Soon",
+    "contact-title": "Contact",
+    "gallery-title": "Gallery",
+    "index-title": "Welcome",
+    "login-title": "Log In",
+    "pricing-title": "Pricing",
+    "signup-title": "Sign Up",
+    "terms-and-conditions-title": "Terms & Conditions"
+}

@@ -5,6 +5,8 @@ import Image from 'next/image';
 
 
 const BlogSection = () => {
+    const { t } = useTranslation('components');
+
   return (
     <section className="blog_section section_space_lg">
       <div className="container">
@@ -14,10 +16,10 @@ const BlogSection = () => {
               <i className="fas fa-sharp fa-square-full"></i>
               <i className="fas fa-sharp fa-square-full"></i>
             </span>
-            <span>Latest News</span>
+            <span>{t('home.blog.latestNews')}</span>
           </h2>
           <h3 className="heading_title mb-0">
-            Our Latest News
+            {t('home.blog.ourLatestNews')}
           </h3>
         </div>
         <div className="row justify-content-center">
@@ -25,7 +27,7 @@ const BlogSection = () => {
             <div className="col col-lg-6" key={item.id}>
               <div className="blog_item">
                 <Link className="item_image" href={`/blog-details/${item.id}`} data-cursor-text="VIEW">
-                  <Image src={item.img} style={{ width: "100%", height: "100%" }} alt="Paradox Blog Image" />
+                  <Image src={item.img} style={{ width: "100%", height: "100%" }} alt={t('home.blog.imageAlt')} />
 
                 </Link>
                 <div className="item_content">
@@ -43,7 +45,7 @@ const BlogSection = () => {
                   <div className="flex_wrap">
                     <div className="admin_item">
                       <div className="admin_thumbnail">
-                        <Image src={item.authorImg} style={{ width: "100%", height: "100%" }} alt="Admin Avatar" />
+                        <Image src={item.authorImg} style={{ width: "100%", height: "100%" }} alt={t('home.blog.adminAvatarAlt')} />
                       </div>
                       <div className="admin_info">
                         <h3 className="admin_name">{item.user}</h3>
@@ -51,10 +53,10 @@ const BlogSection = () => {
                       </div>
                     </div>
                     <Link className="btn-link" href={`/blog-details/${item.id}`}>
-                      <span className="btn_text">Read More</span>
+                      <span className="btn_text">{t('home.blog.readMore')}</span>
                       <span className="btn_icon">
-                        <Image src={item.btnIcon} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Right" />
-                        <Image src={item.btnIconTwo} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Right" />
+                        <Image src={item.btnIcon} style={{ width: "100%", height: "100%" }} alt={t('home.blog.iconArrow')} />
+                        <Image src={item.btnIconTwo} style={{ width: "100%", height: "100%" }} alt={t('home.blog.iconArrow')} />
                       </span>
                     </Link>
                   </div>
@@ -71,8 +73,8 @@ const BlogSection = () => {
               </span>
               <span className="pd-animation-flip">
                 <span className="bd-btn-anim-wrapp">
-                  <span className="bd-button-text">View More</span>
-                  <span className="bd-button-text">View More</span>
+                  <span className="bd-button-text">{t('home.blog.viewMore')}</span>
+                  <span className="bd-button-text">{t('home.blog.viewMore')}</span>
                 </span>
               </span>
             </span>

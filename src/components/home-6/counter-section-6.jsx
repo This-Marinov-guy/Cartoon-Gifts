@@ -1,15 +1,17 @@
 import React from 'react';
 
 import dynamic from "next/dynamic";
+import useTranslation from 'next-translate/useTranslation';
 const Counter = dynamic(() => import('../common/counter/CountUpContent'), {
   ssr: false
 })
 
 const CounterSectionSix = () => {
+    const { t } = useTranslation('components');
   const factList = [
     {
       id: 1,
-      factTitle: 'Worldwide Happy Client',
+      factTitle: t('worldwideHappyClient'),
       factNumber: '600',
       data_count: "2400",
       data_parallax: '{"y" : 30, "smoothness": 10}',
@@ -17,14 +19,14 @@ const CounterSectionSix = () => {
     },
     {
       id: 2,
-      factTitle: 'Completed Project',
+      factTitle: t('completedProject'),
       factNumber: '1000',
       data_count: "1690",
       adition: '+'
     },
     {
       id: 3,
-      factTitle: 'Client Satisfaction',
+      factTitle: t('clientSatisfaction'),
       factNumber: '100',
       data_count: "100",
       data_parallax: '{"y" : -30, "smoothness": 10}',

@@ -16,8 +16,10 @@ import PaymentElement from '@components/payment/PaymentElement'
 import SkeletonOne from '@components/common/loading/SkeletonOne'
 import { ACTIVE_DISCOUNT, PAYMENT_OPTIONS } from '@utils/defines'
 import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 
 const CheckoutModal = (props) => {
+    const { t } = useTranslation('components');
     const { currencyStore, checkoutStore } = useStore();
     const { currency } = currencyStore;
     const { checkout } = checkoutStore;
@@ -107,18 +109,18 @@ const CheckoutModal = (props) => {
             currency: currencyStore.currency,
         }}
     /> : <Fragment>
-        <h5 className='mb-20'>Your Details</h5>
-        <p>Name: {checkout.name}</p>
-        <p>Email: {checkout.email}</p>
-        <h5 className='mb-20 mt-20'>Details of your order</h5>
-        <p>Occasion: {checkout.occasion}</p>
-        <p>Profession: {checkout.profession}</p>
-        <p>Hobby: {checkout.hobby}</p>
-        <p>Label: {checkout.label} </p>
-        <p>Description: {checkout.description}</p>
-        <p>Size: {checkout.size.property}</p>
-        <p>Delivery: {checkout.delivery.property}</p>
-        <p>Image Selection</p>
+        <h5 className='mb-20'>{t('checkoutModal.yourDetails')}</h5>
+        <p>{t('checkoutModal.name')}: {checkout.name}</p>
+        <p>{t('checkoutModal.email')}: {checkout.email}</p>
+        <h5 className='mb-20 mt-20'>{t('checkoutModal.orderDetails')}</h5>
+        <p>{t('checkoutModal.occasion')}: {checkout.occasion}</p>
+        <p>{t('checkoutModal.profession')}: {checkout.profession}</p>
+        <p>{t('checkoutModal.hobby')}: {checkout.hobby}</p>
+        <p>{t('checkoutModal.label')}: {checkout.label} </p>
+        <p>{t('checkoutModal.description')}: {checkout.description}</p>
+        <p>{t('checkoutModal.size')}: {checkout.size.property}</p>
+        <p>{t('checkoutModal.delivery')}: {checkout.delivery.property}</p>
+        <p>{t('checkoutModal.imageSelection')}</p>
         {previewUrls.length > 0 && <div className='preview_box_small'>
             {imageLoading ? <Spinner color='red.500' /> : previewUrls.map((url, index) => (
                 <img key={index} className='preview_small' src={url} alt="Preview" />
@@ -132,21 +134,21 @@ const CheckoutModal = (props) => {
         <Modal onClose={handleClose} isOpen={props.isOpen} isCentered closeOnOverlayClick={false} scrollBehavior='inside'>
             <ModalOverlay />
             <ModalContent>
-                <ModalHeader>Finish your order</ModalHeader>
+                <ModalHeader>{t('checkoutModal.finishOrder')}</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
                 {(!clientSecret) && <ModalFooter>
                     {ACTIVE_DISCOUNT !== 1 ?
-                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}>Total: <s>{Math.ceil(checkout.price * currency.multiplier)}</s> {Math.ceil((checkout.price * currency.multiplier) * ACTIVE_DISCOUNT)} {currency.symbol}</h5> :
-                        <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}>Total: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
+                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('checkoutModal.total')}: <s>{Math.ceil(checkout.price * currency.multiplier)}</s> {Math.ceil((checkout.price * currency.multiplier) * ACTIVE_DISCOUNT)} {currency.symbol}</h5> :
+                        <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}> {t('checkoutModal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
                     }
                     <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
-                        Back
+                        {t('checkoutModal.back')}
                     </button>
                     <button disabled={loading} type="submit" onClick={submitOrder} className="bd-btn-link">
-                        {loading ? <Spinner /> : 'Pay'}
+                        { loading ? <Spinner /> : t('checkoutModal.pay') } 
                     </button>
                 </ModalFooter>}
             </ModalContent>

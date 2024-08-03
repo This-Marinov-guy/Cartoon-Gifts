@@ -9,63 +9,65 @@ import image_23 from "@assets/images/portfolio/portfolio_lfi_image_23.jpg";
 import image_21 from "@assets/images/portfolio/portfolio_lfi_image_21.jpg";
 import image_22 from "@assets/images/portfolio/portfolio_lfi_image_22.jpg";
 import Image from "next/image";
+import useTranslation from "next-translate/useTranslation";
 
 const PortfolioMasonrySection = () => {
+    const { t } = useTranslation("components");
   const portfolio_data_masonary = [
     {
       id: 1,
       image: image_16,
-      cetagory: "Ui/Ux",
-      title: "Product Design",
+      category: t("extra-page.portfolio-masonry-area.category.uiux"),
+      title: t("extra-page.portfolio-masonry-area.categoryTitle.productDesign"),
       style: "gridd-item width_50",
     },
     {
       id: 2,
       image: image_17,
-      cetagory: "Web",
-      title: "Web Design",
+      category: t("extra-page.portfolio-masonry-area.category.web"),
+      title: t("extra-page.portfolio-masonry-area.categoryTitle.webDesign"),
       style: "gridd-item",
     },
     {
       id: 3,
       image: image_18,
-      cetagory: "Wordpress",
-      title: "Development",
+      category: t("extra-page.portfolio-masonry-area.category.wordpress"),
+      title: t("extra-page.portfolio-masonry-area.categoryTitle.development"),
       style: "mb-30",
     },
     {
       id: 4,
       image: image_19,
-      cetagory: "Graphics",
-      title: "Graphics Design",
+      category: t("extra-page.portfolio-masonry-area.category.graphics"),
+      title: t("extra-page.portfolio-masonry-area.categoryTitle.graphicsDesign"),
       style: "",
     },
     {
       id: 5,
       image: image_20,
-      cetagory: "Ui/Ux",
-      title: "Product Design",
+      category: t("extra-page.portfolio-masonry-area.category.uiux"),
+      title: t("extra-page.portfolio-masonry-area.categoryTitle.productDesign"),
       style: " width_50",
     },
     {
       id: 6,
       image: image_23,
-      cetagory: "Ui/Ux",
-      title: "Product Design",
+      category: t("extra-page.portfolio-masonry-area.category.uiux"),
+      title: t("extra-page.portfolio-masonry-area.categoryTitle.productDesign"),
       style: " width_50",
     },
     {
       id: 7,
       image: image_21,
-      cetagory: "Ui/Ux",
-      title: "Product Design",
+      category: t("extra-page.portfolio-masonry-area.category.uiux"),
+      title: t("extra-page.portfolio-masonry-area.categoryTitle.productDesign"),
       style: "",
     },
     {
       id: 8,
       image: image_22,
-      cetagory: "Ui/Ux",
-      title: "Product Design",
+      category: t("extra-page.portfolio-masonry-area.category.uiux"),
+      title: t("extra-page.portfolio-masonry-area.categoryTitle.productDesign"),
       style: "gridd-item",
     },
   ];
@@ -83,14 +85,14 @@ const PortfolioMasonrySection = () => {
                       <Image
                         src={item.image}
                         style={{ width: "100%", height: "100%" }}
-                        alt="Paradox Portfolio Image"
+                        alt={t("portfolio.altText")}
                       />
                     </Link>
                   </div>
                   <div className="item_content">
                     <ul className="category_list unordered_list">
                       <li>
-                        <Link href="/portfolio-details">{item.cetagory}</Link>
+                        <Link href="/portfolio-details">{item.category}</Link>
                       </li>
                     </ul>
                     <h3 className="item_title mb-0">
@@ -112,14 +114,14 @@ const PortfolioMasonrySection = () => {
                       <Image
                         src={item.image}
                         style={{ width: "100%", height: "100%" }}
-                        alt="Paradox Portfolio Image"
+                        alt={t("portfolio.altText")}
                       />
                     </Link>
                   </div>
                   <div className="item_content">
                     <ul className="category_list unordered_list">
                       <li>
-                        <Link href="/portfolio-details">{item.cetagory}</Link>
+                        <Link href="/portfolio-details">{item.category}</Link>
                       </li>
                     </ul>
                     <h3 className="item_title mb-0">
@@ -141,14 +143,14 @@ const PortfolioMasonrySection = () => {
                       <Image
                         src={item.image}
                         style={{ width: "100%", height: "100%" }}
-                        alt="Paradox Portfolio Image"
+                        alt={t("portfolio.altText")}
                       />
                     </Link>
                   </div>
                   <div className="item_content">
                     <ul className="category_list unordered_list">
                       <li>
-                        <Link href="/portfolio-details">{item.cetagory}</Link>
+                        <Link href="/portfolio-details">{item.category}</Link>
                       </li>
                     </ul>
                     <h3 className="item_title mb-0">
@@ -172,7 +174,7 @@ const PortfolioMasonrySection = () => {
                           <Image
                             src={item.image}
                             style={{ width: "100%", height: "100%" }}
-                            alt="Paradox Portfolio Image"
+                            alt={t("portfolio.altText")}
                           />
                         </Link>
                       </div>
@@ -180,7 +182,7 @@ const PortfolioMasonrySection = () => {
                         <ul className="category_list unordered_list">
                           <li>
                             <Link href="/portfolio-details">
-                              {item.cetagory}
+                              {item.category}
                             </Link>
                           </li>
                         </ul>
@@ -203,7 +205,7 @@ const PortfolioMasonrySection = () => {
                           <Image
                             src={item.image}
                             style={{ width: "100%", height: "100%" }}
-                            alt="Paradox Portfolio Image"
+                            alt={t("portfolio.altText")}
                           />
                         </Link>
                       </div>
@@ -211,7 +213,7 @@ const PortfolioMasonrySection = () => {
                         <ul className="category_list unordered_list">
                           <li>
                             <Link href="/portfolio-details">
-                              {item.cetagory}
+                              {item.category}
                             </Link>
                           </li>
                         </ul>
@@ -234,7 +236,7 @@ const PortfolioMasonrySection = () => {
                           <Image
                             src={item.image}
                             style={{ width: "100%", height: "100%" }}
-                            alt="Paradox Portfolio Image"
+                            alt={t("portfolio.altText")}
                           />
                         </Link>
                       </div>
@@ -242,7 +244,7 @@ const PortfolioMasonrySection = () => {
                         <ul className="category_list unordered_list">
                           <li>
                             <Link href="/portfolio-details">
-                              {item.cetagory}
+                              {item.category}
                             </Link>
                           </li>
                         </ul>
@@ -267,14 +269,14 @@ const PortfolioMasonrySection = () => {
                       <Image
                         src={item.image}
                         style={{ width: "100%", height: "100%" }}
-                        alt="Paradox Portfolio Image"
+                        alt={t("portfolio.altText")}
                       />
                     </Link>
                   </div>
                   <div className="item_content">
                     <ul className="category_list unordered_list">
                       <li>
-                        <Link href="/portfolio-details">{item.cetagory}</Link>
+                        <Link href="/portfolio-details">{item.category}</Link>
                       </li>
                     </ul>
                     <h3 className="item_title mb-0">
@@ -297,8 +299,8 @@ const PortfolioMasonrySection = () => {
               </span>
               <span className="pd-animation-flip">
                 <span className="bd-btn-anim-wrapp">
-                  <span className="bd-button-text">Load More</span>
-                  <span className="bd-button-text">Load More</span>
+                  <span className="bd-button-text">{t('extra-page.portfolio-masonry-area.loadMore')}</span>
+                  <span className="bd-button-text">{t('extra-page.portfolio-masonry-area.loadMore')}</span>
                 </span>
               </span>
             </span>

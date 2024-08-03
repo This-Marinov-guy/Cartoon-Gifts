@@ -1,0 +1,13 @@
+{
+    "footer": {
+        "footer": {
+            "siteLogoAlt": "Лого на сайта - Paradox - Agency Template",
+            "contactUs": "Свържете се с нас",
+            "getNewIdea": "Ако искате да получите нова идея",
+            "newsletter": "Нюзлетър",
+            "emailAddress": "Имейл адрес",
+            "checkMeOut": "Отбележете ме",
+            "copyright": "Авторски права © {{year}} от Cartoon Gifts. Всички права запазени."
+        }          
+    }
+}

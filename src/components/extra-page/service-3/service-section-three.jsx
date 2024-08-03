@@ -2,8 +2,10 @@ import service_data from "@data/common_data/service-data";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import useTranslation from "next-translate/useTranslation";
 
 const ServiceSectionThree = () => {
+    const { t } = useTranslation("components");
   return (
     <section className="service_section section_space_lg">
       <div className="container">
@@ -19,7 +21,7 @@ const ServiceSectionThree = () => {
                   <p className="item_description">{item.item_description}</p>
                 </div>
                 <Link className="btn-link" href={`/service-details/${item.id}`}>
-                  <span className="btn_text">View Details</span>
+                  <span className="btn_text">{t('extra-page.service-3.viewDetails')}</span>
                   <span className="btn_icon">
                     <Image
                       src={item.icon}

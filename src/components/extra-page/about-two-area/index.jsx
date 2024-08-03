@@ -6,13 +6,15 @@ import AboutMeSection from './about-me-section';
 import ExperienceSection from './experience-section';
 import ContactSection from './contact-section';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
+import useTranslation from 'next-translate/useTranslation';
 
 
 const Index = () => {
+    const { t } = useTranslation('components');
     return (
         <main>
             <Header />
-            <Breadcrumb title="About Me" subTitle="About Me" />
+            <Breadcrumb title={t('extra-page.about-two-area.index.title')} subTitle={t('extra-page.about-two-area.index.subTitle')} />
             <AboutMeSection />
             <ExperienceSection />
             <ContactSection />

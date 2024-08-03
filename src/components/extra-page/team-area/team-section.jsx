@@ -58,7 +58,7 @@ const TeamSection = () => {
     {
       id: 8,
       admin_name: 'William P. Robinson',
-      designation: 'Sr. Develope',
+      designation: 'Sr. Developer',
       image: image_8
     },
   ]

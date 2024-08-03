@@ -2,8 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import blogs_data from '@data/blogs-data';
 import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
 
 const BlogSectionSix = () => {
+    const { t } = useTranslation('components');
   return (
     <section className="blog_section section_space_lg">
       <div className="container">
@@ -11,10 +13,10 @@ const BlogSectionSix = () => {
           <div className="row align-items-end">
             <div className="col col-lg-6">
               <h2 className="heading_subtitle">
-                <span>OUR Blog</span>
+                <span>{t('home-6.blog-section-6.ourSubtitle')}</span>
               </h2>
               <h3 className="heading_title mb-0">
-                Our Latest News
+              {t('home-6.blog-section-6.ourTitle')}
               </h3>
             </div>
             <div className="col col-lg-6 d-none d-lg-block text-lg-end">
@@ -25,8 +27,8 @@ const BlogSectionSix = () => {
                   </span>
                   <span className="pd-animation-flip">
                     <span className="bd-btn-anim-wrapp">
-                      <span className="bd-button-text">View All BLogs</span>
-                      <span className="bd-button-text">View All BLogs</span>
+                      <span className="bd-button-text">{t('home-6.blog-section-6.viewAllBlogs')}</span>
+                      <span className="bd-button-text">{t('home-6.blog-section-6.viewAllBlogs')}</span>
                     </span>
                   </span>
                 </span>
@@ -40,7 +42,6 @@ const BlogSectionSix = () => {
               <div className="blog_item">
                 <Link className="item_image" href={`/blog-details/${item.id}`} data-cursor-text="VIEW">
                   <Image src={item.img} style={{ width: "100%", height: "100%" }} alt="Paradox Blog Image" />
-
                 </Link>
                 <div className="item_content">
                   <div className="flex_wrap">
@@ -65,7 +66,7 @@ const BlogSectionSix = () => {
                       </div>
                     </div>
                     <Link className="btn-link" href={`/blog-details/${item.id}`}>
-                      <span className="btn_text">Read More</span>
+                      <span className="btn_text">{t('home-6.blog-section-6.readMore')}</span>
                       <span className="btn_icon">
                         <Image src={item.btnIcon} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Right" />
                         <Image src={item.btnIconTwo} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Right" />

@@ -2,9 +2,10 @@ import React from 'react';
 import site_logo_white from '@assets/images/logo/logo-title-dark.png'
 import Image from 'next/image';
 import Link from 'next/link';
-
+import useTranslation from 'next-translate/useTranslation';
 
 const FooterFour = () => {
+    const { t } = useTranslation('layout');
     return (
     <footer className="site_footer style_3">
         <div className="footer_widget_area bg_dark_3">
@@ -18,7 +19,7 @@ const FooterFour = () => {
                     </Link>
                   </div>
                   <p>
-                    Our action plan is focused and planned. We are result oriented organization
+                    {t('footer.footer-4.actionPlan')}
                   </p>
                   <div className="social_wrap d-block">
                     <h3 className="social_title mb-2">Follow Us:</h3>
@@ -34,14 +35,14 @@ const FooterFour = () => {
               </div>
               <div className="col col-lg-2 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title text-white">Our Services</h3>
+                  <h3 className="footer_widget_title text-white">{t('footer.footer-4.ourServices')}</h3>
                   <ul className="page_list unordered_list_block">
                     <li>
                       <Link href="/service">
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">UI/UX Design</span>
+                        <span className="list_item_text">{t('footer.footer-4.uiUxDesign')}</span>
                       </Link>
                     </li>
                     <li>
@@ -49,7 +50,7 @@ const FooterFour = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Website Design</span>
+                        <span className="list_item_text">{t('footer.footer-4.websiteDesign')}</span>
                       </Link>
                     </li>
                     <li>
@@ -57,7 +58,7 @@ const FooterFour = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Email Marketing</span>
+                        <span className="list_item_text">{t('footer.footer-4.emailMarketing')}</span>
                       </Link>
                     </li>
                     <li>
@@ -65,7 +66,7 @@ const FooterFour = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">SEO Analysing</span>
+                        <span className="list_item_text">{t('footer.footer-4.seoAnalysing')}</span>
                       </Link>
                     </li>
                     <li>
@@ -73,7 +74,7 @@ const FooterFour = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Digital Marketing</span>
+                        <span className="list_item_text">{t('footer.footer-4.digitalMarketing')}</span>
                       </Link>
                     </li>
                   </ul>
@@ -81,14 +82,14 @@ const FooterFour = () => {
               </div>
               <div className="col col-lg-2 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title text-white">Company</h3>
+                  <h3 className="footer_widget_title text-white">{t('footer.footer-4.company')}</h3>
                   <ul className="page_list unordered_list_block">
                     <li>
                       <Link href="/about">
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">About Us</span>
+                        <span className="list_item_text">{t('footer.footer-4.aboutUs')}</span>
                       </Link>
                     </li>
                     <li>
@@ -96,7 +97,7 @@ const FooterFour = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Our Team</span>
+                        <span className="list_item_text">{t('footer.footer-4.ourTeam')}</span>
                       </Link>
                     </li>
                     <li>
@@ -104,7 +105,7 @@ const FooterFour = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Gallery</span>
+                        <span className="list_item_text">{t('footer.footer-4.gallery')}</span>
                       </Link>
                     </li>
                     <li>
@@ -112,7 +113,7 @@ const FooterFour = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">FAQ</span>
+                        <span className="list_item_text">{t('footer.footer-4.faq')}</span>
                       </Link>
                     </li>
                     <li>
@@ -120,7 +121,7 @@ const FooterFour = () => {
                         <span className="list_item_icon">
                           <i className="fas fa-circle"></i>
                         </span>
-                        <span className="list_item_text">Our Blog</span>
+                        <span className="list_item_text">{t('footer.footer-4.ourBlog')}</span>
                       </Link>
                     </li>
                   </ul>
@@ -128,17 +129,17 @@ const FooterFour = () => {
               </div>
               <div className="col col-lg-3 col-md-6">
                 <div className="footer_widget">
-                  <h3 className="footer_widget_title text-white">Newsletter</h3>
+                  <h3 className="footer_widget_title text-white">{t('footer.footer-4.newsletter')}</h3>
                   <form action="#">
                     <div className="small_newsletter_form">
-                      <input type="email" placeholder="Email Adreess"/>
+                      <input type="email" placeholder={t('footer.footer-4.emailAddress')}/>
                       <button type="submit">
                         <i className="far fa-arrow-right"></i>
                       </button>
                     </div>
                     <div className="form-check mb-0">
                       <input type="checkbox" id="checkMeOut"/>
-                      <label htmlFor="checkMeOut">Check me out</label>
+                      <label htmlFor="checkMeOut">{t('footer.footer-4.checkMeOut')}</label>
                     </div>
                   </form>
                 </div>
@@ -154,7 +155,7 @@ const FooterFour = () => {
             <ul className="page_list unordered_list">
               <li>
                 <Link href="/terms-conditions">
-                  <span className="list_item_text">Terms & Condition</span>
+                  <span className="list_item_text">{t('footer.footer-4.termsConditions')}</span>
                 </Link>
               </li>
               <li>
@@ -162,7 +163,7 @@ const FooterFour = () => {
                   <span className="list_item_icon">
                     <i className="fas fa-circle"></i>
                   </span>
-                  <span className="list_item_text">Policy & Privacy</span>
+                  <span className="list_item_text">{t('footer.footer-4.policyPrivacy')}</span>
                 </Link>
               </li>
             </ul>

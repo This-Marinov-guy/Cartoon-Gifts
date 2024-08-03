@@ -3,8 +3,10 @@ import review_data from '@data/common_data/review-data';
 import Image from 'next/image';
 
 import Slider from "react-slick";
+import useTranslation from 'next-translate/useTranslation';
 
 const ReviewSection = () => {
+    const { t } = useTranslation('components');
   const review_carousel = {
     dots: true,
     arrows: false,
@@ -48,7 +50,7 @@ const ReviewSection = () => {
       <div className="container">
         <div className="section_heading text-center">
           <h2 className="heading_title mb-0">
-            What People Says
+            {t('extra-page.service-details.review-section.title')}
           </h2>
         </div>
         <div className="review_carousel">

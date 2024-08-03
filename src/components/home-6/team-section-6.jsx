@@ -2,17 +2,19 @@ import React from 'react';
 import team_data from '@data/common_data/team-data';
 import Image from 'next/image';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 
 const TeamSectionSix = () => {
+    const { t } = useTranslation('components');
   return (
     <section className="team_section section_space_lg">
       <div className="container">
         <div className="section_heading style_4 text-center">
           <h2 className="heading_subtitle">
-            <span>Our Team</span>
+            <span>{t('home-6.team-section-6.headingSubTitle')}</span>
           </h2>
           <h3 className="heading_title mb-0">
-            Our Team Members
+          {t('home-6.team-section-6.headingTitle')}
           </h3>
         </div>
 
@@ -49,8 +51,8 @@ const TeamSectionSix = () => {
               </span>
               <span className="pd-animation-flip">
                 <span className="bd-btn-anim-wrapp">
-                  <span className="bd-button-text">View All Member</span>
-                  <span className="bd-button-text">View All Member</span>
+                  <span className="bd-button-text">{t('home-6.team-section-6.viewAllMembers')}</span>
+                  <span className="bd-button-text">{t('home-6.team-section-6.viewAllMembers')}</span>
                 </span>
               </span>
             </span>

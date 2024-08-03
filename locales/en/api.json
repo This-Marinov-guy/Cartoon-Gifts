@@ -1,0 +1,15 @@
+{
+    "invalidAction": "Invalid action",
+    "imageFileError": "It looks like you have an image that is unsupported type or exceeds 5Mb - please change it and try again!",
+    "orderCreated": "Order created",
+    "error": "Error",
+    "failed": "Failed",
+    "webhookError": "Webhook error",
+    "webhookSignatureError": "Error verifying webhook signature",
+    "unknownRegisteredEvent": "Unknown event registered",
+    "unknownTypeRegisteredEvent" : "Event Registered with unknown type",
+    "methodNotAllowed": "Method not allowed",
+    "invalidInputs": "Invalid Inputs",
+    "userExists": "User already exists",
+    "userCreated": "User created"
+}

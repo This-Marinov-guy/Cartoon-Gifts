@@ -5,11 +5,13 @@ import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import SkeletonOne from "@components/common/loading/SkeletonOne";
 import { ModalFooter, } from '@chakra-ui/react'
 import { useStore } from "src/stores/storeContext";
+import useTranslation from "next-translate/useTranslation";
 
 const CheckoutForm = (props) => {
     const stripe = useStripe();
     const elements = useElements();
     const toast = useToast();
+    const { t } = useTranslation('components');
 
     const payment = props.paymentProperties;
 
@@ -42,7 +44,7 @@ const CheckoutForm = (props) => {
 
         } else {
             toast({
-                title: "An unexpected error occured.",
+                title: t('payment.unexpectedError'),
                 status: 'error',
                 duration: 15000,
                 isClosable: true,
@@ -57,14 +59,14 @@ const CheckoutForm = (props) => {
             <PaymentElement id="payment-element" />
             {/* Show any error or success messages */}
             <div className='mt-15'>
-                <h5>Total: {payment.amount * payment.currency.multiplier} {payment.currency.symbol}</h5>
+                <h5>{t('payment.total')}: {payment.amount * payment.currency.multiplier} {payment.currency.symbol}</h5>
                 <button type="button" onClick={props.onClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
-                    Back
+                    {t('payment.back')}
                 </button>
                 <button disabled={isProcessing || !stripe || !elements} id="submit" className="bd-btn-link mt-20"
                 >
                     <span id="button-text">
-                        {isProcessing ? "Processing ... " : "Pay now"}
+                        {isProcessing ? t('payment.processing') : t('payment.payNow')}
                     </span>
                 </button>
             </div>

@@ -11,11 +11,13 @@ import {
 import Footer from '@layout/footer/footer';
 import { EMAIL } from '@utils/defines';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 
 const Order = () => {
+    const { t } = useTranslation('pages');
     return (
         <Wrapper>
-            <SEO pageTitle={'Order Success'} />
+            <SEO pageTitle={t('order.orderFailurePageTitle')} />
             <HeaderSix />
             <Alert
                 status='error'
@@ -28,15 +30,15 @@ const Order = () => {
             >
                 <AlertIcon boxSize='80px' mr={0} />
                 <AlertTitle style={{ marginTop: '20px' }} mt={4} mb={1} fontSize='lg'>
-                    It looks like something did not go as planned!
+                    {t('order.orderFailurePageAlertTitle')}
                 </AlertTitle>
                 <AlertDescription >
-                    Your payment might have failed or you have canceled your order - if this is not the case, please contact us!
+                    {t('order.orderFailurePageAlertDescription')}
                     <br />
                     <a style={{ color: '#1e0a91' }} href={`mailto:${EMAIL}`}>{EMAIL}</a>
                     <br />
                     <Link href='/order' className="bd-btn-link btn_dark" style={{ marginTop: '20px' }} >
-                        Back to order
+                        {t('order.backToOrderPage')}
                     </Link>
                 </AlertDescription>
             </Alert>

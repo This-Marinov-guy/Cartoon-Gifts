@@ -7,10 +7,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 import ModalVideo from 'react-modal-video';
 import BlogSidebarSection from '../blog-sidebar/blog-sidebar';
+import useTranslation from 'next-translate/useTranslation';
 
 
 const DetailsSection = ({ item }) => {
 
+    const { t } = useTranslation('components');
   const [isOpen, setIsOpen] = useState(false);
 
   const openVideoModal = () => {
@@ -28,7 +30,7 @@ const DetailsSection = ({ item }) => {
           <div className="row justify-content-center">
             <div className="col col-lg-8">
               <div className="details_image">
-                {item.img && <Image src={item.img.src} width={1170} height={751} style={{ width: "400", height: "100%" }} alt="Paradox Blog Details Image" />}
+                {item.img && <Image src={item.img.src} width={1170} height={751} style={{ width: "400", height: "100%" }} alt={t('extra-page.blog-details.details-section.blogImageAlt')}  />}
               </div>
               <div className="details_content">
                 <div className="blog_post_meta">
@@ -39,53 +41,52 @@ const DetailsSection = ({ item }) => {
                 </div>
                 <h2 className="details_item_title">{item.title}</h2>
                 <p>
-                  Some mistakenly believe that because you’re offering a certification it must be generalized and meant to give anyone a wide range of digital skills. But the benefits of continuous This is also a flexible form of learning. You may have a suite of microlearning courses. employees who feel that their skills are not being put to good use in their current job Choose which ones are important for any specific role within your company. For example, marketers may need social media training so they can use.
-                </p>
+                    {t('extra-page.blog-details.details-section.blogDetailsContent1')}</p>
                 <p>
-                  Investing in offering those paths early on can help you retain staff instead of letting them go. After all, this is the era of hybrid and remote working so flexibility and career advancement. employees who feel that their skills are not being put to good use in their current job
+                    {t('extra-page.blog-details.details-section.blogDetailsContent2')}
                 </p>
                 <blockquote cite="/blog">
                   <h3 className="blockquote_content">
-                    “You have to be burning with an idea, or a problem, or a wrong that you want to right. If you’re not passionate enough from the start,never stick it out.”
+                    {t('extra-page.blog-details.details-section.blockquoteContent')}
                   </h3>
-                  <span className="author_name">Steve Jobs</span>
+                  <span className="author_name">{t('extra-page.blog-details.details-section.blockquoteAuthor')}</span>
                 </blockquote>
                 <p>
-                  Some of the employees in your workforce are already digitally-savvy and actively pursue new training and in-demand skills on their own. These employees are valuable, but research demonstrates that you may lose them if you don’t allow them the opportunity to improve their skills further.  Should be possible as long as the training is available to upskill employees in the required skills.
+                    {t('extra-page.blog-details.details-section.paragraph1')}
                 </p>
                 <h3 className="details_item_info_title">
-                  Update Your Experts Marketing Tools
+                    {t('extra-page.blog-details.details-section.updateExpertsMarketingTools')}
                 </h3>
                 <p>
-                  Reskilling and digital upskilling While you may be focusing on updating employees who are behind, your HR or L&D team needs to make sure to nurture your most expert staff as well. This will help boost loyalty and sharpen skills for any specific role.
+                    {t('extra-page.blog-details.details-section.paragraph2')}
                 </p>
                 <p>
-                  Skills are not being put to good use in their current job Choose which ones are important for any specific role within your company. For example, marketers may need social media training so they can use.
+                    {t('extra-page.blog-details.details-section.paragraph3')}
                 </p>
                 <ul className="icon_list unordered_list_block">
                   <li>
                     <span className="list_item_icon">
                       <i className="fas fa-check"></i>
                     </span>
-                    <span className="list_item_text">The company’s training initiatives reached 210,000 employees in 2023</span>
+                    <span className="list_item_text">{t('extra-page.blog-details.details-section.trainingInitiatives')}</span>
                   </li>
                   <li>
                     <span className="list_item_icon">
                       <i className="fas fa-check"></i>
                     </span>
-                    <span className="list_item_text">Created a culture of continuous learning and skills development</span>
+                    <span className="list_item_text">{t('extra-page.blog-details.details-section.continuousLearning')}</span>
                   </li>
                   <li>
                     <span className="list_item_icon">
                       <i className="fas fa-check"></i>
                     </span>
-                    <span className="list_item_text">Mature digital organization is essential in today’s technologically driven world.</span>
+                    <span className="list_item_text">{t('extra-page.blog-details.details-section.digitalOrganization')}</span>
                   </li>
                 </ul>
                 <div className="row mb-4">
                   <div className="col col-lg-6">
                     <div className="video_widget">
-                      <Image src={blog_details_image_2} style={{ width: "100%", height: "100%" }} alt="Paradox Video Poster Image" />
+                      <Image src={blog_details_image_2} style={{ width: "100%", height: "100%" }} alt={t('extra-page.blog-details.details-section.videoPosterAlt')} />
                       <button type='submit' className="video_play_icon popup_video" onClick={openVideoModal}>
                         <span className="icon_wrap" data-magnetic>
                           <i className="fas fa-play"></i>
@@ -95,22 +96,22 @@ const DetailsSection = ({ item }) => {
                   </div>
                   <div className="col col-lg-6">
                     <div className="image_wrap">
-                      <Image src={blog_details_image_3} style={{ width: "100%", height: "100%" }} alt="Paradox Blog Details Image" />
+                      <Image src={blog_details_image_3} style={{ width: "100%", height: "100%" }} alt={t('extra-page.blog-details.details-section.blogDetailsImageAlt')} />
                     </div>
                   </div>
                 </div>
-                <h3 className="details_item_info_title">workforce to drive loyalty</h3>
+                <h3 className="details_item_info_title">{t('extra-page.blog-details.details-section.workforceToDriveLoyaltyTitle')}</h3>
                 <p>
-                  10 times more likely to be looking for a new job than those who feel that their skills are being put to good use. This shows how important valuing your staff is to drive retention and keep talent within your business. The same report found that the top three focus areas of learning and development (L&D) programs in 2022 are leadership and development, upskilling.
+                    {t('extra-page.blog-details.details-section.workforceToDriveLoyaltyContent1')}
                 </p>
                 <p>
-                  Reskilling and digital upskilling While you may be focusing on updating employees who are behind, your HR or L&D team needs to make sure to nurture your most expert staff as well. This will help boost loyalty and sharpen skills.
+                    {t('extra-page.blog-details.details-section.workforceToDriveLoyaltyContent2')}
                 </p>
                 <div className="social_actions">
                   <ul className="tags_list unordered_list">
-                    <li><Link href="/blog">UI/UX</Link></li>
-                    <li><Link href="/blog">Development</Link></li>
-                    <li><Link href="/blog">Design</Link></li>
+                    <li><Link href="/blog">{t('extra-page.blog-details.details-section.tagUIUX')}</Link></li>
+                    <li><Link href="/blog">{t('extra-page.blog-details.details-section.tagDevelopment')}</Link></li>
+                    <li><Link href="/blog">{t('extra-page.blog-details.details-section.tagDesign')}</Link></li>
                   </ul>
                   <ul className="social_icon unordered_list_end">
                     <li><Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
@@ -122,34 +123,34 @@ const DetailsSection = ({ item }) => {
 
               <div className="post_admin">
                 <div className="admin_image">
-                  <Image src={avatar_5} style={{ width: "100%", height: "100%" }} alt="Paradox Blog Post Admin Image" />
+                  <Image src={avatar_5} style={{ width: "100%", height: "100%" }} alt={t('extra-page.blog-details.details-section.adminImageAlt')} />
                 </div>
                 <div className="admin_content">
-                  <h3 className="admin_name">Karen L. Head</h3>
-                  <span className="admin_designation">Digital Marketer</span>
+                  <h3 className="admin_name">{t('extra-page.blog-details.details-section.adminName')}</h3>
+                  <span className="admin_designation">{t('extra-page.blog-details.details-section.adminDesignation')}</span>
                   <p className="mb-0">
-                    A Content Writer is a professional who writes informative and engaging articles to help brands showcase their products.
+                    {t('extra-page.blog-details.details-section.adminBio')}
                   </p>
                 </div>
               </div>
 
-              <h3 className="details_item_title">Leave a comment</h3>
+              <h3 className="details_item_title">{t('extra-page.blog-details.details-section.leaveAComment')}</h3>
               <div className="contact_form">
                 <form onClick={handleSubmit} action="#">
                   <div className="row">
                     <div className="col col-md-6">
                       <div className="form-group m-0">
-                        <input className="form-control" type="text" name="firstname" placeholder="First Name" />
+                        <input className="form-control" type="text" name="firstname" placeholder={t('extra-page.blog-details.details-section.firstNamePlaceholder')} />
                       </div>
                     </div>
                     <div className="col col-md-6">
                       <div className="form-group m-0">
-                        <input className="form-control" type="text" name="lastname" placeholder="Last Name" />
+                        <input className="form-control" type="text" name="lastname" placeholder={t('extra-page.blog-details.details-section.lastNamePlaceholder')} />
                       </div>
                     </div>
                     <div className="col">
                       <div className="form-group">
-                        <textarea className="form-control" name="comment" placeholder="Write your Comment"></textarea>
+                        <textarea className="form-control" name="comment" placeholder={t('extra-page.blog-details.details-section.commentPlaceholder')}></textarea>
                       </div>
 
                       <button type="submit" className="bd-btn-link btn_primary">
@@ -159,8 +160,8 @@ const DetailsSection = ({ item }) => {
                           </span>
                           <span className="pd-animation-flip">
                             <span className="bd-btn-anim-wrapp">
-                              <span className="bd-button-text">Post Comment</span>
-                              <span className="bd-button-text">Post Comment</span>
+                              <span className="bd-button-text">{t('extra-page.blog-details.details-section.postCommentButton')}</span>
+                              <span className="bd-button-text">{t('extra-page.blog-details.details-section.postCommentButton')}</span>
                             </span>
                           </span>
                         </span>

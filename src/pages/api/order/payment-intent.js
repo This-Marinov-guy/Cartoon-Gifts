@@ -2,10 +2,12 @@ import stripe from "src/server/config/stripe";
 import multer from 'multer';
 import cloudinary from 'src/server/config/cloudinary';
 import { v4 as uuidv4 } from 'uuid';
+import useTranslation from "next-translate/useTranslation";
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 const myUploadMiddleware = upload.array("images");
+const { t } = useTranslation("api");
 
 const runMiddleware = (req, res, fn) => {
     return new Promise((resolve, reject) => {
@@ -20,7 +22,7 @@ const runMiddleware = (req, res, fn) => {
 
 const handler = async (req, res) => {
     if (req.method !== 'POST') {
-        return res.status(401).json({ message: 'Invalid action' });
+        return res.status(401).json({ message: t('invalidAction') });
     }
 
     await runMiddleware(req, res, myUploadMiddleware);
@@ -33,7 +35,7 @@ const handler = async (req, res) => {
         const file = req.files[i];
         try {
             if (!file.mimetype.startsWith('image/') || file.size > 5485760) {
-                return res.status(200).json({ status: false, message: 'It looks like you have an image that is unsupported type or exceeds 5Mb - please change it and try again!' });
+                return res.status(200).json({ status: false, message: t('imageFileError') });
             }
 
             const b64 = Buffer.from(file.buffer).toString('base64');
@@ -45,7 +47,7 @@ const handler = async (req, res) => {
             images.push(response.secure_url);
         } catch (error) {
             console.log(error);
-            return res.status(200).json({ status: false, message: 'It looks like you have an image that is unsupported type or exceeds 5Mb - please change it and try again!' });
+            return res.status(200).json({ status: false, message: t('imageFileError') });
         }
     }
 

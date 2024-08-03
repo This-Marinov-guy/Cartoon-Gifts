@@ -4,9 +4,11 @@ import section_overlay from "@assets/images/shapes/shape_7.svg";
 import Image from "next/image";
 import Slider from "react-slick";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 
 const ServiceSectionSix = () => {
   const sliderRef = useRef(null);
+    const { t } = useTranslation("components");
 
   const handlePrevClick = () => {
     if (sliderRef.current) {
@@ -63,9 +65,9 @@ const ServiceSectionSix = () => {
       <div className="container">
         <div className="section_heading style_4 text-center">
           <h2 className="heading_subtitle text-uppercase">
-            <span>Our Service</span>
+            <span>{t('home-6.service-section-6.ourService')}</span>
           </h2>
-          <h3 className="heading_title mb-0">Providing solutions</h3>
+          <h3 className="heading_title mb-0">{t('home-6.service-section-6.solutions')}</h3>
         </div>
         <div
           className="common_carousel_4col row"

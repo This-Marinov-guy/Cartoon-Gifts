@@ -4,8 +4,10 @@ import React from "react";
 import "swiper/css/bundle";
 import { Navigation, Autoplay } from "swiper";
 import { SwiperSlide, Swiper } from "swiper/react";
+import useTranslation from 'next-translate/useTranslation';
 
 const HistorySection = () => {
+    const { t } = useTranslation('components');
   return (
     <section className="history_section section_space_lg">
       <div className="container">
@@ -15,9 +17,9 @@ const HistorySection = () => {
               <i className="fas fa-sharp fa-square-full"></i>
               <i className="fas fa-sharp fa-square-full"></i>
             </span>
-            <span>Our History</span>
+            <span>{t('extra-page.about-page.history-section.title')}</span>
           </h2>
-          <h3 className="heading_title mb-0">Journey of Paradox</h3>
+          <h3 className="heading_title mb-0">{t('extra-page.about-page.history-section.subtitle')}</h3>
         </div>
       </div>
       <div className="history_carousel_wrap">
@@ -60,10 +62,10 @@ const HistorySection = () => {
                   <div className="iconbox_item">
                     <div className="item_content">
                       <h3 className="item_title">
-                        We were thinking for Paradox
+                        {t('extra-page.about-page.history-section.eventTitle')}
                       </h3>
                       <p className="mb-0">
-                        We are help generate positive the cash floinvest
+                        {t('extra-page.about-page.history-section.eventDesc')}
                       </p>
                     </div>
                   </div>
@@ -81,10 +83,10 @@ const HistorySection = () => {
                   <div className="iconbox_item">
                     <div className="item_content">
                       <h3 className="item_title">
-                        We were thinking for Paradox
+                        {t('extra-page.about-page.history-section.eventTitle')}
                       </h3>
                       <p className="mb-0">
-                        We are help generate positive the cash floinvest
+                        {t('extra-page.about-page.history-section.eventDesc')}
                       </p>
                     </div>
                   </div>
@@ -103,10 +105,10 @@ const HistorySection = () => {
                   <div className="iconbox_item">
                     <div className="item_content">
                       <h3 className="item_title">
-                        We were thinking for Paradox
+                        {t('extra-page.about-page.history-section.eventTitle')}
                       </h3>
                       <p className="mb-0">
-                        We are help generate positive the cash floinvest
+                        {t('extra-page.about-page.history-section.eventDesc')}
                       </p>
                     </div>
                   </div>
@@ -125,10 +127,10 @@ const HistorySection = () => {
                   <div className="iconbox_item">
                     <div className="item_content">
                       <h3 className="item_title">
-                        We were thinking for Paradox
+                        {t('extra-page.about-page.history-section.eventTitle')}
                       </h3>
                       <p className="mb-0">
-                        We are help generate positive the cash floinvest
+                        {t('extra-page.about-page.history-section.eventDesc')}
                       </p>
                     </div>
                   </div>
@@ -148,10 +150,10 @@ const HistorySection = () => {
                   <div className="iconbox_item">
                     <div className="item_content">
                       <h3 className="item_title">
-                        We were thinking for Paradox
+                        {t('extra-page.about-page.history-section.eventTitle')}
                       </h3>
                       <p className="mb-0">
-                        We are help generate positive the cash floinvest
+                        {t('extra-page.about-page.history-section.eventDesc')}
                       </p>
                     </div>
                   </div>
@@ -170,10 +172,10 @@ const HistorySection = () => {
                   <div className="iconbox_item">
                     <div className="item_content">
                       <h3 className="item_title">
-                        We were thinking for Paradox
+                        {t('extra-page.about-page.history-section.eventTitle')}
                       </h3>
                       <p className="mb-0">
-                        We are help generate positive the cash floinvest
+                        {t('extra-page.about-page.history-section.eventDesc')}
                       </p>
                     </div>
                   </div>

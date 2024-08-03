@@ -9,11 +9,13 @@ import shape_circle_1 from '@assets/images/shapes/shape_circle_1.svg'
 import shape_close_icon from '@assets/images/shapes/shape_close_icon.png'
 import Image from 'next/image';
 import ModalVideo from 'react-modal-video';
+import useTranslation from 'next-translate/useTranslation';
 
 
 const StarterStepsSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openVideoModal = () => setIsOpen(!isOpen);
+    const { t } = useTranslation('components');
 
 
   return (
@@ -33,7 +35,7 @@ const StarterStepsSection = () => {
                       <div className="item_icon">
                         <Image src={icon_team_white} style={{ width: "100%", height: "auto" }} alt="Paradox Icon Team" />
                       </div>
-                      <h3 className="item_title m-0">World-class Team</h3>
+                      <h3 className="item_title m-0">{t('home-6.starter-steps-section.worldClassTeam')}</h3>
                     </div>
                   </li>
                   <li>
@@ -41,7 +43,7 @@ const StarterStepsSection = () => {
                       <div className="item_icon">
                         <Image src={icon_comment_white} style={{ width: "100%", height: "auto" }} alt="Paradox Icon Comment" />
                       </div>
-                      <h3 className="item_title m-0">Quickly Response</h3>
+                      <h3 className="item_title m-0">{t('home-6.starter-steps-section.quickResponse')}</h3>
                     </div>
                   </li>
                   <li>
@@ -49,7 +51,7 @@ const StarterStepsSection = () => {
                       <div className="item_icon">
                         <Image src={icon_medal_white} style={{ width: "100%", height: "auto" }} alt="Paradox Icon Medal" />
                       </div>
-                      <h3 className="item_title m-0">Satisfaction Guarantee</h3>
+                      <h3 className="item_title m-0">{t('home-6.starter-steps-section.satisfaction')}</h3>
                     </div>
                   </li>
                 </ul>
@@ -65,13 +67,13 @@ const StarterStepsSection = () => {
               <div className="steps_content_wrapper">
                 <div className="section_heading mb-5 style_4">
                   <h2 className="heading_subtitle text-uppercase">
-                    <span>Why Chose Us</span>
+                    <span>{t('home-6.starter-steps-section.headingSubTitle')}</span>
                   </h2>
                   <h3 className="heading_title">
-                    Revolutionary Step for your Business
+                  {t('home-6.starter-steps-section.headingTitle')}
                   </h3>
                   <p className="heading_description mb-0">
-                    Our action plan is focused and planned. We are result oriented organization and are committed to invest in initiatives for newer expanded customer relationship. We always strive to enhance productivity and improve
+                  {t('home-6.starter-steps-section.headingDescription')}
                   </p>
                 </div>
                 <ul className="btns_group unordered_list">
@@ -83,8 +85,8 @@ const StarterStepsSection = () => {
                         </span>
                         <span className="pd-animation-flip">
                           <span className="bd-btn-anim-wrapp">
-                            <span className="bd-button-text">Know More</span>
-                            <span className="bd-button-text">Know More</span>
+                            <span className="bd-button-text">{t('home-6.starter-steps-section.knowMore')}</span>
+                            <span className="bd-button-text">{t('home-6.starter-steps-section.knowMore')}</span>
                           </span>
                         </span>
                       </span>
@@ -95,7 +97,7 @@ const StarterStepsSection = () => {
                       <span id="intro_vbtn" className="icon_wrap">
                         <i className="fas fa-play"></i>
                       </span>
-                      <span className="btn_text"><small className="d-block">Watch Our</small> Video</span>
+                      <span className="btn_text"><small className="d-block">{t('home-6.starter-steps-section.watch')}</small>{t('home-6.starter-steps-section.video')}</span>
                     </button>
                   </li>
                 </ul>

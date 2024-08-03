@@ -4,16 +4,19 @@ import Action_image from '@assets/images/gallery/gallery_13.jpg'
 import Shape_image from '@assets/images/shapes/shape_circle_3.svg'
 import Link from 'next/link';
 
+import useTranslation from 'next-translate/useTranslation';
+
 const CollectionSection = () => {
+    const { t } = useTranslation('components');
   return (
     <div className="calltoaction_section style_1 bg_primary">
       <div className="container">
         <div className="row align-items-center">
           <div className="col col-lg-6 order-lg-last">
             <div className="cta_image decoration_wrap">
-              <Image src={Action_image} style={{ height: "60%", borderRadius: '10%' }} alt="Paradox Call To Action Image" />
+              <Image src={Action_image} style={{ height: "60%", borderRadius: '10%' }} alt={t('home.collection-section.actionImageAlt')} />
               <div className="deco_item shape_1">
-                <Image className="wow zoomIn" data-wow-delay=".1s" src={Shape_image} style={{ width: "100%", height: "100%" }} alt="Paradox Shape Image" />
+                <Image className="wow zoomIn" data-wow-delay=".1s" src={Shape_image} style={{ width: "100%", height: "100%" }} alt={t('home.collection-section.shapeImageAlt')} />
               </div>
             </div>
           </div>
@@ -25,10 +28,10 @@ const CollectionSection = () => {
                     <i className="fas fa-sharp fa-square-full"></i>
                     <i className="fas fa-sharp fa-square-full"></i>
                   </span>
-                  <span>Get In Touch</span>
+                  <span>{t('home.collection-section.getInTouch')}</span>
                 </h2>
                 <h3 className="heading_title mb-30">
-                  Do you want to have your own personal cartoon ?
+                    {t('home.collection-section.personalCartoon')}
                 </h3>
               </div>
               <Link href="/order" className="bd-btn-link btn_warning">
@@ -38,8 +41,8 @@ const CollectionSection = () => {
                   </span>
                   <span className="pd-animation-flip">
                     <span className="bd-btn-anim-wrapp">
-                      <span className="bd-button-text">Make an order</span>
-                      <span className="bd-button-text">Order now</span>
+                      <span className="bd-button-text">{t('home.collection-section.makeAnOrder')}</span>
+                      <span className="bd-button-text">{t('home.collection-section.orderNow')}</span>
                     </span>
                   </span>
                 </span>

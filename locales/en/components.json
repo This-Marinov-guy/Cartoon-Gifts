@@ -1,0 +1,1021 @@
+{
+    "common": {
+        "breadcrumb" : {
+            "home": "Home",
+            "shape_image_alt": "Paradox - Shape Image"
+        },
+        "buttons": {
+            "backButton": {
+                "back": "Back"
+            }
+        },
+        "inputs": {
+            "imageInput": {
+                "drop_files_here": "Drop the files here ...",
+                "drag_or_click": "Drag 'n' drop some files here, or click to select files",
+                "max_images_and_size": "Maximum of 5 images | Maximum size of 5Mb"
+            },
+            "price-currency": {
+                "total": "Total",
+                "currency": "Currency"
+            }
+        },
+        "off-canvas": {
+            "index": {
+                "logoAlt": "Site Logo - Paradox - Agency Template",
+                "makeAnOrder": "Make an order",
+                "orderNow": "Order now",
+                "contactInfo": "Contact Info",
+                "facebook": "Facebook",
+                "instagram": "Instagram"
+            }
+        }
+    },
+    "extra-page": {
+        "about-page": {
+            "about-section": {
+                "aboutUs": "About US",
+                "bestStartup": "Best for your Start-up Creative Agency",
+                "focusedPlanned": "Our action plan is focused and planned. We are result oriented organization and are committed to invest in initiatives for newer expanded customer relationship. We always strive to enhance productivity and improve",
+                "maximizeProfits": "A software development company that provides solutions for maximizing profits and converting clients ideas into reality.",
+                "comprehensiveAnalysis": "Comprehensive Analysis",
+                "mobileFriendly": "Mobile Friendly Web app",
+                "wellDesigned": "Well Designed Web App",
+                "highPerformance": "High Performance & Speed",
+                "getQuotes": "Get a Quotes",
+                "paradoxAboutImage": "Paradox - About Image",
+                "paradoxShapeImage": "Paradox - Shape Image"
+            },
+            "about-section-2": {
+                "videoPosterAlt": "Paradox Video Poster Image",
+                "whoWeAre": "Who We Are",
+                "itSolutions": "We Can Do Every Single IT Solution Together",
+                "softwareDescription": "A software development company that provides solutions for maximizing profits and converting clients' ideas into reality.",
+                "visionIconAlt": "Paradox Icon Eye White",
+                "ourVision": "Our Vision",
+                "visionDescription": "We are help  generate positive the cash floinvest",
+                "missionIconAlt": "Paradox Icon Eye White",
+                "ourMission": "Our Mission",
+                "missionDescription": "We are help  generate positive the cash floinvest",
+                "clientReviews": "Client Reviews"
+            },
+            "counter-section": {
+                "paradoxShapesImageLineFlow": "Paradox Shapes Image Line Flow",
+                "paradoxShapesCircle": "Paradox Shapes Circle"
+            },
+            "history-section": {
+                "title": "Our History",
+                "subtitle": "Journey of Paradox",
+                "eventTitle": "We were thinking for Paradox",
+                "eventDesc": "We help generate positive cash flow and investment opportunities"
+            },
+            "index": {
+                "aboutUs": "About US"
+            }
+        },
+        "about-two-area": {
+            "aboutMeSection": {
+                "altText": "Paradox Illustration",
+                "getStarted": "Get started",
+                "name": "Gary M. Martin",
+                "designation": "Sr. Product Manager",
+                "experience": "Experience",
+                "experienceValue": "5+ years",
+                "specialization": "Specialization",
+                "specializationValue": "Content Writing",
+                "myAwards": "My Awards",
+                "myAwardsValue": "MarCom Awards",
+                "intro": "I'm a digital marketer specializing in strategy & account management for enterprise brands. I love taking exciting projects and helping companies pioneer engaging consumer-centric experiences."
+            },
+            "contactSection": {
+                "firstName": "First Name",
+                "lastName": "Last Name",
+                "emailAddressTitle": "Email Address",
+                "selectSubject": "Select Subject",
+                "subjectOptions": [
+                    "Website Development",
+                    "UX/UI Design",
+                    "App Development",
+                    "Video Editing",
+                    "Programming & Tech",
+                    "Business Consulting"
+                ],
+                "messagePlaceholder": "Write your Message",
+                "sendNow": "Send Now",
+                "contactMe": "Contact Me",
+                "feelFree": "Feel Free Get In touch with Gary",
+                "intro": "I'm a digital marketer specializing in strategy & account management for enterprise brands. I love taking exciting projects.",
+                "email": "Email",
+                "phone": "Phone",
+                "emailAddress": "gary@paradox.com",
+                "phoneNumber": "+12024463369"
+            },
+            "experienceSection": {
+                "myExperience": "My Experience",
+                "description": "Digital Marketing refers to all marketing efforts that use digital media (or “electronic devices” and “digital channels”) to reach customers and promote brands, products, and services.",
+                "experienceList": [
+                    "Earn a College Degree in Digital Marketing",
+                    "Practice by Creating Mock Campaigns",
+                    "Take an Online Digital Marketing Course"
+                ],
+                "mySkills": "My Skills",
+                "skills": [
+                    { "title": "Data Analysis", "percentage": "84%" },
+                    { "title": "Content Creation", "percentage": "93%" },
+                    { "title": "SEO & SEM", "percentage": "93%" }
+                ]
+            },
+            "index": {
+                "title": "About Me",
+                "subTitle": "About Me"
+            }
+        },
+        "blog": {
+            "blog-section": {
+                "readMore": "Read More",
+                "blogImageAlt": "Paradox Blog Image",
+                "iconArrowAlt": "Paradox - Icon Arrow Down Right"
+            },
+            "index": {
+                "blogGridTitle": "Blog Grid",
+                "blogGridSubTitle": "Blog Grid"
+            }
+        },
+        "blog-right-sidebar": {
+            "blog-right-section": {
+                "view": "VIEW",
+                "blogImageAlt": "Paradox Blog Image",
+                "readMore": "Read More",
+                "iconArrowAlt": "Paradox - Icon Arrow Down Right"
+            },
+            "index": {
+                "blogGridWithSidebar": "Blog Grid with Sidebar",
+                "blogRightSidebar": "Blog Right Sidebar"
+            }
+              
+        },
+        "blog-classsic-area": {
+            "blog-section": {
+                "view": "VIEW",
+                "blogImageAlt": "Paradox Blog Image",
+                "readMore": "Read More",
+                "iconArrowAlt": "Paradox - Icon Arrow Down Right"
+            },
+            "index": {
+                "blogClassicTitle": "Blog classic",
+                "blogClassicSubTitle": "Blog classic"
+            }
+        },
+        "blog-details": {
+            "details-section": {
+                "blogImageAlt": "Blog Image",
+                "blogDetailsContent1": "Some mistakenly believe that because you’re offering a certification it must be generalized and meant to give anyone a wide range of digital skills. But the benefits of continuous learning include flexibility and tailored training.",
+                "blogDetailsContent2": "Investing in offering those paths early on can help you retain staff instead of letting them go. After all, this is the era of hybrid and remote working, so flexibility and career advancement are crucial.",
+                "blockquoteContent": "“You have to be burning with an idea, or a problem, or a wrong that you want to right. If you’re not passionate enough from the start, never stick it out.”",
+                "blockquoteAuthor": "- Steve Jobs",
+                "updateExpertsMarketingTools": "Update Your Marketing Tools with Experts' Advice",
+                "paragraph1": "Some of the employees in your workforce are already digitally-savvy and actively pursue new training and in-demand skills on their own. These employees are valuable, but research demonstrates that you may lose them if you don’t allow them the opportunity to improve their skills further.  Should be possible as long as the training is available to upskill employees in the required skills.",
+                "paragraph2": "Reskilling and digital upskilling While you may be focusing on updating employees who are behind, your HR or L&D team needs to make sure to nurture your most expert staff as well. This will help boost loyalty and sharpen skills for any specific role.",
+                "paragraph3": "Skills are not being put to good use in their current job Choose which ones are important for any specific role within your company. For example, marketers may need social media training so they can use.",
+                "trainingInitiatives": "The company’s training initiatives reached 210,000 employees in 2023",
+                "continuousLearning": "Created a culture of continuous learning and skills development",
+                "digitalOrganization": "Mature digital organization is essential in today’s technologically driven world.",
+                "videoPosterAlt": "Paradox Video Poster Image",
+                "blogDetailsImageAlt": "Paradox Blog Details Image",
+                "workforceLoyaltyTitle": "Building Workforce Loyalty Through Engagement",
+                "workforceLoyaltyContent1": "Engaged employees are more likely to stay longer, perform better, and contribute more to the organization’s success.",
+                "workforceLoyaltyContent2": "Effective engagement strategies include clear career paths, meaningful work, and regular feedback.",
+                "tagUIUX": "UI/UX",
+                "tagDevelopment": "Development",
+                "tagDesign": "Design",
+                "adminImageAlt": "Paradox Blog Post Admin Image",
+                "adminName": "Karen L. Head",
+                "adminDesignation": "Digital Marketer",
+                "adminBio": "A Content Writer is a professional who writes informative and engaging articles to help brands showcase their products.",
+                "leaveAComment": "Leave a Comment",
+                "firstNamePlaceholder": "First Name",
+                "lastNamePlaceholder": "Last Name",
+                "commentPlaceholder": "Write your comment here...",
+                "postCommentButton": "Post Comment"
+            },
+            "index": {
+                "title": "Blog Details",
+                "subTitle": "Blog Details"
+            }
+        },
+        "blog-left-sidebar": {
+            "blog-left-section": {
+                "view": "VIEW",
+                "readMore": "Read More",
+                "paradoxBlogImageAlt": "Paradox Blog Image",
+                "paradoxIconArrowAlt": "Paradox - Icon Arrow Down Right"
+            },
+            "index": {
+                "blogGridWithSidebar": "Blog Grid with Sidebar",
+                "blogLeftSidebar": "Blog Left Sidebar"
+            }
+        },
+        "blog-sidebar": {
+            "blog-search": {
+                "search": "Search",
+                "enterKeyword": "Enter Keyword",
+                "searchIconAlt": "Paradox Search Icon"
+            },
+            "categories": {
+                "categories": "Categories",
+                "marketing": "Marketing (03)",
+                "digitalAgency": "Digital Agency (04)",
+                "creativeAgency": "Creative Agency (06)",
+                "businessConsulting": "Business Consulting (03)",
+                "itSolution": "IT Solution (02)"
+            },
+            "post-categories": {
+                "recentPost": "Recent Post",
+                "paradoxBlogImage": "Paradox Blog Image"
+            },
+            "tag-list": {
+                "tagsList": "Tags List",
+                "business": "Business",
+                "uiux": "UI/UX",
+                "development": "Development",
+                "design": "Design",
+                "programming": "Programming",
+                "social": "Social"
+            }              
+        },
+        "client-from-area": {
+            "client-from-section": {
+                "howdy": "Howdy,",
+                "team": "Team!",
+                "yourName": "Your Name",
+                "emailAddress": "Email Address",
+                "selectService": "Select Service",
+                "websiteDevelopment": "Website Development",
+                "uxUiDesign": "UX/UI Design",
+                "appDevelopment": "App Development",
+                "videoEditing": "Video Editing",
+                "programmingTech": "Programming & Tech",
+                "businessConsulting": "Business Consulting",
+                "selectBudget": "Select Budget",
+                "projectBrief": "Project Brief",
+                "startTypingHere": "Start Typing Here...",
+                "submitNow": "Submit Now"
+            },
+            "index": {
+                "clientFromTitle": "Client Form",
+                "clientFromSubTitle": "Client Form"
+            }
+        },
+        "comming-soon":{
+            "comingSoon": "We're Coming! Stay with us",
+            "yourAddress": "Your Address",
+            "subscribeNow": "Subscribe Now",
+            "altShapeImage": "Paradox - Shape Image",
+            "altSiteLogo": "Site Logo - Paradox - Agency Template"
+        },
+        "contact-section": {
+            "contactUs": "Contact Us",
+            "feelFreeContactUs": "Feel Free Contact Us",
+            "yourName": "Your Name",
+            "subject": "Subject",
+            "emailAddress": "Email Address",
+            "writeYourMessage": "Write your Message",
+            "sendNow": "Send Now",
+            "location": "Location",
+            "email": "Email",
+            "followUs": "Follow Us",
+            "messageSubmitted": "Message submitted!",
+            "thanksForSubmitting": "Thanks for submitting your message. Our team will get back to you soon.",
+            "sendEmailError": "There was a problem sending your email - please try again!"
+        },
+        "contact-two-area": {
+            "contact-faq": {
+                "section_title": "Need to know User Common Questions",
+                "button_text": "Need to Know More",
+                "faq": {
+                    "question_1": "How much does a new website cost?",
+                    "answer_1": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your <a href='/policy-privacy'>website’s security</a>, invite new visitors, boost traffic and more. Of course, we can help you out with proper and professional website maintenance in addition to development as it supports",
+                    "question_2": "Will you maintain my site for me?",
+                    "answer_2": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your <a href='/policy-privacy'>website’s security</a>, invite new visitors, boost traffic and more. Of course, we can help you out with proper and professional website maintenance in addition to development as it supports",
+                    "question_3": "Will my website be mobile-friendly?",
+                    "answer_3": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your <a href='/policy-privacy'>website’s security</a>, invite new visitors, boost traffic and more. Of course, we can help you out with proper and professional website maintenance in addition to development as it supports",
+                    "question_4": "What if I need help on my site down the road?",
+                    "answer_4": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your <a href='/policy-privacy'>website’s security</a>, invite new visitors, boost traffic and more. Of course, we can help you out with proper and professional website maintenance in addition to development as it supports"
+                }
+            },
+            "contact-from-section": {
+                "sectionTitle": "Get In Touch",
+                "contactUs": "Contact Us",
+                "firstNamePlaceholder": "First Name",
+                "lastNamePlaceholder": "Last Name",
+                "emailPlaceholder": "Email Address",
+                "selectSubject": "Select Subject",
+                "websiteDevelopment": "Website Development",
+                "uxUiDesign": "UX/UI Design",
+                "appDevelopment": "App Development",
+                "videoEditing": "Video Editing",
+                "programmingTech": "Programming & Tech",
+                "businessConsulting": "Business Consulting",
+                "messagePlaceholder": "Write your Message",
+                "sendNow": "Send Now"
+            },
+            "contact-section": {
+                "sectionTitle": "Get In Touch",
+                "contactUs": "Contact Us",
+                "locationLabel": "Location",
+                "location": "1989 Timber Ridge Road Sacramento CA, California",
+                "phoneLabel": "Phone",  
+                "emailLabel": "Email",
+                "openingLabel": "Opening",
+                "openingHours": "10am - 6pm, Friday Close",
+                "followUsLabel": "Follow Us"
+            },
+            "index": {
+                "title": "Contact Us V2",
+                "subTitle": "Contact Us V2"
+            }
+        },
+        "error-page": {
+            "pageTitle": "404 Not Found",
+            "errorImageAlt": "Paradox - Error Image",
+            "pageNotFound": "Page not found",
+            "urlNotFound": "The requested URL you are looking for doesn’t",
+            "urlNotFoundContinuation": "exist on this server.",
+            "goBackToHome": "Go Back To Home"
+        },
+        "fq-question": {
+            "common-question": {
+                "title": "More Common Question",
+                "q1Title": "Q1. What is the role of an ad agency?",
+                "q1Answer": "An advertising agency may be known or referred to as a creative agency or an ad agency. There are also a agencies such as digital agencies, activation agencies and media buying agencies.",
+                "q2Title": "Q2. How best can I market my product?",
+                "q2Answer": "This depends on what your product is, its availability, distribution channels and your budget. Start by creating awareness of your product within your target market by selecting the best media channels.",
+                "q3Title": "Q3. What is social media marketing?",
+                "q3Answer": "Social media marketing involves the use of social media platforms to connect with audiences and build brands, increase sales, and drive website traffic. This includes publishing excellent.",
+                "q4Title": "Q4. How effective is social media marketing?",
+                "q4Answer": "Social media marketing can increase a business’ exposure, grow the brand, and drive sales. Social media posts drive targeted traffic and having access to all those customers help boost the brand.",
+                "q5Title": "Q5. Why is my Google Ad being rejected?",
+                "q5Answer": "There are 10 common reasons why your Google Ad will be disapproved:",
+                "q5Reasons": [
+                    "Spelling and grammatical errors",
+                    "Capitalisation issues",
+                    "Copyright/Trademark infringement",
+                    "Unnecessary repetition"
+                ],
+                "q6Title": "Q6. What is HTTPS?",
+                "q6Answer": "Social media marketing involves the use of social media platforms to connect with audiences and build brands, increase sales, and drive website traffic. This includes publishing excellent."
+            },
+            "faq-section": {
+                "title": "Need to know User Common Questions",
+                "questions": {
+                    "q1": {
+                        "title": "How much does a new website cost?",
+                        "answer": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your website’s security, invite new visitors, boost traffic and more. Of course, we can help you out with proper."
+                    },
+                    "q2": {
+                        "title": "Will you maintain my site for me?",
+                        "answer": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your website’s security, invite new visitors, boost traffic and more. Of course, we can help you out with proper."
+                    },
+                    "q3": {
+                        "title": "Will my website be mobile-friendly?",
+                        "answer": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your website’s security, invite new visitors, boost traffic and more. Of course, we can help you out with proper."
+                    },
+                    "q4": {
+                        "title": "What if I need help on my site down the road?",
+                        "answer": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your website’s security, invite new visitors, boost traffic and more. Of course, we can help you out with proper."
+                    },
+                    "q5": {
+                        "title": "What is the process for a redesign?",
+                        "answer": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your website’s security, invite new visitors, boost traffic and more. Of course, we can help you out with proper."
+                    },
+                    "q6": {
+                        "title": "What is a content strategy?",
+                        "answer": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your website’s security, invite new visitors, boost traffic and more. Of course, we can help you out with proper."
+                    },
+                    "q7": {
+                        "title": "How can I update my website once it is designed?",
+                        "answer": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your website’s security, invite new visitors, boost traffic and more. Of course, we can help you out with proper."
+                    },
+                    "q8": {
+                        "title": "What is digital marketing?",
+                        "answer": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your website’s security, invite new visitors, boost traffic and more. Of course, we can help you out with proper."
+                    }
+                },
+                "button_text": "Need to Know More"
+            },
+            "index": {
+                "title": "Frequently Asked Questions",
+                "subTitle": "FAQ"
+            }
+        },
+        "order": {
+            "checkout-modal": {
+                "yourDetails": "Your Details",
+                "name": "Name",
+                "email": "Email",
+                "orderDetails": "Details of your order",
+                "occasion": "Occasion",
+                "profession": "Profession",
+                "hobby": "Hobby",
+                "label": "Label",
+                "description": "Description",
+                "size": "Size",
+                "delivery": "Delivery",
+                "imageSelection": "Image Selection",
+                "finishOrder": "Finish your order",
+                "total": "Total",
+                "back": "Back",
+                "pay": "Pay"
+            },
+            "index": {
+                "title": "Make an Order",
+                "subTitle": "Order"
+            },
+            "order-form": {
+                "formTitle": "Fill the form and submit your order",
+                "yourName": "Your Name",
+                "emailAddress": "Email Address",
+                "userQuestion": "Let's see what exactly do you want",
+                "occasion": "Occasion",
+                "profession": "Person's profession",
+                "hobby": "Person's Hobby",
+                "labelPlaceholder": "Label to be displayed (optional)",
+                "noDescription": "I trust Cartoon Gifts to make me the cartoon with their idea, given my details",
+                "descriptionPlaceholder": "Briefly describe what you want on your cartoon",
+                
+                "peopleImagesError": "Please give us at least 1 image to work with",
+                "invalidPeopleFilesError": "There was a problem with some of your files - they are either corrupted or exceed 5MB",
+                "makeSureTo": "Make sure to",
+                "addPictures": "add pictures for any face you want on your cartoon (+{{price}} {{symbol}} for each)",
+                "describeBackground": "describe what will be the background (beach, mountains, yacht, etc.)",
+                "itemsWithYou": "tell us are there any items with you (bottles, cars, helicopter, etc.)",
+                "addAnythingHelpful": "add anything that can be helpful",
+                "petQuestion": "Do you want a pet in your cartoon (free of charge)",
+                "petImages": "Pet Images",
+                "invalidPetFilesError": "There was a problem with some of your files - they are either corrupted or exceed 5MB",
+                "chooseSize": "Choose a size",
+                "sizeError": "Please select a size",
+                "chooseDelivery": "Choose a delivery option",
+                "deliveryError": "Please select a delivery option",
+                "shippingAddress": "Fill your shipping address",
+                "selectOption": "Select an Option",
+                "country": "Country",
+                "address": "Address",
+                "zipCode": "ZIP code",
+                "phone": "Phone",
+                "paymentMethod": "How are you gonna pay",
+                "checkout": "Checkout",
+                "goToCheckout": "Go To Checkout",
+                "missingFields": "You have some missing fields - please fill them and submit again"
+            }
+        },
+        "portfolio-details": {
+            "details-section": {
+                "titleAlt": "Paradox Portfolio Image",
+                "description": "Hence, the mobile app development process requires creating software that can be installed on the device, and enabling backend services for data access through APIs, and testing the application on target devices. Java, Python, C++, Kotlin, and Rust are popular app development languages",
+                "date": "Date",
+                "dateValue": "02 March, 2023",
+                "category": "Category",
+                "categoryValue": "App Development",
+                "estimation": "Estimation",
+                "estimationValue": "10 Months",
+                "client": "Client",
+                "clientValue": "Acorn Crafts LTD",
+                "ourPlanning": "Our Planning",
+                "planningDescription": "When enterprises began building mobile apps, one concern was the proliferation of client-side technology. Enterprises had become accustomed to standardizing on a platform, such as Java™ EE. By standardizing on a platform, a business could contain a skill set around a standard architecture. Mobile devices have their own application SDKs, resulting in a proliferation of client-side choices.",
+                "clientCareTitle": "Client Care",
+                "clientCareDescription": "Client care always goes to the top of the list. It goes beyond just taking care of clients & making sure they are happy with your services. It is a genuine caring.",
+                "usingEmpathyTitle": "Using Empathy",
+                "usingEmpathyDescription": "This follows up with client care. By having empathy and being able to put yourself in your client’s shoes, you will be able to take client care to the next level.",
+                "communicationSkillsTitle": "Communication Skills",
+                "communicationSkillsDescription": "This may sound obvious, but actually, there’s much more to learning how to communicate with a client. First, you must be able to speak openly",
+                "whatWeDidTitle": "What we did for this project",
+                "getService": "Get This Service Now",
+                "websiteDevelopmentDescription": "A website development process is a documented, predictable set of steps to take to successfully complete a website development project or web application. This process helps to align development resources, stakeholders, and team members to ensure all aspects of the project are addressed and delivered on time",
+                "designingProduct": "Designing the product architecture",
+                "testersTest": "Testers test the software against the requirements",
+                "systemMaintenance": "Whole the system is in maintenance mode",
+                "finalResult": "Final Result",
+                "finalResultDescription": "When enterprises began building mobile apps, one concern was the proliferation of client-side technology. Enterprises had become accustomed to standardizing on a platform, such as Java™ EE. By standardizing on a platform, a business could contain a skill set around a standard architecture. Mobile devices have their own application SDKs, resulting in a proliferation of client-side choices.",
+                "share": "Share",
+                "previousPortfolio": "Previous Portfolio",
+                "nextPortfolio": "Next Portfolio"
+            },
+            "index": {
+                "title": "Portfolio Details",
+                "subTitle": "Portfolio Details"
+            }
+              
+        },
+        "portfolio-fulwidth": {
+            "portfolio-section-main": {
+                "viewAll": "View All",
+                "graphics": "Graphics",
+                "uiUx": "UI/UX",
+                "wordpress": "WordPress",
+                "webDesign": "Web Design"
+            },
+            "index": {
+                "title": "Portfolio Fullwidth",
+                "subTitle": "Portfolio Fullwidth"
+            }
+        },
+        "portfolio-grid-area": {
+            "portfolio-grid-section": {
+                "viewAll": "View All",
+                "graphics": "Graphics",
+                "uiUx": "UI/UX",
+                "wordpress": "WordPress",
+                "webDesign": "Web Design"
+            },
+            "index": {
+                "title": "Portfolio Grid",
+                "subTitle": "Portfolio Grid"
+            }
+        },
+        "portfolio-main-area": {
+            "ourWorks": "Our Works",
+            "title": "Gallery",
+            "subTitle": "Gallery"
+        },
+        "portfolio-masonry-area": {
+            "category": {
+              "uiux": "UI/UX",
+              "web": "Web",
+              "wordpress": "WordPress",
+              "graphics": "Graphics"
+            },
+            "categoryTitle": {
+              "productDesign": "Product Design",
+              "webDesign": "Web Design",
+              "development": "Development",
+              "graphicsDesign": "Graphics Design"
+            },
+            "altText": "Portfolio Image",
+            "title": "Portfolio Masonry",
+            "subTitle": "Portfolio Masonry",
+            "loadMore": "Load More"
+        },
+        "pricing": {
+            "pricing-section": {
+                "nano": {
+                  "title": "Nano",
+                  "price": "20$",
+                  "duration": "Months"
+                },
+                "micro": {
+                  "title": "Micro",
+                  "price": "50$",
+                  "duration": "Months"
+                },
+                "mega": {
+                  "title": "Mega",
+                  "price": "99$",
+                  "duration": "Months"
+                },
+                "giga": {
+                  "title": "Giga",
+                  "price": "130$",
+                  "duration": "Months"
+                },
+                "description": "Alternatively, you can also have product tier names",
+                "features": {
+                  "homePage": "06 Home Page",
+                  "innerPageDesign": "30+ Inner Page Design",
+                  "responsive": "Fully Responsive",
+                  "figmaFile": "Figma File Included",
+                  "customPlugin": "Custom Plugin"
+                },
+                "orderNow": "Order Now"
+            },
+            "index": {
+                "title": "Pricing",
+                "subTitle": "Pricing"
+            },
+            "faq-section": {
+                "heading": "Need to know User Common Questions?",
+                "q1": {
+                  "title": "Can I get a digital delivery",
+                  "answer": "Of course - we offer 100% digital delivery absolutely FREE and as fast as possible! Just make sure you submit a correct email address."
+                },
+                "q2": {
+                  "title": "How do I pay",
+                  "answer": "Once you submit all the details, a checkout window will be opened for you to pay. We have integrated lots of different ways to ease the process."
+                },
+                "q3": {
+                  "title": "What if I do not like the cartoon",
+                  "answer": "If you do not like what we have sent you, you can always make a request for change and we will handle it immediately until you are satisfied. Our customers are always right!"
+                },
+                "q4": {
+                  "title": "How to cancel my order",
+                  "answer": "We are sorry to hear that you want to cancel your order - just send us an email with your order number and we will handle it immediately."
+                }
+            }
+        },
+        "privacy-policy-area": {
+            "title": "Privacy & Policy",
+            "subTitle": "Privacy & Policy",
+            "privacyPolicy": "Privacy Policy",
+            "termsConditions": "Terms & Conditions",
+            "privacyPolicyAgreement": "Privacy Policy Agreement",
+            "privacyPolicyContent1": "Companies or websites that handle customer information are required by law and third parties to publish their Privacy Policies on their business websites. If you own a website, web app, mobile app or <Link className='link' href='/service'>desktop app</Link> that collects or processes user data, you most certainly will have to post a Privacy Policy on your website (or give in-app access to the full Privacy Policy agreement).",
+            "privacyPolicyContent2": "Privacy is not a new concept. Humans have always desired privacy in their social as well as private lives. But the idea of privacy as a human right is a relatively modern phenomenon.",
+            "mainReasons": "Here are some of the main reasons:",
+            "requiredByLaw": "Required by the law",
+            "requiredByThirdParty": "Required by third party services",
+            "increasesTransparency": "Increases Transparency",
+            "letSSee": "Let's take a look at each of these reasons in more depth.",
+            "whatWeCollect": "What we collect",
+            "collectContent1": "Apart from governing laws, some websites like Apple, Amazon, and <Link className='link' href='/terms-conditions'>Google require website</Link> and app owners to post a Privacy Policy agreement if they use any of their services. Many websites and apps use in-page/in-app advertising by third parties to generate revenue. As these ads also collect user data, third parties require the websites or apps to ask their users permission for sharing their personal data.",
+            "collectContent2": "Some of the most popular third party services require website and app owners to post Privacy Policy agreements on their websites. Some of these services include:",
+            "questionsComments": "Questions, comments, or report of incidents",
+            "emailAddress": "howdy@paradox.com",
+            "revisionsPrivacyPolicy": "Revisions to this privacy policy without notice",
+            "revisionsContent": "This Privacy Policy is dynamic. It will continually change. You may not assume that it remains the same and you agree to check the policy each time you visit the site for changes. Unless, in the sole opinion of the website, this policy changes so drastically as to suggest a posted notification on the site or via email, you will receive no notification of changes to this Privacy Policy nor, under any circumstances, does this site promise notification. Your continued use of this site always evidences your acceptance of the terms this Privacy Policy or any modifications.",
+            "termsConditionsAgreement": "Terms and Conditions Agreement",
+            "termsConditionsContent1": "A terms and conditions agreement outlines the website administrator’s rules regarding user behaviour and provides information about the actions the website administrator can and will perform. Essentially, your terms and conditions text is a <Link className='link' href='/terms-conditions'>contract between your website and its users</Link>. In the event of a legal dispute, arbitrators will look at it to determine whether each party acted within their rights.",
+            "termsConditionsContent2": "Condition is not a new concept. Humans have always desired privacy in their social as well as private lives. But the idea of privacy as a human right is a relatively modern phenomenon.",
+            "mainReasonsTerms": "Here are some of the main reasons:",
+            "abusiveUsers": "<strong>Abusive users:</strong> Terms and Conditions agreements allow you to establish what constitutes appropriate activity on your site or app, empowering you to remove abusive users and content",
+            "intellectualPropertyTheft": "<strong>Intellectual property theft:</strong> Asserting your claim to the creative assets of your site in your terms and conditions will prevent ownership disputes and copyright infringement.",
+            "potentialLitigation": "<strong>Potential litigation:</strong> If a user lodges a legal complaint against your business, showing that they were presented with clear terms and conditions before they used your site will help you immensely in court.",
+            "setLiabilitiesLimits": "To Set Liabilities Limits",
+            "liabilitiesLimitsContent": "Almost every terms and conditions agreement has a warranty or limitations of liability disclaimer. We’ll cover it in more detail in our section about <Link className='link' href='/terms-conditions'>what clauses to include in your terms and conditions</Link>, but this clause essentially limits what customers can hold you liable for.",
+            "restrictLiability": "Most companies restrict liability for:",
+            "inaccuraciesErrors": "1. Inaccuracies and errors",
+            "lackOfEnjoyment": "2. Lack of enjoyment",
+            "productDowntime": "3. Product or website downtime",
+            "virusesSpywareDamage": "4. Viruses, spyware, and product damage",
+            "outlinePolicies": "To Outline Policies and Avoid Abusive Behavior",
+            "revisionsTeamsConditions": "Revisions to this Teams & Condition without Notice",
+            "contactInfo": "You may direct questions, comments or reports to:",
+            "privacyPolicyDynamic": "This Privacy Policy is dynamic. It will continually change. You may not assume that it remains the same and you agree to check the policy each time you visit the site for changes. Unless, in the sole opinion of the website, this policy changes so drastically as to suggest a posted notification on the site or via email, you will receive no notification of changes to this Privacy Policy nor, under any circumstances, does this site promise notification. Your continued use of this site always evidences your acceptance of the terms this Privacy Policy or any modifications."
+        },
+        "service-3": {
+            "viewDetails": "View Details",
+            "title": "Service V3",
+            "subTitle": "Service V3"
+        },
+        "service-4": {
+            "index": {
+                "title": "Service V4",
+                "subtitle": "Service V4"
+            },
+            "portfolio-four": {
+                "title": "Our Latest Work",
+                "subTitle": "Our Work",
+                "altImage": "Paradox Portfolio Image",
+                "viewAll": "View All Blogs"
+            },
+            "service-four": {
+                "development": {
+                  "title": "Development",
+                  "description": "We help generate positive cash flow"
+                },
+                "ux-ui-design": {
+                  "title": "UX/UI Design",
+                  "description": "We help generate positive cash flow"
+                },
+                "application": {
+                  "title": "Application",
+                  "description": "We help generate positive cash flow"
+                },
+                "marketing": {
+                  "title": "Marketing",
+                  "description": "We help generate positive cash flow"
+                },
+                "video-editing": {
+                  "title": "Video Editing",
+                  "description": "We help generate positive cash flow"
+                },
+                "programming": {
+                  "title": "Programming",
+                  "description": "We help generate positive cash flow"
+                },
+                "business": {
+                  "title": "Business",
+                  "description": "We help generate positive cash flow"
+                },
+                "tech-support": {
+                  "title": "Tech Support",
+                  "description": "We help generate positive cash flow"
+                },
+                "alt": {
+                    "icon": "Paradox Icon"
+                }
+            }
+              
+        },
+        "service-details": {
+            "details-section": {
+                "getServiceNow": "Get This Service Now",
+                "websiteDevelopmentDescription": "A website development process is a documented, predictable set of steps to take to successfully complete a website development project or web application. This process helps to align development resources, stakeholders, and team members to ensure all aspects of the project are addressed and delivered on time",
+                "frontendDevelopment": "Front-end web development is responsible for the look",
+                "backendDevelopment": "Back-end web development",
+                "testingAndDebugging": "Testing and debugging code requires patience",
+                "videoPosterAlt": "Service Video Poster",
+                "ourServicesTitle": "Our services added Best values",
+                "viewCaseStudies": "View Case Studies",
+                "clientCareIconAlt": "Client Care Icon",
+                "clientCareTitle": "Client Care",
+                "clientCareDescription": "Client care always goes to the top of the list. It goes beyond just taking care of clients & making sure they are happy with your services. It is a genuine caring.",
+                "empathyIconAlt": "Empathy Icon",
+                "empathyTitle": "Using Empathy",
+                "empathyDescription": "This follows up with client care. By having empathy and being able to put yourself in your client’s shoes, you will be able to take client care to the next level.",
+                "communicationIconAlt": "Communication Icon",
+                "communicationTitle": "Communication Skills",
+                "communicationDescription": "This may sound obvious, but actually, there’s much more to learning how to communicate with a client. First, you must be able to speak openly",
+                "teachingIconAlt": "Teaching Icon",
+                "teachingTitle": "Teaching & Mentoring",
+                "teachingDescription": "The last on the list but one of the most important things you can do – giving back. By taking time to teach newbie devs and even mentoring a couple"
+            },
+            "faq-section": {
+                "faqTitle": "Need to know User Common Questions",
+                "learnMore": "Need to Know More",
+                "faqQuestion1": "How much does a new website cost?",
+                "faqAnswer1": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your <Link href=\"/policy-privacy\">website’s security</Link>, invite new visitors, boost traffic and more. Of course, we can help you out with proper and professional website maintenance in addition to development as it supports",
+                "faqQuestion2": "Will you maintain my site for me?",
+                "faqAnswer2": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your <Link href=\"/policy-privacy\">website’s security</Link>, invite new visitors, boost traffic and more. Of course, we can help you out with proper and professional website maintenance in addition to development as it supports",
+                "faqQuestion3": "Will my website be mobile-friendly?",
+                "faqAnswer3": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your <Link href=\"/policy-privacy\">website’s security</Link>, invite new visitors, boost traffic and more. Of course, we can help you out with proper and professional website maintenance in addition to development as it supports",
+                "faqQuestion4": "What if I need help on my site down the road?",
+                "faqAnswer4": "Regular maintenance is essential for a website to stabilize its flexibility and reliability. Proper maintenance would help in ensuring your <Link href=\"/policy-privacy\">website’s security</Link>, invite new visitors, boost traffic and more. Of course, we can help you out with proper and professional website maintenance in addition to development as it supports"
+            },
+            "index": {
+                "title": "Service Details",
+                "subTitle": "Service Details"
+            },
+            "review-section": {
+                "title": "What People Says"
+            }
+        },
+        "service-main-area": {
+            "index": {
+                "title" : "Service V1",
+                "subTitle": "Service V1"
+            },
+            "policy-section": {
+                "whyChooseUs": "Why Choose Us",
+                "higherAndBetterStage": "We are Moving to a Higher & Better Stage.",
+                "fastDevelopment": "Fast Development",
+                "fastDevelopmentDesc": "We can launch a small site in less than a week. So you can drop an order.",
+                "fastDevelopmentAlt": "Fast Development Icon",
+                "fullFlexibility": "Full Flexibility",
+                "fullFlexibilityDesc": "Multiple development tools help us create. So you can drop an order.",
+                "fullFlexibilityAlt": "Full Flexibility Icon",
+                "modernDesign": "Modern Design",
+                "modernDesignDesc": "Most modern approaches to any design. So you can drop an order.",
+                "modernDesignAlt": "Modern Design Icon",
+                "simpleMaintenance": "Simple Maintenance",
+                "simpleMaintenanceDesc": "Multiple development tools help us create. So you can drop an order.",
+                "simpleMaintenanceAlt": "Simple Maintenance Icon",
+                "shapeLineFlowAlt": "Shape Line Flow",
+                "shapeCircleAlt": "Shape Circle"
+            },
+            "portfolio-section": {
+                "ourWork": "Our Work",
+                "ourLatestWork": "Our Latest Work",
+                "viewAllWork": "View All Work"
+            },
+            "services-section": {
+                "viewDetails" : "View Details"
+            }
+        },
+        "service-two": {
+            "title": "Service V2",
+            "subTitle": "Service V2"
+        },
+        "signin": {
+            "welcomeBack": "Welcome Back",
+            "signinDescription": "Enter the information below to sign in to your account",
+            "emailAddress": "Email Address",
+            "yourAddress": "Your Address",
+            "enterPassword": "Enter Password",
+            "forgotPassword": "Forgot Password",
+            "signIn": "Sign In",
+            "dontHaveAccount": "Don’t have an Account",
+            "signUp": "Sign Up",
+            "backHome": "Back Home",
+            "shape1Alt": "Shape 1",
+            "shapeCircleAlt": "Circle Shape"
+        },
+        "signup-main-area": {
+            "backHome": "Back Home",
+            "createAccount": "Create an account",
+            "enterInformation": "Enter the information below to create your account",
+            "yourName": "Your Name",
+            "emailAddress": "Email Address",
+            "yourAddress": "Your Address",
+            "enterPassword": "Enter Password",
+            "confirmPassword": "Confirm Password",
+            "passwordLengthError": "Password must be at least 8 characters long",
+            "passwordRulesError": "Please create a stronger password with capital and small letters, number and a special symbol", 
+            "passwordMatchError": "Passwords do not match", 
+            "submitNow": "Submit Now",
+            "profileCreated": "Profile created successfully",
+            "alreadyHaveAccount": "Already have an account",
+            "login": "Log In"
+        },
+        "team-area": {
+            "title": "Our Team",
+            "subTitle": "Our Team"
+        },
+        "terms-conditions-area": {
+            "policyPrivacy": "Policy & Privacy",
+            "termsConditions": "Terms & Conditions",
+            "privacyPolicyAgreement": "Privacy Policy Agreement",
+            "privacyPolicyContent1": "Companies or websites that handle customer information are required by law and third parties to publish their Privacy Policies on their business websites. If you own a website, web app, mobile app or",
+            "desktopApp": "desktop app",
+            "privacyPolicyContent2": "that collects or processes user data, you most certainly will have to post a Privacy Policy on your website (or give in-app access to the full Privacy Policy agreement).",
+            "privacyPolicyContent3": "Privacy is not a new concept. Humans have always desired privacy in their social as well as private lives. But the idea of privacy as a human right is a relatively modern phenomenon.",
+            "mainReasons": "Here are some of the main reasons:",
+            "requiredByLaw": "Required by the law",
+            "requiredByThirdPartyServices": "Required by third party services",
+            "increasesTransparency": "Increases Transparency",
+            "takeALook": "Let's take a look at each of these reasons in more depth.",
+            "whatWeCollect": "What we collect",
+            "apartFromGoverningLaws": "Apart from governing laws, some websites like Apple, Amazon, and",
+            "googleRequireWebsite": "Google require website",
+            "privacyPolicyContent4": "and app owners to post a Privacy Policy agreement if they use any of their services. Many websites and apps use in-page/in-app advertising by third parties to generate revenue. As these ads also collect user data, third parties require the websites or apps to have Privacy Policies.",
+            "privacyPolicyContent5": "Some of the most popular third party services require website and app owners to post Privacy Policy agreements on their websites. Some of these services include:",
+            "questionsComments": "Questions, comments, or report of incidents",
+            "youMayDirectQuestions": "You may direct any questions or comments regarding this Privacy Policy by emailing:",
+            "revisionsToPrivacyPolicy": "Revisions to this privacy policy without notice",
+            "privacyPolicyDynamic": "This Privacy Policy is dynamic. It will continually change. You may not assume that it remains the same and you agree to check the policy each time you visit the site for changes. Unless, in the sole opinion of the website, this policy changes so drastically as to suggest a posted notification on the site or via email, you will receive no notification of changes to this Privacy Policy nor, under any circumstances, does this site promise notification. Your continued use of this site always evidences your acceptance of the terms this Privacy Policy or any modifications.",
+            "termsAndConditionsAgreement": "Terms and Conditions Agreement",
+            "termsAndConditionsContent1": "A terms and conditions agreement outlines the website administrator’s rules regarding user behaviour and provides information about the actions the website administrator can and will perform. Essentially, your terms and conditions text is a ",
+            "contractBetween": "contract between your website and its users",
+            "termsAndConditionsContent2": "In the event of a legal dispute, arbitrators will look at it to determine whether each party acted within their rights.",
+            "termsAndConditionsContent3": "Condition is not a new concept. Humans have always desired privacy in their social as well as private lives. But the idea of privacy as a human right is a relatively modern phenomenon.",
+            "mainReasonsTerms": "Here are some of the main reasons:",
+            "abusiveUsersTitle": "Abusive Users",
+            "abusiveUsersContent": "Terms and Conditions are used to inform users of the circumstances in which they may have their accounts terminated. This helps protect your website or app from being used by abusive users, as you can ban them for violating your rules and guidelines.",
+            "intellectualPropertyTheftTitle": "Intellectual Property Theft",
+            "intellectualPropertyTheftContent": "A Terms and Conditions agreement allows you to protect your intellectual property by stating that your content is owned by you and cannot be used without permission.",
+            "potentialLitigationTitle": "Potential Litigation",
+            "potentialLitigationContent": "Having a Terms and Conditions agreement in place can help protect your website or app from potential litigation by providing a clear set of rules that users must agree to before using your service.",
+            "toSetLiabilitiesLimits": "To set liabilities and limits",
+            "almostEveryTermsAndConditionsAgreement": "Almost every Terms and Conditions agreement will include a clause that limits the liability of the company. These clauses are used to inform users that the company is not responsible for any damages that may occur while using the website or app. Common examples of these limitations include:",
+            "whatClauses": "What clauses your Terms and Conditions agreement should include",
+            "termsAndConditionsContent4": "but this clause essentially limits what customers can hold you liable for.",
+            "mostCompaniesRestrict": "Most companies restrict liability for issues such as:",
+            "inaccuraciesErrors": "Inaccuracies or errors",
+            "lackOfEnjoyment": "Lack of enjoyment",
+            "productOrWebsiteDowntime": "Product or website downtime",
+            "virusesSpyware": "Viruses, spyware, and product damage",
+            "toOutlinePolicies": "To Outline Policies and Avoid Abusive Behavior",
+            "revisionsToTeamsCondition": "Revisions to this Teams & Condition without Notice"
+        },
+        "testimonial": {
+            "title": "Testimonials",
+            "subTitle": "Testimonials"
+        }
+    },
+    "home": {
+        "about": {
+            "imageAlt": "Paradox - About Image",
+            "subtitle": "About US",
+            "title": "Best for your Start-up Creative Agency",
+            "description": "Our action plan is focused and planned. We are result oriented organization and are committed to invest in initiatives for newer expanded customer relationship. We always strive to enhance productivity and improve",
+            "comprehensiveAnalysis": "Comprehensive Analysis",
+            "mobileFriendly": "Mobile Friendly Web app",
+            "wellDesigned": "Well Designed Web App",
+            "highPerformance": "High Performance & Speed",
+            "knowMore": "Know More",
+            "watchVideo": "Watch Our Video",
+            "shapeImageAlt": "Paradox Shape Image"
+        },
+        "blog": {
+            "latestNews": "Latest News",
+            "ourLatestNews": "Our Latest News",
+            "view": "VIEW",
+            "imageAlt": "Paradox Blog Image",
+            "adminAvatarAlt": "Admin Avatar",
+            "readMore": "Read More",
+            "iconArrow": "Paradox - Icon Arrow Down Right",
+            "viewMore": "View More"
+        },
+        "brand-section": {
+            "alt": "Paradox Client Logo"
+        },
+        "collection-section": {
+            "actionImageAlt": "Paradox Call To Action Image",
+            "shapeImageAlt": "Paradox Shape Image",
+            "getInTouch": "Get In Touch",
+            "personalCartoon": "Do you want to have your own personal cartoon?",
+            "makeAnOrder": "Make an order",
+            "orderNow": "Order now"            
+        },
+        "heroSection": {
+            "alt_banner": "Paradox Illustration Image",
+            "alt_shape_circle_half_1": "Paradox Shape Image",
+            "alt_shape_circle_2": "Paradox Shape Image",
+            "alt_shape_circle_half_2": "Paradox Shape Image",
+            "alt_line": "Line Shape",
+            "welcome": "Welcome to Paradox",
+            "turning_idea": "Turning your Idea into",
+            "reality": "Reality",
+            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna Pellentesque sit amet sapien.",
+            "start_cooperation": "Start Cooperation",
+            "learn_more": "Learn More"
+        },
+        "portfolio-section": {
+            "our_work": "Our Work",
+            "latest_work": "Our Latest Work",
+            "view_all_work": "View All Work",
+            "alt_image": "Paradox Portfolio Image"
+        },
+        "service-section": {
+            "what_we_do": "What We Do",
+            "offering_latest_services": "Offering Latest Services",
+            "view_details": "View Details"
+        }
+    },
+    "home-6": {
+        "about-section-6": {
+            "aboutSubtitle": "About Cartoon Gifts",
+            "aboutTitle": "We make personalized cartoons for you and your special ones",
+            "aboutDescription": "Our goal is to make people happy through art. Our pieces are perfect for birthdays, anniversaries, weddings, retirements - basically any occasion. We make them personalized so they reflect the persons's interests and vision. It is your choice how we depict them and our duty to deliver.",
+            "whatItTakesTitle": "What does it take",
+            "whatItTakesDescription": "Just a photo and some details to be depicted - we take care of the rest",
+            "howToReceive": "How can I receive it",
+            "howToReceiveDescription": "We put all our images in borders. If you want it quick and simple - digitalized copy is always an option"
+        },
+        "blog-section-6": {
+            "ourSubtitle": "OUR Blog",
+            "ourTitle": "Our Latest News",
+            "viewAllBlogs": "View All Blogs",
+            "readMore": "Read More"
+        },
+        "counter-section-6": {
+            "worldwideHappyClient": "Worldwide Happy Client",
+            "completedProject": "Completed Project",
+            "clientSatisfaction": "Client Satisfaction"
+        },
+        "hero-section-6": {
+            "getYour": "Get your",
+            "uniqueCartoon": "unique cartoon",
+            "withJustAFewClicks": "with just a few clicks",
+            "makeAnOrder": "Make an order",
+            "orderNow": "Order now",
+            "learnMore": "Learn More",
+            "aboutUs": "About Us"
+        },
+        "portfolio-section-6": {
+            "gallery": "Gallery",
+            "ourLatestWork": "Our Latest Work"
+        },
+        "review-section-6": {
+            "reviews": "Reviews",
+            "ourClientSays": "What Our Client Says"
+        },
+        "service-section-6": {
+            "ourService": "Our Service",
+            "solutions": "Providing solutions"
+        },
+        "starter-steps-section": {
+            "worlClassTeam": "World Class Team",
+            "quickResponse": "Quick Response",
+            "satisfaction": "Satisfaction Guarantee",
+            "headingSubTitle": "Why Choose Us",
+            "headingTitle": "Revolutionary Step for your Business",
+            "headingDescription": "Our action plan is focused and planned. We are result oriented organization and are committed to invest in initiatives for newer expanded customer relationship. We always strive to enhance productivity and improve",
+            "knowMore": "Know More",
+            "watch" : "Watch Our",
+            "video": "Video"
+        },
+        "team-section-6": {
+            "headingTitle": "Our Team Members",
+            "headingSubTitle": "Our Team",
+            "viewAllMembers": "View All Members"
+        }       
+    },
+    "payment": {
+        "unexpectedError": "An unexpected error occurred.",
+        "total": "Total",
+        "back": "Back",
+        "processing": "Processing...",
+        "payNow": "Pay Now"
+    },
+    "search": {
+        "searchResultsFor": "Search results for:",
+        "query": " “hello” ",
+        "queryResultDescription": "Harry found 46 results for your search query.",
+        "searchPlaceholder": "Search for articles...",
+        "searchButtonText": "Search",
+        "technology": "Technology",
+        "business": "Business",
+        "travel": "Travel",
+        "personality": "Personality",
+        "nature": "Nature",
+        "photographer": "Photographer",
+        "agency": "Agency",
+        "lifeStyle": "Life Style"
+    },
+    "seo": {
+        "metaTagName": "description",
+        "metaTagContent": "Welcome to Cartoon Gifts - we create personalized and unique cartoons on demand for any occasion. Our product is 100% handmade and is customized by your preferences.",
+        "cartoonGifts" : "Cartoon Gifts"
+    }
+      
+}

@@ -6,8 +6,11 @@ import Image from "next/image";
 import Menus from "./menus";
 import OffCanvasMain from "@components/common/off-canvas";
 import NiceSelect from "@ui/niceSelect";
+import useTranslation from "next-translate/useTranslation";
 
 const Header = () => {
+
+    const { t } = useTranslation("layout");
   // Sticky Menu Area start
   useEffect(() => {
     window.addEventListener("scroll", sticky);
@@ -90,8 +93,8 @@ const Header = () => {
                     <span className="bd-button-content-wrapper">
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Make an order</span>
-                          <span className="bd-button-text">Make an order</span>
+                          <span className="bd-button-text">{t('header.makeOrder')}</span>
+                          <span className="bd-button-text">{t('header.makeOrder')}</span>
                         </span>
                       </span>
                     </span>

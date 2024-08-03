@@ -4,13 +4,15 @@ import portfolio_data from '@data/common_data/portfolio-data';
 import Wrapper from '@layout/wrapper';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 
 const PortfolioDetails = () => {
     const router = useRouter()
     const id = router.query.id;
+    const { t } = useTranslation('pages');
     const [portfolio, setPortfilio] = useState({})
     useEffect(() => {
-        if (!id) (<h1>Loading...</h1>)
+        if (!id) (<h1>{t('portfolio-details.loading')}...</h1>)
         else (setPortfilio(portfolio_data.find(item => item.id == id)))
         return () => {
 
@@ -18,7 +20,7 @@ const PortfolioDetails = () => {
     }, [id])
     return (
         <Wrapper>
-            <SEO pageTitle={'Portfolio Details'} />
+            <SEO pageTitle={t('portfolio-details.title')} />
             <PortfolioDetailsArea item={portfolio} />
         </Wrapper>
     );

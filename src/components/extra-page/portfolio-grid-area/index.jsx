@@ -4,15 +4,17 @@ import Header from '@layout/header/header';
 import React from 'react';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
 import dynamic from "next/dynamic";
+import useTranslation from 'next-translate/useTranslation';
 const PortfolioGridSection = dynamic(() => import('./portfolio-grid-section'), {
   ssr: false
 })
 
 const Index = () => {
+    const { t } = useTranslation('components');
     return (
         <main>
             <Header />
-            <Breadcrumb title='Portfolio Grid' subTitle='Portfolio Grid' />
+            <Breadcrumb title={t('extra-page.portfolio-grid-area.index.title')} subTitle={t('extra-page.portfolio-grid-area.index.subTitle')} />
             <PortfolioGridSection />
             <CollectionSection />
             <Footer />

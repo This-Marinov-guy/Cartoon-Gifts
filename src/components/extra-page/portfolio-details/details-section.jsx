@@ -11,14 +11,16 @@ import icon_arrow_down_right from '@assets/images/icons/icon_arrow_down_right_da
 import icon_arrow_right_primary from '@assets/images/icons/icon_arrow_right_primary.svg'
 import Link from 'next/link';
 import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
 
 const DetailsSection = ({item}) => {
+    const { t } = useTranslation('components');
   return (
     <section className="details_section portfolio_details section_space_lg">
       <div className="container">
         <div className="section_space_md pt-0">
           <div className="details_item_image">
-            <Image src={details_image} style={{ width: "100%", height: "100%" }} alt="Paradox Portfolio Image" />
+            <Image src={details_image} style={{ width: "100%", height: "100%" }} alt={t('extra-page.portfolio-details.details-section.titleAlt')} />
           </div>
         </div>
         <div className="details_content_wrap">
@@ -32,35 +34,35 @@ const DetailsSection = ({item}) => {
             </div>
             <div className="col col-lg-6">
               <p>
-                Hence, the mobile app development process requires creating software that can be installed on the device, and enabling backend services for data access through APIs, and testing the application on target devices. Java, Python, C++, Kotlin, and Rust are popular app development languages
+                {t('extra-page.portfolio-details.details-section.description')}
               </p>
             </div>
           </div>
           <div className="details_info_box">
             <div className="row">
               <div className="col col-lg-3 col-md-6 col-md-6 col-sm-6">
-                <span>Date</span>
-                <strong>02 March, 2023</strong>
+                <span>{t('extra-page.portfolio-details.details-section.date')}</span>
+                <strong>{t('extra-page.portfolio-details.details-section.dateValue')}</strong>
               </div>
               <div className="col col-lg-3 col-md-6 col-md-6 col-sm-6">
-                <span>Category</span>
-                <strong>App Development</strong>
+                <span>{t('extra-page.portfolio-details.details-section.category')}</span>
+                <strong>{t('extra-page.portfolio-details.details-section.categoryValue')}</strong>
               </div>
               <div className="col col-lg-3 col-md-6 col-md-6 col-sm-6">
-                <span>Estimation</span>
-                <strong>10 Months</strong>
+                <span>{t('extra-page.portfolio-details.details-section.estimation')}</span>
+                <strong>{t('extra-page.portfolio-details.details-section.estimationValue')}</strong>
               </div>
               <div className="col col-lg-3 col-md-6 col-md-6 col-sm-6">
-                <span>Client</span>
-                <strong>Acorn Crafts LTD</strong>
+                <span>{t('extra-page.portfolio-details.details-section.client')}</span>
+                <strong>{t('extra-page.portfolio-details.details-section.clientValue')}</strong>
               </div>
             </div>
           </div>
-          <h3 className="details_item_info_title mb-3">
-            Our Planing
+ <h3 className="details_item_info_title mb-3">
+            {t('extra-page.portfolio-details.details-section.ourPlanning')}
           </h3>
           <p>
-            When enterprises began building mobile apps, one concern was the proliferation of client-side technology. Enterprises had become accustomed to standardizing on a platform, such as Java™ EE. By standardizing on a platform, a business could contain a skill set around a standard architecture. Mobile devices have their own application SDKs, resulting in a proliferation of client-side choices.
+            {t('extra-page.portfolio-details.details-section.planningDescription')}
           </p>
           <div className="row mb-5">
             <div className="col col-lg-4 col-md-6">
@@ -69,10 +71,10 @@ const DetailsSection = ({item}) => {
                   <Image src={icon_care_primary} style={{ width: "100%", height: "100%" }} alt="Paradox Icon Eye White" />
                 </div>
                 <div className="item_content">
-                  <h3 className="item_title">Client Care</h3>
-                  <p className="mb-0">
-                    Client care always goes to the top of the list. It goes beyond just taking care of clients & making sure they are happy with your services. It is a genuine caring.
-                  </p>
+                    <h3 className="item_title">{t('extra-page.portfolio-details.details-section.clientCareTitle')}</h3>
+                    <p className="mb-0">
+                        {t('extra-page.portfolio-details.details-section.clientCareDescription')}
+                    </p>
                 </div>
               </div>
             </div>
@@ -82,10 +84,10 @@ const DetailsSection = ({item}) => {
                   <Image src={icon_together_primary} style={{ width: "100%", height: "100%" }} alt="Paradox Icon Eye White" />
                 </div>
                 <div className="item_content">
-                  <h3 className="item_title">Using Empathy</h3>
-                  <p className="mb-0">
-                    This follows up with client care. By having empathy and being able to put yourself in your client’s shoes, you will be able to take client care to the next level.
-                  </p>
+                    <h3 className="item_title">{t('extra-page.portfolio-details.details-section.usingEmpathyTitle')}</h3>
+                    <p className="mb-0">
+                        {t('extra-page.portfolio-details.details-section.usingEmpathyDescription')}
+                    </p>
                 </div>
               </div>
             </div>
@@ -95,10 +97,10 @@ const DetailsSection = ({item}) => {
                   <Image src={icon_communication_primary} style={{ width: "100%", height: "100%" }} alt="Paradox Icon Eye White" />
                 </div>
                 <div className="item_content">
-                  <h3 className="item_title">Communication Skills</h3>
-                  <p className="mb-0">
-                    This may sound obvious, but actually, there’s much more to learning how to communicate with a client. First, you must be able to speak openly
-                  </p>
+                    <h3 className="item_title">{t('extra-page.portfolio-details.details-section.communicationSkillsTitle')}</h3>
+                    <p className="mb-0">
+                        {t('extra-page.portfolio-details.details-section.communicationSkillsDescription')}
+                    </p>
                 </div>
               </div>
             </div>
@@ -109,7 +111,7 @@ const DetailsSection = ({item}) => {
               <div className="details_sectio_content mb-4 mb-lg-0">
                 <div className="section_heading">
                   <h2 className="heading_title">
-                    What we did for this project
+                    {t('extra-page.portfolio-details.details-section.whatWeDidTitle')}
                   </h2>
                 </div>
                 <Link href="/pricing" className="bd-btn-link btn-primary">
@@ -119,8 +121,8 @@ const DetailsSection = ({item}) => {
                     </span>
                     <span className="pd-animation-flip">
                       <span className="bd-btn-anim-wrapp">
-                        <span className="bd-button-text">Get This Service Now</span>
-                        <span className="bd-button-text">Get This Service Now</span>
+                        <span className="bd-button-text">{t('extra-page.portfolio-details.details-section.getService')}</span>
+                        <span className="bd-button-text">{t('extra-page.portfolio-details.details-section.getService')}</span>
                       </span>
                     </span>
                   </span>
@@ -129,26 +131,26 @@ const DetailsSection = ({item}) => {
             </div>
             <div className="col col-lg-6">
               <p>
-                A website development process is a documented, predictable set of steps to take to successfully complete a website development project or web application. This process helps to align development resources, stakeholders, and team members to ensure all aspects of the project are addressed and delivered on time
+                {t('extra-page.portfolio-details.details-section.websiteDevelopmentDescription')}
               </p>
               <ul className="icon_list unordered_list_block">
                 <li>
                   <span className="list_item_icon">
                     <i className="fas fa-check"></i>
                   </span>
-                  <span className="list_item_text">Designing the product architecture</span>
+                  <span className="list_item_text">{t('extra-page.portfolio-details.details-section.designingProduct')}</span>
                 </li>
                 <li>
                   <span className="list_item_icon">
                     <i className="fas fa-check"></i>
                   </span>
-                  <span className="list_item_text">Testers test the software against the requirements</span>
+                  <span className="list_item_text">{t('extra-page.portfolio-details.details-section.testersTest')}</span>
                 </li>
                 <li>
                   <span className="list_item_icon">
                     <i className="fas fa-check"></i>
                   </span>
-                  <span className="list_item_text">Whole the system is in maintenance mode</span>
+                  <span className="list_item_text">{t('extra-page.portfolio-details.details-section.systemMaintenance')}</span>
                 </li>
               </ul>
             </div>
@@ -157,25 +159,25 @@ const DetailsSection = ({item}) => {
           <div className="row mb-4">
             <div className="col col-md-6">
               <div className="details_item_image m-0">
-                <Image src={details_image_2} style={{ width: "100%", height: "100%" }} alt="Paradox Portfolio Image" />
+                <Image src={details_image_2} style={{ width: "100%", height: "100%" }} alt={t('extra-page.portfolio-details.details-section.titleAlt')} />
               </div>
             </div>
             <div className="col col-md-6">
               <div className="details_item_image m-0">
-                <Image src={details_image_3} style={{ width: "100%", height: "100%" }} alt="Paradox Portfolio Image" />
+                <Image src={details_image_3} style={{ width: "100%", height: "100%" }} alt={t('extra-page.portfolio-details.details-section.titleAlt')} />
               </div>
             </div>
           </div>
 
           <h3 className="details_item_info_title mb-3">
-            Final Result
+            {t('extra-page.portfolio-details.details-section.finalResult')}
           </h3>
           <p>
-            When enterprises began building mobile apps, one concern was the proliferation of client-side technology. Enterprises had become accustomed to standardizing on a platform, such as Java™ EE. By standardizing on a platform, a business could contain a skill set around a standard architecture. Mobile devices have their own application SDKs, resulting in a proliferation of client-side choices.
+            {t('extra-page.portfolio-details.details-section.finalResultDescription')}
           </p>
 
           <div className="social_wrap">
-            <h3 className="social_title text-uppercase">Share:</h3>
+            <h3 className="social_title text-uppercase">{t('extra-page.portfolio-details.details-section.share')}:</h3>
             <ul className="social_icon unordered_list_end">
               <li><Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
               <li><Link href="https://twitter.com/" target="_blank"><i className="fab fa-twitter"></i></Link></li>
@@ -186,14 +188,14 @@ const DetailsSection = ({item}) => {
           <div className="pagination_wrap">
             <div className="other_post_pagination">
               <Link href="/portfolio-details" data-cursor="-exclusion -lg" data-cursor-stick="#prev_post">
-                <span className="btn_text">Previous Portfolio</span>
+                <span className="btn_text">{t('extra-page.portfolio-details.details-section.previousPortfolio')}</span>
                 <span id="prev_post" className="btn_icon">
                   <Image src={icon_arrow_down} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Left" />
                   <Image src={icon_arrow_left_primary} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Left" />
                 </span>
               </Link>
               <Link href="/portfolio-details" data-cursor="-exclusion -lg" data-cursor-stick="#next_post">
-                <span className="btn_text">Next Portfolio</span>
+                <span className="btn_text">{t('extra-page.portfolio-details.details-section.nextPortfolio')}</span>
                 <span id="next_post" className="btn_icon">
                   <Image src={icon_arrow_down_right} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Right" />
                   <Image src={icon_arrow_right_primary} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Right" />

@@ -4,13 +4,15 @@ import CollectionSection from "@components/home/collection-section";
 import Footer from "@layout/footer/footer";
 import DetailsSection from "./details-section";
 import Breadcrumb from "@components/common/breadcrumb/breadcrumb";
+import useTranslation from "next-translate/useTranslation";
 
 const Index = ({ item }) => {
+    const { t } = useTranslation("components");
   return (
     <>
       <Header />
       <main>
-        <Breadcrumb title="Blog Details" subTitle="Blog Details" />
+        <Breadcrumb title={t('extra-page.blog-details.index.title')} subTitle={t('extra-page.blog-details.index.subTitle')} />
         <DetailsSection item={item} />
         <CollectionSection />
       </main>

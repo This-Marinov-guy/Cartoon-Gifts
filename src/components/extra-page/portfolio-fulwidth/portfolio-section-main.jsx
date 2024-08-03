@@ -3,8 +3,10 @@ import portfolio_data from "@data/common_data/portfolio-data";
 import Link from "next/link";
 import Image from "next/image";
 import Pagination_Data from "@components/common/pagination";
+import useTranslation from "next-translate/useTranslation";
 
 const PortfolioSectionMain = () => {
+    const { t } = useTranslation("components");
   return (
     <section className="portfolio_section section_space_lg">
       <div className="container-fluid">
@@ -22,7 +24,7 @@ const PortfolioSectionMain = () => {
                   aria-controls="nav-home"
                   aria-selected="true"
                 >
-                  View All
+                  {t('extra-page.portfolio-fulwidth.portfolio-section-main.viewAll')}
                 </button>
                 <button
                   className="nav-link"
@@ -34,7 +36,7 @@ const PortfolioSectionMain = () => {
                   aria-controls="nav-profile"
                   aria-selected="false"
                 >
-                  Graphics
+                  {t('extra-page.portfolio-fulwidth.portfolio-section-main.graphics')}
                 </button>
                 <button
                   className="nav-link"
@@ -46,7 +48,7 @@ const PortfolioSectionMain = () => {
                   aria-controls="nav-contact"
                   aria-selected="false"
                 >
-                  UI/UX
+                  {t('extra-page.portfolio-fulwidth.portfolio-section-main.uiUx')}
                 </button>
                 <button
                   className="nav-link"
@@ -58,7 +60,7 @@ const PortfolioSectionMain = () => {
                   aria-controls="nav-wordpress"
                   aria-selected="false"
                 >
-                  WordPress
+                    {t('extra-page.portfolio-fulwidth.portfolio-section-main.wordpress')}
                 </button>
                 <button
                   className="nav-link"
@@ -70,7 +72,7 @@ const PortfolioSectionMain = () => {
                   aria-controls="nav-webdesign"
                   aria-selected="false"
                 >
-                  Web Design
+                  {t('extra-page.portfolio-fulwidth.portfolio-section-main.webDesign')}
                 </button>
               </div>
             </nav>

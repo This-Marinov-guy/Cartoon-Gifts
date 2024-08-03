@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Slider from "react-slick";
 
 const PortfolioSection = () => {
+    const { t } = useTranslation('components');
   const settings = {
     dots: true,
     speed: 1000,
@@ -59,10 +60,10 @@ const PortfolioSection = () => {
                   <i className="fas fa-sharp fa-square-full"></i>
                   <i className="fas fa-sharp fa-square-full"></i>
                 </span>
-                <span>Our Work</span>
+                <span>{t('home.portfolio-section.our_work')}</span>
               </h2>
               <h3 className="heading_title mb-0">
-                Our Latest Work
+                {t('home.portfolio-section.latest_work')}
               </h3>
             </div>
             <div className="col col-lg-6 d-none d-lg-block text-lg-end">
@@ -73,8 +74,8 @@ const PortfolioSection = () => {
                   </span>
                   <span className="pd-animation-flip">
                     <span className="bd-btn-anim-wrapp">
-                      <span className="bd-button-text">View All Work</span>
-                      <span className="bd-button-text">View All Work</span>
+                      <span className="bd-button-text">{t('home.portfolio-section.view_all_work')}</span>
+                      <span className="bd-button-text">{t('home.portfolio-section.view_all_work')}</span>
                     </span>
                   </span>
                 </span>
@@ -91,7 +92,7 @@ const PortfolioSection = () => {
                 <div className="portfolio_item layout_fullimage">
                   <div className="item_image">
                     <Link href={`/portfolio-details/${item.id}`}>
-                      <Image src={item.image} style={{ width: "100%", height: "100%" }} alt="Paradox Portfolio Image" />
+                      <Image src={item.image} style={{ width: "100%", height: "100%" }} alt={t('home.portfolio-section.alt_image')} />
                     </Link>
                   </div>
                   <div className="item_content">
@@ -121,8 +122,8 @@ const PortfolioSection = () => {
               </span>
               <span className="pd-animation-flip">
                 <span className="bd-btn-anim-wrapp">
-                  <span className="bd-button-text">View All Work</span>
-                  <span className="bd-button-text">View All Work</span>
+                  <span className="bd-button-text">{t('home.portfolio-section.view_all_work')}</span>
+                  <span className="bd-button-text">{t('home.portfolio-section.view_all_work')}</span>
                 </span>
               </span>
             </span>

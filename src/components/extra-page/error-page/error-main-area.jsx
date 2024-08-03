@@ -6,7 +6,7 @@ import ErrorSection from './error-section';
 const ErrorMainArea = () => {
     return (
         <main>
-            <ErrorSection />
+            <ErrorSection /> 
             <CollectionSection />
             <Footer />
         </main>

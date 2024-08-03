@@ -3,11 +3,13 @@ import React, { useRef } from 'react';
 import portfolio_data from '@data/common_data/portfolio-data';
 import Slider from "react-slick";
 import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
 
 
 
 const PortfolioFour = () => {
   const sliderRef = useRef(null);
+    const { t } = useTranslation('components');
 
   const handlePrevClick = () => {
     if (sliderRef.current) {
@@ -71,10 +73,10 @@ const PortfolioFour = () => {
                 <i className="fas fa-sharp fa-square-full"></i>
                 <i className="fas fa-sharp fa-square-full"></i>
               </span>
-              <span>Our Work</span>
+              <span>{t('extra-page.service-4.portfolio-four.subTitle')}</span>
             </h2>
             <h3 className="heading_title mb-0">
-              Our Latest Work
+            {t('extra-page.service-4.portfolio-four.title')}
             </h3>
           </div>
           <ul className="carousel_arrow pt-0 unordered_list_center">
@@ -127,8 +129,8 @@ const PortfolioFour = () => {
               </span>
               <span className="pd-animation-flip">
                 <span className="bd-btn-anim-wrapp">
-                  <span className="bd-button-text">View All BLogs</span>
-                  <span className="bd-button-text">View All BLogs</span>
+                  <span className="bd-button-text">{t('extra-page.service-4.portfolio-four.viewAll')}</span>
+                  <span className="bd-button-text">{t('extra-page.service-4.portfolio-four.viewAll')}</span>
                 </span>
               </span>
             </span>

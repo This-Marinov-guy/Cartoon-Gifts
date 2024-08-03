@@ -11,12 +11,14 @@ import CheckoutModal from './checkout-modal';
 import { useToast } from '@chakra-ui/react';
 import { askBeforeRedirect } from '@utils/globals';
 import PriceAndCurrency from '@components/common/inputs/price-and-currency';
+import useTranslation from 'next-translate/useTranslation';
 
 const OrderForm = () => {
     const { currencyStore, checkoutStore } = useStore();
     const { multiplier, symbol } = currencyStore.currency;
     const { checkout, invalidFields } = checkoutStore;
     const toast = useToast();
+    const { t } = useTranslation('components');
 
 
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
@@ -67,7 +69,7 @@ const OrderForm = () => {
             setIsCheckoutModalOpen(true);
         } else {
             toast({
-                title: "You have some missing fields - please fill them and submit again",
+                title:  t('extra-page.order.order-form.missingFields'),
                 status: 'warning',
                 duration: 10000,
                 isClosable: true,
@@ -78,7 +80,7 @@ const OrderForm = () => {
     const handleErrorMsg = (errors, isValid, dirty) => {
         if (errors && !isValid && !dirty) {
             toast({
-                title: "You have some missing fields - please fill them and submit again",
+                title:  t('extra-page.order.order-form.missingFields'),
                 status: 'warning',
                 duration: 10000,
                 isClosable: true,
@@ -92,7 +94,7 @@ const OrderForm = () => {
                 onClose={() => setIsCheckoutModalOpen(false)} />
             <div className="contact_form container mb-30">
                 <h2 className="heading_subtitle text-center" style={{ marginBottom: '20px' }}>
-                    <span>Fill the form and submit your order</span>
+                    <span>{t('extra-page.order.order-form.formTitle')}</span>
                 </h2>
                 <Formik
                     className="inner"
@@ -129,7 +131,7 @@ const OrderForm = () => {
                                             className={`form-control ${(errors.name && touched.name) && 'error-border'}`}
                                             type="text"
                                             name="name"
-                                            placeholder="Your Name"
+                                            placeholder={t('extra-page.order.order-form.yourName')}
                                         />
                                     </div>
                                 </div>
@@ -139,12 +141,12 @@ const OrderForm = () => {
                                             className={`form-control ${(errors.email && touched.email) && 'error-border'}`}
                                             type="email"
                                             name="email"
-                                            placeholder="Email Address"
+                                            placeholder={t('extra-page.order.order-form.emailAddress')}
                                         />
                                     </div>
                                 </div>
                                 <div className="text-center mt-30">
-                                    <h4>Let's see what exactly do you want</h4>
+                                    <h4>{t('extra-page.order.order-form.userQuestion')}</h4>
                                 </div>
                                 <div className="col col-md-6">
                                     <div className="form-group m-0">
@@ -152,7 +154,7 @@ const OrderForm = () => {
                                             className={`form-control ${(errors.occasion && touched.occasion) && 'error-border'}`}
                                             type="text"
                                             name="occasion"
-                                            placeholder="Occasion"
+                                            placeholder={t('extra-page.order.order-form.occasion')}
                                         />
                                     </div>
                                 </div>
@@ -162,7 +164,7 @@ const OrderForm = () => {
                                             className={`form-control ${(errors.profession && touched.profession) && 'error-border'}`}
                                             type="text"
                                             name="profession"
-                                            placeholder="Person's profession"
+                                            placeholder={t('extra-page.order.order-form.profession')}
                                         />
                                     </div>
                                 </div>
@@ -172,7 +174,7 @@ const OrderForm = () => {
                                             className={`form-control ${(errors.hobby && touched.hobby) && 'error-border'}`}
                                             type="text"
                                             name="hobby"
-                                            placeholder="Person's Hobby"
+                                            placeholder={t('extra-page.order.order-form.hobby')}
                                         />
                                     </div>
                                 </div>
@@ -182,14 +184,14 @@ const OrderForm = () => {
                                             className="form-control"
                                             type="text"
                                             name="label"
-                                            placeholder="Label to be displayed (optional)"
+                                            placeholder={t('extra-page.order.order-form.labelPlaceholder')}
                                         />
                                     </div>
                                 </div>
                                 <div className='col col-md-6'>
                                     <div className="form-check mb-10 ml-10">
                                         <Field type="checkbox" id="checkMeOut" name='noDescription' />
-                                        <label htmlFor="checkMeOut">I trust Cartoon Gifts to make me the cartoon with their idea, given my details</label>
+                                        <label htmlFor="checkMeOut">{t('extra-page.order.order-form.noDescription')}</label>
                                     </div>
                                     {!values.noDescription && <div className="form-group">
                                         <Field
@@ -197,7 +199,7 @@ const OrderForm = () => {
                                             rows="4"
                                             className="form-control"
                                             name="description"
-                                            placeholder="Briefly describe what you want on your cartoon"
+                                            placeholder={t('extra-page.order.order-form.descriptionPlaceholder')}
                                         ></Field>
                                     </div>}
                                 </div>
@@ -210,18 +212,18 @@ const OrderForm = () => {
                                         onReject={(files) => checkoutStore.setInvalidField('invalidPeopleFiles')
                                         }
                                     />
-                                    {invalidFields.includes('peopleImages') && <p className='error'>Please give us at least 1 image to work with</p>}
-                                    {invalidFields.includes('invalidPeopleFiles') && <p className='error'>There was a problem with some of your files - they are either corrupted or exceed 5MB</p>}
+                                    {invalidFields.includes('peopleImages') && <p className='error'>{t('extra-page.order.order-form.peopleImagesError')}</p>}
+                                    {invalidFields.includes('invalidPeopleFiles') && <p className='error'>{t('extra-page.order.order-form.invalidPeopleFilesError')}</p>}
                                     <small style={{ marginTop: '5px' }}>
-                                        Make sure to:<br />
-                                        - add pictures for any face you want on your cartoon (+{PERSON_IMAGE_PRICE * multiplier} {symbol} for each)<br />
-                                        - describe what will be the background (beach, mountains, yacht, etc.)<br />
-                                        - tell us are there any items with you (bottles, cars, helicopter, etc.) <br />
-                                        - add anything that can be helpful
+                                    {t('extra-page.order.order-form.makeSureTo')}:<br />
+                                        - {t('extra-page.order.order-form.addPictures', { price: PERSON_IMAGE_PRICE * multiplier, symbol })}<br />
+                                        - {t('extra-page.order.order-form.describeBackground')}<br />
+                                        - {t('extra-page.order.order-form.itemsWithYou')} <br />
+                                        - {t('extra-page.order.order-form.addAnythingHelpful')}
                                     </small>
                                 </div>
                                 <div className='col col-md-6' style={{ paddingBottom: '55px' }}>
-                                    <h4>Do you want a pet in your cartoon (free of charge)</h4>
+                                    <h4>{t('extra-page.order.order-form.petQuestion')}</h4>
                                     <div className='card-price-box'>
                                         {PET_OPTIONS.map((item, index) => {
                                             return (
@@ -232,7 +234,7 @@ const OrderForm = () => {
                                 </div>
                                 <div className='col col-md-6'>
                                     {hasPet.property === 'Yes' && <Fragment>
-                                        <h4>Pet Images</h4>
+                                        <h4>{t('extra-page.order.order-form.petImages')}</h4>
                                         <ImageInput files={petFiles}
                                             setFiles={(newFiles) => {
                                                 setPetFiles(newFiles);
@@ -240,11 +242,11 @@ const OrderForm = () => {
                                             }}
                                             onReject={(files) => checkoutStore.setInvalidField('invalidPetFiles')}
                                         />
-                                        {invalidFields.includes('invalidPetFiles') && <p className='error'>There was a problem with some of your files - they are either corrupted or exceed 5MB</p>}
+                                        {invalidFields.includes('invalidPetFiles') && <p className='error'>{t('extra-page.order.order-form.invalidPetFilesError')}</p>}
                                     </Fragment>}
                                 </div>
                                 <div className='col col-md-6'>
-                                    <h4>Choose a size</h4>
+                                    <h4>{t('extra-page.order.order-form.chooseSize')}</h4>
                                     <div className='card-price-box'>
                                         {SIZE_ITEMS.map((item, index) => {
                                             return (
@@ -252,10 +254,10 @@ const OrderForm = () => {
                                             )
                                         })}
                                     </div>
-                                    {invalidFields.includes('size') && <p className='error'>Please select a size</p>}
+                                    {invalidFields.includes('size') && <p className='error'>{t('extra-page.order.order-form.sizeError')}</p>}
                                 </div>
                                 <div className='col col-md-6'>
-                                    <h4>Choose a delivery option</h4>
+                                    <h4>{t('extra-page.order.order-form.chooseDelivery')}</h4>
                                     <div className='card-price-box'>
                                         {DELIVERY_ITEMS.map((item, index) => {
                                             return (
@@ -263,21 +265,21 @@ const OrderForm = () => {
                                             )
                                         })}
                                     </div>
-                                    {invalidFields.includes('delivery') && <p className='error'>Please select a delivery option</p>}
+                                    {invalidFields.includes('delivery') && <p className='error'>{t('extra-page.order.order-form.deliveryError')}</p>}
                                 </div>
                                 {showShipping &&
                                     <>
-                                        <h4>Fill your shipping address</h4>
+                                        <h4>{t('extra-page.order.order-form.shippingAddress')}</h4>
                                         <div className="col col-md-6">
                                             <div className="form-group m-0">
                                                 <Field
                                                     as='select'
                                                     className={`form-control ${(errors.country && touched.country) && 'error-border'}`}
                                                     name="country"
-                                                    placeholder="Country"
+                                                    placeholder={t('extra-page.order.order-form.country')}
                                                 >
                                                     <option value="" disabled>
-                                                        Select an option
+                                                        {t('extra-page.order.order-form.selectOption')}
                                                     </option>
                                                     {SHIPPING_COUNTRIES.map((option) => (
                                                         <option key={option.value} value={option.value}>
@@ -293,7 +295,7 @@ const OrderForm = () => {
                                                     className={`form-control ${(errors.address && touched.address) && 'error-border'}`}
                                                     type="text"
                                                     name="address"
-                                                    placeholder="Address"
+                                                    placeholder={t('extra-page.order.order-form.address')}
                                                 />
                                             </div>
                                         </div>
@@ -303,7 +305,7 @@ const OrderForm = () => {
                                                     className={`form-control ${(errors.zip && touched.zip) && 'error-border'}`}
                                                     type="text"
                                                     name="zip"
-                                                    placeholder="ZIP code"
+                                                    placeholder={t('extra-page.order.order-form.zipCode')}
                                                 />
                                             </div>
                                         </div>
@@ -313,14 +315,14 @@ const OrderForm = () => {
                                                     className={`form-control ${(errors.phone && touched.phone) && 'error-border'}`}
                                                     type="text"
                                                     name="phone"
-                                                    placeholder="Phone"
+                                                    placeholder={t('extra-page.order.order-form.phone')}
                                                 />
                                             </div>
                                         </div>
                                     </>
                                 }
                                 <div className='col-12' style={{ paddingBottom: '55px' }}>
-                                    <h4>How are you gonna pay</h4>
+                                    <h4>{t('extra-page.order.order-form.paymentMethod')}</h4>
                                     <div className='card-price-box'>
                                         {PAYMENT_OPTIONS.map((item, index) => {
                                             return (
@@ -347,8 +349,8 @@ const OrderForm = () => {
                                                 </span>
                                                 <span className="pd-animation-flip">
                                                     <span className="bd-btn-anim-wrapp">
-                                                        <span className="bd-button-text">Go To Checkout</span>
-                                                        <span className="bd-button-text">Checkout</span>
+                                                        <span className="bd-button-text">{t('extra-page.order.order-form.goToCheckout')}</span>
+                                                        <span className="bd-button-text">{t('extra-page.order.order-form.checkout')}</span>
                                                     </span>
                                                 </span>
                                             </span>

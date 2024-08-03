@@ -3,9 +3,11 @@ import shape_comment from '@assets/images/shapes/shape_comment.png'
 import shape_man_1 from '@assets/images/shapes/shape_man_1.png'
 import Image from 'next/image';
 import NiceSelect from '@ui/niceSelect';
+import useTranslation from 'next-translate/useTranslation';
 
 
 const ContactFromSection = () => {
+    const { t } = useTranslation('components');
   const handleSubmit =(event)=>{
     event.preventDefault()
   }
@@ -21,50 +23,50 @@ const ContactFromSection = () => {
                   <i className="fas fa-sharp fa-square-full"></i>
                   <i className="fas fa-sharp fa-square-full"></i>
                 </span>
-                <span>Contact Us</span>
+                <span>{t('extra-page.contact-two-area.contact-from-section.contactUs')}</span>
               </h2>
               <h3 className="heading_title mb-0">
-                Get In Touch
+                {t('extra-page.contact-two-area.contact-from-section.sectionTitle')}
               </h3>
             </div>
             <form onSubmit={handleSubmit} action="#">
               <div className="row">
                 <div className="col col-md-6">
                   <div className="form-group m-0">
-                    <input className="form-control" type="text" name="firstname" placeholder="First Name" />
+                    <input className="form-control" type="text" name="firstname" placeholder={t('extra-page.contact-two-area.contact-from-section.firstNamePlaceholder')} />
                   </div>
                 </div>
                 <div className="col col-md-6">
                   <div className="form-group m-0">
-                    <input className="form-control" type="text" name="lastname" placeholder="Last Name" />
+                    <input className="form-control" type="text" name="lastname" placeholder={t('extra-page.contact-two-area.contact-from-section.lastNamePlaceholder')} />
                   </div>
                 </div>
                 <div className="col col-md-6">
                   <div className="form-group m-0">
-                    <input className="form-control" type="email" name="email" placeholder="Email Address" />
+                    <input className="form-control" type="email" name="email" placeholder={t('extra-page.contact-two-area.contact-from-section.emailPlaceholder')} />
                   </div>
                 </div>
                 <div className="col col-md-6">
                   <div className="select_option m-0">
                     <NiceSelect
                       options={[
-                        { value: "Select Subject", text: "Select Subject" },
-                        { value: "Website Development", text: "Website Development" },
-                        { value: "UX/UI Design", text: "UX/UI Design" },
-                        { value: "App Development", text: "App Development" },
-                        { value: "Video Editing", text: "Video Editing" },
-                        { value: "Programming & Tech", text: "Programming & Tech" },
-                        { value: "Business Consuting", text: "Business Consuting" },
+                        { value: "Select Subject", text: t('extra-page.contact-two-area.contact-from-section.selectSubject') },
+                        { value: "Website Development", text: t('extra-page.contact-two-area.contact-from-section.websiteDevelopment') },
+                        { value: "UX/UI Design", text: t('extra-page.contact-two-area.contact-from-section.uxUiDesign') },
+                        { value: "App Development", text: t('extra-page.contact-two-area.contact-from-section.appDevelopment') },
+                        { value: "Video Editing", text: t('extra-page.contact-two-area.contact-from-section.videoEditing') },
+                        { value: "Programming & Tech", text: t('extra-page.contact-two-area.contact-from-section.programmingTech') },
+                        { value: "Business Consuting", text: t('extra-page.contact-two-area.contact-from-section.businessConsulting') },
                       ]}
                       defaultCurrent={0}
                       onChange={selectHandler}
-                      name="Select Subject"
+                      name={t('extra-page.contact-two-area.contact-from-section.selectSubject')}
                     />
                   </div>
                 </div>
                 <div className="col">
                   <div className="form-group">
-                    <textarea className="form-control" name="message" placeholder="Write your Message"></textarea>
+                    <textarea className="form-control" name="message" placeholder={t('extra-page.contact-two-area.contact-from-section.messagePlaceholder')}></textarea>
                   </div>
 
                   <button type="submit" className="bd-btn-link btn_warning">
@@ -74,8 +76,8 @@ const ContactFromSection = () => {
                       </span>
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Send Now</span>
-                          <span className="bd-button-text">Send Now</span>
+                          <span className="bd-button-text">{t('extra-page.contact-two-area.contact-from-section.sendNow')}</span>
+                          <span className="bd-button-text">{t('extra-page.contact-two-area.contact-from-section.sendNow')}</span>
                         </span>
                       </span>
                     </span>

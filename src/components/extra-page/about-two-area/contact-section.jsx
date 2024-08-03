@@ -1,7 +1,9 @@
 import NiceSelect from '@ui/niceSelect';
 import React from 'react';
+import useTranslation from 'next-translate/useTranslation';
 
 const ContactSection = () => {
+    const { t } = useTranslation('components');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,17 +21,17 @@ const ContactSection = () => {
                   <div className="row">
                     <div className="col col-md-6">
                       <div className="form-group m-0">
-                        <input className="form-control" type="text" name="firstname" placeholder="First Name" />
+                        <input className="form-control" type="text" name="firstname" placeholder={t('extra-page.about-two-area.contactSection.firstName')} />
                       </div>
                     </div>
                     <div className="col col-md-6">
                       <div className="form-group m-0">
-                        <input className="form-control" type="text" name="lastname" placeholder="Last Name" />
+                        <input className="form-control" type="text" name="lastname" placeholder={t('extra-page.about-two-area.contactSection.lastName')} />
                       </div>
                     </div>
                     <div className="col col-md-6">
                       <div className="form-group m-0">
-                        <input className="form-control" type="email" name="email" placeholder="Email Address" />
+                        <input className="form-control" type="email" name="email" placeholder={t('extra-page.about-two-area.contactSection.emailAddressTitle')}  />
                       </div>
                     </div>
                     <div className="col col-md-6">
@@ -46,13 +48,13 @@ const ContactSection = () => {
                           ]}
                           defaultCurrent={0}
                           onChange={selectHandler}
-                          name="Select Subject"
+                          name={t('extra-page.about-two-area.contactSection.selectSubject')}
                         />
                       </div>
                     </div>
                     <div className="col">
                       <div className="form-group">
-                        <textarea className="form-control" name="message" placeholder="Write your Message"></textarea>
+                        <textarea className="form-control" name="message" placeholder={t('extra-page.about-two-area.contactSection.messagePlaceholder')}></textarea>
                       </div>
 
                       <button type="submit" className="bd-btn-link btn_primary">
@@ -62,8 +64,8 @@ const ContactSection = () => {
                           </span>
                           <span className="pd-animation-flip">
                             <span className="bd-btn-anim-wrapp">
-                              <span className="bd-button-text">Send Now</span>
-                              <span className="bd-button-text">Send Now</span>
+                              <span className="bd-button-text">{t('extra-page.about-two-area.contactSection.sendNow')}</span>
+                              <span className="bd-button-text">{t('extra-page.about-two-area.contactSection.sendNow')}</span>
                             </span>
                           </span>
                         </span>
@@ -82,23 +84,23 @@ const ContactSection = () => {
                     <i className="fas fa-sharp fa-square-full"></i>
                     <i className="fas fa-sharp fa-square-full"></i>
                   </span>
-                  <span>Contact Me</span>
+                  <span>{t('extra-page.about-two-area.contactSection.contactMe')}</span>
                 </h2>
                 <h3 className="heading_title">
-                  Feel Free Get In touch with Gary
+                    {t('extra-page.about-two-area.contactSection.feelFree')}
                 </h3>
                 <p className="heading_description mb-0">
-                  {`I'm`} a digital marketer specializing in strategy & account management for enterprise brands. I love taking exciting projects.
+                    {t('extra-page.about-two-area.contactSection.intro')}
                 </p>
               </div>
               <ul className="contact_info_list unordered_list_block">
                 <li>
-                  <strong>Email:</strong>
-                  <span>gary@paradox.com</span>
+                  <strong>{t('extra-page.about-two-area.contactSection.email')}:</strong>
+                  <span>{t('extra-page.about-two-area.contactSection.emailAddress')}</span>
                 </li>
                 <li>
-                  <strong>Phone:</strong>
-                  <span>+12024463369</span>
+                  <strong>{t('extra-page.about-two-area.contactSection.phone')}:</strong>
+                  <span>{t('extra-page.about-two-area.contactSection.phoneNumber')}</span>
                 </li>
               </ul>
             </div>

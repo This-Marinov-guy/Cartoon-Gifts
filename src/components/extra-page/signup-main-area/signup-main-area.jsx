@@ -10,22 +10,23 @@ import { Spinner, useToast } from '@chakra-ui/react'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import { useHttpClient } from '@hooks/use-http-request';
+import useTranslation from 'next-translate/useTranslation';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
   email: yup.string().email().required(),
   password: yup
     .string()
-    .min(8, "Password must be at least 8 characters long")
+    .min(8, t('passwordLengthError'))
     .matches(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/,
-      "Please create a stronger password with capital and small letters, number and a special symbol"
+      t('passwordRulesError')
     )
     .required(),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Passwords do not match")
-    .required("Passwords do not match"),
+    .oneOf([yup.ref("password"), null], t('passwordMatchError'))
+    .required(t('passwordMatchError')),
   // check: yup.bool().required().oneOf([true], "Terms must be accepted")
 });
 
@@ -33,6 +34,7 @@ const SignupMainArea = () => {
   const router = useRouter();
   const toast = useToast();
   const { loading, sendRequest } = useHttpClient();
+    const { t } = useTranslation('components');
 
   return (
     <main>
@@ -50,10 +52,10 @@ const SignupMainArea = () => {
           <div className="register_form_wrap ms-lg-0">
             <Link href='/'>
               <i class="fa-solid fa-angles-left mr-5"></i>
-              Back Home
+              {t('backHome')}
             </Link>
-            <h2 className="form_title">Create an account</h2>
-            <p>Enter the information below to create your account</p>
+            <h2 className="form_title">{t('createAccount')}</h2>
+            <p>{t('enterInformation')}</p>
             <Formik
               className="inner"
               validationSchema={schema}
@@ -64,7 +66,7 @@ const SignupMainArea = () => {
                   if (response.status) {
                     router.push('/login');
                     toast({
-                      title: 'Profile created successfully',
+                      title: t('profileCreated'),
                       status: 'success',
                       duration: 8000,
                       isClosable: true,
@@ -83,23 +85,23 @@ const SignupMainArea = () => {
               {() => (
                 <Form className='row'>
                   <div className="col col-md-6 form-group">
-                    <label htmlFor="input_name" className="form-label">Your Name</label>
-                    <Field name='name' className="form-control" type="text" placeholder="Your Name" />
+                    <label htmlFor="input_name" className="form-label">{t('yourName')}</label>
+                    <Field name='name' className="form-control" type="text" placeholder={t('yourName')} />
                     <ErrorMessage className="error" name="name" component="div" />
                   </div>
                   <div className="col col-md-6 form-group">
-                    <label htmlFor="input_email" className="form-label">Email Address</label>
-                    <Field name='email' className="form-control" type="email" placeholder="Your Address" />
+                    <label htmlFor="input_email" className="form-label">{t('emailAddress')}</label>
+                    <Field name='email' className="form-control" type="email" placeholder={t('yourAddress')} />
                     <ErrorMessage className="error" name="email" component="div" />
                   </div>
                   <div className="col col-md-6 form-group">
-                    <label htmlFor="input_pass" className="form-label">Enter Password</label>
-                    <Field name='password' className="form-control" type="password" placeholder="Enter Password" />
+                    <label htmlFor="input_pass" className="form-label">{t('enterPassword')}</label>
+                    <Field name='password' className="form-control" type="password" placeholder={t('enterPassword')} />
                     <ErrorMessage className="error" name="password" component="div" />
                   </div>
                   <div className="col col-md-6 form-group">
-                    <label htmlFor="input_pass" className="form-label">Enter Password</label>
-                    <Field name='confirmPassword' className="form-control" type="password" placeholder="Confirm Password" />
+                    <label htmlFor="input_pass" className="form-label">{t('confirmPassword')}</label>
+                    <Field name='confirmPassword' className="form-control" type="password" placeholder={t('confirmPassword')} />
                     <ErrorMessage className="error" name="confirmPassword" component="div" />
                   </div>
                   {/* <div className="form-check">
@@ -114,8 +116,8 @@ const SignupMainArea = () => {
                       </span>
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Submit Now</span>
-                          <span className="bd-button-text">Submit Now</span>
+                          <span className="bd-button-text">{t('submitNow')}</span>
+                          <span className="bd-button-text">{t('submitNow')}</span>
                         </span>
                       </span>
                     </span>}
@@ -124,7 +126,7 @@ const SignupMainArea = () => {
               )}
             </Formik>
 
-            <p className="mb-0">Already have an account? <Link href="/login">Log In</Link></p>
+            <p className="mb-0">{t('alreadyHaveAccount')}? <Link href="/login">{t('login')}</Link></p>
           </div>
 
           <div className="deco_item shape_3 wow fadeInRight" data-wow-delay=".1s">

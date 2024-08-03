@@ -5,8 +5,9 @@ import Image from 'next/image';
 import icon_search from '@assets/images/icons/icon_search_white.svg'
 import Pagination_Data from '@components/common/pagination';
 import BlogSidebarSection from '../blog-sidebar/blog-sidebar';
-
+import useTranslation from 'next-translate/useTranslation';
 const BlogSection = () => {
+    const { t } = useTranslation('components');
   return (
     <section className="blog_section section_space_lg">
       <div className="container">
@@ -15,7 +16,7 @@ const BlogSection = () => {
             {
               blogs_data.slice(0, 3).map((item) => (
                 <div className="blog_item" key={item.id}>
-                  <Link className="item_image" href={`/blog-details/${item.id}`} data-cursor-text="VIEW">
+                  <Link className="item_image" href={`/blog-details/${item.id}`} data-cursor-text={t('view')}>
                     <Image src={item.img} style={{ width: "100%", height: "100%" }} alt="Paradox Blog Image" />
                   </Link>
                   <div className="item_content">
@@ -34,10 +35,10 @@ const BlogSection = () => {
 
                     </p>
                     <Link className="btn-link" href={`/blog-details/${item.id}`}>
-                      <span className="btn_text">Read More</span>
+                      <span className="btn_text">{t('readMore')}</span>
                       <span className="btn_icon">
-                        <Image src={item.btnIcon} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Right" />
-                        <Image src={item.btnIconTwo} style={{ width: "100%", height: "100%" }} alt="Paradox - Icon Arrow Down Right" />
+                        <Image src={item.btnIcon} style={{ width: "100%", height: "100%" }} alt={t('iconArrowAlt')} />
+                        <Image src={item.btnIconTwo} style={{ width: "100%", height: "100%" }} alt={t('iconArrowAlt')} />
                       </span>
                     </Link>
                   </div>

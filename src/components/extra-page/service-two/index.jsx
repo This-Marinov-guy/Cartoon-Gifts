@@ -6,12 +6,14 @@ import ServiceTwo from './service-two';
 import PortfolioSection from '../service-main-area/portfolio-section';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
 import PolicySection from '../service-main-area/policy-section';
+import useTranslation from 'next-translate/useTranslation';
 
 const Index = () => {
+    const { t } = useTranslation('components');
     return (
         <main>
             <Header />
-            <Breadcrumb title='Service V2' subTitle='Service V2' />
+            <Breadcrumb title={t('extra-page.service-two.title')} subTitle={t('extra-page.service-two.subTitle')} />
             <ServiceTwo />
             <PortfolioSection />
             <PolicySection />

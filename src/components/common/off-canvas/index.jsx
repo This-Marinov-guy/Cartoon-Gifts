@@ -4,8 +4,10 @@ import Image from "next/image";
 import logo from "@assets/images/logo/logo-title-dark.png";
 import icon_globe from "@assets/images/icons/icon_globe.svg";
 import MobileMenus from "./mobile-menus";
+import useTranslation from "next-translate/useTranslation";
 
 const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
+    const { t } = useTranslation('components');
   return (
     <React.Fragment>
       <div className="fix">
@@ -17,7 +19,7 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                   <Link href="/">
                     <Image
                       src={logo}
-                      alt="img not found"
+                      alt={t('common.off-canvas.index.logoAlt')}
                     />
                   </Link>
                 </div>
@@ -48,15 +50,15 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                 <span className="b  yd-button-content-wrapper">
                   <span className="pd-animation-flip">
                     <span className="bd-btn-anim-wrapp">
-                      <span className="bd-button-text">Make an order</span>
-                      <span className="bd-button-text">Order now</span>
+                      <span className="bd-button-text">{t('common.off-canvas.index.makeAnOrder')}</span>
+                      <span className="bd-button-text">{t('common.off-canvas.index.orderNow')}</span>
                     </span>
                   </span>
                 </span>
               </Link>
             </div>
             <div className="offcanvas__contact text-center mt-10">
-              <h4 className="offcanvas__title">Contact Info</h4>
+              <h4 className="offcanvas__title">{t('common.off-canvas.index.contactInfo')}</h4>
               <div className="offcanvas__contact-text mb-2">
                 <p>
                   <a
@@ -76,12 +78,12 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
               <ul>
                 <li>
                   <Link target="_blank" href="https://www.facebook.com/cartoongiftsbulgaria1">
-                    Facebook
+                    {t('common.off-canvas.index.facebook')}
                   </Link>
                 </li>
                 <li>
                   <Link target="_blank" href="https://www.instagram.com/cartoongiftsbulgaria/?hl=en">
-                    Instagram
+                    {t('common.off-canvas.index.instagram')}
                   </Link>
                 </li>
               </ul>

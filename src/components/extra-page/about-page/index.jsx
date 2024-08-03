@@ -9,12 +9,14 @@ import StarterStepsSection from '@components/home-6/starter-steps-section';
 import CollectionSection from '@components/home/collection-section';
 import CounterSection from './counter-section';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
+import useTranslation from 'next-translate/useTranslation';
 
 const Index = () => {
+    const { t } = useTranslation('components');
     return (
         <main>
             <Header />
-            <Breadcrumb title="About Us" subTitle="About Us" />
+            <Breadcrumb title={t('extra-page.about-page.index.aboutUs')} subTitle={t('extra-page.about-page.index.aboutUs')} />
             <DetailsAboutSection />
             <CounterSection />
             <AboutSectionTwo />

@@ -4,12 +4,14 @@ import Header from '@layout/header/header';
 import React from 'react';
 import Breadcrumb from '@components/common/breadcrumb/breadcrumb';
 import BlogRightSection from './blog-right-section';
+import useTranslation from 'next-translate/useTranslation';
 
 const Index = () => {
+    const { t } = useTranslation('components');
     return (
         <main>
             <Header />
-            <Breadcrumb title='Blog Grid with Sidebar' subTitle='Blog Right Sidebar' />
+            <Breadcrumb title={t('extra-page.blog-right-sidebar.index.blogGridWithSidebar')} subTitle={t('extra-page.blog-right-sidebar.index.blogRightSidebar')} />
             <BlogRightSection />
             <CollectionSection />
             <Footer />

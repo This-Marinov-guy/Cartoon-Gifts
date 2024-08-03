@@ -7,8 +7,10 @@ import Menus from "./menus";
 import OffCanvasMain from "@components/common/off-canvas";
 import GoogleTranslateDesktop from "@ui/google-translate-desktop";
 import NiceSelect from "@ui/niceSelect";
+import useTranslation from "next-translate/useTranslation";
 
 const HeaderSix = () => {
+    const { t } = useTranslation("layout");
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
   const selectHandler = e => { }
 
@@ -70,8 +72,8 @@ const HeaderSix = () => {
                   <span className="bd-button-content-wrapper">
                     <span className="pd-animation-flip">
                       <span className="bd-btn-anim-wrapp">
-                        <span className="bd-button-text">Make an order</span>
-                        <span className="bd-button-text">Order now</span>
+                        <span className="bd-button-text">{t('header.makeOrder')}</span>
+                        <span className="bd-button-text">{t('header.orderNow')}</span>
                       </span>
                     </span>
                   </span>

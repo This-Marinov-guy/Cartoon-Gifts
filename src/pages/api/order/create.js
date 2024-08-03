@@ -3,10 +3,12 @@ import multer from 'multer';
 import cloudinary from 'src/server/config/cloudinary';
 import { createOrder } from 'src/server/services/order-service';
 import { v4 as uuidv4 } from 'uuid';
+import useTranslation from 'next-translate/useTranslation';
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 const myUploadMiddleware = upload.array("images");
+const {t} = useTranslation("api");
 
 const runMiddleware = (req, res, fn) => {
     return new Promise((resolve, reject) => {
@@ -21,7 +23,7 @@ const runMiddleware = (req, res, fn) => {
 
 const handler = async (req, res) => {
     if (req.method !== 'POST') {
-        return res.status(401).json({ message: 'Invalid action' });
+        return res.status(401).json({ message: t('invalidAction') });
     }
 
     await runMiddleware(req, res, myUploadMiddleware);

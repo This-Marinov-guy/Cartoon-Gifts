@@ -4,8 +4,10 @@ import portfolio_data from '@data/common_data/portfolio-data';
 import Image from 'next/image';
 import Slider from "react-slick";
 import shape_circle from '@assets/images/shapes/shape_circle_2.svg'
+import useTranslation from 'next-translate/useTranslation';
 
 const PortfolioSectionSix = () => {
+    const { t } = useTranslation('components');
   const portfolio_slider = {
     dots: true,
     lazyLoad: true,
@@ -58,10 +60,10 @@ const PortfolioSectionSix = () => {
       <div className="container">
         <div className="section_heading style_4 text-center">
           <h2 className="heading_subtitle text-uppercase">
-            <span>Gallery</span>
+            <span>{t('home-6.portfolio-section-6.gallery')}</span>
           </h2>
           <h3 className="heading_title">
-            Our Latest work
+          {t('home-6.portfolio-section-6.ourLatestWork')}
           </h3>
         </div>
       </div>

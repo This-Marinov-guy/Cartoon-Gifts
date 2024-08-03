@@ -2,10 +2,12 @@ import React, { useRef } from 'react';
 import review_data from '@data/common_data/review-data';
 import Image from 'next/image';
 import Slider from "react-slick";
+import useTranslation from 'next-translate/useTranslation';
 
 
 const ReviewSectionSix = () => {
   const sliderRef = useRef(null);
+    const { t } = useTranslation('components');
 
   const handlePrevClick = () => {
     if (sliderRef.current) {
@@ -60,10 +62,10 @@ const ReviewSectionSix = () => {
               <i className="fas fa-sharp fa-square-full"></i>
               <i className="fas fa-sharp fa-square-full"></i>
             </span>
-            <span>Reviews</span>
+            <span>{t('home-6.review-section-6.reviews')}</span>
           </h2>
           <h3 className="heading_title mb-0">
-            What Our Clients Say
+            {t('home-6.portfolio-section-6.ourClientSays')}
           </h3>
         </div>
 

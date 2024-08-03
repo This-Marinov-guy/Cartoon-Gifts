@@ -5,6 +5,8 @@ import Slider from "react-slick";
 
 const ServiceSection = ({serviceBgg}) => {
   const sliderRef = useRef(null);
+  const { t } = useTranslation('components');
+
 
   const handlePrevClick = () => {
     if (sliderRef.current) {
@@ -68,10 +70,10 @@ const ServiceSection = ({serviceBgg}) => {
               <i className="fas fa-sharp fa-square-full"></i>
               <i className="fas fa-sharp fa-square-full"></i>
             </span>
-            <span>What we Do</span>
+            <span>{t('home.service-section.what_we_do')}</span>
           </h2>
           <h3 className="heading_title mb-0">
-            Offering latest services
+            {t('home.service-section.offering_latest_services')}
           </h3>
         </div>
         <div className="services_carousel">
@@ -93,7 +95,7 @@ const ServiceSection = ({serviceBgg}) => {
                         </p>
                       </div>
                       <Link className="item_details_btn" href={`/service-details/${item.id}`}>
-                        <span className="btn_text">View details</span>
+                        <span className="btn_text">{t('home.service-section.view_details')}</span>
                         <span className="btn_icon">
                           {item.btn_icon}
                         </span>

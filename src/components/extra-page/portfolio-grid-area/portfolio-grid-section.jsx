@@ -3,8 +3,10 @@ import portfolio_data from '@data/common_data/portfolio-data';
 import Link from 'next/link';
 import Image from 'next/image';
 import Pagination_Data from '@components/common/pagination';
+import useTranslation from 'next-translate/useTranslation';
 
 const PortfolioGridSection = () => {
+    const { t } = useTranslation('components');
   return (
     <section className="portfolio_section section_space_lg">
       <div className="container">
@@ -12,11 +14,11 @@ const PortfolioGridSection = () => {
           <div className="portfolio_button">
             <nav>
               <div className="nav" id="nav-tab" role="tablist">
-                <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">View All</button>
-                <button className="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Graphics</button>
-                <button className="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">UI/UX</button>
-                <button className="nav-link" id="nav-wordpress-tab" data-bs-toggle="tab" data-bs-target="#nav-wordpress" type="button" role="tab" aria-controls="nav-wordpress" aria-selected="false">WordPress</button>
-                <button className="nav-link" id="nav-webdesign-tab" data-bs-toggle="tab" data-bs-target="#nav-webdesign" type="button" role="tab" aria-controls="nav-webdesign" aria-selected="false">Web Design</button>
+                <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">{t('extra-page.portfolio-grid-area.portfolio-grid-section.viewAll')}</button>
+                <button className="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">{t('extra-page.portfolio-grid-area.portfolio-grid-section.graphics')}</button>
+                <button className="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{t('extra-page.portfolio-grid-area.portfolio-grid-section.uiUx')}</button>
+                <button className="nav-link" id="nav-wordpress-tab" data-bs-toggle="tab" data-bs-target="#nav-wordpress" type="button" role="tab" aria-controls="nav-wordpress" aria-selected="false">{t('extra-page.portfolio-grid-area.portfolio-grid-section.wordpress')}</button>
+                <button className="nav-link" id="nav-webdesign-tab" data-bs-toggle="tab" data-bs-target="#nav-webdesign" type="button" role="tab" aria-controls="nav-webdesign" aria-selected="false">{t('extra-page.portfolio-grid-area.portfolio-grid-section.webDesign')}</button>
               </div>
             </nav>
           </div>

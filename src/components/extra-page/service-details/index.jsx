@@ -7,13 +7,15 @@ import CollectionSection from "@components/home/collection-section";
 import Breadcrumb from "@components/common/breadcrumb/breadcrumb";
 import Header from "@layout/header/header";
 import Footer from "@layout/footer/footer";
+import useTranslation from "next-translate/useTranslation";
 
 const Index = ({ item }) => {
+    const { t } = useTranslation("components");
   return (
     <>
       <Header />
       <main>
-        <Breadcrumb title="Service Details" subTitle="Service Details" />
+        <Breadcrumb title={t('extra-page.service-details.index.title')} subTitle={t('extra-page.service-details.index.subTitle')} />
         <DetailsSection item={item} />
         <ReviewSection />
         <FaqSection />

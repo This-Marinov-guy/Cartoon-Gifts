@@ -4,14 +4,16 @@ import OrderMain from '@components/extra-page/order';
 import Wrapper from '@layout/wrapper';
 import HeaderSix from '@layout/header/header-6';
 import { useToast } from '@chakra-ui/react';
+import useTranslation from 'next-translate/useTranslation';
 
 const Order = () => {
   const toast = useToast();
+    const { t } = useTranslation('pages');
 
   useEffect(() => {
     toast({
-      title: 'Summer sale - 15% off',
-      description: 'Enjoy our summer sale with a discount from us. It will be automatically applied on checkout!',
+      title: t('order.orderPageToastTitle'),
+      description: t('order.orderPageToastDescription'),
       status: 'info',
       isClosable: true,
       duration: null,
@@ -21,7 +23,7 @@ const Order = () => {
 
   return (
     <Wrapper>
-      <SEO pageTitle={'Order'} />
+      <SEO pageTitle={t('order.orderPageTitle')} />
       <HeaderSix />
       <OrderMain />
     </Wrapper>
