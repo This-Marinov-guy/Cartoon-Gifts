@@ -5,8 +5,6 @@
     },
     "order": {
         "orderPageTitle": "Order",
-        "orderPageToastTitle": "Summer sale - 15% off",
-        "orderPageToastDescription": "Enjoy our summer sale with a discount from us. It will be automatically applied on checkout!",
         "orderSuccessPageTitle": "Order Success",
         "orderSuccessPageAlertTitle": "Successful Order!",
         "orderSuccessPageAlertDescription1": "Thank you for ordering from Cartoon Gifts! Your order is on its way to us - you will receive a confirmation email with the order details.",
@@ -15,6 +13,10 @@
         "orderFailurePageAlertTitle": "It looks like something did not go as planned!",
         "orderFailurePageAlertDescription": "Your payment might have failed or you have canceled your order - if this is not the case, please contact us!",
         "backToOrderPage": "Back to order"
+    },
+    "order-offer": {
+      "toastTitle": "Summer sale - 15% off",
+      "toastDescription": "Enjoy our summer sale with a discount from us. It will be automatically applied on checkout!"
     },
     "portfolio-details": {
         "title": "Portfolio Details",

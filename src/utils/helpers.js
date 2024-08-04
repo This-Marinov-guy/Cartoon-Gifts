@@ -1,4 +1,7 @@
+import axios from "axios";
 import { clarity } from 'react-microsoft-clarity';
+import { LANGUAGES } from "./defines";
+import setLanguage from 'next-translate/setLanguage'
 
 export const isProd = () => {
   return process.env.NODE_ENV === 'production'
@@ -31,4 +34,38 @@ export const clarityTrack = () => {
     console.log('Track with Clarity');
     // clarity.identify('USER_ID', { userProperty: 'value' });
   }
+}
+
+export const getGeoInfo = async () => {
+  if (!isProd()) {
+    return
+  }
+
+  try {
+    const response = await axios.get('https://ipapi.co/json/');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return;
+  }
+};
+
+export const fetchLanguage = async () => {
+  let storedLanguage;
+
+  if (localStorage.getItem("language")) {
+    storedLanguage = localStorage.getItem("language")
+  } else {
+    const geoLocation = await getGeoInfo();
+
+    if (geoLocation) {
+      const country = geoLocation.country.toLowerCase();
+
+      if (LANGUAGES.map(language => language.value).includes(country)) {
+        storedLanguage = country
+      }
+    }
+  }
+
+  await setLanguage(storedLanguage);
 }

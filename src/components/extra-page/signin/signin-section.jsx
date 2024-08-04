@@ -55,7 +55,7 @@ const SigninSection = () => {
       <div className="column decoration_wrap p-20">
         <div className="register_form_wrap ms-lg-0">
           <Link href='/'>
-            <i class="fa-solid fa-angles-left mr-5"></i>
+            <i className="fa-solid fa-angles-left mr-5"></i>
             {t('extra-page.signin.backHome')}
           </Link>
           <h2 className="form_title">{t('extra-page.signin.welcomeBack')}!</h2>

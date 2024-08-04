@@ -5,6 +5,7 @@ import logo from "@assets/images/logo/logo-title-dark.png";
 import icon_globe from "@assets/images/icons/icon_globe.svg";
 import MobileMenus from "./mobile-menus";
 import useTranslation from "next-translate/useTranslation";
+import ChangeLanguage from "@ui/change-language";
 
 const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
     const { t } = useTranslation('components');
@@ -43,9 +44,7 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
               </div>
             </div>
             <div className="header_btns_group center_div" style={{ flexDirection: 'column', gap: '15px' }}>
-            <div id="translate-switcher" style={{ height: '50px', width: '200px' }}>
-                </div>
-             {/* <GoogleTranslateDesktop /> */}
+            <ChangeLanguage/>
               <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
                 <span className="b  yd-button-content-wrapper">
                   <span className="pd-animation-flip">

@@ -12,7 +12,7 @@ import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleTagManager } from '@next/third-parties/google'
 import { useRouter } from 'next/router';
-import { clarityTrack } from '@utils/helpers';
+import { clarityTrack, fetchLanguage } from '@utils/helpers';
 
 function MyApp({ Component, pageProps }) {
   const handleRouteChange = (url) => {
@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
+    fetchLanguage();
     clarityTrack();
   }, [])
 

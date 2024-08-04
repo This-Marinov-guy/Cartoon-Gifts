@@ -1,5 +1,4 @@
 //PRICING
-
 export const SHIPPING_COUNTRIES = [
     { value: 'england', label: 'United Kingdom' },
     { value: 'bulgaria', label: 'Bulgaria' },
@@ -9,11 +8,10 @@ export const SHIPPING_COUNTRIES = [
 
 
 export const LANGUAGES = [
-    { value: 'en', label: 'English' },
-    { value: 'bg', label: 'Bulgarian' },
-    { value: 'ro', label: 'Romanian' },
+    { value: 'en', text: 'English' },
+    { value: 'bg', text: 'Български' },
+    // { value: 'ro', text: 'Romanian' },
 ];
-
 
 export const CURRENCIES = [
     {value: 'EUR', label: 'euro', symbol: '€', multiplier: 1},

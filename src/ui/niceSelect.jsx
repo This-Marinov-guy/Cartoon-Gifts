@@ -1,9 +1,9 @@
 import { useState, useCallback, useRef } from "react";
 import { useClickAway } from "react-use";
 
-const NiceSelect = ({options,defaultCurrent, placeholder,className,onChange,name}) => {
+const NiceSelect = ({ options, defaultCurrent, placeholder, className, onChange, name }) => {
     const [open, setOpen] = useState(false);
-    const [current, setCurrent] = useState('Bulgarian');
+    const [current, setCurrent] = useState(options[defaultCurrent]);
     const onClose = useCallback(() => {
         setOpen(false);
     }, []);
@@ -19,14 +19,14 @@ const NiceSelect = ({options,defaultCurrent, placeholder,className,onChange,name
 
     return (
         <div
-            className={`nice-select ${ className, open && "open"}`}
+            className={`nice-select ${className, open && "open"}`}
             role="button"
             tabIndex={0}
             onClick={() => setOpen((prev) => !prev)}
             onKeyPress={(e) => e}
             ref={ref}
         >
-            <span className="current">{current?.text || placeholder}</span>
+            <span className="current">{current.text}</span>
             <ul
                 className="list"
                 role="menubar"
@@ -37,7 +37,7 @@ const NiceSelect = ({options,defaultCurrent, placeholder,className,onChange,name
                     <li
                         key={item.value}
                         data-value={item.value}
-                        className={ `option ${item.value === current?.value && "selected focus"}`
+                        className={`option ${item.value === current?.value && "selected focus"}`
                         }
                         role="menuitem"
                         onClick={() => currentHandler(item)}

@@ -51,7 +51,7 @@ const SignupMainArea = () => {
         <div className="column decoration_wrap">
           <div className="register_form_wrap ms-lg-0">
             <Link href='/'>
-              <i class="fa-solid fa-angles-left mr-5"></i>
+              <i className="fa-solid fa-angles-left mr-5"></i>
               {t('backHome')}
             </Link>
             <h2 className="form_title">{t('createAccount')}</h2>
