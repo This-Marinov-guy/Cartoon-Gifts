@@ -12,6 +12,7 @@ import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleTagManager } from '@next/third-parties/google'
 import { useRouter } from 'next/router';
+import { clarityTrack } from '@utils/helpers';
 
 function MyApp({ Component, pageProps }) {
   const handleRouteChange = (url) => {
@@ -21,6 +22,10 @@ function MyApp({ Component, pageProps }) {
   };
 
   const router = useRouter();
+
+  useEffect(() => {
+    clarityTrack();
+  }, [])
 
   useEffect(() => {
     router.events.on('routeChangeComplete', handleRouteChange);
@@ -36,14 +41,7 @@ function MyApp({ Component, pageProps }) {
           "https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
         }
       />
-      <Script src="//cdn.conveythis.com/javascript/conveythis-initializer.js"
-        strategy="lazyOnload" // Other options: "beforeInteractive", "afterInteractive", "lazyOnload"
-        onLoad={() =>
-          ConveyThis_Initializer.init({
-            api_key: process.env.NEXT_PUBLIC_CONVEY_THIS
-          })
-        }
-      />
+      
       <Script
         strategy="afterInteractive"
         src={"https://www.googletagmanager.com/gtag/js?id=" + process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
