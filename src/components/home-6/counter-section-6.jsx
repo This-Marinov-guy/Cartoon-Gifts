@@ -11,7 +11,7 @@ const CounterSectionSix = () => {
   const factList = [
     {
       id: 1,
-      factTitle: t('worldwideHappyClient'),
+      factTitle: t('home-6.counter-section-6.worldwideHappyClient'),
       factNumber: '600',
       data_count: "2400",
       data_parallax: '{"y" : 30, "smoothness": 10}',
@@ -19,14 +19,14 @@ const CounterSectionSix = () => {
     },
     {
       id: 2,
-      factTitle: t('completedProject'),
+      factTitle: t('home-6.counter-section-6.completedProject'),
       factNumber: '1000',
       data_count: "1690",
       adition: '+'
     },
     {
       id: 3,
-      factTitle: t('clientSatisfaction'),
+      factTitle: t('home-6.counter-section-6.clientSatisfaction'),
       factNumber: '100',
       data_count: "100",
       data_parallax: '{"y" : -30, "smoothness": 10}',

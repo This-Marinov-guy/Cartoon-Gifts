@@ -16,7 +16,7 @@ const FooterSix = () => {
               <div className="col col-lg-7">
                 <div className="section_heading text-white">
                   <h2 className="heading_title mb-0">
-                    {t('footer.footer-6.celebrateOccasion')}.
+                    {t('footer.footer-6.celebrateOccasion')}
                   </h2>
                 </div>
                 <Link href="/order" className="bd-btn-link btn_warning">

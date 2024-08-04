@@ -1,0 +1,35 @@
+{
+  "blog-details": {
+    "title": "Детайли на блога",
+    "loading": "Зареждане"
+  },
+  "order": {
+    "orderPageTitle": "Поръчка",
+    "orderPageToastTitle": "Лятна разпродажба - 15% отстъпка",
+    "orderPageToastDescription": "Насладете се на нашата лятна разпродажба с отстъпка от нас. Отстъпката ще бъде приложена автоматично при плащане!",
+    "orderSuccessPageTitle": "Успешна поръчка",
+    "orderSuccessPageAlertTitle": "Успешна поръчка!",
+    "orderSuccessPageAlertDescription1": "Благодарим ви, че поръчахте от Cartoon Gifts! Вашата поръчка е на път към нас - ще получите имейл с потвърждение и детайли за поръчката.",
+    "orderSuccessPageAlertDescription2": "Ако имате проблеми или искате да се свържете с нас, моля, пишете ни на имейл:",
+    "orderFailurePageTitle": "Неуспешна поръчка",
+    "orderFailurePageAlertTitle": "Изглежда, че нещо не е минало по план!",
+    "orderFailurePageAlertDescription": "Вашето плащане може да е било неуспешно или сте отменили поръчката си - ако това не е случаят, моля, свържете се с нас!",
+    "backToOrderPage": "Назад към поръчката"
+  },
+  "portfolio-details": {
+    "title": "Детайли на портфолиото",
+    "loading": "Зареждане"
+  },
+  "service-details": {
+    "title": "Детайли на услугата",
+    "loading": "Зареждане"
+  },
+  "comming-soon-title": "Скоро",
+  "contact-title": "Контакт",
+  "gallery-title": "Галерия",
+  "index-title": "Добре дошли",
+  "login-title": "Вход",
+  "pricing-title": "Цени",
+  "signup-title": "Регистрация",
+  "terms-and-conditions-title": "Общи условия"
+}

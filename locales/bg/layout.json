@@ -1,13 +1,104 @@
 {
+  "footer": {
     "footer": {
-        "footer": {
-            "siteLogoAlt": "Лого на сайта - Paradox - Agency Template",
-            "contactUs": "Свържете се с нас",
-            "getNewIdea": "Ако искате да получите нова идея",
-            "newsletter": "Нюзлетър",
-            "emailAddress": "Имейл адрес",
-            "checkMeOut": "Отбележете ме",
-            "copyright": "Авторски права © {{year}} от Cartoon Gifts. Всички права запазени."
-        }          
+      "siteLogoAlt": "Лого на сайта - Paradox - Шаблон за агенция",
+      "contactUs": "Свържете се с нас",
+      "getNewIdea": "Ако искате да получите нова идея",
+      "newsletter": "Абонирай се",
+      "emailAddress": "Имейл адрес",
+      "checkMeOut": "Разгледайте ме",
+      "copyright": "Авторски права © {{year}} от Cartoon Gifts. Всички права запазени."
+    },
+    "footer-2": {
+      "readyToGo": "Готови за действие",
+      "findOutHow": "Разберете как да започнете с Paradox",
+      "getStarted": "Започнете",
+      "actionPlan": "Нашият план за действие е фокусиран и планиран. Ние сме организация, ориентирана към резултати",
+      "followMeOn": "Последвайте ни в",
+      "newsletter": "Абонирай се",
+      "emailAddress": "Имейл адрес",
+      "acceptCondition": "Приемам тези условия",
+      "emailMe": "Ел поща за връзка",
+      "allRightsReserved": "Всички права запазени."
+    },
+    "footer-3": {
+      "company": "Компания",
+      "readyToGo": "Готови за действие",
+      "getStarted": "Започнете",
+      "findOut": "Разберете как да започнете с Paradox",
+      "actionPlan": "Нашият план за действие е фокусиран и планиран. Ние сме организация, ориентирана към резултати",
+      "learnMore": "Научете повече",
+      "ourServices": "Нашите услуги",
+      "followUs": "Последвайте ни",
+      "emailUs": "Ел поща за връзка",
+      "uiUxDesign": "UI/UX Дизайн",
+      "websiteDesign": "Уеб дизайн",
+      "emailMarketing": "Имейл маркетинг",
+      "seoAnalysing": "SEO Анализ",
+      "digitalMarketing": "Цифров маркетинг",
+      "aboutUs": "За нас",
+      "ourTeam": "Нашият екип",
+      "gallery": "Галерия",
+      "faq": "ЧЗВ",
+      "allRightsReserved": "Всички права запазени.",
+      "ourBlog": "Нашият блог",
+      "termsConditions": "Общи условия",
+      "policyPrivacy": "Политика за конфиденциалност"
+    },
+    "footer-4": {
+      "actionPlan": "Нашият план за действие е фокусиран и планиран. Ние сме организация, ориентирана към резултати",
+      "followUs": "Последвайте ни:",
+      "ourServices": "Нашите услуги",
+      "company": "Компания",
+      "newsletter": "Абонирай се",
+      "emailAddress": "Имейл адрес",
+      "checkMeOut": "Разгледайте ме",
+      "termsConditions": "Общи условия",
+      "policyPrivacy": "Политика за конфиденциалност",
+      "uiUxDesign": "UI/UX Дизайн",
+      "websiteDesign": "Уеб дизайн",
+      "emailMarketing": "Имейл маркетинг",
+      "seoAnalysing": "SEO Анализ",
+      "digitalMarketing": "Цифров маркетинг",
+      "aboutUs": "За нас",
+      "ourTeam": "Нашият екип",
+      "gallery": "Галерия",
+      "faq": "ЧЗВ",
+      "ourBlog": "Нашият блог"
+    },
+    "footer-5": {
+      "ctaHeading": "Нека създадем нещо невероятно заедно.",
+      "ctaButton": "Започнете",
+      "contactUs": "Свържете се с нас",
+      "contactTitle": "Ако искате да получите нова идея:",
+      "findUs": "Намерете ни",
+      "address": "1989 Timber Ridge Road",
+      "cityState": "Сакраменто CA, Калифорния",
+      "newsletter": "Абонирай се",
+      "newsletterPlaceholder": "Имейл адрес",
+      "newsletterButton": "Разгледайте ме",
+      "copyright": "Авторски права © 2023 от",
+      "allRightsReserved": "Всички права запазени."
+    },
+    "footer-6": {
+      "celebrateOccasion": "Отпразнувайте събитие с нас.",
+      "makeOrder": "Направете поръчка",
+      "orderNow": "Поръчайте сега",
+      "goal": "Нашата цел е да направим хората щастливи чрез изкуство",
+      "followUs": "Последвайте ни в",
+      "newsletter": "Абонирай се",
+      "emailAddress": "Имейл адрес",
+      "givePermission": "Давам разрешение да получавам оферти и отстъпки",
+      "emailMe": "Ел поща за връзка",
+      "allRightsReserved": "Всички права запазени."
     }
+  },
+  "header": {
+    "home": "Начало",
+    "galeria": "Галерия",
+    "contact": "Контакти",
+    "makeOrder": "Поръчайте",
+    "getAQuote": "Получете оферта",
+    "orderNow": "Поръчайте"
+  }
 }

@@ -65,7 +65,7 @@ const ReviewSectionSix = () => {
             <span>{t('home-6.review-section-6.reviews')}</span>
           </h2>
           <h3 className="heading_title mb-0">
-            {t('home-6.portfolio-section-6.ourClientSays')}
+            {t('home-6.review-section-6.ourClientSays')}
           </h3>
         </div>
 
