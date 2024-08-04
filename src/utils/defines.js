@@ -41,14 +41,17 @@ export const SIZE_ITEMS = [
 export const DELIVERY_ITEMS = [
     {
         property: 'Digital',
+        tag: 'common:delivery_items.digital',
         price: 0
     },
     {
         property: 'Normal (Physical)',
+        tag: 'common:delivery_items.normal',
         price: 7
     },
     {
         property: 'Express (Physical)',
+        tag: 'common:delivery_items.express',
         price: 15
     },
 ]
@@ -56,19 +59,23 @@ export const DELIVERY_ITEMS = [
 export const PET_OPTIONS = [
     {
         property: 'No',
+        tag: 'common:answers.no',
     },
     {
         property: 'Yes',
+        tag: 'common:answers.yes',
     },
 ]
 
 export const PAYMENT_OPTIONS = [
     {
         property: 'Online (card)',
+        tag: 'common:payment_items.online',
         value: 'online'
     },
     {
         property: 'Cash',
+        tag: 'common:payment_items.cash',
         value: 'cash'
     },
 ]

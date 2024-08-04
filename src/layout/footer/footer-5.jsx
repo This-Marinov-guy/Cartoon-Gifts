@@ -123,7 +123,7 @@ const FooterFive = () => {
           <div className="container">
             <div className="footer_bottom_grid">
               <div className="copyright_widget">
-                {t('footer.footer-5.copyright')} <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> {t('footer.footer-5.allRightsReserved')}.
+                {t('footer.footer-5.copyright')} <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> {t('footer.footer-5.allRightsReserved')}
               </div>
               <div className="footer_social">
                 <ul className="social_icon unordered_list_end">

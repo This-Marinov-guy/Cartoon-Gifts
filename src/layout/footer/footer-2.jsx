@@ -139,7 +139,7 @@ const FooterTwo = () => {
               </div>
             </div>
             <div className="copyright_widget text-center copyright_space">
-              Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> {t('footer.footer-2.allRightsReserved')}.
+              Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> {t('footer.footer-2.allRightsReserved')}
             </div>
           </div>
         </div>

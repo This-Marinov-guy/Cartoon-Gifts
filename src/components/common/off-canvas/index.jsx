@@ -8,7 +8,7 @@ import useTranslation from "next-translate/useTranslation";
 import ChangeLanguage from "@ui/change-language";
 
 const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
-    const { t } = useTranslation('components');
+  const { t } = useTranslation('components');
   return (
     <React.Fragment>
       <div className="fix">
@@ -44,7 +44,7 @@ const OffCanvasMain = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
               </div>
             </div>
             <div className="header_btns_group center_div" style={{ flexDirection: 'column', gap: '15px' }}>
-            <ChangeLanguage/>
+              <ChangeLanguage />
               <Link href="/order" className="bd-btn-link btn_dark" style={{ width: '250px' }}>
                 <span className="b  yd-button-content-wrapper">
                   <span className="pd-animation-flip">

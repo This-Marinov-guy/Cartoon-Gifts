@@ -56,6 +56,7 @@ const OrderForm = () => {
         description: yup.string(),
         payment: yup.string().required(),
         country: showShipping ? yup.string().required() : yup.string(),
+        city: showShipping ? yup.string().required() : yup.string(),
         address: showShipping ? yup.string().required() : yup.string(),
         zip: showShipping ? yup.string().required() : yup.string(),
         phone: showShipping ? yup.string().required() : yup.string(),
@@ -69,7 +70,7 @@ const OrderForm = () => {
             setIsCheckoutModalOpen(true);
         } else {
             toast({
-                title:  t('extra-page.order.order-form.missingFields'),
+                title: t('extra-page.order.order-form.missingFields'),
                 status: 'warning',
                 duration: 10000,
                 isClosable: true,
@@ -80,7 +81,7 @@ const OrderForm = () => {
     const handleErrorMsg = (errors, isValid, dirty) => {
         if (errors && !isValid && !dirty) {
             toast({
-                title:  t('extra-page.order.order-form.missingFields'),
+                title: t('extra-page.order.order-form.missingFields'),
                 status: 'warning',
                 duration: 10000,
                 isClosable: true,
@@ -113,6 +114,7 @@ const OrderForm = () => {
                         description: checkout.description,
                         payment: checkout.payment,
                         country: checkout.shipping.country,
+                        city: checkout.shipping.city,
                         address: checkout.shipping.address,
                         zip: checkout.shipping.zip,
                         phone: checkout.shipping.phone,
@@ -215,7 +217,7 @@ const OrderForm = () => {
                                     {invalidFields.includes('peopleImages') && <p className='error'>{t('extra-page.order.order-form.peopleImagesError')}</p>}
                                     {invalidFields.includes('invalidPeopleFiles') && <p className='error'>{t('extra-page.order.order-form.invalidPeopleFilesError')}</p>}
                                     <small style={{ marginTop: '5px' }}>
-                                    {t('extra-page.order.order-form.makeSureTo')}:<br />
+                                        {t('extra-page.order.order-form.makeSureTo')}:<br />
                                         - {t('extra-page.order.order-form.addPictures', { price: PERSON_IMAGE_PRICE * multiplier, symbol })}<br />
                                         - {t('extra-page.order.order-form.describeBackground')}<br />
                                         - {t('extra-page.order.order-form.itemsWithYou')} <br />
@@ -227,7 +229,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {PET_OPTIONS.map((item, index) => {
                                             return (
-                                                <RadioCard key={index} onClick={() => setHasPet(item)} property={item.property} active={hasPet.property == item.property} />
+                                                <RadioCard key={index} onClick={() => setHasPet(item)} property={t(item.tag)} active={hasPet.property == item.property} />
                                             )
                                         })}
                                     </div>
@@ -261,7 +263,7 @@ const OrderForm = () => {
                                     <div className='card-price-box'>
                                         {DELIVERY_ITEMS.map((item, index) => {
                                             return (
-                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'delivery')} property={item.property} price={!isNaN(item.price) && `+${item.price * multiplier} ${symbol}`} active={checkout.delivery.property == item.property} />
+                                                <RadioPrice key={index} onClick={() => handlePriceChange(item, 'delivery')} property={t(item.tag)} price={!isNaN(item.price) && `+${item.price * multiplier} ${symbol}`} active={checkout.delivery.property == item.property} />
                                             )
                                         })}
                                     </div>
@@ -287,6 +289,16 @@ const OrderForm = () => {
                                                         </option>
                                                     ))}
                                                 </Field>
+                                            </div>
+                                        </div>
+                                        <div className="col col-md-6">
+                                            <div className="form-group m-0">
+                                                <Field
+                                                    className={`form-control ${(errors.city && touched.city) && 'error-border'}`}
+                                                    type="text"
+                                                    name="city"
+                                                    placeholder={t('extra-page.order.order-form.city')}
+                                                />
                                             </div>
                                         </div>
                                         <div className="col col-md-6">
@@ -332,7 +344,7 @@ const OrderForm = () => {
                                                         setFieldValue('payment', item.value);
                                                         checkoutStore.setField('checkout', 'payment', item.value);
                                                     }}
-                                                    property={item.property}
+                                                    property={t(item.tag)}
                                                     active={checkoutStore.checkout.payment == item.value}
                                                     error={errors.payment} />
                                             )

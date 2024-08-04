@@ -12,7 +12,7 @@ const ChangeLanguage = () => {
     const [currentLang, setCurrentLang] = useState(LANGUAGES.findIndex(language => language.value === lang));
 
     useEffect(() => {
-        setCurrentLang(LANGUAGES.findIndex(language => language.value === lang))
+        setCurrentLang(LANGUAGES.findIndex(language => language.value === lang));
     }, [lang])
 
     const changeClientLanguage = async (lang = '') => {

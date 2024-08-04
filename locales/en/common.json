@@ -1,3 +1,15 @@
 {
-    
+  "answers": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "delivery_items": {
+    "digital": "Digital",
+    "normal": "Normal (Physical)",
+    "express": "Express (Physical)"
+  },
+  "payment_items": {
+    "online": "Online (card)",
+    "cash": "Cash"
+  }
 }

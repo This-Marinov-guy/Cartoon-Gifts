@@ -21,6 +21,7 @@ export default class CheckoutStore {
         payment: PAYMENT_OPTIONS[0].value,
         shipping: {
             country: '',
+            city: '',
             address: '',
             zip: '',
             phone: '',
@@ -48,6 +49,7 @@ export default class CheckoutStore {
         this.checkout.petImages = data.petImages;
         this.checkout.shipping = {
             country: data.country,
+            city: data.city,
             address: data.address,
             zip: data.zip,
             phone: data.phone,
@@ -115,6 +117,7 @@ export default class CheckoutStore {
 
         if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
             formData.append("country", this.checkout.shipping.country);
+            formData.append("city", this.checkout.shipping.city);
             formData.append("address", this.checkout.shipping.address);
             formData.append("zip", this.checkout.shipping.zip);
             formData.append("phone", this.checkout.shipping.phone);
@@ -141,6 +144,7 @@ export default class CheckoutStore {
         this.checkout.price = BASIC_PRICE;
         this.shipping = {
             country: '',
+            city: '',
             address: '',
             zip: '',
             phone: ''

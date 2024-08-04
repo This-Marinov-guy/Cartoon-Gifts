@@ -216,7 +216,7 @@ const SiteFooterThire = () => {
         <div className="footer_bottom bg_dark_2">
           <div className="container">
             <div className="copyright_widget">
-              Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> {t('footer.footer-3.allRightsReserved')}.
+              Copyright © 2023 by <Link target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></Link> {t('footer.footer-3.allRightsReserved')}
             </div>
             <ul className="page_list unordered_list">
               <li>

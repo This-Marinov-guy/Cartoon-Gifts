@@ -97,7 +97,7 @@ const FooterSix = () => {
           </div>
           
           <div className="copyright_widget copyright_space text-center">
-            Copyright © 2024 by Cartoon Gifts. {t('footer.footer-6.allRightsReserved')}.
+            Copyright © 2024 by Cartoon Gifts. {t('footer.footer-6.allRightsReserved')}
           </div>
         </div>
       </div>
