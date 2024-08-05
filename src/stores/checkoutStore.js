@@ -44,7 +44,7 @@ export default class CheckoutStore {
         this.checkout.hobby = data.hobby;
         this.checkout.payment = data.payment;
         this.checkout.label = data.label;
-        this.checkout.description = (!data.noDescription && data.description) ? data.description : 'We will handle the description for you!';
+        this.checkout.description = (data.noDescription || !data.description) ? 'We will handle the description for you!' : data.description;
         this.checkout.peopleImages = data.peopleImages;
         this.checkout.petImages = data.petImages;
         this.checkout.shipping = {
