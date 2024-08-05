@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import Image from "next/image";
 import NiceSelect from "@ui/niceSelect";
 import { LANGUAGES } from '@utils/defines';
@@ -8,12 +8,6 @@ import setLanguage from 'next-translate/setLanguage';
 
 const ChangeLanguage = () => {
     const { lang } = useTranslation();
-
-    const [currentLang, setCurrentLang] = useState(LANGUAGES.findIndex(language => language.value === lang));
-
-    useEffect(() => {
-        setCurrentLang(LANGUAGES.findIndex(language => language.value === lang));
-    }, [lang])
 
     const changeClientLanguage = async (lang = '') => {
         if (!lang) return;
@@ -32,7 +26,7 @@ const ChangeLanguage = () => {
             </div> */}
             <NiceSelect
                 options={LANGUAGES}
-                defaultCurrent={currentLang}
+                defaultCurrent={LANGUAGES.filter(language => language.value === lang)}
                 onChange={(e) => changeClientLanguage(e.value)}
             />
         </div>
