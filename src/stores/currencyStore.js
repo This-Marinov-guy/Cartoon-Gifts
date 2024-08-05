@@ -4,12 +4,7 @@ import { action, makeAutoObservable, observable } from "mobx"
 export default class CurrencyStore {
     rootStore;
 
-    @observable currency = {
-        value: 'EUR',
-        label: 'euro',
-        symbol: '€',
-        multiplier: 1,
-    };
+    @observable currency = CURRENCIES[0];
 
     constructor(root) {
         makeAutoObservable(this)

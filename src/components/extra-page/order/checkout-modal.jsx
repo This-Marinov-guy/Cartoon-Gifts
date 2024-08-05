@@ -20,6 +20,7 @@ import useTranslation from 'next-translate/useTranslation'
 
 const CheckoutModal = (props) => {
     const { t } = useTranslation('components');
+
     const { currencyStore, checkoutStore } = useStore();
     const { currency } = currencyStore;
     const { checkout } = checkoutStore;
@@ -32,6 +33,8 @@ const CheckoutModal = (props) => {
     const [clientSecret, setClientSecret] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [previewUrls, setPreviewUrls] = useState([]);
+
+    const isOnlinePay = checkoutStore.checkout.payment == PAYMENT_OPTIONS[0].value;
 
     const files = [...checkout.peopleImages, ...checkout.petImages]
 
@@ -75,13 +78,11 @@ const CheckoutModal = (props) => {
         setClientSecret(null);
     }
 
-    const submitOrder = async () => {   
+    const submitOrder = async () => {
         setPortalLoading(true);
         const formData = checkoutStore.setFormData(currency.value);
-        
-        console.log(checkoutStore.checkout.payment, PAYMENT_OPTIONS[1].value);
 
-        if (checkoutStore.checkout.payment == PAYMENT_OPTIONS[1].value) {
+        if (isOnlinePay) {
             const response = await sendRequest('/api/order/create', 'POST', formData);
 
             if (response.status) {
@@ -109,18 +110,19 @@ const CheckoutModal = (props) => {
             currency: currencyStore.currency,
         }}
     /> : <Fragment>
-        <h5 className='mb-20'>{t('checkoutModal.yourDetails')}</h5>
-        <p>{t('checkoutModal.name')}: {checkout.name}</p>
-        <p>{t('checkoutModal.email')}: {checkout.email}</p>
-        <h5 className='mb-20 mt-20'>{t('checkoutModal.orderDetails')}</h5>
-        <p>{t('checkoutModal.occasion')}: {checkout.occasion}</p>
-        <p>{t('checkoutModal.profession')}: {checkout.profession}</p>
-        <p>{t('checkoutModal.hobby')}: {checkout.hobby}</p>
-        <p>{t('checkoutModal.label')}: {checkout.label} </p>
-        <p>{t('checkoutModal.description')}: {checkout.description}</p>
-        <p>{t('checkoutModal.size')}: {checkout.size.property}</p>
-        <p>{t('checkoutModal.delivery')}: {checkout.delivery.property}</p>
-        <p>{t('checkoutModal.imageSelection')}</p>
+        <h5 className='mb-20'>{t('extra-page.order.checkout-modal.yourDetails')}</h5>
+        <p>{t('extra-page.order.checkout-modal.name')}: {checkout.name}</p>
+        <p>{t('extra-page.order.checkout-modal.email')}: {checkout.email}</p>
+        <h5 className='mb-20 mt-20'>{t('extra-page.order.checkout-modal.orderDetails')}</h5>
+        <p>{t('extra-page.order.checkout-modal.occasion')}: {checkout.occasion}</p>
+        <p>{t('extra-page.order.checkout-modal.profession')}: {checkout.profession}</p>
+        <p>{t('extra-page.order.checkout-modal.hobby')}: {checkout.hobby}</p>
+        <p>{t('extra-page.order.checkout-modal.label')}: {checkout.label} </p>
+        <p>{t('extra-page.order.checkout-modal.description')}: {checkout.description}</p>
+        <p>{t('extra-page.order.checkout-modal.size')}: {checkout.size.property}</p>
+            <p>{t('extra-page.order.checkout-modal.payment')}: {t(checkout.payment.tag)}</p>
+        <p>{t('extra-page.order.checkout-modal.delivery')}: {t(checkout.delivery.tag)}</p>
+        <p>{t('extra-page.order.checkout-modal.imageSelection')}</p>
         {previewUrls.length > 0 && <div className='preview_box_small'>
             {imageLoading ? <Spinner color='red.500' /> : previewUrls.map((url, index) => (
                 <img key={index} className='preview_small' src={url} alt="Preview" />
@@ -131,24 +133,24 @@ const CheckoutModal = (props) => {
     </Fragment>
 
     return (
-        <Modal onClose={handleClose} isOpen={props.isOpen} isCentered closeOnOverlayClick={false} scrollBehavior='inside'>
+        <Modal onClose={handleClose} isOpen={props.isOpen} isCentered closeOnOverlayClick={false} scrollBehavior='inside' size='lg'>
             <ModalOverlay />
             <ModalContent>
-                <ModalHeader>{t('checkoutModal.finishOrder')}</ModalHeader>
+                <ModalHeader>{t('extra-page.order.checkout-modal.finishOrder')}</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
                 {(!clientSecret) && <ModalFooter>
                     {ACTIVE_DISCOUNT !== 1 ?
-                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('checkoutModal.total')}: <s>{Math.ceil(checkout.price * currency.multiplier)}</s> {Math.ceil((checkout.price * currency.multiplier) * ACTIVE_DISCOUNT)} {currency.symbol}</h5> :
-                        <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}> {t('checkoutModal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
+                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{Math.ceil(checkout.price * currency.multiplier)}</s> {Math.ceil((checkout.price * currency.multiplier) * ACTIVE_DISCOUNT)} {currency.symbol}</h5> :
+                        <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
                     }
                     <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
-                        {t('checkoutModal.back')}
+                        {t('extra-page.order.checkout-modal.back')}
                     </button>
                     <button disabled={loading} type="submit" onClick={submitOrder} className="bd-btn-link">
-                        { loading ? <Spinner /> : t('checkoutModal.pay') } 
+                        {loading ? <Spinner /> : (isOnlinePay ? t('extra-page.order.checkout-modal.pay') : t('extra-page.order.checkout-modal.order'))}
                     </button>
                 </ModalFooter>}
             </ModalContent>
