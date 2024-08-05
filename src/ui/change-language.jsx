@@ -26,7 +26,7 @@ const ChangeLanguage = () => {
             </div> */}
             <NiceSelect
                 options={LANGUAGES}
-                defaultCurrent={LANGUAGES.findIndex(language => language.value === lang)}
+                defaultCurrent={LANGUAGES.findIndex(language => language.value === (localStorage.get('lang') ?? lang))}
                 onChange={(e) => changeClientLanguage(e.value)}
             />
         </div>

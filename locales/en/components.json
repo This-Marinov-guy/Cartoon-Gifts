@@ -410,6 +410,7 @@
         },
         "order": {
             "checkout-modal": {
+              "We will handle the description for you!": "We will handle the description for you!",
               "yourDetails": "Your Details",
               "name": "Name",
               "email": "Email",

@@ -118,7 +118,7 @@ const CheckoutModal = (props) => {
         <p>{t('extra-page.order.checkout-modal.profession')}: {checkout.profession}</p>
         <p>{t('extra-page.order.checkout-modal.hobby')}: {checkout.hobby}</p>
         <p>{t('extra-page.order.checkout-modal.label')}: {checkout.label} </p>
-        <p>{t('extra-page.order.checkout-modal.description')}: {checkout.description}</p>
+        <p>{t('extra-page.order.checkout-modal.description')}: {t(checkout.description)}</p>
         <p>{t('extra-page.order.checkout-modal.size')}: {checkout.size.property}</p>
             <p>{t('extra-page.order.checkout-modal.payment')}: {t(checkout.payment.tag)}</p>
         <p>{t('extra-page.order.checkout-modal.delivery')}: {t(checkout.delivery.tag)}</p>
