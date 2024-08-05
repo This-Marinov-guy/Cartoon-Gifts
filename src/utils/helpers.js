@@ -50,7 +50,7 @@ export const getGeoInfo = async () => {
   }
 };
 
-export const fetchLanguage = async () => {
+export const fetchLanguage = async (withUpdate = true) => {
   let storedLanguage;
 
   if (localStorage.getItem("language")) {
@@ -66,6 +66,9 @@ export const fetchLanguage = async () => {
       }
     }
   }
-
-  await setLanguage(storedLanguage);
+  if (withUpdate) {
+    await setLanguage(storedLanguage);
+  } else {
+    return storedLanguage;
+  }
 }
