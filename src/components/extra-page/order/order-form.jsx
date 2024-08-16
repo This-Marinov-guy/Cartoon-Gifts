@@ -21,7 +21,6 @@ const OrderForm = () => {
     const toast = useToast();
     const { t } = useTranslation('components');
 
-
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
 
     const [files, setFiles] = useState([]);

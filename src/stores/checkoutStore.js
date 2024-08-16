@@ -136,6 +136,10 @@ export default class CheckoutStore {
         const originalPrice = this.checkout.price;
         let isApplied = false;
 
+        if (this.checkout.discountApplied) {
+            return { isApplied, originalPrice };
+        }
+
         if (!isNaN(ACTIVE_DISCOUNT)) {
             this.checkout.price = Math.ceil(this.checkout.price * (100 - ACTIVE_DISCOUNT) / 100);
             isApplied = true;

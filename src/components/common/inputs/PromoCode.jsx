@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Badge } from '@chakra-ui/react'
 import useTranslation from 'next-translate/useTranslation';
 import { useHttpClient } from '@hooks/use-http-request';
 import { useStore } from 'src/stores/storeContext';
@@ -53,6 +54,7 @@ const PromoCode = () => {
                     className={`form-control ${(false) && 'error-border'}`}
                 />
             </div>
+            {checkoutStore.checkout.promoCode.value && <Badge colorScheme='purple'>{checkoutStore.checkout.promoCode.value}</Badge>}
         </div>
 
     )
