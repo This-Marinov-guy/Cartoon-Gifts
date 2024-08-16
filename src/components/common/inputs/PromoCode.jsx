@@ -16,6 +16,10 @@ const PromoCode = () => {
     const toast = useToast();
 
     const handleInput = async (e) => {
+        if (checkoutStore.checkout.promoCode.discount) {
+            return;
+        }
+
         setLoading(true);
         try {
             const responseData = await sendRequest('/api/common/validate-promo-code', "POST" ,{ promoCode: e.target.value });
@@ -42,6 +46,10 @@ const PromoCode = () => {
         }
     }
 
+    const removePromoCode = () => {
+        checkoutStore.setField('checkout', 'promoCode', {});
+    }
+
     return (
         <div className="col col-md-6">
             <h4>{t('extra-page.order.promo.promoCode')} <i className="fa-solid fa-percent"></i></h4>
@@ -54,7 +62,7 @@ const PromoCode = () => {
                     className={`form-control ${(false) && 'error-border'}`}
                 />
             </div>
-            {checkoutStore.checkout.promoCode.value && <Badge colorScheme='purple'>{checkoutStore.checkout.promoCode.value}</Badge>}
+            {checkoutStore.checkout.promoCode.value && <Badge onClick={removePromoCode} colorScheme='purple' style={{cursor: 'pointer'}}>{checkoutStore.checkout.promoCode.value} x</Badge>}
         </div>
 
     )

@@ -475,7 +475,7 @@
             "promoCode": "Promo Code for discount",
             "enterPromoCode": "Enter code",
             "invalidCode": "Invalid code - please try again",
-            "validCode": "Discount was successfully applied"
+            "validCode": "Discount was successfully applied - it will be applied in the next step"
           }
         },
         "portfolio-details": {

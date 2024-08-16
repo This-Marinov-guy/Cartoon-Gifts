@@ -38,8 +38,6 @@ const CheckoutModal = (props) => {
 
     const files = [...checkout.peopleImages, ...checkout.petImages];
 
-    const {originalPrice, isDiscounted} = checkoutStore.applyDiscounts();
-
     useEffect(() => {
         setImageLoading(true);
         const images = [], fileReaders = [];
@@ -82,6 +80,7 @@ const CheckoutModal = (props) => {
 
     const submitOrder = async () => {
         setPortalLoading(true);
+        checkoutStore.calculateDiscount();
         const formData = checkoutStore.setFormData(currency.value);
 
         if (isOnlinePay) {
@@ -108,7 +107,7 @@ const CheckoutModal = (props) => {
             successUrl: `${window.location.origin}/order/success`,
             failUrl: `${window.location.origin}/order/fail`,
             email: checkout.email,
-            amount: checkout.price,
+            amount: checkout.discountedPrice,
             currency: currencyStore.currency,
         }}
     /> : <Fragment>
@@ -144,8 +143,8 @@ const CheckoutModal = (props) => {
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
                 {(!clientSecret) && <ModalFooter>
-                    {isDiscounted ?
-                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{originalPrice}</s> {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5> :
+                    {checkout.discountedPrice !== checkout.price ?
+                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{checkout.price * currency.multiplier}</s> {Math.ceil(checkout.discountedPrice * currency.multiplier)} {currency.symbol}</h5> :
                         <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
                     }
                     <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >

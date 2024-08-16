@@ -18,6 +18,7 @@ export default class CheckoutStore {
         size: SIZE_ITEMS[0],
         delivery: DELIVERY_ITEMS[0],
         price: BASIC_PRICE,
+        discountedPrice: null,
         payment: PAYMENT_OPTIONS[0].value,
         shipping: {
             country: '',
@@ -117,7 +118,7 @@ export default class CheckoutStore {
 
         const currency = CURRENCIES.find(c => c.value === selectedCurrency) || CURRENCIES[0];
 
-        formData.append("price", Math.ceil(this.checkout.price * currency.multiplier));
+        formData.append("price", Math.ceil(this.checkout.discountedPrice * currency.multiplier));
         formData.append("currency", currency.value);
 
         if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
@@ -132,26 +133,19 @@ export default class CheckoutStore {
     }
 
     @action
-    applyDiscounts() {
-        const originalPrice = this.checkout.price;
-        let isApplied = false;
-
-        if (this.checkout.discountApplied) {
-            return { isApplied, originalPrice };
-        }
+    calculateDiscount() {
+        const startPrice = this.checkout.price;
+        this.discountedPrice = startPrice;
 
         if (!isNaN(ACTIVE_DISCOUNT)) {
-            this.checkout.price = Math.ceil(this.checkout.price * (100 - ACTIVE_DISCOUNT) / 100);
-            isApplied = true;
+            this.checkout.discountedPrice = Math.ceil(this.checkout.price - (startPrice * ACTIVE_DISCOUNT / 100));
         }
 
         if (this.checkout.promoCode && !isNaN(this.checkout.promoCode.discount)) {
-            this.checkout.price = Math.ceil(this.checkout.price * (100 - this.checkout.promoCode.discount) / 100);
-            isApplied = true;
+            this.checkout.discountedPrice = Math.ceil(this.checkout.price - (startPrice * this.checkout.promoCode.discount / 100));
         }
-
-        return {isApplied, originalPrice};
     }
+
     @action
     resetData() {
         this.checkout.name = ''
@@ -168,6 +162,7 @@ export default class CheckoutStore {
         this.checkout.size = SIZE_ITEMS[0];
         this.checkout.delivery = DELIVERY_ITEMS[0];
         this.checkout.price = BASIC_PRICE;
+        this.checkout.originalPrice = null;
         this.shipping = {
             country: '',
             city: '',

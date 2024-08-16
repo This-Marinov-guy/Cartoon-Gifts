@@ -67,6 +67,7 @@ const OrderForm = () => {
         const validate = checkoutStore.validate();
 
         if (validate) {
+            checkoutStore.calculateDiscount();
             setIsCheckoutModalOpen(true);
         } else {
             toast({
@@ -98,8 +99,7 @@ const OrderForm = () => {
 
     return (
         <Fragment>
-            <CheckoutModal isOpen={isCheckoutModalOpen}
-                onClose={() => setIsCheckoutModalOpen(false)} />
+            <CheckoutModal isOpen={isCheckoutModalOpen} onClose={() => setIsCheckoutModalOpen(false)} />
             <div className="contact_form container mb-30">
                 <h2 className="heading_subtitle text-center" style={{ marginBottom: '20px' }}>
                     <span>{t('extra-page.order.order-form.formTitle')}</span>
