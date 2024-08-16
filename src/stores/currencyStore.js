@@ -14,11 +14,13 @@ export default class CurrencyStore {
     @action setCurrencyByValue(value) {
         const selectedCurrency = CURRENCIES.find((c) => c.value === value)
 
-        this.currency = selectedCurrency
+        this.currency = selectedCurrency;
+        localStorage.setItem('currency', JSON.stringify(selectedCurrency));
     }
 
     @action setCurrency(currency) {
-        this.currency = currency
+        this.currency = currency;
+        localStorage.setItem('currency', JSON.stringify(currency));
     }
 
 }

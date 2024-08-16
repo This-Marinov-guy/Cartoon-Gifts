@@ -36,7 +36,9 @@ const CheckoutModal = (props) => {
 
     const isOnlinePay = checkoutStore.checkout.payment == PAYMENT_OPTIONS[0].value;
 
-    const files = [...checkout.peopleImages, ...checkout.petImages]
+    const files = [...checkout.peopleImages, ...checkout.petImages];
+
+    const {originalPrice, isDiscounted} = checkoutStore.applyDiscounts();
 
     useEffect(() => {
         setImageLoading(true);
@@ -106,7 +108,7 @@ const CheckoutModal = (props) => {
             successUrl: `${window.location.origin}/order/success`,
             failUrl: `${window.location.origin}/order/fail`,
             email: checkout.email,
-            amount: Math.ceil(checkout.price * (ACTIVE_DISCOUNT ?? 1)),
+            amount: checkout.price,
             currency: currencyStore.currency,
         }}
     /> : <Fragment>
@@ -142,8 +144,8 @@ const CheckoutModal = (props) => {
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
                 {(!clientSecret) && <ModalFooter>
-                    {ACTIVE_DISCOUNT !== 1 ?
-                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{Math.ceil(checkout.price * currency.multiplier)}</s> {Math.ceil((checkout.price * currency.multiplier) * ACTIVE_DISCOUNT)} {currency.symbol}</h5> :
+                    {isDiscounted ?
+                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{originalPrice}</s> {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5> :
                         <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
                     }
                     <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >

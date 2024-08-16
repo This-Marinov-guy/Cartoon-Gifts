@@ -12,6 +12,7 @@ import { useToast } from '@chakra-ui/react';
 import { askBeforeRedirect } from '@utils/globals';
 import PriceAndCurrency from '@components/common/inputs/price-and-currency';
 import useTranslation from 'next-translate/useTranslation';
+import PromoCode from '@components/common/inputs/PromoCode';
 
 const OrderForm = () => {
     const { currencyStore, checkoutStore } = useStore();
@@ -88,6 +89,13 @@ const OrderForm = () => {
             })
         }
     }
+
+    useEffect(() => {
+        const currency = localStorage.getItem('currency')
+        if (currency) {
+            currencyStore.setCurrency(JSON.parse(currency));
+        }
+    }, [])
 
     return (
         <Fragment>
@@ -351,7 +359,7 @@ const OrderForm = () => {
                                         })}
                                     </div>
                                 </div>
-                                <div className='col-12 mt-30'>
+                                <div className='col-lg-6 col-12 mt-30'>
                                     <div>
                                         <PriceAndCurrency price={checkout.price} />
                                         <button type="submit" onClick={() => handleErrorMsg(errors, isValid, dirty)} className="bd-btn-link">
@@ -369,6 +377,7 @@ const OrderForm = () => {
                                         </button>
                                     </div>
                                 </div>
+                                <PromoCode />
                             </div>
                         </Form>
                     )}

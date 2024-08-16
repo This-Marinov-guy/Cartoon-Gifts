@@ -9,9 +9,9 @@ var order = new Schema({
         default: moment().format('Do MMMM YYYY, h:mm:ss a')
     },
     orderNumber: {
-        type: String, 
+        type: String,
         required: true,
-        unique: true 
+        unique: true
     },
     name: {
         type: String,
@@ -78,8 +78,15 @@ var order = new Schema({
         phone: {
             type: String,
         },
+    },
+    promoCode: {
+        value: {
+            type: String,
+        },
+        discount: {
+            type: Number
+        }
     }
-
 });
 
 mongoose.models = {};

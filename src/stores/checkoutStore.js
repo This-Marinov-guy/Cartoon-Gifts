@@ -1,4 +1,4 @@
-import { BASIC_PRICE, CURRENCIES, DELIVERY_ITEMS, PAYMENT_OPTIONS, SIZE_ITEMS } from "@utils/defines";
+import { ACTIVE_DISCOUNT, BASIC_PRICE, CURRENCIES, DELIVERY_ITEMS, PAYMENT_OPTIONS, SIZE_ITEMS } from "@utils/defines";
 import { action, makeAutoObservable, observable } from "mobx"
 
 export default class CheckoutStore {
@@ -25,7 +25,8 @@ export default class CheckoutStore {
             address: '',
             zip: '',
             phone: '',
-        }
+        },
+        promoCode: {},
     };
 
     @observable invalidFields = []
@@ -109,6 +110,9 @@ export default class CheckoutStore {
         formData.append("delivery", this.checkout.delivery.property);
         formData.append("payment", this.checkout.payment);
 
+        if (this.checkout.promoCode) {
+            formData.append("payment", this.checkout.promoCode);
+        }
 
         const currency = CURRENCIES.find(c => c.value === selectedCurrency) || CURRENCIES[0];
 
@@ -126,6 +130,23 @@ export default class CheckoutStore {
         return formData;
     }
 
+    @action
+    applyDiscounts() {
+        const originalPrice = this.checkout.price;
+        let isApplied = false;
+
+        if (!isNaN(ACTIVE_DISCOUNT)) {
+            this.checkout.price = Math.ceil(this.checkout.price * (100 - ACTIVE_DISCOUNT) / 100);
+            isApplied = true;
+        }
+
+        if (this.checkout.promoCode && !isNaN(this.checkout.promoCode.discount)) {
+            this.checkout.price = Math.ceil(this.checkout.price * (100 - this.checkout.promoCode.discount) / 100);
+            isApplied = true;
+        }
+
+        return {isApplied, originalPrice};
+    }
     @action
     resetData() {
         this.checkout.name = ''
@@ -149,7 +170,8 @@ export default class CheckoutStore {
             zip: '',
             phone: ''
         }
+        this.checkout.promoCode = {};
 
-        this.invalidFields = []
+        this.invalidFields = [];
     }
 }

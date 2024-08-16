@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { useClickAway } from "react-use";
 
 const NiceSelect = ({ options, defaultCurrent, placeholder, className, onChange, name }) => {
@@ -16,6 +16,10 @@ const NiceSelect = ({ options, defaultCurrent, placeholder, className, onChange,
         onChange(item, name);
         onClose();
     };
+
+    useEffect(() => {
+        setCurrent(options[defaultCurrent]);
+    }, [defaultCurrent])
 
     return (
         <div

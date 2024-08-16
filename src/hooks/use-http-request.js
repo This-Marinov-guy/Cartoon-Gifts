@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
 import { useStore } from "src/stores/storeContext";
 import useTranslation from "next-translate/useTranslation";
+import { isProd } from "@utils/globals";
 
 export const useHttpClient = () => {
     const { commonStore } = useStore();
@@ -32,6 +33,7 @@ export const useHttpClient = () => {
 
                 return response.data;
             } catch (err) {
+                if (!isProd()) console.log(err);
                 toast({
                     title: t('use-http-request.errorTitle'),
                     status: 'error',
