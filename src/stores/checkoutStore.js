@@ -27,6 +27,7 @@ export default class CheckoutStore {
             phone: '',
         },
         promoCode: {},
+        discountApplied: false,
     };
 
     @observable invalidFields = []
@@ -173,5 +174,6 @@ export default class CheckoutStore {
         this.checkout.promoCode = {};
 
         this.invalidFields = [];
+        this.discountApplied = false;
     }
 }

@@ -359,6 +359,7 @@ const OrderForm = () => {
                                         })}
                                     </div>
                                 </div>
+                                <PromoCode />
                                 <div className='col-lg-6 col-12 mt-30'>
                                     <div>
                                         <PriceAndCurrency price={checkout.price} />
@@ -377,7 +378,6 @@ const OrderForm = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <PromoCode />
                             </div>
                         </Form>
                     )}
