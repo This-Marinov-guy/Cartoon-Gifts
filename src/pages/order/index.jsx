@@ -5,13 +5,14 @@ import Wrapper from '@layout/wrapper';
 import HeaderSix from '@layout/header/header-6';
 import { useToast } from '@chakra-ui/react';
 import useTranslation from 'next-translate/useTranslation';
+import { ACTIVE_DISCOUNT } from '@utils/defines';
 
 const Order = () => {
   const toast = useToast();
   const { t } = useTranslation('pages');
 
   useEffect(() => {
-    toast({
+    if (ACTIVE_DISCOUNT) toast({
       title: t('order-offer.toastTitle'),
       description: t('order-offer.toastDescription'),
       status: 'info',

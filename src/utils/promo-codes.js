@@ -1,7 +1,7 @@
-// what is the pr
+// value is the promo code and the discount is the percentage off
 export const PROMO_CODES = [
     {
-        value: 'male20',
-        discount: 20
+        value: 'summer10',
+        discount: 10
     }
 ]

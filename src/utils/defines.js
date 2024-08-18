@@ -83,8 +83,8 @@ export const PAYMENT_OPTIONS = [
 export const BASIC_PRICE = 30
 export const PERSON_IMAGE_PRICE = 5
 export const PET_IMAGE_PRICE = 0
-// percentage
-export const ACTIVE_DISCOUNT = 15;
+// 0 - 100 percentage
+export const ACTIVE_DISCOUNT = null;
 
 // ERROR MESSAGES
 
