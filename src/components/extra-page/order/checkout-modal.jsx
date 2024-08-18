@@ -83,7 +83,7 @@ const CheckoutModal = (props) => {
         checkoutStore.calculateDiscount();
         const formData = checkoutStore.setFormData(currency.value);
 
-        if (isOnlinePay) {
+        if (!isOnlinePay) {
             const response = await sendRequest('/api/order/create', 'POST', formData);
 
             if (response.status) {
