@@ -21,7 +21,7 @@ const PromoCode = () => {
     let debounceTimer;
 
     const handleInput = (e) => {
-        if (checkoutStore.checkout.promoCode.discount) {
+        if (!e.target.value || checkoutStore.checkout.promoCode.discount) {
             return;
         }
 
@@ -53,7 +53,7 @@ const PromoCode = () => {
             } finally {
                 setLoading(false);
             }
-        }, 800);
+        }, 1000);
     };
 
     const clearDebounceTimer = () => {
