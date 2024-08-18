@@ -15,6 +15,9 @@ export const useHttpClient = () => {
         async (url, method = "GET", data = null, headers = {}) => {
             commonStore.setLoading(true);
             try {
+                // const separator = url.includes('?') ? '&' : '?';
+                // const urlWithLang = `${url}${separator}lang=${lang ?? 'en'}`;
+
                 const response = await axios.request({
                     url,
                     method,
@@ -24,7 +27,7 @@ export const useHttpClient = () => {
 
                 if (response.data.status === false && response.data.message) {
                     toast({
-                        title: response.data.message,
+                        title: t(`api:${response.data.message}`),
                         status: 'error',
                         duration: 10000,
                         isClosable: true,

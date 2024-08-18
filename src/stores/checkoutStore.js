@@ -94,6 +94,7 @@ export default class CheckoutStore {
 
     @action
     setFormData(selectedCurrency) {
+        console.log(this.checkout);
         const formData = new FormData();
         formData.append('method', 'order');
         [...this.checkout.peopleImages, ...this.checkout.petImages].forEach((image) => {
@@ -113,7 +114,7 @@ export default class CheckoutStore {
         formData.append("payment", this.checkout.payment);
 
         if (this.checkout.promoCode) {
-            formData.append("payment", this.checkout.promoCode);
+            formData.append("promoCode", this.checkout.promoCode);
         }
 
         const currency = CURRENCIES.find(c => c.value === selectedCurrency) || CURRENCIES[0];

@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Badge } from '@chakra-ui/react'
 import { Spinner } from '@chakra-ui/react';
 import useTranslation from 'next-translate/useTranslation';
 import { useHttpClient } from '@hooks/use-http-request';
 import { useStore } from 'src/stores/storeContext';
 import { useToast } from '@chakra-ui/react';
+import { debounce } from '@utils/helpers';
 
 const PromoCode = () => {
     const [loading, setLoading] = useState(false);
@@ -17,38 +18,54 @@ const PromoCode = () => {
 
     const toast = useToast();
 
-    const handleInput = async (e) => {
+    let debounceTimer;
+
+    const handleInput = (e) => {
         if (checkoutStore.checkout.promoCode.discount) {
             return;
         }
 
-        setError(false);
-        setLoading(true);
-        try {
-            const responseData = await sendRequest('/api/common/validate-promo-code', "POST" ,{ promoCode: e.target.value });
-            if (responseData.status && responseData.promoCode) {
-                checkoutStore.setField('checkout', 'promoCode', responseData.promoCode);
-                toast({
-                    title: t('extra-page.order.promo.validCode'),
-                    status: 'success',
-                    duration: 8000,
-                    isClosable: true,
-                })
-            } else {
-                setError(true);
-                toast({
-                    title: t('extra-page.order.promo.invalidCode'),
-                    status: 'error',
-                    duration: 8000,
-                    isClosable: true,
-                })
-            }
-        } catch (err) {
+        clearTimeout(debounceTimer);
 
-        } finally {
-            setLoading(false);
-        }
-    }
+        debounceTimer = setTimeout(async () => {
+            setError(false);
+            setLoading(true);
+            try {
+                const responseData = await sendRequest('/api/common/validate-promo-code', "POST", { promoCode: e.target.value });
+                if (responseData.status && responseData.promoCode) {
+                    checkoutStore.setField('checkout', 'promoCode', responseData.promoCode);
+                    toast({
+                        title: t('extra-page.order.promo.validCode'),
+                        status: 'success',
+                        duration: 5000,
+                        isClosable: true,
+                    })
+                } else {
+                    setError(true);
+                    toast({
+                        title: t('extra-page.order.promo.invalidCode'),
+                        status: 'error',
+                        duration: 5000,
+                        isClosable: true,
+                    })
+                }
+            } catch (err) {
+            } finally {
+                setLoading(false);
+            }
+        }, 800);
+    };
+
+    const clearDebounceTimer = () => {
+        clearTimeout(debounceTimer);
+    };
+
+    useEffect(() => {
+
+        return () => {
+            clearDebounceTimer();
+        };
+    }, []); 
 
     const removePromoCode = () => {
         checkoutStore.setField('checkout', 'promoCode', {});
@@ -61,12 +78,12 @@ const PromoCode = () => {
                 <input
                     type='text'
                     name='promoCode'
-                    onBlur={handleInput}
+                    onChange={handleInput}
                     placeholder={t('extra-page.order.promo.enterPromoCode')}
                     className={`form-control ${error && 'error-border'}`}
                 />
             </div>
-            {checkoutStore.checkout.promoCode.value && <Badge onClick={removePromoCode} colorScheme='purple' style={{cursor: 'pointer'}}>{checkoutStore.checkout.promoCode.value} x</Badge>}
+            {checkoutStore.checkout.promoCode.value && <Badge onClick={removePromoCode} colorScheme='purple' style={{ cursor: 'pointer' }}>{checkoutStore.checkout.promoCode.value} x</Badge>}
         </div>
 
     )

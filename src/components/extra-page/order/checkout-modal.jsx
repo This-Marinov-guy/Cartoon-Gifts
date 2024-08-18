@@ -86,7 +86,7 @@ const CheckoutModal = (props) => {
         if (!isOnlinePay) {
             const response = await sendRequest('/api/order/create', 'POST', formData);
 
-            if (response.status) {
+            if (response && response.status) {
                 router.push('/order/success');
             }
         } else {

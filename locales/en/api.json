@@ -11,5 +11,7 @@
     "methodNotAllowed": "Method not allowed",
     "invalidInputs": "Invalid Inputs",
     "userExists": "User already exists",
-    "userCreated": "User created"
+    "userCreated": "User created",
+    "error_msg": "It looks like something went wrong - please try again with new details or contact our team!",
+    "error_com": "Accept our apologies, please try later or contact our team for help!"
 }

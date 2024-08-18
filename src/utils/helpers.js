@@ -72,3 +72,15 @@ export const fetchLanguage = async (withUpdate = true) => {
     return storedLanguage;
   }
 }
+
+export const debounce = (func, delay) => {
+  let timeoutId;
+  return function (...args) {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}

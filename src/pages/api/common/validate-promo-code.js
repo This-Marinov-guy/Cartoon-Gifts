@@ -1,15 +1,15 @@
 import { PROMO_CODES } from "@utils/promo-codes";
 
-const handler = (req, res) => {  
+const handler = async (req, res) => {  
+
     if (req.method !== 'POST') {
-        return res.status(401).json({ message: t('invalidAction') });
+        return res.status(401).json({ message: 'invalidAction' });
     }
 
     const { promoCode } = req.body;
-    let status = false;
 
     PROMO_CODES.forEach((code) => {
-        if (code.value == promoCode) {
+        if (code.value.toLowerCase() == promoCode.toLowerCase()) {
             return res.status(200).json({ status: true, promoCode: code });
         }
     })

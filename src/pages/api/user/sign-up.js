@@ -2,20 +2,18 @@ import connectDB from 'src/server/middleware/mongodb';
 import { hash } from 'bcryptjs';
 import User from 'src/server/models/User';
 import { ERROR_COMM } from '@utils/defines';
-import useTranslation from 'next-translate/useTranslation';
 
-const { t } = useTranslation('api');
 
 async function handler(req, res) {
     //Only POST mothod is accepted
     if (req.method !== 'POST') {
-        res.status(401).json({ status: false, message: t('methodNotAllowed') });
+        res.status(401).json({ status: false, message: 'methodNotAllowed' });
     }
 
     const { email, password } = req.body;
 
     if (!email || !email.includes('@') || !password) {
-        res.status(422).json({ status: false, message: t('invalidInputs') });
+        res.status(422).json({ status: false, message: 'invalidInputs' });
         return;
     }
 
@@ -23,7 +21,7 @@ async function handler(req, res) {
         const checkExisting = await User.findOne({ email: email });
 
         if (checkExisting) {
-            res.status(422).json({ status: false, message: t('userExists') });
+            res.status(422).json({ status: false, message: 'userExists' });
             return;
         }
 
@@ -32,7 +30,7 @@ async function handler(req, res) {
             password: await hash(password, 12),
         });
 
-        res.status(200).json({ status: true, message: t('userCreated') });
+        res.status(200).json({ status: true, message: 'userCreated' });
     } catch (err) {
         console.log(err)
         res.status(500).json({ status: false, message: ERROR_COMM });

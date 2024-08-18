@@ -88,7 +88,7 @@ export const ACTIVE_DISCOUNT = null;
 
 // ERROR MESSAGES
 
-export const ERROR_MESSAGE = 'It looks like something went wrong - please try again with new details or contact our team!'
-export const ERROR_COMM = 'Accept our apologies, please try later or contact our team for help!'
+export const ERROR_MESSAGE = 'error_msg'
+export const ERROR_COMM = 'error_com'
 
 export const EMAIL = 'cartoongifts.eu@gmail.com'
