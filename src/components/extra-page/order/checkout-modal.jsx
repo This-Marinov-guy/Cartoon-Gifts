@@ -121,7 +121,7 @@ const CheckoutModal = (props) => {
         <p>{t('extra-page.order.checkout-modal.label')}: {checkout.label} </p>
         <p>{t('extra-page.order.checkout-modal.description')}: {t(checkout.description)}</p>
         <p>{t('extra-page.order.checkout-modal.size')}: {checkout.size.property}</p>
-            <p>{t('extra-page.order.checkout-modal.payment')}: {t(checkout.payment.tag)}</p>
+        <p>{t('extra-page.order.checkout-modal.payment')}: {t(checkout.payment.tag)}</p>
         <p>{t('extra-page.order.checkout-modal.delivery')}: {t(checkout.delivery.tag)}</p>
         <p>{t('extra-page.order.checkout-modal.imageSelection')}</p>
         {previewUrls.length > 0 && <div className='preview_box_small'>
@@ -143,16 +143,20 @@ const CheckoutModal = (props) => {
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
                 {(!clientSecret) && <ModalFooter>
-                    {checkout.discountedPrice !== checkout.price ?
-                        <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{checkout.price * currency.multiplier}</s> {Math.ceil(checkout.discountedPrice * currency.multiplier)} {currency.symbol}</h5> :
-                        <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
-                    }
-                    <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
-                        {t('extra-page.order.checkout-modal.back')}
-                    </button>
-                    <button disabled={loading} type="submit" onClick={submitOrder} className="bd-btn-link">
-                        {loading ? <Spinner /> : (isOnlinePay ? t('extra-page.order.checkout-modal.pay') : t('extra-page.order.checkout-modal.order'))}
-                    </button>
+                    <div className='center-ver'>
+                        {checkout.discountedPrice !== checkout.price ?
+                            <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{checkout.price * currency.multiplier}</s> {Math.ceil(checkout.discountedPrice * currency.multiplier)} {currency.symbol}</h5> :
+                            <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
+                        }
+                        <div>
+                            <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
+                                {t('extra-page.order.checkout-modal.back')}
+                            </button>
+                            <button disabled={loading} type="submit" onClick={submitOrder} className="bd-btn-link">
+                                {loading ? <Spinner /> : (isOnlinePay ? t('extra-page.order.checkout-modal.pay') : t('extra-page.order.checkout-modal.order'))}
+                            </button>
+                        </div>
+                    </div>
                 </ModalFooter>}
             </ModalContent>
         </Modal>

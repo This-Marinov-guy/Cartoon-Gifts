@@ -520,3 +520,11 @@ textarea {
   display: flex;
   flex-direction: column;
 }
+
+.center-ver {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
