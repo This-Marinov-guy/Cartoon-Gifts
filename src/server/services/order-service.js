@@ -1,6 +1,5 @@
 import { BASIC_PRICE, DELIVERY_ITEMS, ERROR_MESSAGE, PET_IMAGE_PRICE, SIZE_ITEMS } from '@utils/defines';
 import { getJsonString } from '@utils/helpers';
-import connectDB from 'src/server/middleware/mongodb';
 import mailTrap from 'src/server/services/mail-trap';
 import nodeMailer from 'src/server/services/node-mailer';
 import { writeToGoogleSheet } from './google-api';
@@ -36,7 +35,7 @@ export const createOrder = async (orderData) => {
 
     try {
         await writeToGoogleSheet([
-            moment().format('Do MMMM YYYY, h:mm:ss a'), orderNumber, name, email, occasion, profession, hobby, label, description, size, payment, delivery, price + ' ' + currency, JSON.stringify(promoCode), hasPet ? 'yes' : 'no', images.join(', '), shipping.country ?? '-', shipping.city ?? '-', shipping.address ?? '-', shipping.zip ?? '-', shipping.phone ?? '-'
+            moment().format('Do MMMM YYYY, h:mm:ss a'), orderNumber, name, email, occasion, profession, hobby, label, description, size, payment, delivery, price + ' ' + currency, `код: ${promoCode.value ?? ''} | отстъпка: ${promoCode.discount ?? ''}`, hasPet ? 'yes' : 'no', images.map((string, index) => `${index + 1}. ${string}\n`), shipping.country ?? '-', shipping.city ?? '-', shipping.address ?? '-', shipping.zip ?? '-', shipping.phone ?? '-'
         ]);
     } catch (err) {
         console.log(err);
