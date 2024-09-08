@@ -19,7 +19,7 @@ export const validatePrice = (inputs, files) => {
     return true;
 }
 
-export const createOrder = connectDB(async (orderData) => {
+export const createOrder = async (orderData) => {
     const { orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, payment, delivery, currency, country, city, address, zip, phone, promoCode } = orderData;
     const price = Math.ceil(orderData.price);
     let shipping;
@@ -69,4 +69,4 @@ export const createOrder = connectDB(async (orderData) => {
     }
 
     return { status: true }
-})
+}
