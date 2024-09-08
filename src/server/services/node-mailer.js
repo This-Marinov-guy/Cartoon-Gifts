@@ -29,34 +29,28 @@ const nodeMailer = async (options) => {
         secure: true
     });
 
-    try {
-        // Read the HTML file asynchronously
-        const html = await readHTMLFile(path.join(process.cwd(), 'src/server/templates', options.template));
+    // Read the HTML file asynchronously
+    const html = await readHTMLFile(path.join(process.cwd(), 'src/server/templates', options.template));
 
-        // Compile the template
-        const template = handlebars.compile(html);
+    // Compile the template
+    const template = handlebars.compile(html);
 
-        // Generate HTML content from the template and data
-        const htmlToSend = template(options.data);
+    // Generate HTML content from the template and data
+    const htmlToSend = template(options.data);
 
-        // Create mail options
-        const mailOptions = {
-            from: options.sender ?? 'notification-center@example.com',
-            to: options.receiver ?? 'cartoongifts.eu@gmail.com',
-            subject: options.subject,
-            html: htmlToSend,
-        };
+    // Create mail options
+    const mailOptions = {
+        from: options.sender ?? 'notification-center@example.com',
+        to: options.receiver ?? 'cartoongifts.eu@gmail.com',
+        subject: options.subject,
+        html: htmlToSend,
+    };
 
-        // Send the email
-        const response = await transporter.sendMail(mailOptions);
+    // Send the email
+    const response = await transporter.sendMail(mailOptions);
 
-        // Return true if email is sent successfully
-        return true;
-    } catch (error) {
-        console.error('Error sending email:', error);
-        // Return false if there's an error sending the email
-        return false;
-    }
+    // Return true if email is sent successfully
+    return true;
 };
 
 export default nodeMailer;

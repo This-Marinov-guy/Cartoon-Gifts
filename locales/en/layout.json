@@ -83,7 +83,7 @@
     "footer-6": {
       "celebrateOccasion": "Celebrate an event with us.",
       "makeOrder": "Place an Order",
-      "orderNow": "Order Now",
+      "orderNow": "Order",
       "goal": "Our goal is to make people happy through art",
       "followUs": "Follow us on",
       "newsletter": "Newsletter",
@@ -99,6 +99,6 @@
     "contact": "Contact",
     "makeOrder": "Order",
     "getAQuote": "Get a Quote",
-    "orderNow": "Order Now"
+    "orderNow": "Order"
   }
 }

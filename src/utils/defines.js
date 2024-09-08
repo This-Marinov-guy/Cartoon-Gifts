@@ -92,3 +92,8 @@ export const ERROR_MESSAGE = 'error_msg'
 export const ERROR_COMM = 'error_com'
 
 export const EMAIL = 'cartoongifts.eu@gmail.com'
+
+// Drive
+
+export const ORDER_SPREADSHEET = '1n2CC04eMbtup587CZiB0G-k5i5s65l6sr_-19xSsOC0';
+export const ORDER_DRIVE_FOLDER = '1TgNo9ZEw__UGv_fUiqbCWkxq2f6yoTB2';

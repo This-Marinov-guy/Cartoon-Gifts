@@ -24,7 +24,7 @@
             "index": {
                 "logoAlt": "Site Logo - Paradox - Agency Template",
                 "makeAnOrder": "Make an order",
-                "orderNow": "Order now",
+                "orderNow": "Order",
                 "contactInfo": "Contact Info",
                 "facebook": "Facebook",
                 "instagram": "Instagram"
@@ -595,7 +595,7 @@
                   "figmaFile": "Figma File Included",
                   "customPlugin": "Custom Plugin"
                 },
-                "orderNow": "Order Now"
+                "orderNow": "Order"
             },
             "index": {
                 "title": "Pricing",
@@ -913,7 +913,7 @@
             "getInTouch": "Get In Touch",
             "personalCartoon": "Do you want to have your own personal cartoon?",
             "makeAnOrder": "Make an order",
-            "orderNow": "Order now"            
+            "orderNow": "Order"            
         },
         "heroSection": {
             "alt_banner": "Paradox Illustration Image",
@@ -966,7 +966,7 @@
             "uniqueCartoon": "unique cartoon",
             "withJustAFewClicks": "with just a few clicks",
             "makeAnOrder": "Make an order",
-            "orderNow": "Order now",
+            "orderNow": "Order",
             "learnMore": "Learn More",
             "aboutUs": "About Us"
         },
