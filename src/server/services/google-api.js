@@ -29,16 +29,18 @@ export const writeToGoogleSheet = async (data) => {
     });
 }
 
-export const createFolder = async (parentFolderId,folderName = moment().format('DD MM YY h:mm a')) => {
+export const createFolder = async (parentFolderId, folderName = moment().format('DD MM YY h:mm a')) => {
     try {
+        const client = await auth.getClient();
+        const drive = google.drive({ version: 'v3', auth: client });
+
         // Check if a folder with the given name exists within the parent folder
         const folderSearch = await drive.files.list({
             q: `name='${folderName}' and mimeType='application/vnd.google-apps.folder' and '${parentFolderId}' in parents and trashed=false`,
             fields: 'files(id, name)',
         });
-    
         let folderId = folderSearch.data.files.length > 0 ? folderSearch.data.files[0].id : null;
-    
+
         // If folder doesn't exist, create it inside the parent folder
         if (!folderId) {
             const folderMetadata = {
@@ -46,15 +48,15 @@ export const createFolder = async (parentFolderId,folderName = moment().format('
                 parents: [parentFolderId],
                 mimeType: 'application/vnd.google-apps.folder',
             };
-    
+
             const folderResponse = await drive.files.create({
                 resource: folderMetadata,
                 fields: 'id',
             });
-    
+
             folderId = folderResponse.data.id;
         }
-    
+
         return folderId;
     } catch (err) {
         console.log(err);
