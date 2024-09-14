@@ -29,7 +29,7 @@ export const writeToGoogleSheet = async (data) => {
     });
 }
 
-export const createFolder = async (parentFolder,folderName = moment().format('DD MM YY h:mm a')) => {
+export const createFolder = async (parentFolderId,folderName = moment().format('DD MM YY h:mm a')) => {
     try {
         // Check if a folder with the given name exists within the parent folder
         const folderSearch = await drive.files.list({
