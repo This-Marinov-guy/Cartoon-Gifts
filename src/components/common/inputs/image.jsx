@@ -2,13 +2,27 @@ import React, { Fragment } from 'react'
 import { cleanFileName } from '@utils/helpers'
 import Dropzone from 'react-dropzone'
 import useTranslation from 'next-translate/useTranslation'
+import useImageResize from '@hooks/use-resize'
 
 const ImageInput = ({ files, setFiles, onReject }) => {
 
     const { t } = useTranslation('components');
 
+  const { resizeImage } = useImageResize();
+
   const onDrop = (acceptedFiles) => {
-    setFiles([...acceptedFiles]);
+    const resizedImages = [];
+
+    acceptedFiles.forEach(async (file) => {
+      try {
+        const resizedFile = await resizeImage(file);
+        resizedImages.push(resizedFile);
+      } catch (err) {
+        resizedImages.push(file);
+      }
+    });
+    
+    setFiles(resizedImages);
   }
 
   return (
