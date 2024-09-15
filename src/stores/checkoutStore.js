@@ -31,6 +31,8 @@ export default class CheckoutStore {
         discountApplied: false,
     };
 
+    @observable isLoading = false;
+
     @observable invalidFields = []
 
     constructor(root) {
@@ -57,6 +59,11 @@ export default class CheckoutStore {
             zip: data.zip,
             phone: data.phone,
         };
+    }
+
+    @action 
+    setIsLoading(value) {
+        this.isLoading = value;
     }
 
     @action

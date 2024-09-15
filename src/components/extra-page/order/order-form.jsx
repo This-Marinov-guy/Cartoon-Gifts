@@ -362,7 +362,7 @@ const OrderForm = () => {
                                 <div className='col-lg-6 col-12 mt-30'>
                                     <div>
                                         <PriceAndCurrency price={checkout.price} />
-                                        <button type="submit" onClick={() => handleErrorMsg(errors, isValid, dirty)} className="bd-btn-link">
+                                        <button disabled={checkoutStore.isLoading} type="submit" onClick={() => handleErrorMsg(errors, isValid, dirty)} className="bd-btn-link">
                                             <span className="bd-button-content-wrapper">
                                                 <span className="bd-button-icon">
                                                     <i className="fa-light fa-arrow-right-long"></i>
