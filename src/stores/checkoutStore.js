@@ -60,7 +60,7 @@ export default class CheckoutStore {
             phone: data.phone,
         };
 
-        localStorage.setItem('unfinished_order', JSON.stringify(data));
+        localStorage.setItem('unfinished_order_cartoongiftseu', JSON.stringify(data));
     }
 
     @action 
@@ -184,6 +184,6 @@ export default class CheckoutStore {
         this.invalidFields = [];
         this.discountApplied = false;
 
-        localStorage.removeItem('unfinished_order');
+        localStorage.removeItem('unfinished_order_cartoongiftseu');
     }
 }

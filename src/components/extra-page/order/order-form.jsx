@@ -91,7 +91,7 @@ const OrderForm = () => {
     }
 
     useEffect(() => {
-        const unfinishedOrder = localStorage.getItem('unfinished_order');
+        const unfinishedOrder = localStorage.getItem('unfinished_order_cartoongiftseu');
         const currency = localStorage.getItem('currency');
 
         if (currency) {
