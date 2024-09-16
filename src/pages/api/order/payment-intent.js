@@ -5,14 +5,16 @@ const handler = async (req, res) => {
         return res.status(405).json({ message: 'invalidAction' });
     }
 
+    const {images, ...rest} = req.body;
+
     try {
         const paymentIntent = await stripe.paymentIntents.create({
             currency,
             amount: Math.ceil(price * 100),
             automatic_payment_methods: { enabled: true },
             metadata: {
-                ...req.body,
-                images: JSON.stringify(req.body.images),
+                ...rest,
+                images: JSON.stringify(images),
             },
         });
 
