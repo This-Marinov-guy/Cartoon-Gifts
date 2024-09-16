@@ -31,14 +31,14 @@ const handler = async (req, res) => {
     try {
         images = await uploadFiles(req.files, orderNumber);
 
-        return res.status(201).send({
+        return res.status(201).json({
             status: true,
             images,
             orderNumber
         });
     } catch (err) {
         console.log(err);
-        return res.status(500).send({ status: false, message: ERROR_COMM });
+        return res.status(500).json({ status: false, message: ERROR_COMM });
     }
 }
 

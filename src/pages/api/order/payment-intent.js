@@ -20,7 +20,7 @@ const handler = async (req, res) => {
             status: true, clientSecret: paymentIntent.client_secret,
         });
     } catch (e) {
-        return res.status(400).send({
+        return res.status(400).json({
             error: {
                 status: false, message: e.message,
             },
