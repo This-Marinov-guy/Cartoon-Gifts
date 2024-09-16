@@ -1,6 +1,5 @@
 import stripe from "src/server/config/stripe";
 import multer from 'multer';
-import cloudinary from 'src/server/config/cloudinary';
 import { v4 as uuidv4 } from 'uuid';
 import { uploadFiles } from "src/server/services/google-api";
 

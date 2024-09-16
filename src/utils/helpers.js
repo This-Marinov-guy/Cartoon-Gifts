@@ -27,8 +27,8 @@ export const resizeFile = (file, width = 800, height = 800, format = 'JPG') =>
       format,
       100,
       0,
-      (uri) => {
-        resolve(uri);
+      (blob) => {
+        resolve(new File([blob], 'resized-image.jpg', { type: 'image/jpg' }));
       },
       "blob"
     );
