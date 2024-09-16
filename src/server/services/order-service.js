@@ -31,17 +31,37 @@ export const createOrder = async (orderData) => {
         }
     }
 
-    const images = getJsonString(orderData.images) || orderData.images
+    const images = getJsonString(orderData.images) || orderData.images;
+    let failedDB = false;
+    let failedEmail = false;
 
     try {
         await writeToGoogleSheet([
-            moment().format('Do MMMM YYYY, h:mm:ss a'), orderNumber, name, email, occasion, profession, hobby, label, description, size, payment, delivery, price + ' ' + currency, `код: ${promoCode.value ?? ''} | отстъпка: ${promoCode.discount ?? ''}`, hasPet ? 'yes' : 'no', images.map((string, index) => `${index + 1}. ${string}\n`), shipping.country ?? '-', shipping.city ?? '-', shipping.address ?? '-', shipping.zip ?? '-', shipping.phone ?? '-'
+            moment().format('Do MMMM YYYY, h:mm:ss a'), orderNumber, name, email, occasion, profession, hobby, label, description, size, payment, delivery, price + ' ' + currency, `код: ${promoCode.value ?? ''} | отстъпка: ${promoCode.discount ?? ''}`, hasPet ? 'yes' : 'no', images.map((string, index) => `${index + 1}. ${string}\n`).join(', '), shipping.country ?? '-', shipping.city ?? '-', shipping.address ?? '-', shipping.zip ?? '-', shipping.phone ?? '-'
         ]);
     } catch (err) {
         console.log(err);
-        return { status: false, message: ERROR_MESSAGE }
+        failedDB = true;
     }
 
+    
+    try {
+        await nodeMailer({
+            subject: `New Order ${orderNumber}`,
+            template: 'order-notification.html',
+            data: {
+                orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, payment, delivery, price: price + ' ' + currency, images, shipping, promoCode: promoCode.value
+            }
+        });
+    } catch (err) {
+        failedEmail = true;
+        console.log(err);
+    }
+    
+    if (failedEmail && failedDB) {
+        return { status: false, message: ERROR_MESSAGE }
+    }
+    
     try {
         await mailTrap({
             receiver: email,
@@ -55,17 +75,6 @@ export const createOrder = async (orderData) => {
         console.log(err);
     }
 
-    try {
-        await nodeMailer({
-            subject: `New Order ${orderNumber}`,
-            template: 'order-notification.html',
-            data: {
-                orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, payment, delivery, price: price + ' ' + currency, images, shipping, promoCode: promoCode.value
-            }
-        });
-    } catch (err) {
-        console.log(err);
-    }
 
     return { status: true }
 }
