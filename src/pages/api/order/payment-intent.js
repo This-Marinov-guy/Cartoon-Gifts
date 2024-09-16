@@ -4,8 +4,8 @@ const handler = async (req, res) => {
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'invalidAction' });
     }
-
-    const {images, ...rest} = req.body;
+    
+    const {images, currency, price, ...rest} = req.body;
 
     try {
         const paymentIntent = await stripe.paymentIntents.create({
@@ -14,6 +14,8 @@ const handler = async (req, res) => {
             automatic_payment_methods: { enabled: true },
             metadata: {
                 ...rest,
+                currency,
+                price,
                 images: JSON.stringify(images),
             },
         });
@@ -32,7 +34,9 @@ const handler = async (req, res) => {
 
 export const config = {
     api: {
-        bodyParser: false,
+        bodyParser: {
+            sizeLimit: '10mb', 
+        },
     },
 };
 

@@ -102,39 +102,36 @@ export default class CheckoutStore {
 
     @action
     setFormData(selectedCurrency) {
-        const formData = new FormData();
-        formData.append('method', 'order');
-        [...this.checkout.peopleImages, ...this.checkout.petImages].forEach((image) => {
-            formData.append("images", image);
-        });
+        const formData = {};
 
-        formData.append("name", this.checkout.name);
-        formData.append("email", this.checkout.email);
-        formData.append("occasion", this.checkout.occasion);
-        formData.append("profession", this.checkout.profession);
-        formData.append("hobby", this.checkout.hobby);
-        formData.append("label", this.checkout.label);
-        formData.append("hasPet", this.checkout.petImages.length > 0);
-        formData.append("description", this.checkout.description || 'We will handle the description for you!');
-        formData.append("size", this.checkout.size.property);
-        formData.append("delivery", this.checkout.delivery.property);
-        formData.append("payment", this.checkout.payment);
+        formData.method = 'order';
+        formData.name = this.checkout.name;
+        formData.email = this.checkout.email;
+        formData.occasion = this.checkout.occasion;
+        formData.profession = this.checkout.profession;
+        formData.hobby = this.checkout.hobby;
+        formData.label = this.checkout.label;
+        formData.hasPet = this.checkout.petImages.length > 0;
+        formData.description = this.checkout.description || 'We will handle the description for you!';
+        formData.size = this.checkout.size.property;
+        formData.delivery = this.checkout.delivery.property;
+        formData.payment = this.checkout.payment;
 
         if (this.checkout.promoCode) {
-            formData.append("promoCode", this.checkout.promoCode);
+            formData.promoCode = this.checkout.promoCode;
         }
 
         const currency = CURRENCIES.find(c => c.value === selectedCurrency) || CURRENCIES[0];
 
-        formData.append("price", Math.ceil(this.checkout.discountedPrice * currency.multiplier));
-        formData.append("currency", currency.value);
+        formData.price = Math.ceil(this.checkout.discountedPrice * currency.multiplier);
+        formData.currency = currency.value;
 
         if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
-            formData.append("country", this.checkout.shipping.country);
-            formData.append("city", this.checkout.shipping.city);
-            formData.append("address", this.checkout.shipping.address);
-            formData.append("zip", this.checkout.shipping.zip);
-            formData.append("phone", this.checkout.shipping.phone);
+            formData.country = this.checkout.shipping.country;
+            formData.city = this.checkout.shipping.city;
+            formData.address = this.checkout.shipping.address;
+            formData.zip = this.checkout.shipping.zip;
+            formData.phone = this.checkout.shipping.phone;
         }
 
         return formData;
@@ -183,5 +180,15 @@ export default class CheckoutStore {
         this.invalidFields = [];
         this.discountApplied = false;
 
+    }
+
+    get imagesFormData() {
+        const formData = new FormData();
+        formData.append('method', 'order');
+        [...this.checkout.peopleImages, ...this.checkout.petImages].forEach((image) => {
+            formData.append("images", image);
+        });
+
+        return formData;
     }
 }

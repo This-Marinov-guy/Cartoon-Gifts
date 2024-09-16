@@ -7,10 +7,10 @@ const handler = async (req, res) => {
     }
 
     try {
-        const response = await createOrder({ ...req.body })
+        const response = await createOrder(req.body)
 
         if (response.status) {
-            return res.status(200).json({ status: true, orderNumber });
+            return res.status(200).json({ status: true, orderNumber: req.body.orderNumber });
         } else {
             return res.status(200).json({ status: false, message: response.message });
         }
@@ -21,7 +21,9 @@ const handler = async (req, res) => {
 
 export const config = {
     api: {
-        bodyParser: false,
+        bodyParser: {
+            sizeLimit: '10mb',
+        },
     },
 };
 
