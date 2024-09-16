@@ -91,21 +91,16 @@ const OrderForm = () => {
     }
 
     useEffect(() => {
-        const unfinishedOrder = localStorage.getItem('unfinished_order_cartoongiftseu');
         const currency = localStorage.getItem('currency');
 
         if (currency) {
             currencyStore.setCurrency(JSON.parse(currency));
         }
-
-        if (unfinishedOrder) {
-            checkoutStore.setData(JSON.parse(unfinishedOrder));
-        }
     }, [])
 
     return (
         <Fragment>
-            <CheckoutModal isOpen={isCheckoutModalOpen} onClose={() => setIsCheckoutModalOpen(false)} />
+            {isCheckoutModalOpen && <CheckoutModal isOpen={isCheckoutModalOpen} onClose={() => setIsCheckoutModalOpen(false)} />}
             <div className="contact_form container mb-30">
                 <h2 className="heading_subtitle text-center" style={{ marginBottom: '20px' }}>
                     <span>{t('extra-page.order.order-form.formTitle')}</span>
