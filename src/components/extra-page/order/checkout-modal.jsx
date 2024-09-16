@@ -83,6 +83,15 @@ const CheckoutModal = (props) => {
         checkoutStore.calculateDiscount();
         const formData = checkoutStore.setFormData(currency.value);
 
+        const imageUploadResponse = await sendRequest('/api/common/upload-images', 'POST', formData);
+
+        if (!imageUploadResponse.status) {
+            return;
+        }
+
+        formData.append('orderNumber', imageUploadResponse.orderNumber);
+        formData.append('images', imageUploadResponse.images);
+
         if (!isOnlinePay) {
             const response = await sendRequest('/api/order/create', 'POST', formData);
 
