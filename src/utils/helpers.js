@@ -14,6 +14,7 @@ export const cleanFileName = (file) => {
     file.name
 }
 
+
 export const createFileName = (index) => {
   return `${index}.jpg`
 }
