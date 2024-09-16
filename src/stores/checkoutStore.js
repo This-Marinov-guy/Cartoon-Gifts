@@ -102,39 +102,39 @@ export default class CheckoutStore {
 
     @action
     setFormData(selectedCurrency) {
-        const formData = {};
+        const data = {};
 
-        formData.method = 'order';
-        formData.name = this.checkout.name;
-        formData.email = this.checkout.email;
-        formData.occasion = this.checkout.occasion;
-        formData.profession = this.checkout.profession;
-        formData.hobby = this.checkout.hobby;
-        formData.label = this.checkout.label;
-        formData.hasPet = this.checkout.petImages.length > 0;
-        formData.description = this.checkout.description || 'We will handle the description for you!';
-        formData.size = this.checkout.size.property;
-        formData.delivery = this.checkout.delivery.property;
-        formData.payment = this.checkout.payment;
+        data.method = 'order';
+        data.name = this.checkout.name;
+        data.email = this.checkout.email;
+        data.occasion = this.checkout.occasion;
+        data.profession = this.checkout.profession;
+        data.hobby = this.checkout.hobby;
+        data.label = this.checkout.label;
+        data.hasPet = this.checkout.petImages.length > 0;
+        data.description = this.checkout.description || 'We will handle the description for you!';
+        data.size = this.checkout.size.property;
+        data.delivery = this.checkout.delivery.property;
+        data.payment = this.checkout.payment;
 
         if (this.checkout.promoCode) {
-            formData.promoCode = this.checkout.promoCode;
+            data.promoCode = this.checkout.promoCode;
         }
 
         const currency = CURRENCIES.find(c => c.value === selectedCurrency) || CURRENCIES[0];
 
-        formData.price = Math.ceil(this.checkout.discountedPrice * currency.multiplier);
-        formData.currency = currency.value;
+        data.price = Math.ceil(this.checkout.discountedPrice * currency.multiplier);
+        data.currency = currency.value;
 
         if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
-            formData.country = this.checkout.shipping.country;
-            formData.city = this.checkout.shipping.city;
-            formData.address = this.checkout.shipping.address;
-            formData.zip = this.checkout.shipping.zip;
-            formData.phone = this.checkout.shipping.phone;
+            data.country = this.checkout.shipping.country;
+            data.city = this.checkout.shipping.city;
+            data.address = this.checkout.shipping.address;
+            data.zip = this.checkout.shipping.zip;
+            data.phone = this.checkout.shipping.phone;
         }
 
-        return formData;
+        return data;
     }
 
     @action

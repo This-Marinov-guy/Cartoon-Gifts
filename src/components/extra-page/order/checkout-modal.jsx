@@ -81,7 +81,7 @@ const CheckoutModal = (props) => {
     const submitOrder = async () => {
         setPortalLoading(true);
         checkoutStore.calculateDiscount();
-        const formData = checkoutStore.setFormData(currency.value);
+        const data = checkoutStore.setFormData(currency.value);
 
         const imageUploadResponse = await sendRequest('/api/common/upload-images', 'POST', checkoutStore.imagesFormData);
 
@@ -89,17 +89,17 @@ const CheckoutModal = (props) => {
             return;
         }
 
-        formData.orderNumber = imageUploadResponse.orderNumber;
-        formData.images = imageUploadResponse.images;
+        data.orderNumber = imageUploadResponse.orderNumber;
+        data.images = imageUploadResponse.images;
 
         if (!isOnlinePay) {
-            const response = await sendRequest('/api/order/create', 'POST', formData);
+            const response = await sendRequest('/api/order/create', 'POST', data);
 
             if (response && response.status === true) {
                 router.push('/order/success');
             }
         } else {
-            const response = await sendRequest('/api/order/payment-intent', 'POST', formData);
+            const response = await sendRequest('/api/order/payment-intent', 'POST', data);
 
             if (response && response.status) {
                 setClientSecret(response.clientSecret)
