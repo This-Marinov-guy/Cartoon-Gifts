@@ -48,7 +48,7 @@ const handler = async (req, res) => {
             },
         });
 
-        res.status(200).json({
+        return res.status(200).json({
             status: true, clientSecret: paymentIntent.client_secret,
         });
     } catch (e) {
