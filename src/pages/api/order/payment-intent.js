@@ -21,7 +21,7 @@ const runMiddleware = (req, res, fn) => {
 
 const handler = async (req, res) => {
     if (req.method !== 'POST') {
-        return res.status(401).json({ message: 'invalidAction' });
+        return res.status(405).json({ message: 'invalidAction' });
     }
 
     await runMiddleware(req, res, myUploadMiddleware);

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { clarity } from 'react-microsoft-clarity';
+import Resizer from 'react-image-file-resizer';
 import { LANGUAGES } from "./defines";
 import setLanguage from 'next-translate/setLanguage'
 
@@ -12,6 +13,26 @@ export const cleanFileName = (file) => {
     file.name.slice(0, 15) + "..." + file.type.split('/')[1] :
     file.name
 }
+
+export const createFileName = (index) => {
+  return `${index}.jpg`
+}
+
+export const resizeFile = (file, width = 800, height = 800, format = 'JPG') =>
+  new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      file,
+      width,
+      height,
+      format,
+      100,
+      0,
+      (uri) => {
+        resolve(uri);
+      },
+      "blob"
+    );
+  });
 
 export const getJsonString = (str) => {
   try {
