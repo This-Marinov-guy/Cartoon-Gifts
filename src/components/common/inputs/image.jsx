@@ -21,8 +21,6 @@ const ImageInput = ({ files, setFiles, onReject }) => {
           try {
             return await resizeFile(file);
           } catch (err) {
-            console.error('Error resizing file:', err);
-            return file;
           }
         })
       );
