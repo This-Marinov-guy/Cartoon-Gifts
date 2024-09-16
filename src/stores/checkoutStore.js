@@ -59,6 +59,8 @@ export default class CheckoutStore {
             zip: data.zip,
             phone: data.phone,
         };
+
+        localStorage.setItem('unfinished_order', JSON.stringify(data));
     }
 
     @action 
@@ -181,5 +183,7 @@ export default class CheckoutStore {
 
         this.invalidFields = [];
         this.discountApplied = false;
+
+        localStorage.removeItem('unfinished_order');
     }
 }

@@ -91,9 +91,15 @@ const OrderForm = () => {
     }
 
     useEffect(() => {
-        const currency = localStorage.getItem('currency')
+        const unfinishedOrder = localStorage.getItem('unfinished_order');
+        const currency = localStorage.getItem('currency');
+
         if (currency) {
             currencyStore.setCurrency(JSON.parse(currency));
+        }
+
+        if (unfinishedOrder) {
+            checkoutStore.setData(JSON.parse(unfinishedOrder));
         }
     }, [])
 
