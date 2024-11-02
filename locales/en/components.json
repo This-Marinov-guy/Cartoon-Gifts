@@ -11,9 +11,10 @@
         },
         "inputs": {
             "imageInput": {
-                "drop_files_here": "Drop the files here ...",
-                "drag_or_click": "Drag 'n' drop some files here, or click to select files",
-                "max_images_and_size": "Maximum of 5 images | Maximum size of 5Mb"
+              "drop_files_here": "Drop the files here ...",
+              "drag_or_click": "Drag 'n' drop some files here, or click to select files",
+              "max_images_and_size": "Maximum of 5 images | Maximum size of 5Mb",
+              "file_error": "Problem with file {{fileName}}, please try another picture!"
             },
             "price-currency": {
                 "total": "Total",

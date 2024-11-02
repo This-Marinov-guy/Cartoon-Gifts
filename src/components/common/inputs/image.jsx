@@ -3,13 +3,15 @@ import { cleanFileName, createFileName, resizeFile } from '@utils/helpers';
 import Dropzone from 'react-dropzone';
 import useTranslation from 'next-translate/useTranslation';
 import { useStore } from 'src/stores/storeContext';
-import { Spinner } from '@chakra-ui/react';
+import { Spinner, useToast } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
 
 const ImageInput = ({ files, setFiles, onReject }) => {
   const { checkoutStore } = useStore();
   const { t } = useTranslation('components');
   const [imageLoading, setImageLoading] = useState(false);
+
+  const toast = useToast();
 
   const onDrop = async (acceptedFiles) => {
     setImageLoading(true);
@@ -21,6 +23,12 @@ const ImageInput = ({ files, setFiles, onReject }) => {
           try {
             return await resizeFile(file);
           } catch (err) {
+            toast({
+              title: t("common.inputs.imageInput.file_error", {fileName: file.fileName}),
+              status: "error",
+              duration: 10000,
+              isClosable: true,
+            });
           }
         })
       );
@@ -61,7 +69,7 @@ const ImageInput = ({ files, setFiles, onReject }) => {
                   <p>{createFileName(index + 1)}</p>
                 </div>
               ))
-            ) : (
+            ) : (              
               <>
                 <i className="fa-light fa-cloud-arrow-up" style={{ color: 'purple', fontSize: '30px' }}></i>
                 {isDragActive ? (
