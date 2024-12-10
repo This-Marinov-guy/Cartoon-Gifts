@@ -1,7 +1,13 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
   "functions": {
-    "api/**/*.js": {
+    "api/common/*.js": {
+      "maxDuration": 40
+    },
+    "api/order/*.js": {
+      "maxDuration": 40
+    },
+    "api/payment/*.js": {
       "maxDuration": 40
     }
   }
