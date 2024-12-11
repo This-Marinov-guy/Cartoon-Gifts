@@ -109,38 +109,80 @@ const CheckoutModal = (props) => {
         }
     }
 
-    const body = clientSecret ? <PaymentElement
+    const body = clientSecret ? (
+      <PaymentElement
         clientSecret={clientSecret}
         onClose={paymentReset}
         paymentProperties={{
-            successUrl: `${window.location.origin}/order/success`,
-            failUrl: `${window.location.origin}/order/fail`,
-            email: checkout.email,
-            amount: checkout.discountedPrice,
-            currency: currencyStore.currency,
+          successUrl: `${window.location.origin}/order/success`,
+          failUrl: `${window.location.origin}/order/fail`,
+          email: checkout.email,
+          amount: checkout.discountedPrice,
+          currency: currencyStore.currency,
         }}
-    /> : <Fragment>
-        <h5 className='mb-20'>{t('extra-page.order.checkout-modal.yourDetails')}</h5>
-        <p>{t('extra-page.order.checkout-modal.name')}: {checkout.name}</p>
-        <p>{t('extra-page.order.checkout-modal.email')}: {checkout.email}</p>
-        <h5 className='mb-20 mt-20'>{t('extra-page.order.checkout-modal.orderDetails')}</h5>
-        <p>{t('extra-page.order.checkout-modal.occasion')}: {checkout.occasion}</p>
-        <p>{t('extra-page.order.checkout-modal.profession')}: {checkout.profession}</p>
-        <p>{t('extra-page.order.checkout-modal.hobby')}: {checkout.hobby}</p>
-        <p>{t('extra-page.order.checkout-modal.label')}: {checkout.label} </p>
-        <p>{t('extra-page.order.checkout-modal.description')}: {t(checkout.description)}</p>
-        <p>{t('extra-page.order.checkout-modal.size')}: {checkout.size.property}</p>
-        <p>{t('extra-page.order.checkout-modal.payment')}: {t(checkout.payment.tag)}</p>
-        <p>{t('extra-page.order.checkout-modal.delivery')}: {t(checkout.delivery.tag)}</p>
-        <p>{t('extra-page.order.checkout-modal.imageSelection')}</p>
-        {previewUrls.length > 0 && <div className='preview_box_small'>
-            {imageLoading ? <Spinner color='red.500' /> : previewUrls.map((url, index) => (
-                <img key={index} className='preview_small' src={url} alt="Preview" />
-            ))
-            }
-        </div>}
+      />
+    ) : (
+      <Fragment>
+        <h5 className="mb-20">
+          {t("extra-page.order.checkout-modal.yourDetails")}
+        </h5>
+        <p>
+          {t("extra-page.order.checkout-modal.name")}: {checkout.name}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.email")}: {checkout.email}
+        </p>
+        <h5 className="mb-20 mt-20">
+          {t("extra-page.order.checkout-modal.orderDetails")}
+        </h5>
+        <p>
+          {t("extra-page.order.checkout-modal.occasion")}: {checkout.occasion}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.profession")}:{" "}
+          {checkout.profession}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.hobby")}: {checkout.hobby}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.label")}: {checkout.label}{" "}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.description")}:{" "}
+          {t(`extra-page.order.checkout-modal.${checkout.description}`)}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.size")}: {checkout.size.property}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.payment")}:{" "}
+          {t(PAYMENT_OPTIONS.find((option)=> option.value == checkout.payment)['tag'])}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.delivery")}:{" "}
+          {t(checkout.delivery.tag)}
+        </p>
+        <p>{t("extra-page.order.checkout-modal.imageSelection")}</p>
+        {previewUrls.length > 0 && (
+          <div className="preview_box_small">
+            {imageLoading ? (
+              <Spinner color="red.500" />
+            ) : (
+              previewUrls.map((url, index) => (
+                <img
+                  key={index}
+                  className="preview_small"
+                  src={url}
+                  alt="Preview"
+                />
+              ))
+            )}
+          </div>
+        )}
         <hr />
-    </Fragment>
+      </Fragment>
+    );
 
     return (
         <Modal onClose={handleClose} isOpen={props.isOpen} isCentered closeOnOverlayClick={false} scrollBehavior='inside' size='lg'>
@@ -154,11 +196,11 @@ const CheckoutModal = (props) => {
                 {(!clientSecret) && <ModalFooter>
                     <div className='center-ver'>
                         {checkout.discountedPrice !== checkout.price ?
-                            <h5 style={{ width: '160px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{checkout.price * currency.multiplier}</s> {Math.ceil(checkout.discountedPrice * currency.multiplier)} {currency.symbol}</h5> :
-                            <h5 style={{ width: '140px', position: 'absolute', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
+                            <h5 style={{ width: '160px', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{checkout.price * currency.multiplier}</s> {Math.ceil(checkout.discountedPrice * currency.multiplier)} {currency.symbol}</h5> :
+                            <h5 style={{ width: '140px', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
                         }
-                        <div>
-                            <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" style={{ marginRight: '10px' }} >
+                        <div className='footer-btns'>
+                            <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" >
                                 {t('extra-page.order.checkout-modal.back')}
                             </button>
                             <button disabled={loading} type="submit" onClick={submitOrder} className="bd-btn-link">

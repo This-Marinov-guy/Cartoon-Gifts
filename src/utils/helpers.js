@@ -88,6 +88,7 @@ export const fetchLanguage = async (withUpdate = true) => {
       }
     }
   }
+
   if (withUpdate) {
     await setLanguage(storedLanguage);
   } else {

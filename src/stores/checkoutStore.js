@@ -161,7 +161,7 @@ export default class CheckoutStore {
         this.checkout.label = '';
         this.checkout.noDescription = false;
         this.checkout.description = '';
-        this.checkout.payment = PAYMENT_OPTIONS[0].value;
+        this.checkout.payment = PAYMENT_OPTIONS[0];
         this.checkout.peopleImages = [];
         this.checkout.petImages = [];
         this.checkout.size = SIZE_ITEMS[0];

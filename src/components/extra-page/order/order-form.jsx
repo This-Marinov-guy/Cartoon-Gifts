@@ -19,7 +19,7 @@ const OrderForm = () => {
     const { multiplier, symbol } = currencyStore.currency;
     const { checkout, invalidFields } = checkoutStore;
     const toast = useToast();
-    const { t } = useTranslation('components');
+    const { t, lang } = useTranslation('components');
 
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
 
@@ -95,6 +95,8 @@ const OrderForm = () => {
 
         if (currency) {
             currencyStore.setCurrency(JSON.parse(currency));
+        } else if (lang == 'bg') {
+            currencyStore.setCurrencyByValue('BGN');
         }
     }, [])
 

@@ -336,6 +336,14 @@ button[disabled] {
   }
 }
 
+.footer-btns {
+  display: flex;           /* Use flexbox layout */
+  flex-wrap: wrap;         /* Allow wrapping to a new line */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;               /* Optional: Space between buttons */
+}
+
 [class*="btn_primary"]:hover {
   @include box-shadow(0 20px 40px 0 rgba(83, 85, 223, 0.4));
 }
