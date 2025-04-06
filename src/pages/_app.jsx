@@ -42,15 +42,15 @@ function MyApp({ Component, pageProps }) {
           "https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
         }
       />
-      
       <Script
         strategy="afterInteractive"
-        src={"https://www.googletagmanager.com/gtag/js?id=" + process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
+        src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"
       />
       <Script
+        id="gtag-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-        __html: `
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -61,7 +61,7 @@ function MyApp({ Component, pageProps }) {
       <Analytics />
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG} />
       <StoreProvider>
-        <ChakraProvider toastOptions={{ defaultOptions: { position: 'top' } }}>
+        <ChakraProvider toastOptions={{ defaultOptions: { position: "top" } }}>
           <Parallax>
             <Component {...pageProps} />
           </Parallax>
