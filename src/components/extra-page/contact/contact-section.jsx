@@ -46,95 +46,117 @@ const ContactSection = () => {
               <i className="fas fa-sharp fa-square-full"></i>
               <i className="fas fa-sharp fa-square-full"></i>
             </span>
-            <span>{t('extra-page.contact-section.contactUs')}</span>
+            <span>{t("extra-page.contact-section.contactUs")}</span>
           </h2>
-          <h3 className="heading_title mb-0">{t('extra-page.contact-section.feelFreeContactUs')}</h3>
+          <h3 className="heading_title mb-0">
+            {t("extra-page.contact-section.feelFreeContactUs")}
+          </h3>
         </div>
         <div className="row">
           <div className="col col-lg-6">
             <div className="contact_form">
-              {isSuccess ? <SuccessComp 
-                                title={t('extra-page.contact-section.messageSubmitted')} 
-                                description={t('extra-page.contact-section.thanksForSubmitting')}
-                                active={isSuccess}/> 
-                        : <form onSubmit={handleSubmit} action="#">
-                <div className="row">
-                  <div className="col col-md-6">
-                    <div className="form-group m-0">
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="name"
-                        placeholder={t('extra-page.contact-section.yourName')}
-                      />
+              {isSuccess ? (
+                <SuccessComp
+                  title={t("extra-page.contact-section.messageSubmitted")}
+                  description={t(
+                    "extra-page.contact-section.thanksForSubmitting"
+                  )}
+                  active={isSuccess}
+                />
+              ) : (
+                <form onSubmit={handleSubmit} action="#">
+                  <div className="row">
+                    <div className="col col-md-6">
+                      <div className="form-group m-0">
+                        <input
+                          className="form-control"
+                          type="text"
+                          name="name"
+                          placeholder={t("extra-page.contact-section.yourName")}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="col col-md-6">
-                    <div className="form-group m-0">
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="subject"
-                        placeholder={t('extra-page.contact-section.subject')}
-                      />
+                    <div className="col col-md-6">
+                      <div className="form-group m-0">
+                        <input
+                          className="form-control"
+                          type="text"
+                          name="subject"
+                          placeholder={t("extra-page.contact-section.subject")}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="col col-md-6">
-                    <div className="form-group m-0">
-                      <input
-                        className="form-control"
-                        type="email"
-                        name="email"
-                        placeholder={t('extra-page.contact-section.emailAddress')}
-                      />
+                    <div className="col col-md-6">
+                      <div className="form-group m-0">
+                        <input
+                          className="form-control"
+                          type="email"
+                          name="email"
+                          placeholder={t(
+                            "extra-page.contact-section.emailAddress"
+                          )}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="col">
-                    <div className="form-group">
-                      <textarea
-                        className="form-control"
-                        name="message"
-                        placeholder={t('extra-page.contact-section.writeYourMessage')}
-                      ></textarea>
-                    </div>
-                    <button type="submit" className="bd-btn-link">
-                      <span className="bd-button-content-wrapper">
-                        <span className="bd-button-icon">
-                          <i className="fa-light fa-arrow-right-long"></i>
-                        </span>
-                        <span className="pd-animation-flip">
-                          <span className="bd-btn-anim-wrapp">
-                            <span className="bd-button-text">{t('extra-page.contact-section.sendNow')}</span>
-                            <span className="bd-button-text">{t('extra-page.contact-section.sendNow')}</span>
+                    <div className="col">
+                      <div className="form-group">
+                        <textarea
+                          className="form-control"
+                          name="message"
+                          placeholder={t(
+                            "extra-page.contact-section.writeYourMessage"
+                          )}
+                        ></textarea>
+                      </div>
+                      <button type="submit" className="bd-btn-link">
+                        <span className="bd-button-content-wrapper">
+                          <span className="bd-button-icon">
+                            <i className="fa-light fa-arrow-right-long"></i>
+                          </span>
+                          <span className="pd-animation-flip">
+                            <span className="bd-btn-anim-wrapp">
+                              <span className="bd-button-text">
+                                {t("extra-page.contact-section.sendNow")}
+                              </span>
+                              <span className="bd-button-text">
+                                {t("extra-page.contact-section.sendNow")}
+                              </span>
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </button>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </form>}
+                </form>
+              )}
             </div>
           </div>
           <div className="col col-lg-6">
             <ul className="contact_info_list style_2 ps-lg-4 unordered_list_block">
               <li>
-                <strong>{t('extra-page.contact-section.location')}:</strong>
-                <span>61 wolverhampton Rd, Stafford, ST174AW, United Kingdom</span>
+                <strong>{t("extra-page.contact-section.location")}:</strong>
+                <span>Aleksandrovska 111, Burgas, Bulgaria</span>
               </li>
               <li>
-                <strong>{t('extra-page.contact-section.email')}:</strong>
+                <strong>{t("extra-page.contact-section.email")}:</strong>
                 <span>cartoongifts.eu@gmail.com</span>
               </li>
               <li>
-                <strong>{t('extra-page.contact-section.followUs')}:</strong>
+                <strong>{t("extra-page.contact-section.followUs")}:</strong>
                 <ul className="social_icon unordered_list">
                   <li>
-                    <Link href="https://www.facebook.com/cartoongiftsbulgaria1/" target="_blank">
+                    <Link
+                      href="https://www.facebook.com/cartoongiftsbulgaria1/"
+                      target="_blank"
+                    >
                       <i className="fab fa-facebook-f"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://www.instagram.com/cartoongiftsbulgaria/?hl=en" target="_blank">
+                    <Link
+                      href="https://www.instagram.com/cartoongiftsbulgaria/?hl=en"
+                      target="_blank"
+                    >
                       <i className="fab fa-instagram"></i>
                     </Link>
                   </li>
