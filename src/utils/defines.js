@@ -6,6 +6,7 @@ export const SHIPPING_COUNTRIES = [
     { value: 'serbia', label: 'Serbia' },
 ];
 
+export const FIRST_POSSIBLE_DATE = 4;
 
 export const LANGUAGES = [
     { value: 'en', text: 'English' },
@@ -55,6 +56,19 @@ export const DELIVERY_ITEMS = [
         price: 15
     },
 ]
+
+export const MATERIAL_OPTIONS = [
+  {
+    property: "No",
+    tag: "common:answers.no",
+    price: 0,
+  },
+  {
+    property: "Yes",
+    tag: "common:answers.yes",
+    price: 7,
+  },
+];
 
 export const PET_OPTIONS = [
     {

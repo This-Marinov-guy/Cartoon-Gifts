@@ -32,17 +32,19 @@
     </p>
     <p>Описание на желанието на клиента: {{description}}</p>
     <p>Размер: {{size}}</p>
+    <p>Канава: {{canvas}}</p>
+    <p>Желана дата за доставка: {{date}}</p>
     <p>Доставка: {{delivery}}</p>
-    <p style="color: red;">Начин на плащане: {{payment}}</p>
+    <p style="color: red">Начин на плащане: {{payment}}</p>
     {{#if shipping}}
-    <hr/>
+    <hr />
     <p>Адрес за доставка:</p>
     <p>Държава: {{shipping.country}}</p>
     <p>Град: {{shipping.city}}</p>
     <p>Адрес: {{shipping.address}}</p>
     <p>Пощенски код: {{shipping.zip}}</p>
     <p>Телефон: {{shipping.phone}}</p>
-    <hr/>
+    <hr />
     {{/if}}
     <p>Обявена цена: {{price}}</p>
     <p>Код за отстъпка: {{promoCode}}</p>

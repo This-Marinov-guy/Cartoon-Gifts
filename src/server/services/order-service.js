@@ -6,7 +6,7 @@ import { writeToGoogleSheet } from './google-api';
 import moment from 'moment';
 
 export const createOrder = async (orderData) => {
-    const { orderNumber, images, name, email, occasion, profession, hobby, label, hasPet, description, size, payment, delivery, currency, country, city, address, zip, phone, promoCode } = orderData;
+    const { orderNumber, images, name, email, occasion, profession, hobby, label, hasPet, description, size, date, canvas, payment, delivery, currency, country, city, address, zip, phone, promoCode } = orderData;
     const price = Math.ceil(orderData.price);
     let shipping;
 
@@ -23,7 +23,31 @@ export const createOrder = async (orderData) => {
 
     try {
         await writeToGoogleSheet([
-            moment().format('Do MMMM YYYY, h:mm:ss a'), orderNumber, name, email, occasion, profession, hobby, label, description, size, payment, delivery, price + ' ' + currency, `код: ${promoCode.value ?? ''} | отстъпка: ${promoCode.discount ?? ''}`, hasPet ? 'yes' : 'no', images.map((string, index) => `${index + 1}. ${string}\n`).join(', '), shipping.country ?? '-', shipping.city ?? '-', shipping.address ?? '-', shipping.zip ?? '-', shipping.phone ?? '-'
+          moment().format("Do MMMM YYYY, h:mm:ss a"),
+          orderNumber,
+          name,
+          email,
+          occasion,
+          profession,
+          hobby,
+          label,
+          description,
+          size,
+          payment,
+          delivery,
+          price + " " + currency,
+          `код: ${promoCode.value ?? ""} | отстъпка: ${
+            promoCode.discount ?? ""
+          }`,
+          hasPet ? "yes" : "no",
+          images.map((string, index) => `${index + 1}. ${string}\n`).join(", "),
+          shipping.country ?? "-",
+          shipping.city ?? "-",
+          shipping.address ?? "-",
+          shipping.zip ?? "-",
+          shipping.phone ?? "-",
+          date,
+          canvas,
         ]);
     } catch (err) {
         console.log(err);
@@ -33,11 +57,28 @@ export const createOrder = async (orderData) => {
     
     try {
         await nodeMailer({
-            subject: `New Order ${orderNumber}`,
-            template: 'order-notification.html',
-            data: {
-                orderNumber, name, email, occasion, profession, hobby, label, hasPet, description, size, payment, delivery, price: price + ' ' + currency, images, shipping, promoCode: promoCode.value
-            }
+          subject: `New Order ${orderNumber}`,
+          template: "order-notification.html",
+          data: {
+            orderNumber,
+            name,
+            email,
+            occasion,
+            profession,
+            hobby,
+            label,
+            hasPet,
+            description,
+            size,
+            date,
+            canvas,
+            payment,
+            delivery,
+            price: price + " " + currency,
+            images,
+            shipping,
+            promoCode: promoCode.value,
+          },
         });
     } catch (err) {
         failedEmail = true;
@@ -50,13 +91,29 @@ export const createOrder = async (orderData) => {
     
     try {
         await mailTrap({
-            receiver: email,
-            template_uuid: 'b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a',
-            subject: 'Order Confirmed',
-            data: {
-                orderNumber, name, occasion, profession, hobby, label, hasPet, description, size, payment, delivery, price: price + ' ' + currency, images, shipping, promoCode: promoCode.value
-            }
-        })
+          receiver: email,
+          template_uuid: "b8a8baa1-ba8d-4199-acf6-7ecfaf47ec9a",
+          subject: "Order Confirmed",
+          data: {
+            orderNumber,
+            name,
+            occasion,
+            profession,
+            hobby,
+            label,
+            hasPet,
+            description,
+            size,
+            date,
+            canvas,
+            payment,
+            delivery,
+            price: price + " " + currency,
+            images,
+            shipping,
+            promoCode: promoCode.value,
+          },
+        });
     } catch (err) {
         console.log(err);
     }

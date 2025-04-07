@@ -464,6 +464,8 @@
             "selectOption": "Select an Option",
             "country": "Country",
             "city": "City",
+            "executionDate": "When do you need the cartoon (first possible date is not guaranteed)",
+            "chooseKanava": "Do you want the cartoon on a canvas",
             "address": "Address",
             "zipCode": "ZIP code",
             "phone": "Phone",
