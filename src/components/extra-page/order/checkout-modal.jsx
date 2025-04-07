@@ -149,15 +149,25 @@ const CheckoutModal = (props) => {
           {t("extra-page.order.checkout-modal.label")}: {checkout.label}{" "}
         </p>
         <p>
-          {t("extra-page.order.checkout-modal.description")}:{" "}
-          {t(`extra-page.order.checkout-modal.${checkout.description}`)}
+          {t("extra-page.order.checkout-modal.description")}:
+          {checkout.description}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.canvas")}: {checkout.canvas.property}
+        </p>
+        <p>
+          {t("extra-page.order.checkout-modal.date")}: {checkout.date}
         </p>
         <p>
           {t("extra-page.order.checkout-modal.size")}: {checkout.size.property}
         </p>
         <p>
           {t("extra-page.order.checkout-modal.payment")}:{" "}
-          {t(PAYMENT_OPTIONS.find((option)=> option.value == checkout.payment)['tag'])}
+          {t(
+            PAYMENT_OPTIONS.find((option) => option.value == checkout.payment)[
+              "tag"
+            ]
+          )}
         </p>
         <p>
           {t("extra-page.order.checkout-modal.delivery")}:{" "}

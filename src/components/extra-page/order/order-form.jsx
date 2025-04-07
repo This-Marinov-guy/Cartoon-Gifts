@@ -129,6 +129,7 @@ const OrderForm = () => {
               profession: checkout.profession,
               hobby: checkout.hobby,
               label: checkout.label,
+              date: checkout.date,
               noDescription: checkout.noDescription,
               description: checkout.description,
               payment: checkout.payment,
@@ -308,13 +309,6 @@ const OrderForm = () => {
                         }`}
                         value={checkout.date}
                         min={moment().add(FIRST_POSSIBLE_DATE, "days").format("YYYY-MM-DD")}
-                        onChange={(e) =>
-                          checkoutStore.setField(
-                            "checkout",
-                            "date",
-                            e.target.value
-                          )
-                        }
                         type="date"
                         name="date"
                         placeholder={t("extra-page.order.order-form.date")}
@@ -549,11 +543,7 @@ const OrderForm = () => {
                         );
                       })}
                     </div>
-                    {invalidFields.includes("canvas") && (
-                      <p className="error">
-                        {t("extra-page.order.order-form.kanavaError")}
-                      </p>
-                    )}
+                   
                   </div>
                   <PromoCode />
                   <div className="col-lg-6 col-12 mt-30">

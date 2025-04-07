@@ -67,7 +67,6 @@ export default class CheckoutStore {
         : data.description;
     this.checkout.peopleImages = data.peopleImages;
     this.checkout.petImages = data.petImages;
-    this.checkout.canvas = data.canvas;
     this.checkout.date = data.date;
     this.checkout.shipping = {
       country: data.country,
@@ -105,6 +104,10 @@ export default class CheckoutStore {
       this.invalidFields = [...this.invalidFields, "size"];
     }
 
+    if (!this.checkout.canvas.property) {
+      this.invalidFields = [...this.invalidFields, "canvas"];
+    }
+
     if (this.checkout.peopleImages.length < 1) {
       this.invalidFields = [...this.invalidFields, "peopleImages"];
     }
@@ -132,26 +135,31 @@ export default class CheckoutStore {
       this.checkout.description || "We will handle the description for you!";
     data.size = this.checkout.size.property;
     data.canvas = this.checkout.canvas.property;
-    date.date = this.checkout.date;
+    data.date = this.checkout.date;
+    
     data.delivery = this.checkout.delivery.property;
     data.payment = this.checkout.payment;
-
+    
     if (this.checkout.promoCode) {
-      data.promoCode = this.checkout.promoCode;
+        data.promoCode = this.checkout.promoCode;
     }
-
+    
     const currency =
-      CURRENCIES.find((c) => c.value === selectedCurrency) || CURRENCIES[0];
-
+    CURRENCIES.find((c) => c.value === selectedCurrency) || CURRENCIES[0];
+    
     data.price = Math.ceil(this.checkout.discountedPrice * currency.multiplier);
     data.currency = currency.value;
-
+    
     if (this.checkout.delivery !== DELIVERY_ITEMS[0]) {
-      data.country = this.checkout.shipping.country;
-      data.city = this.checkout.shipping.city;
-      data.address = this.checkout.shipping.address;
-      data.zip = this.checkout.shipping.zip;
-      data.phone = this.checkout.shipping.phone;
+        data.country = this.checkout.shipping.country;
+        data.city = this.checkout.shipping.city;
+        data.address = this.checkout.shipping.address;
+        data.zip = this.checkout.shipping.zip;
+        data.phone = this.checkout.shipping.phone;
+    }
+
+    if (data.phone[0] === "+") {
+      data.phone = data.phone.slice(1);
     }
 
     return data;

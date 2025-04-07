@@ -428,6 +428,8 @@
             "finishOrder": "Finish your order",
             "total": "Total",
             "back": "Back",
+            "canvas": "Canvas",
+            "date": "Wanted date",
             "pay": "Pay",
             "order": "Order"
           },
