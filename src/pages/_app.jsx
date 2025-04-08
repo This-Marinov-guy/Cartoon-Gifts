@@ -2,21 +2,20 @@ if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
 }
 
-import React, {useEffect} from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
+import React, { useEffect } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/index.scss";
-import SEO from '@components/seo';
-import { Parallax } from 'react-parallax';
-import { StoreProvider } from 'src/stores/storeContext';
-import Script from 'next/script';
-import { Analytics } from "@vercel/analytics/react"
-import { GoogleTagManager } from '@next/third-parties/google'
-import { useRouter } from 'next/router';
-import { clarityTrack, fetchLanguage } from '@utils/helpers';
+import SEO from "@components/seo";
+import { Parallax } from "react-parallax";
+import { StoreProvider } from "src/stores/storeContext";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
+import { useRouter } from "next/router";
+import { clarityTrack, fetchLanguage } from "@utils/helpers";
 
 function MyApp({ Component, pageProps }) {
   const handleRouteChange = (url) => {
-    window.gtag('config', 'AW-16591998534', {
+    window.gtag("config", "AW-16591998534", {
       page_path: url,
     });
   };
@@ -26,12 +25,12 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     fetchLanguage();
     clarityTrack();
-  }, [])
+  }, []);
 
   useEffect(() => {
-    router.events.on('routeChangeComplete', handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
 
@@ -44,7 +43,8 @@ function MyApp({ Component, pageProps }) {
       />
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-16591998534"
       />
       <Script
         id="gtag-init"
@@ -54,12 +54,28 @@ function MyApp({ Component, pageProps }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+            gtag('config', 'AW-16591998534');
           `,
         }}
       />
       <Analytics />
-      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG} />
+      <Script
+        strategy="afterInteractive"
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-WF658G0678"
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WF658G0678');
+          `,
+        }}
+      />
       <StoreProvider>
         <ChakraProvider toastOptions={{ defaultOptions: { position: "top" } }}>
           <Parallax>
@@ -72,4 +88,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
