@@ -135,7 +135,7 @@ export default class CheckoutStore {
       this.checkout.description || "We will handle the description for you!";
     data.size = this.checkout.size.property;
     data.canvas = this.checkout.canvas.property;
-    data.date = this.checkout.date;
+    data.date = moment(this.checkout.date).format("DD-MM-YYYY");
     
     data.delivery = this.checkout.delivery.property;
     data.payment = this.checkout.payment;
