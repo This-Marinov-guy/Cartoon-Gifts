@@ -12,6 +12,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { useRouter } from "next/router";
 import { clarityTrack, fetchLanguage } from "@utils/helpers";
+import CookieModal from "@components/common/modals/cookie-consent";
 
 function MyApp({ Component, pageProps }) {
   const handleRouteChange = (url) => {
@@ -79,6 +80,7 @@ function MyApp({ Component, pageProps }) {
       <StoreProvider>
         <ChakraProvider toastOptions={{ defaultOptions: { position: "top" } }}>
           <Parallax>
+            <CookieModal />
             <Component {...pageProps} />
           </Parallax>
         </ChakraProvider>

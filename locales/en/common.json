@@ -11,5 +11,10 @@
   "payment_items": {
     "online": "Online (card)",
     "cash": "Cash"
+  },
+  "cookies": {
+    "title": "Cookie Consent",
+    "content": "This site uses cookies to track user interaction in order to provide a better experience. To continue using the platform, we need your consent to collect such data.",
+    "accept": "Accept"
   }
 }
