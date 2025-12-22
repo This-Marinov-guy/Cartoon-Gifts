@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SuccessComp from '@components/common/success/SuccessComp';
 import Link from 'next/link';
 import emailjs from "emailjs-com";
@@ -7,11 +7,71 @@ import useTranslation from 'next-translate/useTranslation';
 
 const ContactSection = () => {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [mathQuestion, setMathQuestion] = useState({ num1: 0, num2: 0, answer: 0 });
+  const [mathAnswer, setMathAnswer] = useState('');
+  const [mathError, setMathError] = useState('');
+  const formStartTime = useRef(Date.now());
   const toast = useToast()
   const { t } = useTranslation('components');
 
+  // Generate a simple math question
+  const generateMathQuestion = () => {
+    const num1 = Math.floor(Math.random() * 10) + 1; // 1-10
+    const num2 = Math.floor(Math.random() * 10) + 1; // 1-10
+    const answer = num1 + num2;
+    setMathQuestion({ num1, num2, answer });
+    setMathAnswer('');
+    setMathError('');
+  };
+
+  // Generate math question on component mount
+  useEffect(() => {
+    generateMathQuestion();
+    formStartTime.current = Date.now();
+  }, []);
+
+  // Reset form when success state changes
+  useEffect(() => {
+    if (isSuccess) {
+      generateMathQuestion();
+      formStartTime.current = Date.now();
+    }
+  }, [isSuccess]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Check if form was submitted too quickly (less than 3 seconds)
+    const timeSpent = (Date.now() - formStartTime.current) / 1000; // in seconds
+    const MINIMUM_TIME = 3; // minimum 3 seconds
+    
+    if (timeSpent < MINIMUM_TIME) {
+      toast({
+        title: t('extra-page.contact-section.submitTooFast') || 'Please take your time filling out the form',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    // Validate math answer
+    const userAnswer = parseInt(mathAnswer);
+    if (isNaN(userAnswer) || userAnswer !== mathQuestion.answer) {
+      setMathError(t('extra-page.contact-section.incorrectAnswer') || 'Incorrect answer. Please try again.');
+      toast({
+        title: t('extra-page.contact-section.incorrectAnswer') || 'Incorrect answer. Please try again.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      generateMathQuestion(); // Generate new question
+      return;
+    }
+
+    // Clear any previous errors
+    setMathError('');
+
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE,
@@ -108,7 +168,34 @@ const ContactSection = () => {
                           )}
                         ></textarea>
                       </div>
-                      <button type="submit" className="bd-btn-link">
+                      <div className="form-group m-0" style={{ marginTop: '15px' }}>
+                        <label style={{ 
+                          display: 'block', 
+                          marginBottom: '8px', 
+                          fontSize: '14px',
+                          fontWeight: '500'
+                        }}>
+                          {t('extra-page.contact-section.mathQuestion') || 'Security Question'}: {mathQuestion.num1} + {mathQuestion.num2} = ?
+                        </label>
+                        <input
+                          className={`form-control ${mathError ? 'error-border' : ''}`}
+                          type="number"
+                          value={mathAnswer}
+                          onChange={(e) => {
+                            setMathAnswer(e.target.value);
+                            setMathError('');
+                          }}
+                          placeholder={t('extra-page.contact-section.enterAnswer') || 'Enter answer'}
+                          required
+                          style={{ maxWidth: '200px' }}
+                        />
+                        {mathError && (
+                          <small style={{ color: '#e53e3e', display: 'block', marginTop: '5px' }}>
+                            {mathError}
+                          </small>
+                        )}
+                      </div>
+                      <button type="submit" className="bd-btn-link" style={{ marginTop: '15px' }}>
                         <span className="bd-button-content-wrapper">
                           <span className="bd-button-icon">
                             <i className="fa-light fa-arrow-right-long"></i>

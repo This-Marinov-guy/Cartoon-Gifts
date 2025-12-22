@@ -17,7 +17,7 @@ export const LANGUAGES = [
 export const CURRENCIES = [
     {value: 'EUR', label: 'euro', symbol: '€', multiplier: 1},
     {value: 'GBP', label: 'pounds', symbol: '£', multiplier: 0.85},
-    {value: 'BGN', label: 'лева', symbol: 'лв.', multiplier: 2},
+    // {value: 'BGN', label: 'лева', symbol: 'лв.', multiplier: 2},
 ]
 
 export const SIZE_ITEMS = [

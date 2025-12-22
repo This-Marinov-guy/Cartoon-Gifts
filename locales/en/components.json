@@ -287,7 +287,11 @@
             "followUs": "Follow Us",
             "messageSubmitted": "Message submitted!",
             "thanksForSubmitting": "Thanks for submitting your message. Our team will get back to you soon.",
-            "sendEmailError": "There was a problem sending your email - please try again!"
+            "sendEmailError": "There was a problem sending your email - please try again!",
+            "mathQuestion": "Security Question",
+            "enterAnswer": "Enter answer",
+            "incorrectAnswer": "Incorrect answer. Please try again.",
+            "submitTooFast": "Please take your time filling out the form. Submission was too fast."
         },
         "contact-two-area": {
             "contact-faq": {
