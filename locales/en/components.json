@@ -1031,9 +1031,10 @@
         "lifeStyle": "Life Style"
     },
     "seo": {
-        "metaTagName": "description",
-        "metaTagContent": "Welcome to Cartoon Gifts - we create personalized and unique cartoons on demand for any occasion. Our product is 100% handmade and is customized by your preferences.",
-        "cartoonGifts" : "Cartoon Gifts"
+        "siteName": "Cartoon Gifts - Personalized Cartoon Portraits",
+        "defaultDescription": "Create unique, personalized cartoon portraits for any occasion. 100% handmade, customized illustrations perfect for gifts, celebrations, and special moments. Order your custom cartoon today!",
+        "defaultKeywords": "cartoon gifts, personalized cartoons, custom cartoon portraits, cartoon illustrations, personalized gifts, custom artwork, cartoon caricature, digital art, handmade cartoons, gift ideas",
+        "cartoonGifts": "Cartoon Gifts"
     }
       
 }
