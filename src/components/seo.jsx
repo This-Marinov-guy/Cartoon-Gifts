@@ -32,8 +32,12 @@ const SEO = ({
     // Build canonical URL
     const canonical = canonicalUrl || `${baseUrl}${router.asPath}`;
     
-    // Build OG image URL
-    const ogImageUrl = ogImage || `${baseUrl}/assets/images/logo/logo-title.png`;
+    // Build OG image URL - use absolute URL for better social media compatibility
+    const defaultOgImage = `${baseUrl}/assets/images/logo/logo-title.png`;
+    const ogImageUrl = ogImage || defaultOgImage;
+    
+    // Ensure absolute URL for OG image
+    const absoluteOgImageUrl = ogImageUrl.startsWith('http') ? ogImageUrl : `${baseUrl}${ogImageUrl}`;
     
     // Build alternate language URLs
     const alternateUrls = {
@@ -71,7 +75,11 @@ const SEO = ({
                 <meta property="og:title" content={fullTitle} />
                 <meta property="og:description" content={metaDescription} />
                 <meta property="og:url" content={canonical} />
-                <meta property="og:image" content={ogImageUrl} />
+                <meta property="og:image" content={absoluteOgImageUrl} />
+                <meta property="og:image:secure_url" content={absoluteOgImageUrl} />
+                <meta property="og:image:type" content="image/png" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
                 <meta property="og:image:alt" content={fullTitle} />
                 <meta property="og:site_name" content="Cartoon Gifts" />
                 <meta property="og:locale" content={lang === 'bg' ? 'bg_BG' : 'en_US'} />
@@ -81,8 +89,12 @@ const SEO = ({
                 <meta name="twitter:card" content={twitterCard} />
                 <meta name="twitter:title" content={fullTitle} />
                 <meta name="twitter:description" content={metaDescription} />
-                <meta name="twitter:image" content={ogImageUrl} />
+                <meta name="twitter:image" content={absoluteOgImageUrl} />
                 <meta name="twitter:image:alt" content={fullTitle} />
+                
+                {/* Additional Meta for better social sharing */}
+                <meta property="og:brand" content="Cartoon Gifts" />
+                <link rel="image_src" href={absoluteOgImageUrl} />
                 
                 {/* Additional Meta Tags */}
                 <meta name="theme-color" content="#48c5cb" />

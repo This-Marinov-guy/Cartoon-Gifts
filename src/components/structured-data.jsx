@@ -9,7 +9,13 @@ const StructuredData = ({ type = "organization", data = {} }) => {
         "@type": "Organization",
         "name": "Cartoon Gifts",
         "url": baseUrl,
-        "logo": `${baseUrl}/assets/images/logo/logo-title.png`,
+        "logo": {
+            "@type": "ImageObject",
+            "url": `${baseUrl}/assets/images/logo/logo-title.png`,
+            "width": "400",
+            "height": "400"
+        },
+        "image": `${baseUrl}/assets/images/logo/logo-title.png`,
         "description": "Professional personalized cartoon portrait service. We create unique, handmade cartoon illustrations for any occasion.",
         "email": "cartoongifts.eu@gmail.com",
         "address": {
