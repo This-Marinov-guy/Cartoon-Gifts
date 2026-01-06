@@ -12,7 +12,11 @@ export default class CurrencyStore {
     }
 
     @action setCurrencyByValue(value) {
-        const selectedCurrency = CURRENCIES.find((c) => c.value === value)
+        const selectedCurrency = CURRENCIES.find((c) => c.value === value);
+
+        if (selectedCurrency.value === 'BGN' || !selectedCurrency) {
+            selectedCurrency = CURRENCIES[0];
+        }
 
         this.currency = selectedCurrency;
         localStorage.setItem('currency', JSON.stringify(selectedCurrency));

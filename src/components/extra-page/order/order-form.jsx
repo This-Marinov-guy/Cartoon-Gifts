@@ -91,16 +91,6 @@ const OrderForm = () => {
         }
     }
 
-    useEffect(() => {
-        const currency = localStorage.getItem('currency');
-
-        if (currency) {
-            currencyStore.setCurrency(JSON.parse(currency));
-        } else if (lang == 'bg') {
-            currencyStore.setCurrencyByValue('BGN');
-        }
-    }, [])
-
     return (
       <Fragment>
         {isCheckoutModalOpen && (

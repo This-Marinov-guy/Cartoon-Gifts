@@ -1,16 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-} from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import useTranslation from "next-translate/useTranslation";
 
 const CookieModal = () => {
@@ -27,40 +18,50 @@ const CookieModal = () => {
     setVisible(!hasConsent);
   }, []);
 
-  const closeModal = () => {
+  const acceptCookies = () => {
     setVisible(false);
     localStorage.setItem(LOCAL_STORAGE_COOKIE_CONSENT, "1");
   };
 
+  if (!visible) return null;
+
   return (
-    <Modal
-      isOpen={visible}
-      closeOnEsc={false}
-      closeOnOverlayClick={false}
-      onClose={closeModal}
-      isCentered
-      size="lg"
+    <div
+      style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: "#2D3748",
+        color: "white",
+        padding: "1.5rem",
+        boxShadow: "0 -2px 10px rgba(0, 0, 0, 0.1)",
+        zIndex: 9999,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        gap: "1rem",
+      }}
     >
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>
-          {t("cookies.title")}{" "}
-          <i
-            className="fa-solid fa-cookie-bite"
-            style={{ color: "#D2691E" }}
-          ></i>
-        </ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          <p>{t("cookies.content")}</p>
-        </ModalBody>
-        <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={closeModal}>
-            {t("cookies.accept")}
-          </Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
+      <div style={{ flex: "1 1 auto", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+        <i
+          className="fa-solid fa-cookie-bite"
+          style={{ color: "#D2691E", fontSize: "1.5rem" }}
+        ></i>
+        <div>
+          <strong style={{ display: "block", marginBottom: "0.25rem" }}>
+            {t("cookies.title")}
+          </strong>
+          <p style={{ margin: 0, fontSize: "0.9rem", opacity: 0.9 }}>
+            {t("cookies.content")}
+          </p>
+        </div>
+      </div>
+      <Button colorScheme="blue" onClick={acceptCookies}>
+        {t("cookies.accept")}
+      </Button>
+    </div>
   );
 };
 
