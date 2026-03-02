@@ -19,21 +19,40 @@ export const createFileName = (index) => {
   return `${index}.jpg`
 }
 
-export const resizeFile = (file, width = 800, height = 800, format = 'JPG') =>
+export const resizeFile = (file, width = 1000, height = 1000, format = 'JPG') =>
   new Promise((resolve) => {
     Resizer.imageFileResizer(
       file,
       width,
       height,
       format,
-      85, // Reduced quality from 100 to 85 for better compression
+      85,
       0,
       (blob) => {
-        resolve(new File([blob], 'resized-image.jpg', { type: 'image/jpg' }));
+        resolve(new File([blob], 'resized-image.jpg', { type: 'image/jpeg' }));
       },
       "blob"
     );
   });
+
+export const fileToDataUrl = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+
+export const dataUrlToFile = (dataUrl, filename = 'image.jpg') => {
+  const [header, data] = dataUrl.split(',');
+  const mime = header.match(/:(.*?);/)[1];
+  const binary = atob(data);
+  const array = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    array[i] = binary.charCodeAt(i);
+  }
+  return new File([array], filename, { type: mime });
+};
 
 export const getJsonString = (str) => {
   try {

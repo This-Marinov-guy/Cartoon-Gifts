@@ -3,7 +3,7 @@ import UserStore from './userStore';
 import CheckoutStore from './checkoutStore';
 import CurrencyStore from './currencyStore';
 
-class RootStore {
+export class RootStore {
     commonStore;
     userStore;
     checkoutStore;
@@ -17,4 +17,23 @@ class RootStore {
     }
 }
 
-export const rootStore = new RootStore();
+let clientRootStore;
+
+/**
+ * Create a new store instance on the server (per request render),
+ * and reuse a singleton on the client (per browser session).
+ *
+ * This avoids SSR ↔ client hydration mismatches caused by module-level singletons
+ * holding time/localStorage-dependent state across server requests.
+ */
+export function initializeRootStore() {
+    if (typeof window === 'undefined') {
+        return new RootStore();
+    }
+
+    if (!clientRootStore) {
+        clientRootStore = new RootStore();
+    }
+
+    return clientRootStore;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import {
     Modal,
     ModalOverlay,
@@ -17,6 +17,7 @@ import SkeletonOne from '@components/common/loading/SkeletonOne'
 import { ACTIVE_DISCOUNT, PAYMENT_OPTIONS } from '@utils/defines'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
+import { getEurEquivalent, getEurEquivalentDisplay } from '@utils/currency-utils'
 
 const CheckoutModal = (props) => {
     const { t } = useTranslation('components');
@@ -29,46 +30,15 @@ const CheckoutModal = (props) => {
 
     const { sendRequest, loading } = useHttpClient();
     const [portalLoading, setPortalLoading] = useState(false);
-
     const [clientSecret, setClientSecret] = useState(null);
-    const [imageLoading, setImageLoading] = useState(false);
-    const [previewUrls, setPreviewUrls] = useState([]);
 
     const isOnlinePay = checkoutStore.checkout.payment == PAYMENT_OPTIONS[0].value;
 
-    const files = [...checkout.peopleImages, ...checkout.petImages];
-
-    useEffect(() => {
-        setImageLoading(true);
-        const images = [], fileReaders = [];
-        let isCancel = false;
-        if (files.length) {
-            files.forEach((file) => {
-                const fileReader = new FileReader();
-                fileReaders.push(fileReader);
-                fileReader.onload = (e) => {
-                    const { result } = e.target;
-                    if (result) {
-                        images.push(result)
-                    }
-                    if (images.length === files.length && !isCancel) {
-                        setPreviewUrls(images);
-                    }
-                }
-                fileReader.readAsDataURL(file);
-                setImageLoading(false);
-            })
-        };
-
-        return () => {
-            isCancel = true;
-            fileReaders.forEach(fileReader => {
-                if (fileReader.readyState === 1) {
-                    fileReader.abort()
-                }
-            })
-        }
-    }, [checkout.peopleImages, checkout.petImages]);
+    // Use locally-stored data URLs for preview — no FileReader needed
+    const previewUrls = [
+        ...checkoutStore.peopleImageDataUrls,
+        ...checkoutStore.petImageDataUrls,
+    ];
 
     const handleClose = () => {
         props.onClose();
@@ -81,30 +51,23 @@ const CheckoutModal = (props) => {
     const submitOrder = async () => {
         setPortalLoading(true);
         checkoutStore.calculateDiscount();
+
+        // Images are already uploaded — setFormData includes orderNumber + Drive URLs
         const data = checkoutStore.setFormData(currency.value);
-
-        const imageUploadResponse = await sendRequest('/api/common/upload-images', 'POST', checkoutStore.imagesFormData);
-
-        if (!imageUploadResponse.status) {
-            return;
-        }
-
-        data.orderNumber = imageUploadResponse.orderNumber;
-        data.images = imageUploadResponse.images;
 
         if (!isOnlinePay) {
             const response = await sendRequest('/api/order/create', 'POST', data);
-
             if (response && response.status === true) {
+                checkoutStore.resetData();
                 router.push('/order/success');
+            } else {
+                setPortalLoading(false);
             }
         } else {
             const response = await sendRequest('/api/order/payment-intent', 'POST', data);
-
             if (response && response.status) {
-                setClientSecret(response.clientSecret)
+                setClientSecret(response.clientSecret);
             }
-
             setPortalLoading(false);
         }
     }
@@ -126,68 +89,35 @@ const CheckoutModal = (props) => {
         <h5 className="mb-20">
           {t("extra-page.order.checkout-modal.yourDetails")}
         </h5>
-        <p>
-          {t("extra-page.order.checkout-modal.name")}: {checkout.name}
-        </p>
-        <p>
-          {t("extra-page.order.checkout-modal.email")}: {checkout.email}
-        </p>
+        <p>{t("extra-page.order.checkout-modal.name")}: {checkout.name}</p>
+        <p>{t("extra-page.order.checkout-modal.email")}: {checkout.email}</p>
         <h5 className="mb-20 mt-20">
           {t("extra-page.order.checkout-modal.orderDetails")}
         </h5>
-        <p>
-          {t("extra-page.order.checkout-modal.occasion")}: {checkout.occasion}
-        </p>
-        <p>
-          {t("extra-page.order.checkout-modal.profession")}:{" "}
-          {checkout.profession}
-        </p>
-        <p>
-          {t("extra-page.order.checkout-modal.hobby")}: {checkout.hobby}
-        </p>
-        <p>
-          {t("extra-page.order.checkout-modal.label")}: {checkout.label}{" "}
-        </p>
-        <p>
-          {t("extra-page.order.checkout-modal.description")}:
-          {checkout.description}
-        </p>
-        <p>
-          {t("extra-page.order.checkout-modal.canvas")}: {checkout.canvas.property}
-        </p>
-        <p>
-          {t("extra-page.order.checkout-modal.date")}: {checkout.date}
-        </p>
-        <p>
-          {t("extra-page.order.checkout-modal.size")}: {checkout.size.property}
-        </p>
+        <p>{t("extra-page.order.checkout-modal.occasion")}: {checkout.occasion}</p>
+        <p>{t("extra-page.order.checkout-modal.profession")}: {checkout.profession}</p>
+        <p>{t("extra-page.order.checkout-modal.hobby")}: {checkout.hobby}</p>
+        <p>{t("extra-page.order.checkout-modal.label")}: {checkout.label}</p>
+        <p>{t("extra-page.order.checkout-modal.description")}: {checkout.description}</p>
+        <p>{t("extra-page.order.checkout-modal.canvas")}: {checkout.canvas.property}</p>
+        <p>{t("extra-page.order.checkout-modal.date")}: {checkout.date}</p>
+        <p>{t("extra-page.order.checkout-modal.size")}: {checkout.size.property}</p>
         <p>
           {t("extra-page.order.checkout-modal.payment")}:{" "}
-          {t(
-            PAYMENT_OPTIONS.find((option) => option.value == checkout.payment)[
-              "tag"
-            ]
-          )}
+          {t(PAYMENT_OPTIONS.find((option) => option.value == checkout.payment)?.["tag"])}
         </p>
-        <p>
-          {t("extra-page.order.checkout-modal.delivery")}:{" "}
-          {t(checkout.delivery.tag)}
-        </p>
+        <p>{t("extra-page.order.checkout-modal.delivery")}: {t(checkout.delivery.tag)}</p>
         <p>{t("extra-page.order.checkout-modal.imageSelection")}</p>
         {previewUrls.length > 0 && (
           <div className="preview_box_small">
-            {imageLoading ? (
-              <Spinner color="red.500" />
-            ) : (
-              previewUrls.map((url, index) => (
-                <img
-                  key={index}
-                  className="preview_small"
-                  src={url}
-                  alt="Preview"
-                />
-              ))
-            )}
+            {previewUrls.map((url, index) => (
+              <img
+                key={index}
+                className="preview_small"
+                src={url}
+                alt="Preview"
+              />
+            ))}
           </div>
         )}
         <hr />
@@ -203,22 +133,59 @@ const CheckoutModal = (props) => {
                 <ModalBody>
                     {portalLoading ? <SkeletonOne /> : body}
                 </ModalBody>
-                {(!clientSecret) && <ModalFooter>
+                {!clientSecret && (
+                  <ModalFooter>
                     <div className='center-ver'>
-                        {checkout.discountedPrice !== checkout.price ?
-                            <h5 style={{ width: '160px', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: <s>{checkout.price * currency.multiplier}</s> {Math.ceil(checkout.discountedPrice * currency.multiplier)} {currency.symbol}</h5> :
-                            <h5 style={{ width: '140px', left: '20px' }}> {t('extra-page.order.checkout-modal.total')}: {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}</h5>
-                        }
-                        <div className='footer-btns'>
-                            <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark" >
-                                {t('extra-page.order.checkout-modal.back')}
-                            </button>
-                            <button disabled={loading} type="submit" onClick={submitOrder} className="bd-btn-link">
-                                {loading ? <Spinner /> : (isOnlinePay ? t('extra-page.order.checkout-modal.pay') : t('extra-page.order.checkout-modal.order'))}
-                            </button>
+                      {checkout.discountedPrice !== checkout.price ? (
+                        <div>
+                          <h5>
+                            {t('extra-page.order.checkout-modal.total')}:{' '}
+                            <s>{checkout.price * currency.multiplier}</s>{' '}
+                            {Math.ceil(checkout.discountedPrice * currency.multiplier)} {currency.symbol}
+                          </h5>
+                          {(() => {
+                            const eurEquivalent = getEurEquivalent(checkout.discountedPrice, currency.value);
+                            const eurDisplay = getEurEquivalentDisplay(eurEquivalent, { textAlign: 'center' });
+                            return eurDisplay && (
+                              <div style={eurDisplay.styles}>
+                                <span>{eurDisplay.icon}</span>
+                                <span>{eurDisplay.text}</span>
+                              </div>
+                            );
+                          })()}
                         </div>
+                      ) : (
+                        <div>
+                          <h5>
+                            {t('extra-page.order.checkout-modal.total')}:{' '}
+                            {Math.ceil(checkout.price * currency.multiplier)} {currency.symbol}
+                          </h5>
+                          {(() => {
+                            const eurEquivalent = getEurEquivalent(checkout.price, currency.value);
+                            const eurDisplay = getEurEquivalentDisplay(eurEquivalent, { textAlign: 'center' });
+                            return eurDisplay && (
+                              <div style={eurDisplay.styles}>
+                                <span>{eurDisplay.icon}</span>
+                                <span>{eurDisplay.text}</span>
+                              </div>
+                            );
+                          })()}
+                        </div>
+                      )}
+                      <div className='footer-btns'>
+                        <button disabled={loading} type="button" onClick={handleClose} className="bd-btn-link btn_dark">
+                          {t('extra-page.order.checkout-modal.back')}
+                        </button>
+                        <button disabled={loading} type="submit" onClick={submitOrder} className="bd-btn-link">
+                          {loading ? <Spinner /> : (isOnlinePay
+                            ? t('extra-page.order.checkout-modal.pay')
+                            : t('extra-page.order.checkout-modal.order')
+                          )}
+                        </button>
+                      </div>
                     </div>
-                </ModalFooter>}
+                  </ModalFooter>
+                )}
             </ModalContent>
         </Modal>
     )

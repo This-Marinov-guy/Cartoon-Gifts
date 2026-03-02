@@ -1,19 +1,39 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useRef } from 'react'
 import ImageInput from '@components/common/inputs/image'
 import RadioCard from '@components/common/inputs/radio-card'
 import RadioPrice from '@components/common/inputs/radio-price'
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, useFormikContext } from "formik";
 import * as yup from "yup";
 import { SIZE_ITEMS, DELIVERY_ITEMS, PET_OPTIONS, PERSON_IMAGE_PRICE, PET_IMAGE_PRICE, SHIPPING_COUNTRIES, CURRENCIES, PAYMENT_OPTIONS, MATERIAL_OPTIONS, FIRST_POSSIBLE_DATE } from '@utils/defines';
 import { observer } from 'mobx-react-lite';
 import { useStore } from 'src/stores/storeContext';
 import CheckoutModal from './checkout-modal';
-import { useToast } from '@chakra-ui/react';
+import { Spinner, useToast } from '@chakra-ui/react';
 import { askBeforeRedirect } from '@utils/globals';
 import PriceAndCurrency from '@components/common/inputs/price-and-currency';
 import useTranslation from 'next-translate/useTranslation';
 import PromoCode from '@components/common/inputs/PromoCode';
 import moment from 'moment';
+import { dataUrlToFile } from '@utils/helpers';
+
+// Persists Formik values to the store on every change (debounced 400ms)
+const FormAutoSave = observer(() => {
+    const { values, dirty } = useFormikContext();
+    const { checkoutStore } = useStore();
+    const timerRef = useRef(null);
+
+    useEffect(() => {
+        // Avoid creating/overwriting a "draft" until the user actually changes something.
+        if (!dirty) return;
+        if (timerRef.current) clearTimeout(timerRef.current);
+        timerRef.current = setTimeout(() => {
+            checkoutStore.saveFormValues(values);
+        }, 400);
+        return () => clearTimeout(timerRef.current);
+    }, [values, dirty, checkoutStore]);
+
+    return null;
+});
 
 const OrderForm = () => {
     const { currencyStore, checkoutStore } = useStore();
@@ -23,26 +43,36 @@ const OrderForm = () => {
     const { t, lang } = useTranslation('components');
 
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+    const [formKey, setFormKey] = useState(0);
 
     const [files, setFiles] = useState([]);
     const [petFiles, setPetFiles] = useState([]);
-    const [hasPet, setHasPet] = useState({
-        property: 'No',
-        price: 0
-    });
+    const [hasPet, setHasPet] = useState({ property: 'No', price: 0 });
+
+    // ─── Restore images from localStorage on mount ───────────────────────
+    useEffect(() => {
+        const { peopleImageDataUrls, petImageDataUrls } = checkoutStore;
+
+        if (peopleImageDataUrls.length > 0 && files.length === 0) {
+            setFiles(peopleImageDataUrls.map((url, i) => dataUrlToFile(url, `${i + 1}.jpg`)));
+        }
+
+        if (petImageDataUrls.length > 0 && petFiles.length === 0) {
+            setPetFiles(petImageDataUrls.map((url, i) => dataUrlToFile(url, `${i + 1}.jpg`)));
+            setHasPet({ property: 'Yes', price: 0 });
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const showShipping = (checkout.delivery.property && checkout.delivery.property !== 'Digital') || checkout.payment == PAYMENT_OPTIONS[1].value
 
     const handlePriceChange = (item, state) => {
         if (checkout[state].property === item.property) {
-            checkoutStore.setField('checkout', state, {
-                property: '',
-                price: 0
-            });
-            checkoutStore.setField('checkout', 'price', checkout.price - item.price)
+            checkoutStore.setField('checkout', state, { property: '', price: 0 });
+            checkoutStore.setField('checkout', 'price', checkout.price - item.price);
         } else {
             checkoutStore.setField('checkout', 'price', checkout.price - checkout[state].price + item.price);
-            checkoutStore.setField('checkout', state, item)
+            checkoutStore.setField('checkout', state, item);
         }
     }
 
@@ -64,6 +94,17 @@ const OrderForm = () => {
     });
 
     const handleSubmit = (values) => {
+        // Block submission while images are still uploading
+        if (checkoutStore.isUploadingImages) {
+            toast({
+                title: t('common.inputs.imageInput.images_uploading'),
+                status: 'info',
+                duration: 5000,
+                isClosable: true,
+            });
+            return;
+        }
+
         checkoutStore.setData({ ...values, peopleImages: files, petImages: petFiles });
         const validate = checkoutStore.validate();
 
@@ -91,6 +132,15 @@ const OrderForm = () => {
         }
     }
 
+    const handleClearForm = () => {
+        checkoutStore.resetData();
+        setFiles([]);
+        setPetFiles([]);
+        setHasPet({ property: 'No', price: 0 });
+        setIsCheckoutModalOpen(false);
+        setFormKey((k) => k + 1);
+    };
+
     return (
       <Fragment>
         {isCheckoutModalOpen && (
@@ -106,7 +156,22 @@ const OrderForm = () => {
           >
             <span>{t("extra-page.order.order-form.formTitle")}</span>
           </h2>
+          {checkoutStore.restoredFromLocalStorage && (
+            <div className="saved-draft-banner text-center">
+              <span className="saved-draft-banner__text">
+                {t("extra-page.order.order-form.savedDraftNotice")}
+              </span>
+              <button
+                type="button"
+                onClick={handleClearForm}
+                className="bd-btn-link btn_dark"
+              >
+                {t("extra-page.order.order-form.clearForm")}
+              </button>
+            </div>
+          )}
           <Formik
+            key={formKey}
             className="inner"
             validationSchema={schema}
             onSubmit={(values) => {
@@ -136,6 +201,7 @@ const OrderForm = () => {
                 id="form"
                 style={{ padding: "2%" }}
               >
+                <FormAutoSave />
                 <div className="row">
                   <div className="col col-md-6">
                     <div className="form-group m-0">
@@ -245,6 +311,7 @@ const OrderForm = () => {
                   </div>
                   <div className="col col-md-6">
                     <ImageInput
+                      type="people"
                       files={files}
                       setFiles={(newFiles) => {
                         setFiles(newFiles);
@@ -256,7 +323,14 @@ const OrderForm = () => {
                             newFiles.length * PERSON_IMAGE_PRICE
                         );
                       }}
-                      onReject={(files) =>
+                      onRemove={() => {
+                        checkoutStore.setField(
+                          "checkout",
+                          "price",
+                          checkout.price - PERSON_IMAGE_PRICE
+                        );
+                      }}
+                      onReject={() =>
                         checkoutStore.setInvalidField("invalidPeopleFiles")
                       }
                     />
@@ -328,6 +402,7 @@ const OrderForm = () => {
                       <Fragment>
                         <h4>{t("extra-page.order.order-form.petImages")}</h4>
                         <ImageInput
+                          type="pet"
                           files={petFiles}
                           setFiles={(newFiles) => {
                             setPetFiles(newFiles);
@@ -339,7 +414,14 @@ const OrderForm = () => {
                                 newFiles.length * PET_IMAGE_PRICE
                             );
                           }}
-                          onReject={(files) =>
+                          onRemove={() => {
+                            checkoutStore.setField(
+                              "checkout",
+                              "price",
+                              checkout.price - PET_IMAGE_PRICE
+                            );
+                          }}
+                          onReject={() =>
                             checkoutStore.setInvalidField("invalidPetFiles")
                           }
                         />
@@ -539,8 +621,14 @@ const OrderForm = () => {
                   <div className="col-lg-6 col-12 mt-30">
                     <div>
                       <PriceAndCurrency price={checkout.price} />
+                      {checkoutStore.isUploadingImages && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, fontSize: '0.88em', color: '#888' }}>
+                          <Spinner size='xs' />
+                          <span>{t('common.inputs.imageInput.images_uploading')}</span>
+                        </div>
+                      )}
                       <button
-                        disabled={checkoutStore.isLoading}
+                        disabled={checkoutStore.isLoading || checkoutStore.isUploadingImages}
                         type="submit"
                         onClick={() => handleErrorMsg(errors, isValid, dirty)}
                         className="bd-btn-link"

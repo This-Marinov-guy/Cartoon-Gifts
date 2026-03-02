@@ -65,59 +65,72 @@ export const createFolder = async (parentFolderId, folderName = moment().format(
 }
 
 
-export const uploadFiles = async (files, folderName = moment().format('DD MM YY h:mm a')) => {
-    const bufferToStream = (buffer) => {
-        const stream = new Readable();
-        stream.push(buffer);
-        stream.push(null);
-        return stream;
+const bufferToStream = (buffer) => {
+    const stream = new Readable();
+    stream.push(buffer);
+    stream.push(null);
+    return stream;
+};
+
+const makeFilePublicAndGetUrl = async (drive, fileId) => {
+    await drive.permissions.create({
+        fileId,
+        requestBody: { role: 'reader', type: 'anyone' },
+    });
+    return `https://drive.google.com/uc?id=${fileId}&export=download`;
+};
+
+// Upload a single file to an existing folder (by folderId).
+// index is used to name the file (0-based → "1.jpg", "2.jpg", etc.)
+export const uploadSingleFile = async (file, folderId, index = 0) => {
+    const client = await auth.getClient();
+    const drive = google.drive({ version: 'v3', auth: client });
+
+    const fileMetadata = {
+        name: `${index + 1}.jpg`,
+        parents: [folderId],
+    };
+    const media = {
+        mimeType: file.mimetype,
+        body: bufferToStream(file.buffer),
     };
 
+    const response = await drive.files.create({
+        resource: fileMetadata,
+        media,
+        fields: 'id',
+    });
+
+    return makeFilePublicAndGetUrl(drive, response.data.id);
+};
+
+export const uploadFiles = async (files, folderName = moment().format('DD MM YY h:mm a')) => {
     const client = await auth.getClient();
     const drive = google.drive({ version: 'v3', auth: client });
     const uploadedFileUrls = [];
     
     const folderId = await createFolder(ORDER_DRIVE_FOLDER, folderName);
+    if (!folderId) throw new Error('Folder creation failed');
 
-    if (!folderId) {
-        throw new Error('Folder creation failed');
-    }
-
-    // Upload files to the found or created folder
     for (let index = 0; index < files.length; index++) {
         const file = files[index];
         const fileMetadata = {
-            name: `${index + 1}.jpg`, // Name each file sequentially
-            parents: [folderId], // Upload directly to the found/created folder
+            name: `${index + 1}.jpg`,
+            parents: [folderId],
         };
-
         const media = {
-            mimeType: file.mimetype, // Use the file's MIME type
-            body: bufferToStream(file.buffer), // Convert the buffer to a stream
+            mimeType: file.mimetype,
+            body: bufferToStream(file.buffer),
         };
 
-        // Upload the file to Google Drive
         const response = await drive.files.create({
             resource: fileMetadata,
-            media: media,
+            media,
             fields: 'id',
         });
 
-        const fileId = response.data.id;
-        console.log('Uploaded File ID:', fileId);
-
-        // Make the file public (optional)
-        await drive.permissions.create({
-            fileId: fileId,
-            requestBody: {
-                role: 'reader',
-                type: 'anyone',
-            },
-        });
-
-        // Get the public URL
-        const fileUrl = `https://drive.google.com/uc?id=${fileId}&export=download`;
-        uploadedFileUrls.push(fileUrl);
+        const url = await makeFilePublicAndGetUrl(drive, response.data.id);
+        uploadedFileUrls.push(url);
     }
 
     return uploadedFileUrls;

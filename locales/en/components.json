@@ -18,7 +18,10 @@
               "file_too_large": "File too large",
               "max_size_exceeded": "File size exceeds 5MB. Please compress your image before uploading.",
               "too_many_files": "Too many files",
-              "max_files_exceeded": "You can upload a maximum of 5 images at once."
+              "max_files_exceeded": "You can upload a maximum of 5 images at once.",
+              "upload_error": "Upload failed",
+              "upload_error_desc": "Could not upload the image. Please try again.",
+              "images_uploading": "Images are uploading, please wait…"
             },
             "price-currency": {
                 "total": "Total",
@@ -447,6 +450,8 @@
           },
           "order-form": {
             "formTitle": "Fill the form and submit your order",
+            "savedDraftNotice": "We saved your unfinished order for you.",
+            "clearForm": "Clear form",
             "yourName": "Your Name",
             "emailAddress": "Email Address",
             "userQuestion": "Let's see what exactly do you want",
