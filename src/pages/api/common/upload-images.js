@@ -72,9 +72,7 @@ export const config = {
   api: {
     bodyParser: false,
     maxDuration: 40,
-    responseLimit: false,
-    // Vercel function size limit
-    maxRequestBodySize: '10mb'
+    responseLimit: false
   },
 };
 

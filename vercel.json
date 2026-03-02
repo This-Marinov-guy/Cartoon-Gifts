@@ -3,8 +3,7 @@
   "functions": {
     "src/pages/api/common/upload-images.js": {
       "maxDuration": 40,
-      "memory": 1024,
-      "maxRequestBodySize": "10mb"
+      "memory": 1024
     },
     "src/pages/api/common/*.js": {
       "maxDuration": 40
