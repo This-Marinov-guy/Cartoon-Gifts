@@ -43,11 +43,20 @@ const OrderForm = () => {
     const { t, lang } = useTranslation('components');
 
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+    const [showDraftBanner, setShowDraftBanner] = useState(false);
+    const [isHidingDraftBanner, setIsHidingDraftBanner] = useState(false);
     const [formKey, setFormKey] = useState(0);
 
     const [files, setFiles] = useState([]);
     const [petFiles, setPetFiles] = useState([]);
     const [hasPet, setHasPet] = useState({ property: 'No', price: 0 });
+
+    useEffect(() => {
+        if (checkoutStore.restoredFromLocalStorage) {
+            setShowDraftBanner(true);
+            setIsHidingDraftBanner(false);
+        }
+    }, [checkoutStore.restoredFromLocalStorage]);
 
     // ─── Restore images from localStorage on mount ───────────────────────
     useEffect(() => {
@@ -133,12 +142,17 @@ const OrderForm = () => {
     }
 
     const handleClearForm = () => {
-        checkoutStore.resetData();
-        setFiles([]);
-        setPetFiles([]);
-        setHasPet({ property: 'No', price: 0 });
-        setIsCheckoutModalOpen(false);
-        setFormKey((k) => k + 1);
+        // Play hide animation, then actually clear state & storage.
+        setIsHidingDraftBanner(true);
+        setTimeout(() => {
+            checkoutStore.resetData();
+            setShowDraftBanner(false);
+            setFiles([]);
+            setPetFiles([]);
+            setHasPet({ property: 'No', price: 0 });
+            setIsCheckoutModalOpen(false);
+            setFormKey((k) => k + 1);
+        }, 250);
     };
 
     return (
@@ -156,8 +170,12 @@ const OrderForm = () => {
           >
             <span>{t("extra-page.order.order-form.formTitle")}</span>
           </h2>
-          {checkoutStore.restoredFromLocalStorage && (
-            <div className="saved-draft-banner text-center">
+          {showDraftBanner && (
+            <div
+              className={`saved-draft-banner text-center ${
+                isHidingDraftBanner ? "saved-draft-banner--leaving" : "saved-draft-banner--visible"
+              }`}
+            >
               <span className="saved-draft-banner__text">
                 {t("extra-page.order.order-form.savedDraftNotice")}
               </span>
