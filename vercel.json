@@ -1,6 +1,11 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
   "functions": {
+    "src/pages/api/common/upload-images.js": {
+      "maxDuration": 40,
+      "memory": 1024,
+      "maxRequestBodySize": "10mb"
+    },
     "src/pages/api/common/*.js": {
       "maxDuration": 40
     },

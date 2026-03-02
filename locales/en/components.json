@@ -14,7 +14,11 @@
               "drop_files_here": "Drop the files here ...",
               "drag_or_click": "Drag 'n' drop some files here, or click to select files",
               "max_images_and_size": "Maximum of 5 images | Maximum size of 5Mb",
-              "file_error": "Problem with file {{fileName}}, please try another picture!"
+              "file_error": "Problem with file {{fileName}}, please try another picture!",
+              "file_too_large": "File too large",
+              "max_size_exceeded": "File size exceeds 5MB. Please compress your image before uploading.",
+              "too_many_files": "Too many files",
+              "max_files_exceeded": "You can upload a maximum of 5 images at once."
             },
             "price-currency": {
                 "total": "Total",

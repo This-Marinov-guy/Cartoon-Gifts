@@ -12,10 +12,29 @@ const ImageInput = ({ files, setFiles, onReject }) => {
   const [imageLoading, setImageLoading] = useState(false);
 
   const toast = useToast();
+  
+  // Maximum file size: 5MB (before resize)
+  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
 
   const onDrop = async (acceptedFiles) => {
     setImageLoading(true);
     checkoutStore.setIsLoading(true);
+
+    // Validate file sizes before processing
+    const oversizedFiles = acceptedFiles.filter(file => file.size > MAX_FILE_SIZE);
+    
+    if (oversizedFiles.length > 0) {
+      toast({
+        title: t("common.inputs.imageInput.file_too_large") || "File too large",
+        description: t("common.inputs.imageInput.max_size_exceeded") || `Maximum file size is 5MB. Please compress your images.`,
+        status: "error",
+        duration: 10000,
+        isClosable: true,
+      });
+      setImageLoading(false);
+      checkoutStore.setIsLoading(false);
+      return;
+    }
 
     try {
       const resizedImages = await Promise.all(
@@ -55,7 +74,38 @@ const ImageInput = ({ files, setFiles, onReject }) => {
         "image/heic": ['.heif', '.heic']
       }}
       maxFiles={5}
-      onDropRejected={onReject}
+      maxSize={MAX_FILE_SIZE}
+      onDropRejected={(fileRejections) => {
+        fileRejections.forEach((file) => {
+          file.errors.forEach((err) => {
+            if (err.code === 'file-too-large') {
+              toast({
+                title: t("common.inputs.imageInput.file_too_large") || "File too large",
+                description: t("common.inputs.imageInput.max_size_exceeded") || `${file.file.name} is too large. Maximum size is 5MB.`,
+                status: "error",
+                duration: 10000,
+                isClosable: true,
+              });
+            } else if (err.code === 'too-many-files') {
+              toast({
+                title: t("common.inputs.imageInput.too_many_files") || "Too many files",
+                description: t("common.inputs.imageInput.max_files_exceeded") || "Maximum 5 files allowed.",
+                status: "error",
+                duration: 10000,
+                isClosable: true,
+              });
+            } else {
+              toast({
+                title: t("common.inputs.imageInput.file_error", {fileName: file.file.name}),
+                status: "error",
+                duration: 10000,
+                isClosable: true,
+              });
+            }
+          });
+        });
+        if (onReject) onReject(fileRejections);
+      }}
     >
       {({ getRootProps, getInputProps, isDragActive }) => (
         <div {...getRootProps()}>

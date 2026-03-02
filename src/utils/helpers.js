@@ -26,7 +26,7 @@ export const resizeFile = (file, width = 800, height = 800, format = 'JPG') =>
       width,
       height,
       format,
-      100,
+      85, // Reduced quality from 100 to 85 for better compression
       0,
       (blob) => {
         resolve(new File([blob], 'resized-image.jpg', { type: 'image/jpg' }));
